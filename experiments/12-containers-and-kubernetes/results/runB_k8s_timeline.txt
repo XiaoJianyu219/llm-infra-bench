@@ -1,0 +1,1057 @@
+=== 21:25:32 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     30s
+sod-6f94dddf67-8cpjg   1/1   Running   0     15s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     15s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     58s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:25:35 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     33s
+sod-6f94dddf67-8cpjg   1/1   Running   0     20s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     20s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     63s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:25:39 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     38s
+sod-6f94dddf67-8cpjg   1/1   Running   0     24s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     24s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     67s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:25:44 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     43s
+sod-6f94dddf67-8cpjg   1/1   Running   0     31s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     31s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     74s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:25:51 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     50s
+sod-6f94dddf67-8cpjg   1/1   Running   0     37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     80s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:25:56 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     55s
+sod-6f94dddf67-8cpjg   1/1   Running   0     41s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0     41s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0     84s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:26:00 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     3     59s
+sod-6f94dddf67-8cpjg   0/1   Running   1 (4s ago)   45s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   0            45s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   0            88s   10.244.0.17   day12-control-plane   <none>   <none>
+=== 21:26:04 ===
+sod   Deployment/sod   cpu: 206%/60%   1     4     3     63s
+sod-6f94dddf67-8cpjg   0/1   Running             1 (8s ago)   49s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running             1 (2s ago)   49s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running             0            92s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   ContainerCreating   0            2s    <none>        day12-control-plane   <none>   <none>
+=== 21:26:08 ===
+sod   Deployment/sod   cpu: 206%/60%   1     4     3     67s
+sod-6f94dddf67-8cpjg   0/1   Running   1 (12s ago)   53s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   1 (6s ago)    53s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running   1 (3s ago)    96s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running   0             6s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:12 ===
+sod   Deployment/sod   cpu: 206%/60%   1     4     3     70s
+sod-6f94dddf67-8cpjg   1/1   Running   1 (15s ago)   56s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   1 (9s ago)    56s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running   1 (6s ago)    99s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running   0             9s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:15 ===
+sod   Deployment/sod   cpu: 206%/60%   1     4     3     74s
+sod-6f94dddf67-8cpjg   1/1   Running   1 (19s ago)   60s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   1 (13s ago)   60s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   1 (10s ago)   103s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   0             13s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:19 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     78s
+sod-6f94dddf67-8cpjg   1/1   Running   1 (23s ago)   64s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running   1 (17s ago)   64s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   1 (14s ago)   107s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   0             17s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:23 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     82s
+sod-6f94dddf67-8cpjg   1/1   Running     1 (27s ago)   68s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   OOMKilled   1 (21s ago)   68s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running     1 (18s ago)   111s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running     0             21s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:27 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     87s
+sod-6f94dddf67-8cpjg   1/1   Running            1 (32s ago)   73s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   1 (7s ago)    73s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            1 (23s ago)   116s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            0             26s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:32 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     91s
+sod-6f94dddf67-8cpjg   1/1   Running            1 (36s ago)   77s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   1 (11s ago)   77s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            1 (27s ago)   2m    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            0             30s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:37 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     96s
+sod-6f94dddf67-8cpjg   1/1   Running            1 (41s ago)   82s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   1 (16s ago)   82s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            1 (32s ago)   2m5s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            0             35s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:42 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     102s
+sod-6f94dddf67-8cpjg   1/1   Running            1 (48s ago)   89s     10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   1 (23s ago)   89s     10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            1 (39s ago)   2m12s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            0             42s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:48 ===
+sod   Deployment/sod   cpu: 304%/60%   1     4     4     108s
+sod-6f94dddf67-8cpjg   1/1   Running   1 (54s ago)   95s     10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   2 (29s ago)   95s     10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   1 (45s ago)   2m18s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   0             48s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:54 ===
+sod   Deployment/sod   cpu: 304%/60%   1     4     4     113s
+sod-6f94dddf67-8cpjg   1/1   Running   1 (58s ago)   99s     10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   2 (33s ago)   99s     10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   1 (49s ago)   2m22s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running   1             52s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:26:58 ===
+sod   Deployment/sod   cpu: 304%/60%   1     4     4     117s
+sod-6f94dddf67-8cpjg   0/1   OOMKilled   1 (62s ago)   103s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running     2 (37s ago)   103s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled   1 (53s ago)   2m26s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running     1             56s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:02 ===
+sod   Deployment/sod   cpu: 304%/60%   1     4     4     2m
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (5s ago)    106s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            2 (40s ago)   106s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   1 (8s ago)    2m29s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            1             59s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:05 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m4s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (9s ago)    110s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            2 (44s ago)   110s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   1 (12s ago)   2m33s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            1             63s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:09 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m7s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (12s ago)   113s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            2 (47s ago)   113s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   1 (15s ago)   2m36s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            1             66s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:12 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m10s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (15s ago)   116s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (3s ago)    116s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   1 (18s ago)   2m39s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            1             69s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:15 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m13s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (17s ago)   118s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (5s ago)    118s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   1 (20s ago)   2m41s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   OOMKilled          1             71s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:17 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m16s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (20s ago)   2m1s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (8s ago)    2m1s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running            2 (23s ago)   2m44s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   OOMKilled          1             74s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:20 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m18s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   1 (23s ago)   2m4s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (11s ago)   2m4s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            2 (26s ago)   2m47s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   1 (6s ago)    77s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:23 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m21s
+sod-6f94dddf67-8cpjg   0/1   Running            2 (25s ago)   2m6s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (13s ago)   2m6s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            2 (28s ago)   2m49s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   1 (8s ago)    79s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:25 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m24s
+sod-6f94dddf67-8cpjg   0/1   Running            2 (29s ago)   2m10s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (17s ago)   2m10s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          2 (32s ago)   2m53s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            2 (12s ago)   83s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:29 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m27s
+sod-6f94dddf67-8cpjg   1/1   Running            2 (31s ago)   2m12s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   2 (19s ago)   2m12s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          2 (34s ago)   2m55s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            2 (14s ago)   85s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:31 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m30s
+sod-6f94dddf67-8cpjg   1/1   Running            2 (34s ago)   2m15s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            3 (22s ago)   2m15s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (6s ago)    2m58s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            2 (17s ago)   88s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:34 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m33s
+sod-6f94dddf67-8cpjg   0/1   OOMKilled          2 (37s ago)   2m18s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            3 (25s ago)   2m18s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (9s ago)    3m1s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            2 (20s ago)   91s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:37 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m36s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (6s ago)    2m21s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            3 (28s ago)   2m21s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (12s ago)   3m4s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   OOMKilled          2 (23s ago)   94s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:40 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m39s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (9s ago)    2m24s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            3 (31s ago)   2m24s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (15s ago)   3m7s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (4s ago)    97s     10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:44 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m42s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (12s ago)   2m27s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            3 (34s ago)   2m27s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (18s ago)   3m10s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (7s ago)    100s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:46 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m44s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (15s ago)   2m30s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   OOMKilled          3 (37s ago)   2m30s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   2 (21s ago)   3m13s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (10s ago)   103s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:49 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m47s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (17s ago)   2m32s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (5s ago)    2m32s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running            3 (23s ago)   3m15s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (12s ago)   105s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:51 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m49s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (19s ago)   2m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (7s ago)    2m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            3 (25s ago)   3m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (14s ago)   107s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:54 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m52s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (22s ago)   2m37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (10s ago)   2m37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            3 (28s ago)   3m20s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (17s ago)   110s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:56 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m54s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (25s ago)   2m40s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (13s ago)   2m40s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          3 (31s ago)   3m23s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   2 (20s ago)   113s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:27:59 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m57s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (27s ago)   2m42s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (15s ago)   2m42s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          3 (33s ago)   3m25s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            3 (22s ago)   115s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:01 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     2m59s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   2 (30s ago)   2m45s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (18s ago)   2m45s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (7s ago)    3m28s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            3 (25s ago)   118s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:04 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m2s
+sod-6f94dddf67-8cpjg   0/1   Running            3 (32s ago)   2m47s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (20s ago)   2m47s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (9s ago)    3m30s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            3 (27s ago)   2m      10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:06 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m4s
+sod-6f94dddf67-8cpjg   0/1   Running            3 (34s ago)   2m49s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (22s ago)   2m49s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (11s ago)   3m32s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            3 (29s ago)   2m2s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:08 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m7s
+sod-6f94dddf67-8cpjg   1/1   Running            3 (38s ago)   2m53s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (26s ago)   2m53s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (15s ago)   3m36s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            3 (33s ago)   2m6s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:12 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m11s
+sod-6f94dddf67-8cpjg   1/1   Running            3 (41s ago)   2m56s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (29s ago)   2m56s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (18s ago)   3m39s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            3 (36s ago)   2m9s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:16 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m14s
+sod-6f94dddf67-8cpjg   1/1   Running            3 (45s ago)   3m      10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (33s ago)   3m      10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (22s ago)   3m43s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   OOMKilled          3 (40s ago)   2m13s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:19 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m18s
+sod-6f94dddf67-8cpjg   0/1   OOMKilled          3 (48s ago)   3m3s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (36s ago)   3m3s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (25s ago)   3m46s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (4s ago)    2m16s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:22 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m21s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (5s ago)    3m6s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (39s ago)   3m6s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (28s ago)   3m49s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (7s ago)    2m19s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:25 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m24s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (8s ago)    3m9s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   3 (42s ago)   3m9s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (31s ago)   3m52s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (10s ago)   2m22s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:28 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m26s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (10s ago)   3m11s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            4 (44s ago)   3m11s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (33s ago)   3m54s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (12s ago)   2m24s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:30 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m28s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (13s ago)   3m14s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            4 (47s ago)   3m14s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (36s ago)   3m57s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (15s ago)   2m27s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:33 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m31s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (15s ago)   3m16s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            4 (49s ago)   3m16s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (38s ago)   3m59s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (17s ago)   2m29s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:35 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m34s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (18s ago)   3m19s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            4 (52s ago)   3m19s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (41s ago)   4m2s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (20s ago)   2m32s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:38 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m37s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (21s ago)   3m22s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            4 (55s ago)   3m22s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (44s ago)   4m5s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (23s ago)   2m35s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:41 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m40s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (24s ago)   3m25s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            4 (58s ago)   3m25s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (47s ago)   4m8s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (26s ago)   2m38s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:44 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m43s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (27s ago)   3m28s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            4 (61s ago)   3m28s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   3 (50s ago)   4m11s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (29s ago)   2m41s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:48 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m46s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (31s ago)   3m32s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   OOMKilled          4 (65s ago)   3m32s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running            4 (54s ago)   4m15s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (33s ago)   2m45s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:51 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m49s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (33s ago)   3m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   OOMKilled          4 (67s ago)   3m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            4 (56s ago)   4m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (35s ago)   2m47s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:54 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m52s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (36s ago)   3m37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (7s ago)    3m37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            4 (59s ago)   4m20s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (38s ago)   2m50s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:56 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m54s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (39s ago)   3m40s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (10s ago)   3m40s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          4 (62s ago)   4m23s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (41s ago)   2m53s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:28:59 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m57s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (41s ago)   3m42s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (12s ago)   3m42s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   OOMKilled          4 (64s ago)   4m25s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (43s ago)   2m55s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:01 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     3m59s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (43s ago)   3m44s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (14s ago)   3m44s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (7s ago)    4m27s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (45s ago)   2m57s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:03 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m2s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (46s ago)   3m47s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (17s ago)   3m47s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (10s ago)   4m30s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   3 (48s ago)   3m      10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:06 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m4s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (48s ago)   3m49s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (19s ago)   3m49s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (12s ago)   4m32s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            4 (50s ago)   3m2s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:08 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m7s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   3 (51s ago)   3m52s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (22s ago)   3m52s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (15s ago)   4m35s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            4 (53s ago)   3m5s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:11 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m9s
+sod-6f94dddf67-8cpjg   0/1   Running            4 (54s ago)   3m55s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (25s ago)   3m55s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (18s ago)   4m38s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            4 (56s ago)   3m8s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:14 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m13s
+sod-6f94dddf67-8cpjg   0/1   Running            4 (58s ago)   3m59s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (29s ago)   3m59s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (22s ago)   4m42s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            4 (60s ago)   3m12s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:18 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m17s
+sod-6f94dddf67-8cpjg   1/1   Running            4 (61s ago)   4m2s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (32s ago)   4m2s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (25s ago)   4m45s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            4 (63s ago)   3m15s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:21 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m20s
+sod-6f94dddf67-8cpjg   1/1   Running            4 (64s ago)   4m5s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (35s ago)   4m5s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (28s ago)   4m48s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            4 (66s ago)   3m18s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:24 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m23s
+sod-6f94dddf67-8cpjg   1/1   Running            4 (67s ago)   4m8s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (38s ago)   4m8s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (31s ago)   4m51s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   OOMKilled          4 (69s ago)   3m21s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:27 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m25s
+sod-6f94dddf67-8cpjg   1/1   Running            4 (70s ago)   4m11s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (41s ago)   4m11s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (34s ago)   4m54s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (4s ago)    3m24s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:30 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m29s
+sod-6f94dddf67-8cpjg   0/1   OOMKilled          4 (73s ago)   4m14s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (44s ago)   4m14s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (37s ago)   4m57s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (7s ago)    3m27s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:34 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m32s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (4s ago)    4m17s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (47s ago)   4m17s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (40s ago)   5m      10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (10s ago)   3m30s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:36 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m35s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (7s ago)    4m20s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (50s ago)   4m20s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (43s ago)   5m3s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (13s ago)   3m33s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:39 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m38s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (10s ago)   4m23s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (53s ago)   4m23s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (46s ago)   5m6s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (16s ago)   3m36s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:42 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m41s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (13s ago)   4m26s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (56s ago)   4m26s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (49s ago)   5m9s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (19s ago)   3m39s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:45 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m44s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (16s ago)   4m29s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (59s ago)   4m29s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (52s ago)   5m12s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (22s ago)   3m42s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:48 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m46s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (19s ago)   4m32s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (62s ago)   4m32s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (55s ago)   5m15s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (25s ago)   3m45s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:51 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m49s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (21s ago)   4m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (64s ago)   4m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (57s ago)   5m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (27s ago)   3m47s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:53 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m52s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (24s ago)   4m37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (67s ago)   4m37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (60s ago)   5m20s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (30s ago)   3m50s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:56 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m55s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (27s ago)   4m40s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (70s ago)   4m40s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (63s ago)   5m23s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (33s ago)   3m53s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:29:59 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     4m57s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (30s ago)   4m43s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (73s ago)   4m43s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (66s ago)   5m26s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (36s ago)   3m56s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:02 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (32s ago)   4m45s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (75s ago)   4m45s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (68s ago)   5m28s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (38s ago)   3m58s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:04 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m2s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (35s ago)   4m48s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (78s ago)   4m48s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (71s ago)   5m31s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (41s ago)   4m1s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:07 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m5s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (37s ago)   4m50s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   4 (80s ago)   4m50s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (73s ago)   5m33s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (43s ago)   4m3s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:09 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m7s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (40s ago)   4m53s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            5 (83s ago)   4m53s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (76s ago)   5m36s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (46s ago)   4m6s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:12 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m10s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (42s ago)   4m55s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running            5 (85s ago)   4m55s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (78s ago)   5m38s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (48s ago)   4m8s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:14 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m12s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (44s ago)   4m57s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (87s ago)   4m57s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (80s ago)   5m40s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (50s ago)   4m10s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:17 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m15s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (47s ago)   5m      10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (90s ago)   5m      10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (83s ago)   5m43s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (53s ago)   4m13s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:19 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m18s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (51s ago)   5m4s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (94s ago)   5m4s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   CrashLoopBackOff   4 (87s ago)   5m47s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (57s ago)   4m17s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:23 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m21s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (54s ago)   5m7s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (97s ago)   5m7s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running            5 (90s ago)   5m50s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (60s ago)   4m20s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:26 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m24s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (57s ago)    5m10s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (100s ago)   5m10s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   0/1   Running            5 (93s ago)    5m53s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (63s ago)    4m23s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:29 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m27s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (60s ago)    5m13s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (103s ago)   5m13s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (96s ago)    5m56s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (66s ago)    4m26s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:32 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m31s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (63s ago)    5m16s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (106s ago)   5m16s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (99s ago)    5m59s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (69s ago)    4m29s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:35 ===
+sod   Deployment/sod   cpu: <unknown>/60%   1     4     4     5m33s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (66s ago)    5m19s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (109s ago)   5m19s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (102s ago)   6m2s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (72s ago)    4m32s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:38 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m36s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (68s ago)    5m21s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   1/1   Running            5 (111s ago)   5m21s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (104s ago)   6m4s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (74s ago)    4m34s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:40 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m39s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (71s ago)    5m24s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   OOMKilled          5 (114s ago)   5m24s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (107s ago)   6m7s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (77s ago)    4m37s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:43 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m41s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (73s ago)    5m26s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (3s ago)     5m26s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (109s ago)   6m9s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (79s ago)    4m39s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:46 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m44s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (76s ago)    5m29s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (6s ago)     5m29s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (112s ago)   6m12s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (82s ago)    4m42s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:48 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m46s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (78s ago)    5m31s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (8s ago)     5m31s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (114s ago)   6m14s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (84s ago)    4m44s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:50 ===
+sod   Deployment/sod   cpu: 241%/60%   1     4     4     5m48s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (81s ago)    5m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (11s ago)    5m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (117s ago)   6m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   CrashLoopBackOff   4 (87s ago)    4m47s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:53 ===
+sod   Deployment/sod   cpu: 148%/60%   1     4     4     5m51s
+sod-6f94dddf67-8cpjg   0/1   CrashLoopBackOff   4 (84s ago)   5m37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (14s ago)   5m37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m ago)    6m20s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   0/1   Running            5 (90s ago)   4m50s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:56 ===
+sod   Deployment/sod   cpu: 148%/60%   1     4     4     5m54s
+sod-6f94dddf67-8cpjg   0/1   Running            5 (86s ago)    5m39s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (16s ago)    5m39s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m2s ago)   6m22s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (92s ago)    4m52s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:30:59 ===
+sod   Deployment/sod   cpu: 148%/60%   1     4     4     5m57s
+sod-6f94dddf67-8cpjg   0/1   Running            5 (89s ago)    5m42s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (19s ago)    5m42s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m5s ago)   6m25s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (95s ago)    4m55s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:01 ===
+sod   Deployment/sod   cpu: 148%/60%   1     4     4     5m59s
+sod-6f94dddf67-8cpjg   0/1   Running            5 (91s ago)    5m44s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (21s ago)    5m44s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m7s ago)   6m27s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (97s ago)    4m57s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:04 ===
+sod   Deployment/sod   cpu: 148%/60%   1     4     4     6m2s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (94s ago)     5m47s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (24s ago)     5m47s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m10s ago)   6m30s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (100s ago)    5m      10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:06 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m4s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (96s ago)     5m49s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (26s ago)     5m49s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m12s ago)   6m32s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (102s ago)    5m2s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:08 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m7s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (99s ago)     5m52s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (29s ago)     5m52s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m15s ago)   6m35s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (105s ago)    5m5s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:11 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m9s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (101s ago)    5m54s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (31s ago)     5m54s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m17s ago)   6m37s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (107s ago)    5m7s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:13 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m11s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (104s ago)    5m57s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (34s ago)     5m57s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m20s ago)   6m40s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (110s ago)    5m10s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:16 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m14s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (106s ago)    5m59s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (36s ago)     5m59s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m22s ago)   6m42s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (112s ago)    5m12s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:18 ===
+sod   Deployment/sod   cpu: 144%/60%   1     4     4     6m17s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (109s ago)    6m2s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (39s ago)     6m2s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m25s ago)   6m45s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (115s ago)    5m15s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:22 ===
+sod   Deployment/sod   cpu: 56%/60%   1     4     4     6m20s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (113s ago)    6m6s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (43s ago)     6m6s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m29s ago)   6m49s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (119s ago)    5m19s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:26 ===
+sod   Deployment/sod   cpu: 56%/60%   1     4     4     6m25s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (117s ago)    6m10s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (47s ago)     6m10s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m33s ago)   6m53s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m3s ago)    5m23s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:29 ===
+sod   Deployment/sod   cpu: 56%/60%   1     4     4     6m28s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m1s ago)    6m14s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (51s ago)     6m14s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m37s ago)   6m57s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m7s ago)    5m27s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:33 ===
+sod   Deployment/sod   cpu: 56%/60%   1     4     4     6m32s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m5s ago)    6m18s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (55s ago)     6m18s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m41s ago)   7m1s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m11s ago)   5m31s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:37 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m35s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m7s ago)    6m20s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (57s ago)     6m20s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m43s ago)   7m3s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m13s ago)   5m33s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:40 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m38s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m10s ago)   6m23s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (60s ago)     6m23s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m46s ago)   7m6s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m16s ago)   5m36s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:42 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m40s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m13s ago)   6m26s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (63s ago)     6m26s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m49s ago)   7m9s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m19s ago)   5m39s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:45 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m43s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m15s ago)   6m28s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (65s ago)     6m28s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m51s ago)   7m11s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m21s ago)   5m41s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:48 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m46s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m19s ago)   6m32s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (69s ago)     6m32s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m55s ago)   7m15s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m25s ago)   5m45s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:51 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m49s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m21s ago)   6m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (71s ago)     6m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (2m57s ago)   7m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m27s ago)   5m47s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:53 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m52s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m24s ago)   6m37s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (74s ago)     6m37s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m ago)      7m20s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m30s ago)   5m50s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:56 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m54s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m27s ago)   6m40s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (77s ago)     6m40s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m3s ago)    7m23s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m33s ago)   5m53s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:31:59 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     6m57s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m30s ago)   6m43s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (80s ago)     6m43s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m6s ago)    7m26s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m36s ago)   5m56s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:02 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m1s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m33s ago)   6m46s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (83s ago)     6m46s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m9s ago)    7m29s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m39s ago)   5m59s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:05 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m4s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m37s ago)   6m50s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (87s ago)     6m50s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m13s ago)   7m33s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m43s ago)   6m3s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:09 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m7s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m39s ago)   6m52s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (89s ago)     6m52s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m15s ago)   7m35s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m45s ago)   6m5s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:12 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m10s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m42s ago)   6m55s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (92s ago)     6m55s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m18s ago)   7m38s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m48s ago)   6m8s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:14 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m12s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m44s ago)   6m57s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (94s ago)     6m57s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m20s ago)   7m40s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m50s ago)   6m10s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:16 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m15s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m47s ago)   7m      10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (97s ago)     7m      10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m23s ago)   7m43s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m53s ago)   6m13s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:19 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m17s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m49s ago)   7m2s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (99s ago)     7m2s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m25s ago)   7m45s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m55s ago)   6m15s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:21 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m20s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m52s ago)   7m5s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (102s ago)    7m5s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m28s ago)   7m48s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (2m58s ago)   6m18s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:24 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m22s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m54s ago)   7m7s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (104s ago)    7m7s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m30s ago)   7m50s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m ago)      6m20s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:26 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m24s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m57s ago)   7m10s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (107s ago)    7m10s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m33s ago)   7m53s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m3s ago)    6m23s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:29 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m27s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (2m59s ago)   7m12s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (109s ago)    7m12s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m35s ago)   7m55s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m5s ago)    6m25s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:31 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m29s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m1s ago)    7m14s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (111s ago)    7m14s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m37s ago)   7m57s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m7s ago)    6m27s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:33 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m32s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m4s ago)    7m17s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (114s ago)    7m17s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m40s ago)   8m      10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m10s ago)   6m30s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:36 ===
+sod   Deployment/sod   cpu: 1%/60%   1     4     4     7m34s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m6s ago)    7m19s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (116s ago)    7m19s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m42s ago)   8m2s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m12s ago)   6m32s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:38 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m37s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m9s ago)    7m22s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (119s ago)    7m22s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m45s ago)   8m5s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m15s ago)   6m35s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:41 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m39s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m11s ago)   7m24s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m1s ago)    7m24s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m47s ago)   8m7s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m17s ago)   6m37s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:43 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m41s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m13s ago)   7m26s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m3s ago)    7m26s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m49s ago)   8m9s    10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m19s ago)   6m39s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:46 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m44s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m16s ago)   7m29s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m6s ago)    7m29s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m52s ago)   8m12s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m22s ago)   6m42s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:48 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m46s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m18s ago)   7m31s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m8s ago)    7m31s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m54s ago)   8m14s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m24s ago)   6m44s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:50 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m48s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m21s ago)   7m34s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m11s ago)   7m34s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m57s ago)   8m17s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m27s ago)   6m47s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:53 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m51s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m23s ago)   7m36s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m13s ago)   7m36s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (3m59s ago)   8m19s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m29s ago)   6m49s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:55 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m53s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m25s ago)   7m38s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m15s ago)   7m38s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m1s ago)    8m21s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m31s ago)   6m51s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:32:57 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m55s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m27s ago)   7m40s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m17s ago)   7m40s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m3s ago)    8m23s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m33s ago)   6m53s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:00 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     7m58s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m30s ago)   7m43s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m20s ago)   7m43s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m6s ago)    8m26s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m36s ago)   6m56s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:02 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m33s ago)   7m46s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m23s ago)   7m46s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m9s ago)    8m29s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m39s ago)   6m59s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:05 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m3s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m35s ago)   7m48s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m25s ago)   7m48s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m11s ago)   8m31s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m41s ago)   7m1s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:07 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m5s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m38s ago)   7m51s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m28s ago)   7m51s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m14s ago)   8m34s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m44s ago)   7m4s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:10 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m8s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m40s ago)   7m53s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m30s ago)   7m53s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m16s ago)   8m36s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m46s ago)   7m6s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:12 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m10s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m42s ago)   7m55s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m32s ago)   7m55s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m18s ago)   8m38s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m48s ago)   7m8s    10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:14 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m13s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m45s ago)   7m58s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m35s ago)   7m58s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m21s ago)   8m41s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m51s ago)   7m11s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:17 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m15s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m47s ago)   8m      10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m37s ago)   8m      10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m23s ago)   8m43s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m53s ago)   7m13s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:19 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m18s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m50s ago)   8m3s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m40s ago)   8m3s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m26s ago)   8m46s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m56s ago)   7m16s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:22 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m20s
+sod-6f94dddf67-8cpjg   1/1   Running            5 (3m52s ago)   8m5s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   CrashLoopBackOff   5 (2m42s ago)   8m5s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running            5 (4m28s ago)   8m48s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running            5 (3m58s ago)   7m18s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:24 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m22s
+sod-6f94dddf67-8cpjg   1/1   Running   5 (3m55s ago)   8m8s    10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   6 (2m45s ago)   8m8s    10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   5 (4m31s ago)   8m51s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   5 (4m1s ago)    7m21s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:27 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m25s
+sod-6f94dddf67-8cpjg   1/1   Running   5 (3m58s ago)   8m11s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   6 (2m48s ago)   8m11s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   5 (4m34s ago)   8m54s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   5 (4m4s ago)    7m24s   10.244.0.20   day12-control-plane   <none>   <none>
+=== 21:33:30 ===
+sod   Deployment/sod   cpu: 0%/60%   1     4     4     8m28s
+sod-6f94dddf67-8cpjg   1/1   Running   5 (4m ago)      8m13s   10.244.0.19   day12-control-plane   <none>   <none>
+sod-6f94dddf67-dgl9l   0/1   Running   6 (2m50s ago)   8m13s   10.244.0.18   day12-control-plane   <none>   <none>
+sod-6f94dddf67-kjpx9   1/1   Running   5 (4m36s ago)   8m56s   10.244.0.17   day12-control-plane   <none>   <none>
+sod-6f94dddf67-pdh8s   1/1   Running   5 (4m6s ago)    7m26s   10.244.0.20   day12-control-plane   <none>   <none>
+--- 事件（按时间排序）---
+LAST SEEN   TYPE      REASON                         OBJECT                        MESSAGE
+9m25s       Normal    BackOff                        pod/sod-6f94dddf67-cvtfj      Back-off pulling image "sod-onnx-cpu:sync"
+9m25s       Warning   Failed                         pod/sod-6f94dddf67-cvtfj      Error: ImagePullBackOff
+9m3s        Normal    Killing                        pod/sod-79475c7bc9-mp5q6      Stopping container sod
+9m          Warning   Unhealthy                      pod/sod-79475c7bc9-mp5q6      Readiness probe failed: Get "http://10.244.0.12:8000/readyz": dial tcp 10.244.0.12:8000: connect: connection refused
+8m58s       Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 0 to 1
+8m58s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-kjpx9
+8m58s       Normal    Scheduled                      pod/sod-6f94dddf67-kjpx9      Successfully assigned default/sod-6f94dddf67-kjpx9 to day12-control-plane
+8m15s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-dgl9l
+8m15s       Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 1 to 3
+8m15s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod   New size: 3; reason: cpu resource utilization (percentage of request) above target
+8m15s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-8cpjg
+8m15s       Normal    Scheduled                      pod/sod-6f94dddf67-8cpjg      Successfully assigned default/sod-6f94dddf67-8cpjg to day12-control-plane
+8m15s       Normal    Scheduled                      pod/sod-6f94dddf67-dgl9l      Successfully assigned default/sod-6f94dddf67-dgl9l to day12-control-plane
+7m34s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Liveness probe failed: Get "http://10.244.0.19:8000/healthz": read tcp 10.244.0.1:33800->10.244.0.19:8000: read: connection reset by peer
+7m28s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-pdh8s
+7m28s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod   New size: 4; reason: cpu resource utilization (percentage of request) above target
+7m28s       Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 3 to 4
+7m28s       Normal    Scheduled                      pod/sod-6f94dddf67-pdh8s      Successfully assigned default/sod-6f94dddf67-pdh8s to day12-control-plane
+6m34s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": read tcp 10.244.0.1:34022->10.244.0.19:8000: read: connection reset by peer
+6m34s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Liveness probe failed: Get "http://10.244.0.19:8000/healthz": EOF
+6m17s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Readiness probe failed: Get "http://10.244.0.20:8000/readyz": dial tcp 10.244.0.20:8000: connect: connection refused
+6m17s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Liveness probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+6m12s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+6m          Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": dial tcp 10.244.0.19:8000: connect: connection refused
+6m          Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Startup probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+5m37s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Readiness probe failed: Get "http://10.244.0.17:8000/readyz": read tcp 10.244.0.1:42944->10.244.0.17:8000: read: connection reset by peer
+5m32s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Startup probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+5m14s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": EOF
+4m45s       Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Readiness probe failed: Get "http://10.244.0.18:8000/readyz": dial tcp 10.244.0.18:8000: connect: connection refused
+4m45s       Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Liveness probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+4m37s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Readiness probe failed: Get "http://10.244.0.17:8000/readyz": dial tcp 10.244.0.17:8000: connect: connection refused
+4m37s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Liveness probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+4m20s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Startup probe failed: Get "http://10.244.0.19:8000/healthz": dial tcp 10.244.0.19:8000: connect: connection refused
+4m12s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod   failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+4m12s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3m57s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod   failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+3m39s       Warning   BackOff                        pod/sod-6f94dddf67-8cpjg      Back-off restarting failed container sod in pod sod-6f94dddf67-8cpjg_default(acd728b8-1818-475d-8131-a56bebed2708)
+3m26s       Warning   BackOff                        pod/sod-6f94dddf67-kjpx9      Back-off restarting failed container sod in pod sod-6f94dddf67-kjpx9_default(140606cf-2cbb-4b28-a274-ea26997a8f02)
+3m12s       Normal    Started                        pod/sod-6f94dddf67-kjpx9      Started container sod
+3m12s       Normal    Created                        pod/sod-6f94dddf67-kjpx9      Created container: sod
+3m12s       Normal    Pulled                         pod/sod-6f94dddf67-kjpx9      Container image "sod-onnx-cpu:sync" already present on machine
+3m7s        Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Startup probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+3m6s        Warning   BackOff                        pod/sod-6f94dddf67-pdh8s      Back-off restarting failed container sod in pod sod-6f94dddf67-pdh8s_default(552f3b06-f6f8-4908-adc8-4a066ca1e945)
+2m41s       Normal    Started                        pod/sod-6f94dddf67-pdh8s      Started container sod
+2m41s       Normal    Created                        pod/sod-6f94dddf67-pdh8s      Created container: sod
+2m41s       Normal    Pulled                         pod/sod-6f94dddf67-pdh8s      Container image "sod-onnx-cpu:sync" already present on machine
+2m36s       Normal    Pulled                         pod/sod-6f94dddf67-8cpjg      Container image "sod-onnx-cpu:sync" already present on machine
+2m36s       Normal    Created                        pod/sod-6f94dddf67-8cpjg      Created container: sod
+2m36s       Normal    Started                        pod/sod-6f94dddf67-8cpjg      Started container sod
+2m14s       Warning   BackOff                        pod/sod-6f94dddf67-dgl9l      Back-off restarting failed container sod in pod sod-6f94dddf67-dgl9l_default(b77e6515-9f6e-44ca-af48-15876f4553fa)
+8s          Normal    Pulled                         pod/sod-6f94dddf67-dgl9l      Container image "sod-onnx-cpu:sync" already present on machine
+8s          Normal    Created                        pod/sod-6f94dddf67-dgl9l      Created container: sod
+8s          Normal    Started                        pod/sod-6f94dddf67-dgl9l      Started container sod
+Name:                                                  sod
+Namespace:                                             default
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Fri, 18 Sep 2026 21:25:02 +0800
+Reference:                                             Deployment/sod
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  0% (3m) / 60%
+Min replicas:                                          1
+Max replicas:                                          4
+Behavior:
+  Scale Up:
+    Stabilization Window: 0 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Pods  Value: 2  Period: 15 seconds
+  Scale Down:
+    Stabilization Window: 300 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Pods  Value: 1  Period: 60 seconds
+Deployment pods:    4 current / 4 desired
+Conditions:
+  Type            Status  Reason               Message
+  ----            ------  ------               -------
+  AbleToScale     True    ScaleDownStabilized  recent recommendations were higher than current one, applying the highest recent recommendation
+  ScalingActive   True    ValidMetricFound     the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange   the desired count is within the acceptable range
+Events:
+  Type     Reason                        Age                    From                       Message
+  ----     ------                        ----                   ----                       -------
+  Normal   SuccessfulRescale             8m16s                  horizontal-pod-autoscaler  New size: 3; reason: cpu resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             7m29s                  horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+  Warning  FailedComputeMetricsReplicas  6m13s (x4 over 7m14s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedGetResourceMetric       4m13s (x8 over 5m58s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  4m13s (x8 over 5m58s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       3m58s (x5 over 7m14s)  horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)

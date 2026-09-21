@@ -1,0 +1,12 @@
+# Day13 3.1：scrape_interval 压到 1s。默认 15s 在几分钟的压测里只采到十几个点，
+# 波形会难看到无法判读（任务书第 4 节第 3 条）。
+global:
+  scrape_interval: 1s
+  scrape_timeout: 900ms
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: sod
+    static_configs:
+      - targets: ['127.0.0.1:18013']
+        labels: {service: sod, gpu: rtx4090}

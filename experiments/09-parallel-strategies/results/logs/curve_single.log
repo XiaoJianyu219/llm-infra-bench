@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  24%|██▍       | 76/311 [00:00<00:00, 750.82it/s]Loading weights:  58%|█████▊    | 179/311 [00:00<00:00, 913.80it/s]Loading weights:  88%|████████▊ | 274/311 [00:00<00:00, 929.37it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 967.00it/s]
+[single w1] step 138.2 ms (std 0.2) total 7409 tok/s | alloc max 12013 min 12013 MiB (不对称 0.00%) resv 12662 smi 13144
+saved results/runs/curve_single.json
+

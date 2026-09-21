@@ -1,0 +1,103 @@
+=== ref_s2048_b1 ===
+[  19.3s] ['[ref_s2048_b1] step 187.8 ms (std_blocks 0.1 ms) tok/s 10907 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== ref_s512_b4 ===
+[  18.9s] ['[ref_s512_b4] step 178.3 ms (std_blocks 0.5 ms) tok/s 11486 alloc 16644 resv 16682 smi 17163 MiB MFU 22.1% HFU 22.1%']
+=== ckpt1_s2048_b1 ===
+[  22.0s] ['[ckpt1_s2048_b1] step 252.7 ms (std_blocks 2.7 ms) tok/s 8103 alloc 11982 resv 15564 smi 16045 MiB MFU 21.1% HFU 28.1%']
+=== ckpt1_s512_b4 ===
+[  21.6s] ['[ckpt1_s512_b4] step 239.8 ms (std_blocks 0.3 ms) tok/s 8542 alloc 11982 resv 15560 smi 16041 MiB MFU 16.4% HFU 21.9%']
+=== sdpa_math_s2048_b1 ===
+[  11.9s] ['OOM: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 23.52 GiB of which 934.69 MiB is free. Including non-PyTorch memory, this process has 22.60 GiB memory in use. Of the allocated memory 21.81 GiB is allocated by PyTorch, and 328.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[sdpa_math_s2048_b1] OOM']
+=== sdpa_math_s512_b4 ===
+[  20.7s] ['[sdpa_math_s512_b4] step 228.4 ms (std_blocks 0.4 ms) tok/s 8966 alloc 19328 resv 19448 smi 19929 MiB MFU 17.3% HFU 17.3%']
+=== sdpa_mem_efficient_s2048_b1 ===
+[  19.4s] ['[sdpa_mem_efficient_s2048_b1] step 206.3 ms (std_blocks 0.1 ms) tok/s 9927 alloc 16645 resv 16684 smi 17165 MiB MFU 25.9% HFU 25.9%']
+=== sdpa_mem_efficient_s512_b4 ===
+[  18.5s] ['[sdpa_mem_efficient_s512_b4] step 182.1 ms (std_blocks 0.1 ms) tok/s 11245 alloc 16644 resv 16682 smi 17163 MiB MFU 21.6% HFU 21.6%']
+=== sdpa_flash_s2048_b1 ===
+[  19.2s] ['[sdpa_flash_s2048_b1] step 187.9 ms (std_blocks 0.2 ms) tok/s 10899 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== sdpa_flash_s512_b4 ===
+[  18.5s] ['[sdpa_flash_s512_b4] step 177.4 ms (std_blocks 1.6 ms) tok/s 11542 alloc 16644 resv 16682 smi 17163 MiB MFU 22.2% HFU 22.2%']
+=== sdpa_cudnn_s2048_b1 ===
+[  20.5s] ['[sdpa_cudnn_s2048_b1] step 191.0 ms (std_blocks 1.0 ms) tok/s 10723 alloc 16645 resv 16684 smi 17169 MiB MFU 27.9% HFU 27.9%']
+=== sdpa_cudnn_s512_b4 ===
+[  19.3s] ['[sdpa_cudnn_s512_b4] step 178.8 ms (std_blocks 0.4 ms) tok/s 11457 alloc 16644 resv 16682 smi 17167 MiB MFU 22.1% HFU 22.1%']
+=== prec_fp32_s2048_b1 ===
+[  28.5s] ['[prec_fp32_s2048_b1] step 420.1 ms (std_blocks 0.4 ms) tok/s 4875 alloc 18345 resv 19000 smi 19475 MiB MFU 12.7% HFU 12.7%']
+=== prec_fp32_s512_b4 ===
+[  25.2s] ['[prec_fp32_s512_b4] step 344.3 ms (std_blocks 2.0 ms) tok/s 5948 alloc 18344 resv 18998 smi 19473 MiB MFU 11.5% HFU 11.5%']
+=== prec_bf16_s2048_b1 ===
+[  19.7s] ['[prec_bf16_s2048_b1] step 207.0 ms (std_blocks 0.1 ms) tok/s 9892 alloc 16645 resv 16684 smi 17165 MiB MFU 25.8% HFU 25.8%']
+=== prec_bf16_s512_b4 ===
+[  19.1s] ['[prec_bf16_s512_b4] step 182.4 ms (std_blocks 0.6 ms) tok/s 11231 alloc 16644 resv 16682 smi 17163 MiB MFU 21.6% HFU 21.6%']
+=== bsw_s512_b1_ckpt0 ===
+[  17.7s] ['[bsw_s512_b1_ckpt0] step 148.2 ms (std_blocks 2.1 ms) tok/s 3454 alloc 11538 resv 11878 smi 12359 MiB MFU 6.6% HFU 6.6%']
+=== bsw_s512_b2_ckpt0 ===
+[  16.8s] ['[bsw_s512_b2_ckpt0] step 143.8 ms (std_blocks 2.0 ms) tok/s 7120 alloc 12310 resv 12958 smi 13439 MiB MFU 13.7% HFU 13.7%']
+=== bsw_s512_b4_ckpt0 ===
+[  17.8s] ['[bsw_s512_b4_ckpt0] step 177.5 ms (std_blocks 0.6 ms) tok/s 11536 alloc 16644 resv 16682 smi 17163 MiB MFU 22.2% HFU 22.2%']
+=== bsw_s512_b6_ckpt0 ===
+[  21.2s] ['[bsw_s512_b6_ckpt0] step 244.0 ms (std_blocks 0.3 ms) tok/s 12591 alloc 20972 resv 21792 smi 22273 MiB MFU 24.2% HFU 24.2%']
+=== bsw_s512_b8_ckpt0 ===
+[  12.3s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 236.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b8_ckpt0] OOM']
+=== bsw_s512_b12_ckpt0 ===
+[  11.1s] ['OOM: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 1.26 GiB is free. Including non-PyTorch memory, this process has 22.25 GiB memory in use. Of the allocated memory 21.79 GiB is allocated by PyTorch, and 8.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b12_ckpt0] OOM']
+=== bsw_s512_b4_ckpt1 ===
+[  20.5s] ['[bsw_s512_b4_ckpt1] step 225.6 ms (std_blocks 0.9 ms) tok/s 9079 alloc 11982 resv 15560 smi 16041 MiB MFU 17.5% HFU 23.3%']
+=== bsw_s512_b8_ckpt1 ===
+[  26.4s] ['[bsw_s512_b8_ckpt1] step 365.8 ms (std_blocks 0.4 ms) tok/s 11197 alloc 15934 resv 19732 smi 20213 MiB MFU 21.6% HFU 28.7%']
+=== bsw_s512_b12_ckpt1 ===
+[  34.6s] ['[bsw_s512_b12_ckpt1] step 557.4 ms (std_blocks 0.9 ms) tok/s 11022 alloc 20334 resv 23532 smi 24013 MiB MFU 21.2% HFU 28.3%']
+=== bsw_s512_b16_ckpt1 ===
+[  12.0s] ['OOM: CUDA out of memory. Tried to allocate 4.64 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.30 GiB is free. Including non-PyTorch memory, this process has 21.21 GiB memory in use. Of the allocated memory 19.51 GiB is allocated by PyTorch, and 1.23 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b16_ckpt1] OOM']
+=== tok2048_s256_b8 ===
+[  18.6s] ['[tok2048_s256_b8] step 176.2 ms (std_blocks 0.2 ms) tok/s 11623 alloc 16643 resv 16682 smi 17163 MiB MFU 21.1% HFU 21.1%']
+=== tok2048_s1024_b2 ===
+[  18.3s] ['[tok2048_s1024_b2] step 180.4 ms (std_blocks 0.3 ms) tok/s 11351 alloc 16644 resv 16682 smi 17163 MiB MFU 24.4% HFU 24.4%']
+=== tok2048_s2048_b1 ===
+[  19.0s] ['[tok2048_s2048_b1] step 187.8 ms (std_blocks 0.2 ms) tok/s 10907 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== tok2048_s512_b4 ===
+[  18.2s] ['[tok2048_s512_b4] step 177.2 ms (std_blocks 0.1 ms) tok/s 11560 alloc 16644 resv 16682 smi 17163 MiB MFU 22.3% HFU 22.3%']
+=== tok4096_s512_b8 ===
+[  12.4s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 236.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s512_b8] OOM']
+=== tok4096_s1024_b4 ===
+[  11.9s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 235.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s1024_b4] OOM']
+=== tok4096_s2048_b2 ===
+[  11.5s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 234.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s2048_b2] OOM']
+tag	status	seq_len	batch_size	tokens_per_step	precision	sdpa	ckpt	step_ms	step_std_ms	tokens_per_s	alloc_MiB	reserved_MiB	smi_MiB	MFU_%	MFU_head_%	HFU_%
+bsw_s512_b12_ckpt0	OOM	512	12	6144	bf16	flash	0				22314	22322	22795			
+bsw_s512_b12_ckpt1	ok	512	12	6144	bf16	flash	1	557.4	0.87	11022	20334	23532	24013	21.22	27.83	28.29
+bsw_s512_b16_ckpt1	OOM	512	16	8192	bf16	flash	1				20854	21370	21851			
+bsw_s512_b1_ckpt0	ok	512	1	512	bf16	flash	0	148.2	2.06	3454	11538	11878	12359	6.65	8.72	6.65
+bsw_s512_b2_ckpt0	ok	512	2	1024	bf16	flash	0	143.8	2.04	7120	12310	12958	13439	13.71	17.98	13.71
+bsw_s512_b4_ckpt0	ok	512	4	2048	bf16	flash	0	177.5	0.56	11536	16644	16682	17163	22.21	29.13	22.21
+bsw_s512_b4_ckpt1	ok	512	4	2048	bf16	flash	1	225.6	0.87	9079	11982	15560	16041	17.48	22.93	23.31
+bsw_s512_b6_ckpt0	ok	512	6	3072	bf16	flash	0	244.0	0.31	12591	20972	21792	22273	24.24	31.80	24.24
+bsw_s512_b8_ckpt0	OOM	512	8	4096	bf16	flash	0				22946	23166	23647			
+bsw_s512_b8_ckpt1	ok	512	8	4096	bf16	flash	1	365.8	0.42	11197	15934	19732	20213	21.56	28.28	28.74
+ckpt1_s2048_b1	ok	2048	1	2048	bf16	flash	1	252.7	2.70	8103	11982	15564	16045	21.11	25.97	28.14
+ckpt1_s512_b4	ok	512	4	2048	bf16	flash	1	239.8	0.27	8542	11982	15560	16041	16.45	21.57	21.93
+prec_bf16_s2048_b1	ok	2048	1	2048	bf16	mem_efficient	0	207.0	0.07	9892	16645	16684	17165	25.77	31.70	25.77
+prec_bf16_s512_b4	ok	512	4	2048	bf16	mem_efficient	0	182.4	0.58	11231	16644	16682	17163	21.62	28.36	21.62
+prec_fp32_s2048_b1	ok	2048	1	2048	fp32	mem_efficient	0	420.1	0.41	4875	18345	19000	19475	12.70	15.62	12.70
+prec_fp32_s512_b4	ok	512	4	2048	fp32	mem_efficient	0	344.3	1.98	5948	18344	18998	19473	11.45	15.02	11.45
+ref_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.8	0.13	10907	16645	16684	17165	28.41	34.95	28.41
+ref_s512_b4	ok	512	4	2048	bf16	flash	0	178.3	0.54	11486	16644	16682	17163	22.11	29.00	22.11
+sdpa_cudnn_s2048_b1	ok	2048	1	2048	bf16	cudnn	0	191.0	1.00	10723	16645	16684	17169	27.93	34.36	27.93
+sdpa_cudnn_s512_b4	ok	512	4	2048	bf16	cudnn	0	178.8	0.40	11457	16644	16682	17167	22.06	28.93	22.06
+sdpa_flash_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.9	0.21	10899	16645	16684	17165	28.39	34.93	28.39
+sdpa_flash_s512_b4	ok	512	4	2048	bf16	flash	0	177.4	1.63	11542	16644	16682	17163	22.22	29.15	22.22
+sdpa_math_s2048_b1	OOM	2048	1	2048	bf16	math	0				22338	22666	23147			
+sdpa_math_s512_b4	ok	512	4	2048	bf16	math	0	228.4	0.42	8966	19328	19448	19929	17.26	22.64	17.26
+sdpa_mem_efficient_s2048_b1	ok	2048	1	2048	bf16	mem_efficient	0	206.3	0.08	9927	16645	16684	17165	25.86	31.81	25.86
+sdpa_mem_efficient_s512_b4	ok	512	4	2048	bf16	mem_efficient	0	182.1	0.07	11245	16644	16682	17163	21.65	28.40	21.65
+tok2048_s1024_b2	ok	1024	2	2048	bf16	flash	0	180.4	0.29	11351	16644	16682	17163	24.42	31.24	24.42
+tok2048_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.8	0.20	10907	16645	16684	17165	28.41	34.95	28.41
+tok2048_s256_b8	ok	256	8	2048	bf16	flash	0	176.2	0.18	11623	16643	16682	17163	21.06	28.03	21.06
+tok2048_s512_b4	ok	512	4	2048	bf16	flash	0	177.2	0.11	11560	16644	16682	17163	22.26	29.19	22.26
+tok4096_s1024_b4	OOM	1024	4	4096	bf16	flash	0				22946	23166	21273			
+tok4096_s2048_b2	OOM	2048	2	4096	bf16	flash	0				22947	23166	21273			
+tok4096_s512_b8	OOM	512	8	4096	bf16	flash	0				22946	23166	21273			
+
+saved <workspace>
+

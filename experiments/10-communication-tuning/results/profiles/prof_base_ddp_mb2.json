@@ -1,0 +1,216 @@
+{
+ "config": {
+  "seq_len": 512,
+  "micro_bsz": 2,
+  "grad_accum": 1,
+  "precision": "bf16",
+  "bucket_cap_mb": 0,
+  "grad_as_bucket_view": 1,
+  "static_graph": 0,
+  "find_unused": 0,
+  "fused_adam": 0,
+  "set_to_none": 1,
+  "tf32": -1,
+  "compile": 0,
+  "warmup": 8,
+  "active": 3,
+  "seed": 42,
+  "strategy": "ddp",
+  "clean_step_json": "results/runs/base_ddp_mb2.json",
+  "tag": "prof_base_ddp_mb2",
+  "out": "results/profiles/prof_base_ddp_mb2.json"
+ },
+ "info": {
+  "ddp_kwargs": {
+   "output_device": 0,
+   "gradient_as_bucket_view": true,
+   "find_unused_parameters": false
+  },
+  "ddp_bucket_bytes_cap_MB": 25.0,
+  "ddp_bucket_bytes_cap_default_MB": 9.5367431640625e-07,
+  "optimizer_fused": false,
+  "optimizer_kwargs": {
+   "lr": "0.0001",
+   "betas": "(0.9, 0.95)",
+   "weight_decay": "0.1"
+  }
+ },
+ "total_self_cuda_us": 1110942.2060000007,
+ "active_steps": 3,
+ "cuda_busy_ms_per_step": 370.3140686666669,
+ "clean_step_sec": 0.3100322876125574,
+ "overlap_factor": 1.1944371069165634,
+ "bubble_frac": 0.0,
+ "overlap_gain": 0.19443710691656335,
+ "by_category": {
+  "communication": {
+   "us": 645754.4439999998,
+   "n": 174,
+   "share": 0.5812673607253331
+  },
+  "elementwise": {
+   "us": 161447.26000000275,
+   "n": 14022,
+   "share": 0.14532462546481256
+  },
+  "optimizer": {
+   "us": 157294.55400000047,
+   "n": 120,
+   "share": 0.14158662183368373
+  },
+  "gemm": {
+   "us": 117113.14299999789,
+   "n": 2109,
+   "share": 0.10541785375286913
+  },
+  "softmax": {
+   "us": 15614.879999999866,
+   "n": 6,
+   "share": 0.014055528645564716
+  },
+  "reduction": {
+   "us": 13490.285000000138,
+   "n": 1188,
+   "share": 0.012143102428858599
+  },
+  "other": {
+   "us": 227.63999999984935,
+   "n": 18,
+   "share": 0.00020490714887813814
+  }
+ },
+ "top": [
+  {
+   "name": "ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 645739.5659999998,
+   "count": 171,
+   "cat": "communication"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float)",
+   "us": 31817.89599999995,
+   "count": 30,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float>)",
+   "us": 30747.03700000007,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+   "us": 24824.98800000026,
+   "count": 1524,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float)",
+   "us": 23464.73600000009,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float)",
+   "us": 23458.658000000054,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "us": 21422.153999999864,
+   "count": 1857,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8::Params)",
+   "us": 21300.61499999967,
+   "count": 420,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_stages_64x3_nn",
+   "us": 21014.25999999931,
+   "count": 252,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+   "us": 20835.87100000215,
+   "count": 2028,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>, false>(int, at::native::AUnaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+   "us": 19984.938999999675,
+   "count": 1614,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float)",
+   "us": 15943.919000000344,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float>)",
+   "us": 15938.929000000062,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float>)",
+   "us": 15923.378999999899,
+   "count": 15,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+   "us": 15036.6539999995,
+   "count": 762,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>, false>(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+   "us": 11634.091000001208,
+   "count": 1020,
+   "cat": "elementwise"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+   "us": 11617.288999999684,
+   "count": 168,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, float const*, float const*, long)",
+   "us": 8135.951999999925,
+   "count": 3,
+   "cat": "softmax"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+   "us": 7816.571999999517,
+   "count": 87,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxForward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float const*, int)",
+   "us": 7478.927999999942,
+   "count": 3,
+   "cat": "softmax"
+  }
+ ],
+ "bucket_timeline": {
+  "n_comm_kernels": 174,
+  "gpu_span_us": 1025652.974609375,
+  "comm_total_us": 645754.444,
+  "first_comm_at": 0.00016079505052652977,
+  "last_comm_at": 0.8982755217849282,
+  "p25": 0.18853523310834894,
+  "p50": 0.48417880123977347,
+  "p75": 0.7788127676811557,
+  "spread": 0.8981147267344016,
+  "note": "\u901a\u4fe1 kernel \u7684\u76f8\u5bf9\u542f\u52a8\u65f6\u523b\uff1b\u6563\u5e03\u5728 [first,last] \u533a\u95f4\u8bf4\u660e bucket \u5728 backward \u8fc7\u7a0b\u4e2d\u5206\u6279\u89e6\u53d1\uff0c\u6324\u5728\u63a5\u8fd1 1.0 \u8bf4\u660e\u5806\u5728\u6700\u540e"
+ }
+}

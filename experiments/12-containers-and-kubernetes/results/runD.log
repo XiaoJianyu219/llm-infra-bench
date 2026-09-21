@@ -1,0 +1,60 @@
+
+########## 1. 回到 1 副本、latest 镜像、无 HPA ##########
+21:47:36
+deployment "sod" successfully rolled out
+readyz OK
+sod-79475c7bc9-xslch   1/1   Running   0     49s
+
+########## 2. 等 CPU 回落到基线（要求连续 3 次 top 都 < 100m） ##########
+21:47:39
+21:47:39 cpu=4m
+21:47:49 cpu=4m
+21:47:59 cpu=5m
+
+########## 3. 建 HPA，确认 T0 前是 1 副本且利用率低 ##########
+21:47:59
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 0%/60%   1         4         1          45s
+sod-79475c7bc9-xslch   1/1   Running   0     115s
+
+########## 4. 加压：并发 2 / 300s，同时采样 k8s 状态 ##########
+21:48:45
+t= 296.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 297.1s  qps=  1  ok=  1 err=  0  p50=3.436 p99=3.436
+t= 298.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 299.1s  qps=  2  ok=  2 err=  0  p50=4.171 p99=2.112
+t= 300.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+[21:53:48] 停止加压
+
+########## 5. 停压后观察缩容 240s（scaleDown 稳定窗口 300s，预期观察不到缩容） ##########
+21:53:48
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 0%/60%   1         4         4          9m48s
+sod-79475c7bc9-5kr2t 1/1 Running restarts=0
+sod-79475c7bc9-cl74w 1/1 Running restarts=0
+sod-79475c7bc9-vzhkz 1/1 Running restarts=1
+sod-79475c7bc9-xslch 1/1 Running restarts=1
+liveness 失败事件数: 3
+--- 压测期间 /healthz ---
+21:49:05 healthz 200 2.706949s
+21:49:28 healthz 200 4.857538s
+21:49:53 healthz 200 0.056852s
+21:50:13 healthz 200 0.351794s
+21:50:34 healthz 200 2.121982s
+21:50:56 healthz 200 5.378152s
+21:51:22 healthz 200 0.010039s
+21:51:42 healthz 200 0.007098s
+21:52:02 healthz 200 1.574025s
+21:52:24 healthz 200 0.504469s
+21:52:44 healthz 200 0.008310s
+21:53:04 healthz 200 2.652950s
+21:53:27 healthz 200 1.594248s
+21:53:49 healthz 200 0.002502s
+21:54:09 healthz 200 0.002327s
+21:54:29 healthz 200 0.002623s
+21:54:49 healthz 200 0.011950s
+21:55:09 healthz 200 0.002401s
+21:55:29 healthz 200 0.035798s
+21:55:49 healthz 200 0.004171s
+RUND_DONE 2026-09-18 21:57:50
+

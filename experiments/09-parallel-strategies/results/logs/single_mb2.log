@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:08,  4.51it/s]Loading weights:  33%|███▎      | 103/311 [00:00<00:00, 400.82it/s]Loading weights:  64%|██████▍   | 199/311 [00:00<00:00, 600.48it/s]Loading weights:  89%|████████▉ | 277/311 [00:00<00:00, 659.77it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 522.61it/s]
+[single w1] step 137.7 ms (std 0.4) total 7436 tok/s | alloc max 12013 min 12013 MiB (不对称 0.00%) resv 12662 smi 13144
+saved results/runs/single_mb2.json
+

@@ -1,0 +1,32 @@
+2026-09-18T13:38:37Z   SuccessfulRescale              New size: 1; reason: All metrics below target
+2026-09-18T13:38:37Z   ScalingReplicaSet              Scaled down replica set sod-6f94dddf67 from 2 to 1
+2026-09-18T13:40:27Z   ScalingReplicaSet              Scaled up replica set sod-74fcb696cd from 0 to 1
+2026-09-18T13:40:38Z   ScalingReplicaSet              Scaled down replica set sod-6f94dddf67 from 1 to 0
+2026-09-18T13:46:50Z   ScalingReplicaSet              Scaled up replica set sod-79475c7bc9 from 0 to 1
+2026-09-18T13:46:56Z   ScalingReplicaSet              Scaled down replica set sod-74fcb696cd from 1 to 0
+2026-09-18T13:49:15Z   SuccessfulRescale              New size: 3; reason: cpu resource utilization (percentage of request) above target
+2026-09-18T13:49:15Z   ScalingReplicaSet              Scaled up replica set sod-79475c7bc9 from 1 to 3
+2026-09-18T13:49:30Z   FailedGetResourceMetric        failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+2026-09-18T13:49:30Z   FailedComputeMetricsReplicas   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+2026-09-18T13:49:47Z   FailedGetResourceMetric        failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+2026-09-18T13:49:47Z   FailedComputeMetricsReplicas   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+2026-09-18T13:50:06Z   SuccessfulRescale              New size: 4; reason: cpu resource utilization (percentage of request) above target
+2026-09-18T13:50:06Z   ScalingReplicaSet              Scaled up replica set sod-79475c7bc9 from 3 to 4
+2026-09-18T13:58:54Z   SuccessfulRescale              New size: 3; reason: All metrics below target
+2026-09-18T13:58:54Z   ScalingReplicaSet              Scaled down replica set sod-79475c7bc9 from 4 to 3
+2026-09-18T13:59:54Z   SuccessfulRescale              New size: 2; reason: All metrics below target
+2026-09-18T13:59:54Z   ScalingReplicaSet              Scaled down replica set sod-79475c7bc9 from 3 to 2
+2026-09-18T14:00:54Z   SuccessfulRescale              New size: 1; reason: All metrics below target
+2026-09-18T14:00:54Z   ScalingReplicaSet              Scaled down replica set sod-79475c7bc9 from 2 to 1
+Events:
+  Type     Reason                        Age   From                       Message
+  ----     ------                        ----  ----                       -------
+  Normal   SuccessfulRescale             16m   horizontal-pod-autoscaler  New size: 3; reason: cpu resource utilization (percentage of request) above target
+  Warning  FailedGetResourceMetric       16m   horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  16m   horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       16m   horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  16m   horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Normal   SuccessfulRescale             15m   horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             7m6s  horizontal-pod-autoscaler  New size: 3; reason: All metrics below target
+  Normal   SuccessfulRescale             6m6s  horizontal-pod-autoscaler  New size: 2; reason: All metrics below target
+  Normal   SuccessfulRescale             5m6s  horizontal-pod-autoscaler  New size: 1; reason: All metrics below target

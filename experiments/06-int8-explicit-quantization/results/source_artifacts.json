@@ -1,0 +1,26 @@
+{
+  "best.pt": {
+    "bytes": 10085479,
+    "sha256": "0e0c60a96dca40f48955b3966c5d23297b81db8d154b67202a6de3532adec65d"
+  },
+  "best.onnx": {
+    "bytes": 13141683,
+    "sha256": "1eb93992f8b5226c0c5710af7c366bc2c7ff5431c295ddd4a921726c562ee3f4"
+  },
+  "best.onnx.data": {
+    "bytes": 13107200,
+    "sha256": "d0e2b4fc174bd45667d9e70486bfdeab9f43647dc34164c59769e09307aa8864"
+  },
+  "best_fp16.onnx": {
+    "bytes": 6603672,
+    "sha256": "d46c35d8a7a606935912e98c70a2b7767b54e43f4589a0ab97ef901f8054f403"
+  },
+  "best_fp16.engine": {
+    "bytes": 198610044,
+    "sha256": "dfe0979534ecf285d62f00a74d15c55e7a7d0d84888b72e684a4675f0fdfc2d0"
+  },
+  "best_fp32.engine": {
+    "bytes": 275165892,
+    "sha256": "a61bfe97d95e8695f9bfe58885fcae5154beda63e671bb369a82b073557493ee"
+  }
+}

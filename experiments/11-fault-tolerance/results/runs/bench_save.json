@@ -1,0 +1,96 @@
+{
+ "args": {
+  "strategy": "single",
+  "seq_len": 512,
+  "micro_bsz": 4,
+  "grad_accum": 8,
+  "dropout": 0.1,
+  "compile": 0,
+  "steps": 2,
+  "seed": 42,
+  "n_samples": 2048,
+  "lr": 0.0001,
+  "ckpt_level": "c2",
+  "save_at": -1,
+  "save_path": "<workspace>",
+  "resume": "",
+  "save_every": 0,
+  "bench_save": 5,
+  "kill_at": -1,
+  "per_rank_rng": 0,
+  "pg_timeout_sec": 0,
+  "hang_at": -1,
+  "kill_marker": "",
+  "auto_resume": "",
+  "deterministic": 1,
+  "tag": "bench",
+  "out": "results/runs/bench_save.json"
+ },
+ "rank": 0,
+ "world": 1,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "cublas_workspace": ":4096:8",
+ "deterministic_algorithms": true,
+ "pid": 39825,
+ "start_ts": "10:23:46.071",
+ "torch": "2.14.0+cu130",
+ "ckpt_semantics": "c1 + \u56db\u5957 RNG + LR scheduler + \u914d\u7f6e\u5feb\u7167\uff08\u5b8c\u6574\uff09",
+ "bench_save": [
+  {
+   "i": 0,
+   "blocking_sec": 0.002426702529191971,
+   "total_sec": 6.4463194608688354,
+   "bytes": 7153011785
+  },
+  {
+   "i": 1,
+   "blocking_sec": 0.0038792788982391357,
+   "total_sec": 5.8871605806052685,
+   "bytes": 7153011785
+  },
+  {
+   "i": 2,
+   "blocking_sec": 0.007107790559530258,
+   "total_sec": 7.216593574732542,
+   "bytes": 7153011785
+  },
+  {
+   "i": 3,
+   "blocking_sec": 0.003663826733827591,
+   "total_sec": 5.775809578597546,
+   "bytes": 7153011785
+  },
+  {
+   "i": 4,
+   "blocking_sec": 0.003316093236207962,
+   "total_sec": 5.922548111528158,
+   "bytes": 7153011785
+  }
+ ],
+ "bench_save_median_total": 5.922548111528158,
+ "bench_save_median_blocking": 0.003663826733827591,
+ "bench_save_bytes": 7153011785,
+ "size_breakdown": {
+  "model_bytes": 2384199680,
+  "optimizer_state_bytes": 4768400600
+ },
+ "losses": [
+  12.98678994178772,
+  13.091762661933899
+ ],
+ "step_times": [
+  2.2373556308448315,
+  1.260523471981287
+ ],
+ "save_events": [],
+ "step_stamps": [
+  "10:23:52.225",
+  "10:23:53.485"
+ ],
+ "first_step": 0,
+ "last_step": 1,
+ "tokens_seen": 32768,
+ "end_ts": "10:24:27.261",
+ "step_ms_median": 1748.9395514130592,
+ "mem_allocated_mib": 18371.99072265625
+}

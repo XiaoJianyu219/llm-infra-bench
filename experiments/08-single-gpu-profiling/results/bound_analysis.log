@@ -1,0 +1,24 @@
+peak bf16 155.6 TFLOPS | peak BW 948 GB/s | ridge 164.0 FLOP/byte
+  E1: GEMM 家族占 CUDA 时间 37.2% -> 非 GEMM 占多数，memory 侧主导
+  E2: GEMM 类算子内部达到实测峰值的 90.3% -> 这些 kernel 自身接近算力上限
+  E3: s512/b=4 时固定开销占单步 64.4% -> 固定开销显著，小 batch 下是 launch/访存 主导
+
+算子分类占比：
+   optimizer          28.81%
+   gemm               28.66%
+   elementwise        26.23%
+   attention_flash     8.58%
+   softmax             5.76%
+   reduction           1.90%
+   index_embed         0.05%
+   other               0.00%
+
+batch 缩放：
+   b=1   step   148.2 ms      3454 tok/s
+   b=2   step   143.8 ms      7120 tok/s
+   b=4   step   177.5 ms     11536 tok/s
+   b=6   step   244.0 ms     12591 tok/s
+   拟合 a=114.3 ms  b=19.7 ms/batch
+
+saved <workspace>
+

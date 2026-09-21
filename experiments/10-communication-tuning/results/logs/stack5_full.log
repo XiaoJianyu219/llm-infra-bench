@@ -1,0 +1,31 @@
+W0918 09:13:25.897000 21499 torch/distributed/run.py:982] 
+W0918 09:13:25.897000 21499 torch/distributed/run.py:982] *****************************************
+W0918 09:13:25.897000 21499 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 09:13:25.897000 21499 torch/distributed/run.py:982] *****************************************
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:26,  3.58it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 831.94it/s]
+Loading weights:   0%|          | 1/311 [00:00<01:27,  3.53it/s]Loading weights:  97%|█████████▋| 301/311 [00:00<00:00, 978.30it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 789.56it/s]
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[stack5_full] step 887.0 ms (std 0.56, 极差 0.14%) 36940 tok/s  MFU 32.73%  alloc 17288 resv 19606 smi 20273
+saved results/runs/stack5_full.json
+

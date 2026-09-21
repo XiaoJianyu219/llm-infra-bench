@@ -1,0 +1,216 @@
+{
+ "config": {
+  "seq_len": 512,
+  "micro_bsz": 2,
+  "grad_accum": 8,
+  "precision": "bf16",
+  "bucket_cap_mb": 0,
+  "grad_as_bucket_view": 1,
+  "static_graph": 0,
+  "find_unused": 0,
+  "fused_adam": 0,
+  "set_to_none": 1,
+  "tf32": -1,
+  "compile": 0,
+  "warmup": 8,
+  "active": 3,
+  "seed": 42,
+  "strategy": "ddp",
+  "clean_step_json": "results/runs/accum_k8.json",
+  "tag": "prof_accum_k8",
+  "out": "results/profiles/prof_accum_k8.json"
+ },
+ "info": {
+  "ddp_kwargs": {
+   "output_device": 0,
+   "gradient_as_bucket_view": true,
+   "find_unused_parameters": false
+  },
+  "ddp_bucket_bytes_cap_MB": 25.0,
+  "ddp_bucket_bytes_cap_default_MB": 9.5367431640625e-07,
+  "optimizer_fused": false,
+  "optimizer_kwargs": {
+   "lr": "0.0001",
+   "betas": "(0.9, 0.95)",
+   "weight_decay": "0.1"
+  }
+ },
+ "total_self_cuda_us": 2506453.7399999364,
+ "active_steps": 3,
+ "cuda_busy_ms_per_step": 835.4845799999788,
+ "clean_step_sec": 1.3065216094255447,
+ "overlap_factor": 0.6394724541657807,
+ "bubble_frac": 0.3605275458342193,
+ "overlap_gain": 0.0,
+ "by_category": {
+  "elementwise": {
+   "us": 854607.4979999625,
+   "n": 112113,
+   "share": 0.34096280508252436
+  },
+  "gemm": {
+   "us": 678603.2299999739,
+   "n": 16872,
+   "share": 0.27074237165055004
+  },
+  "communication": {
+   "us": 627624.7349999942,
+   "n": 174,
+   "share": 0.2504034784220714
+  },
+  "optimizer": {
+   "us": 157347.10300000128,
+   "n": 120,
+   "share": 0.06277678318531635
+  },
+  "softmax": {
+   "us": 124783.39799999978,
+   "n": 48,
+   "share": 0.04978483983510621
+  },
+  "reduction": {
+   "us": 61621.49300000372,
+   "n": 9504,
+   "share": 0.024585130783225738
+  },
+  "other": {
+   "us": 1866.283000000611,
+   "n": 144,
+   "share": 0.0007445910412057549
+  }
+ },
+ "top": [
+  {
+   "name": "ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 627609.2789999945,
+   "count": 171,
+   "cat": "communication"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+   "us": 195298.66899997997,
+   "count": 12606,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "us": 146249.07100003303,
+   "count": 14856,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8::Params)",
+   "us": 123421.72900000378,
+   "count": 3360,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+   "us": 123354.03300002021,
+   "count": 12192,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+   "us": 96055.56799994674,
+   "count": 16224,
+   "cat": "elementwise"
+  },
+  {
+   "name": "ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_stages_64x3_nn",
+   "us": 82988.88399999663,
+   "count": 2016,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, float const*, float const*, long)",
+   "us": 65077.32199999926,
+   "count": 24,
+   "cat": "softmax"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+   "us": 62667.16099999385,
+   "count": 696,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxForward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float const*, int)",
+   "us": 59706.07600000053,
+   "count": 24,
+   "cat": "softmax"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_tn",
+   "us": 57569.45400000202,
+   "count": 1344,
+   "cat": "gemm"
+  },
+  {
+   "name": "void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)",
+   "us": 45709.820999996125,
+   "count": 672,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_stages_64x3_tn",
+   "us": 45187.754000010216,
+   "count": 1344,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x64_sliced1x2_ldg8_f2f_nn",
+   "us": 44394.236999997534,
+   "count": 24,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+   "us": 44008.42199998618,
+   "count": 1344,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_nt",
+   "us": 43272.04699999874,
+   "count": 24,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul>, false>(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+   "us": 41647.335000019884,
+   "count": 2760,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>, false>(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+   "us": 41504.04100002289,
+   "count": 8160,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float)",
+   "us": 31814.25299999956,
+   "count": 30,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nn_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nn_align8::Params)",
+   "us": 31669.42300000298,
+   "count": 672,
+   "cat": "gemm"
+  }
+ ],
+ "bucket_timeline": {
+  "n_comm_kernels": 174,
+  "gpu_span_us": 5899954.6865234375,
+  "comm_total_us": 627624.735,
+  "first_comm_at": 3.0930454714649964e-05,
+  "last_comm_at": 0.9823730684078302,
+  "p25": 0.3071642835887716,
+  "p50": 0.6321204843125319,
+  "p75": 0.9611296336030404,
+  "spread": 0.9823421379531155,
+  "note": "\u901a\u4fe1 kernel \u7684\u76f8\u5bf9\u542f\u52a8\u65f6\u523b\uff1b\u6563\u5e03\u5728 [first,last] \u533a\u95f4\u8bf4\u660e bucket \u5728 backward \u8fc7\u7a0b\u4e2d\u5206\u6279\u89e6\u53d1\uff0c\u6324\u5728\u63a5\u8fd1 1.0 \u8bf4\u660e\u5806\u5728\u6700\u540e"
+ }
+}

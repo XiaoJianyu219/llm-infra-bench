@@ -1,0 +1,32 @@
+
+########## 2.4-D SIGSTOP 冻结 rank1，集合超时 30s ##########
+2026-09-18 10:13:13
+--- timeline ---
+[10:13:16.815] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 30s；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+[10:13:24.692][rank1 pid=38561] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+[rank0]:[E918 10:13:54.863265485 ProcessGroupNCCL.cpp:741] [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=30000) ran for 30074 milliseconds before timing out.
+[rank0]:[E918 10:13:55.748544570 ProcessGroupNCCL.cpp:1982] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 246, last completed NCCL work: 189.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E918 10:14:56.943587772 ProcessGroupNCCL.cpp:2192] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=30000) ran for 30074 milliseconds before timing out.
+E0918 10:15:26.538000 38491 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -6) local_rank: 0 (pid: 38560) of binary: <workspace>
+  exitcode  : -9 (pid: 38561)  (SIGKILL)
+  exitcode  : -6 (pid: 38560)  (SIGABRT)
+  traceback : Signal 6 (SIGABRT) received by PID 38560
+0, 0 MiB
+1, 0 MiB
+
+########## 2.4-D SIGSTOP 冻结 rank1，集合超时 60s ##########
+2026-09-18 10:15:31
+--- timeline ---
+[10:15:34.111] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 60s；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+[10:15:42.289][rank1 pid=38827] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+[rank0]:[E918 10:16:42.440462393 ProcessGroupNCCL.cpp:741] [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=60000) ran for 60040 milliseconds before timing out.
+[rank0]:[E918 10:16:43.052873417 ProcessGroupNCCL.cpp:1982] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 246, last completed NCCL work: 189.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E918 10:17:43.475582127 ProcessGroupNCCL.cpp:2192] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=60000) ran for 60040 milliseconds before timing out.
+E0918 10:18:14.139000 38759 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -6) local_rank: 0 (pid: 38826) of binary: <workspace>
+  exitcode  : -9 (pid: 38827)  (SIGKILL)
+  exitcode  : -6 (pid: 38826)  (SIGABRT)
+  traceback : Signal 6 (SIGABRT) received by PID 38826
+0, 0 MiB
+1, 0 MiB
+HANG2DONE 2026-09-18 10:18:18
+

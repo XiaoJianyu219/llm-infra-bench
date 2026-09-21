@@ -1,0 +1,73 @@
+
+########## 2.4-0 默认集合超时是多少（先读真实值，不靠记忆） ##########
+2026-09-18 09:56:58
+[09:57:01.952] 进程组已建立 world=2，默认集合超时 = 0:10:00；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_TIMEOUT_MS=<未设>
+0, 0 MiB
+1, 0 MiB
+
+########## 2.4-A 默认设置下 kill rank1：剩下的 rank 是立刻报错还是卡住 ##########
+2026-09-18 09:57:13
+--- timeline ---
+[09:57:16.911] 进程组已建立 world=2，默认集合超时 = 0:10:00；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_TIMEOUT_MS=60000
+[09:57:23.363][rank1] step 0 done loss 16.174516
+[09:57:23.363][rank0] step 0 done loss 11.943831
+[09:57:23.827][rank1] step 1 done loss 13.861814
+[09:57:23.827][rank0] step 1 done loss 12.131188
+[09:57:24.298][rank0] step 2 done loss 12.396692
+[09:57:24.298][rank1] step 2 done loss 11.534961
+[09:57:24.760][rank1] step 3 done loss 11.864989
+[09:57:24.760][rank1 pid=37027] 第 4 步，kill -9 自己
+[09:57:24.761][rank0] step 3 done loss 10.473077
+E0918 09:57:25.149000 36957 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 37027) of binary: <workspace>
+  exitcode  : -15 (pid: 37026)  (SIGTERM)
+  exitcode  : -9 (pid: 37027)  (SIGKILL)
+0, 0 MiB
+1, 0 MiB
+
+########## 2.4-B TORCH_NCCL_ASYNC_ERROR_HANDLING=0（关掉异步错误处理） ##########
+2026-09-18 09:57:28
+[09:57:37.950][rank0] step 0 done loss 11.943831
+[09:57:37.952][rank1] step 0 done loss 16.174516
+[09:57:38.403][rank0] step 1 done loss 12.143777[09:57:38.403][rank1] step 1 done loss 13.858431
+[09:57:38.854][rank1] step 2 done loss 11.534030
+[09:57:38.855][rank0] step 2 done loss 12.398082
+[09:57:39.306][rank1] step 3 done loss 11.865146
+[09:57:39.306][rank1 pid=37152] 第 4 步，kill -9 自己
+[09:57:39.306][rank0] step 3 done loss 10.476068
+E0918 09:57:39.746000 37082 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 37152) of binary: <workspace>
+  exitcode  : -15 (pid: 37151)  (SIGTERM)
+  exitcode  : -9 (pid: 37152)  (SIGKILL)
+0, 0 MiB
+1, 0 MiB
+
+########## 2.4-C 弹性重启：torchrun --max-restarts=2 + 自动从最近 ckpt 恢复 ##########
+2026-09-18 09:57:43
+--- timeline ---
+[09:57:51.580] auto-resume 选中 <workspace>
+[09:57:55.680] 从 <workspace> 恢复：level=c2 step=8 恢复了 ['model', 'optimizer', 'sampler', 'rng', 'scheduler']
+[09:57:57.262][rank0] step 8 done loss 9.419489
+[09:57:57.265][rank1] step 8 done loss 10.230561
+[09:57:57.729][rank0] step 9 done loss 9.397041
+[09:57:57.731][rank1] step 9 done loss 9.849355
+[09:58:04.027][rank1] step 10 done loss 9.425693
+[09:58:04.029][rank0] step 10 done loss 9.778480
+[09:58:04.497][rank0] step 11 done loss 9.573015
+[09:58:04.497][rank1] step 11 done loss 10.182580
+[09:58:11.057][rank0] step 12 done loss 9.276450
+[09:58:11.057][rank1] step 12 done loss 8.570244
+[09:58:11.518][rank1] step 13 done loss 8.908445
+[09:58:11.518][rank0] step 13 done loss 9.614812
+[09:58:31.093][rank0] step 14 done loss 8.698445
+[09:58:31.094][rank1] step 14 done loss 8.598785
+[09:58:31.550][rank0] step 15 done loss 8.032041
+[09:58:31.550][rank1] step 15 done loss 8.466748
+[09:58:50.690][rank1] step 16 done loss 7.992086
+[09:58:50.691][rank0] step 16 done loss 7.089437
+[09:58:51.156][rank1] step 17 done loss 6.619592
+[09:58:51.157][rank0] step 17 done loss 6.036018
+[09:59:07.722][rank1] step 18 done loss 6.090214
+[09:59:07.722][rank0] step 18 done loss 5.713089
+0, 0 MiB
+1, 0 MiB
+DONE 2026-09-18 09:59:19
+

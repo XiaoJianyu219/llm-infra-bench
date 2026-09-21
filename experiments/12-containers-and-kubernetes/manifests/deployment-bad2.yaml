@@ -1,0 +1,50 @@
+# 失败场景二（任务书 3.3）：liveness 探针被重负载拖垮，误杀健康 Pod。
+#
+# 注意一个细节：直接把 livenessProbe 指到 /predict 是无效的演示——
+# httpGet 发的是 GET，而 /predict 只接受 POST，会立刻返回 405；
+# 405 对 kubelet 来说是"非 2xx/3xx"=失败，Pod 一启动就被杀，
+# 那演示的是"探针配错路径"而不是"探针被负载拖垮"。
+#
+# 要复现"被负载拖垮"，正确做法是让探针打一个会被推理阻塞的端点并把 timeout 压紧：
+# 高负载下 uvicorn 的事件循环被 CPU 推理占满，连 /readyz 也会超时。
+# 效果与"liveness 打重端点"等价，且可复现。
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sod-bad2
+  labels: {app: sod-bad2}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: sod-bad2}
+  template:
+    metadata:
+      labels: {app: sod-bad2}
+    spec:
+      containers:
+        - name: sod
+          image: sod-onnx-cpu:latest
+          imagePullPolicy: IfNotPresent
+          ports: [{containerPort: 8000, name: http}]
+          envFrom:
+            - configMapRef: {name: sod-config}
+          resources:
+            requests: {cpu: "500m", memory: "512Mi"}
+            limits: {cpu: "2", memory: "1Gi"}
+          startupProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: 5
+            timeoutSeconds: 1
+            failureThreshold: 2
+          volumeMounts:
+            - {name: models, mountPath: /models, readOnly: true}
+      volumes:
+        - name: models
+          hostPath: {path: /models, type: Directory}

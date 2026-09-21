@@ -1,0 +1,78 @@
+{
+ "args": {
+  "strategy": "single",
+  "seq_len": 512,
+  "micro_bsz": 4,
+  "grad_accum": 8,
+  "dropout": 0.1,
+  "compile": 0,
+  "steps": 2,
+  "seed": 42,
+  "n_samples": 2048,
+  "lr": 0.0001,
+  "ckpt_level": "c1",
+  "save_at": -1,
+  "save_path": "<workspace>",
+  "resume": "",
+  "save_every": 0,
+  "bench_save": 2,
+  "kill_at": -1,
+  "per_rank_rng": 0,
+  "pg_timeout_sec": 0,
+  "hang_at": -1,
+  "kill_marker": "",
+  "auto_resume": "",
+  "deterministic": 1,
+  "tag": "bench_c1",
+  "out": "results/runs/bench_c1.json"
+ },
+ "rank": 0,
+ "world": 1,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "cublas_workspace": ":4096:8",
+ "deterministic_algorithms": true,
+ "pid": 40778,
+ "start_ts": "10:24:55.614",
+ "torch": "2.14.0+cu130",
+ "ckpt_semantics": "c0 + \u6570\u636e\u52a0\u8f7d\u4f4d\u7f6e\uff08epoch / \u5df2\u6d88\u8d39\u7d22\u5f15\uff09+ global step",
+ "bench_save": [
+  {
+   "i": 0,
+   "blocking_sec": 0.0022962912917137146,
+   "total_sec": 7.200504999607801,
+   "bytes": 7153001163
+  },
+  {
+   "i": 1,
+   "blocking_sec": 0.007372986525297165,
+   "total_sec": 5.908917035907507,
+   "bytes": 7153001163
+  }
+ ],
+ "bench_save_median_total": 6.554711017757654,
+ "bench_save_median_blocking": 0.00483463890850544,
+ "bench_save_bytes": 7153001163,
+ "size_breakdown": {
+  "model_bytes": 2384199680,
+  "optimizer_state_bytes": 4768400600
+ },
+ "losses": [
+  12.98678994178772,
+  13.091762661933899
+ ],
+ "step_times": [
+  2.2417968958616257,
+  1.2927200980484486
+ ],
+ "save_events": [],
+ "step_stamps": [
+  "10:25:01.800",
+  "10:25:03.093"
+ ],
+ "first_step": 0,
+ "last_step": 1,
+ "tokens_seen": 32768,
+ "end_ts": "10:25:17.214",
+ "step_ms_median": 1767.2584969550371,
+ "mem_allocated_mib": 18371.99072265625
+}

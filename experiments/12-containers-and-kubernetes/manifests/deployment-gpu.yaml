@@ -1,0 +1,62 @@
+# GPU 版本（任务书 3.6）。未在真实 GPU 节点上验证过调度：
+# 手上的 k8s 是 kind 单节点、无 GPU、无 device plugin。
+#
+# 关键点：
+#   1. nvidia.com/gpu 是 NVIDIA device plugin 上报的扩展资源，不是 kubelet
+#      原生统计的 CPU/内存。调度器对它只做整数记账，不做压缩/超卖。
+#   2. 扩展资源只能写在 limits 里，requests 会被自动置为与 limits 相等，
+#      且不接受小数。
+#   3. 不开 MPS/MIG 时一张卡同时只归一个容器。节点上没有空闲卡时，
+#      新 Pod 停在 Pending，事件形如
+#      "0/N nodes are available: N Insufficient nvidia.com/gpu"。
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sod-gpu
+  labels: {app: sod-gpu}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: sod-gpu}
+  template:
+    metadata:
+      labels: {app: sod-gpu}
+    spec:
+      terminationGracePeriodSeconds: 60
+      # 只调度到有 GPU 的节点；device plugin / GPU Operator 会给节点打这个标签
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
+      tolerations:
+        - key: nvidia.com/gpu
+          operator: Exists
+          effect: NoSchedule
+      containers:
+        - name: sod
+          image: sod-onnx-gpu:latest
+          ports: [{containerPort: 8000, name: http}]
+          envFrom:
+            - configMapRef: {name: sod-config}
+          resources:
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+            limits:
+              cpu: "4"
+              memory: "4Gi"
+              nvidia.com/gpu: 1     # 只写 limits；requests 自动等于它
+          volumeMounts:
+            - {name: models, mountPath: /models, readOnly: true}
+          startupProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+            failureThreshold: 120   # GPU 上还要建 CUDA 上下文，窗口给得更大
+          readinessProbe:
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 2
+      volumes:
+        - name: models
+          hostPath: {path: /models, type: Directory}

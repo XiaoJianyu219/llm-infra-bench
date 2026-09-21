@@ -1,0 +1,45 @@
+=== 服务本地验证（AutoDL，无需 Docker）===
+2026-09-18 16:43:51
+t=+1s  /healthz=000  /readyz=000
+t=+2s  /healthz=000  /readyz=000
+t=+3s  /healthz=200  /readyz=503
+t=+4s  /healthz=200  /readyz=503
+t=+5s  /healthz=200  /readyz=200
+t=+6s  /healthz=200  /readyz=200
+t=+7s  /healthz=200  /readyz=200
+t=+8s  /healthz=200  /readyz=200
+测试图: /root/autodl-tmp/sod/dataset800/images/val/*.png
+
+--- /readyz ---
+{"ready":true,"load_sec":16.159,"model":"/root/autodl-tmp/sod/best.onnx","input":[1024,1024]}
+--- /predict ---
+{"detections":[{"box":[252.67,252.14,260.09,259.16],"score":0.658,"cls":0}],"n":1,"timing_ms":{"decode":103.35,"preprocess":119.5,"infer":69162.33,"postprocess":1203.74}}
+
+--- 连打 5 次看耗时 ---
+n= 1 {'decode': 5800.76, 'preprocess': 822.83, 'infer': 69977.44, 'postprocess': 2199.99}
+n= 1 {'decode': 2005.48, 'preprocess': 117.62, 'infer': 75376.82, 'postprocess': 1600.03}
+n= 1 {'decode': 5400.1, 'preprocess': 1129.72, 'infer': 56869.64, 'postprocess': 2100.15}
+n= 1 {'decode': 4200.59, 'preprocess': 420.55, 'infer': 68479.19, 'postprocess': 1700.66}
+n= 1 {'decode': 1809.17, 'preprocess': 194.78, 'infer': 68295.88, 'postprocess': 2000.12}
+
+--- /metrics 摘录 ---
+# HELP sod_requests_total 处理过的请求数
+# TYPE sod_requests_total counter
+sod_requests_total{status="200"} 6
+# HELP sod_inflight_requests 进行中的请求数（HPA 真正该用的指标之一）
+# TYPE sod_inflight_requests gauge
+sod_inflight_requests 0
+# HELP sod_ready 模型是否加载完成
+# TYPE sod_ready gauge
+sod_ready 1
+sod_infer_seconds_sum 408.161305
+sod_infer_seconds_count 6
+sod_total_seconds_sum 441.090462
+sod_total_seconds_count 6
+
+=== 无卡模式的真实 CPU 配额（nproc 报 128 是假象）===
+nproc = 128
+cpu.max = 50000 100000
+memory.max = 2147483648
+               total        used        free      shared  buff/cache   available
+Mem:            1007          65         185           0         756         936

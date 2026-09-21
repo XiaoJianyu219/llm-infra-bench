@@ -1,0 +1,41 @@
+# 失败场景一（任务书 3.3）：不配 startupProbe，且把 liveness 打到 /readyz。
+# 模型加载期间 /readyz 返回 503，liveness 连续失败，容器被杀，重新加载，
+# 又被杀，最终 CrashLoopBackOff。
+# 这是"用同一个端点做 liveness 和 readiness"的典型后果。
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sod-bad1
+  labels: {app: sod-bad1}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: sod-bad1}
+  template:
+    metadata:
+      labels: {app: sod-bad1}
+    spec:
+      containers:
+        - name: sod
+          image: sod-onnx-cpu:latest
+          imagePullPolicy: IfNotPresent
+          ports: [{containerPort: 8000, name: http}]
+          envFrom:
+            - configMapRef: {name: sod-config}
+          env:
+            - name: STARTUP_DELAY_SEC
+              value: "90"          # 人为把加载拖到远超 liveness 容忍窗口
+          resources:
+            requests: {cpu: "200m", memory: "256Mi"}
+            limits: {cpu: "2", memory: "1Gi"}
+          # 故意不配 startupProbe
+          livenessProbe:
+            httpGet: {path: /readyz, port: http}   # 故意打到 readyz
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3                     # 约 20s 后就会被杀
+          volumeMounts:
+            - {name: models, mountPath: /models, readOnly: true}
+      volumes:
+        - name: models
+          hostPath: {path: /models, type: Directory}

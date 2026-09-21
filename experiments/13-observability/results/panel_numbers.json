@@ -1,0 +1,121 @@
+{
+ "expr": {
+  "qps": "sum(rate(sod_requests_total{status=\"200\"}[10s]))",
+  "err": "sum(rate(sod_requests_total{status!=\"200\"}[10s]))",
+  "p50": "histogram_quantile(0.50, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))",
+  "p95": "histogram_quantile(0.95, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))",
+  "p99": "histogram_quantile(0.99, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))",
+  "avg_lat": "sum(rate(sod_request_duration_seconds_sum[30s])) / sum(rate(sod_request_duration_seconds_count[30s]))",
+  "inflight": "sod_inflight_requests",
+  "queue": "sod_queue_depth",
+  "gpu_util": "sod_gpu_utilization_percent",
+  "gpu_mem": "sod_gpu_memory_used_bytes / 1048576",
+  "avg_batch": "sum(rate(sod_batch_size_sum[30s])) / sum(rate(sod_batch_size_count[30s]))"
+ },
+ "stages": [
+  {
+   "concurrency": 1,
+   "wall": "23:54:21",
+   "qps": 27.08055555555556,
+   "p50": 40.02124359700372,
+   "p95": 49.040362834307054,
+   "p99": 49.84206232206735,
+   "avg_lat": 0.034283466187490994,
+   "inflight": 0.975,
+   "queue": 0.0,
+   "gpu": 5.625,
+   "gpu_mem": 2380.0,
+   "batch": 1.0
+  },
+  {
+   "concurrency": 2,
+   "wall": "23:55:21",
+   "qps": 33.051490514905154,
+   "p50": 61.9615220975882,
+   "p95": 73.76579472416883,
+   "p99": 74.81506340208712,
+   "avg_lat": 0.05535641631032777,
+   "inflight": 1.951219512195122,
+   "queue": 0.0,
+   "gpu": 6.073170731707317,
+   "gpu_mem": 2380.0,
+   "batch": 1.9395103326032685
+  },
+  {
+   "concurrency": 4,
+   "wall": "23:56:21",
+   "qps": 36.95,
+   "p50": 123.95470833190784,
+   "p95": 147.39547083319076,
+   "p99": 149.47909416663816,
+   "avg_lat": 0.10222037090295097,
+   "inflight": 3.75,
+   "queue": 1.75,
+   "gpu": 6.475,
+   "gpu_mem": 2380.0,
+   "batch": 2.0
+  },
+  {
+   "concurrency": 8,
+   "wall": "23:57:21",
+   "qps": 36.68888888888889,
+   "p50": 247.60806973804472,
+   "p95": 294.76080697380445,
+   "p99": 298.9521613947609,
+   "avg_lat": 0.20413757771623592,
+   "inflight": 7.4,
+   "queue": 2.8,
+   "gpu": 4.9,
+   "gpu_mem": 2452.0,
+   "batch": 3.8782332531795007
+  },
+  {
+   "concurrency": 16,
+   "wall": "23:58:21",
+   "qps": 36.06666666666667,
+   "p50": 395.40092514073746,
+   "p95": 490.73057132530107,
+   "p99": 524.6947909604669,
+   "avg_lat": 0.4189514748614226,
+   "inflight": 15.3,
+   "queue": 7.3,
+   "gpu": 6.475,
+   "gpu_mem": 2452.0,
+   "batch": 7.7487852111130575
+  }
+ ],
+ "little": [
+  {
+   "concurrency": 1,
+   "predicted": 0.9284153107273604,
+   "observed": 0.975,
+   "dev_pct": 4.777916848475856
+  },
+  {
+   "concurrency": 2,
+   "predicted": 1.8296120686199393,
+   "observed": 1.951219512195122,
+   "dev_pct": 6.232381483228109
+  },
+  {
+   "concurrency": 4,
+   "predicted": 3.7770427048640385,
+   "observed": 3.75,
+   "dev_pct": 0.7211387963743595
+  },
+  {
+   "concurrency": 8,
+   "predicted": 7.4895809068779,
+   "observed": 7.4,
+   "dev_pct": 1.2105527956472926
+  },
+  {
+   "concurrency": 16,
+   "predicted": 15.11018319333531,
+   "observed": 15.3,
+   "dev_pct": 1.2406327232986343
+  }
+ ],
+ "little_worst_dev_pct": 6.232381483228109,
+ "gpu_idle_after_load": 0.0
+}

@@ -1,0 +1,69 @@
+
+########## P1. 失败场景一：liveness -> /readyz，无 startupProbe，模型加载 90s ##########
+21:35:06
+时刻            状态                 重启  存活
+21:35:10  ContainerCreating    0     0s
+21:35:20  Running              0     11s
+21:35:31  Running              0     21s
+21:35:41  Running              1     (10s
+21:35:52  Running              1     (20s
+21:36:02  Running              2     53s
+21:36:13  Running              2     63s
+21:36:23  Running              3     (11s
+21:36:34  Running              3     (21s
+21:36:44  Running              4     (11s
+21:36:54  CrashLoopBackOff     4     (2s
+21:37:05  CrashLoopBackOff     4     (12s
+21:37:15  CrashLoopBackOff     4     (22s
+21:37:25  Running              5     (33s
+21:37:36  Running              5     (43s
+21:37:46  Running              6     (8s
+21:37:56  CrashLoopBackOff     6     (0s
+21:38:06  CrashLoopBackOff     6     (11s
+21:38:17  CrashLoopBackOff     6     (21s
+21:38:27  CrashLoopBackOff     6     (32s
+21:38:38  CrashLoopBackOff     6     (42s
+21:38:48  CrashLoopBackOff     6     (52s
+21:38:58  CrashLoopBackOff     6     (62s
+21:39:08  CrashLoopBackOff     6     (72s
+21:39:18  CrashLoopBackOff     6     (82s
+21:39:30  Running              7     (96s
+21:39:43  Running              7     (107s
+21:39:53  CrashLoopBackOff     7     (9s
+21:40:04  CrashLoopBackOff     7     (19s
+21:40:14  CrashLoopBackOff     7     (29s
+--- 事件 ---
+Events:
+  Type     Reason     Age                    From               Message
+  ----     ------     ----                   ----               -------
+  Normal   Scheduled  5m15s                  default-scheduler  Successfully assigned default/sod-bad1-846dcc659c-dbwmx to day12-control-plane
+  Normal   Created    3m6s (x6 over 5m14s)   kubelet            spec.containers{sod}: Created container: sod
+  Normal   Started    3m6s (x6 over 5m14s)   kubelet            spec.containers{sod}: Started container sod
+  Normal   Killing    2m50s (x6 over 4m55s)  kubelet            spec.containers{sod}: Container sod failed liveness probe, will be restarted
+  Normal   Pulled     2m47s (x7 over 5m14s)  kubelet            spec.containers{sod}: Container image "sod-onnx-cpu:latest" already present on machine
+  Warning  Unhealthy  2m30s (x21 over 5m5s)  kubelet            spec.containers{sod}: Liveness probe failed: HTTP probe failed with statuscode: 503
+  Warning  BackOff    2m29s (x4 over 3m32s)  kubelet            spec.containers{sod}: Back-off restarting failed container sod in pod sod-bad1-846dcc659c-dbwmx_default(4c655898-f853-43c0-bf76-3c848ed77a54)
+{"terminated":{"containerID":"containerd://96b7ff8cca3be50a4b83784381c88efa89342f03ca1f1b78d0ec46c4ecc6c9bd","exitCode":0,"finishedAt":"2026-09-18T13:39:45Z","reason":"Completed","startedAt":"2026-09-18T13:39:26Z"}}
+
+########## P2. 标定：单副本，内存上限放到 3Gi，关掉 HPA，只变并发 ##########
+21:40:26
+19:          image: sod-onnx-cpu:sync
+30:              memory: "512Mi"
+33:              memory: "3Gi"
+deployment "sod" successfully rolled out
+
+并发  成功  失败   QPS    p50(s)   峰值内存(MiB)  常驻内存(MiB)
+   1    19     0   0.32     2.84            495            471
+   2    13     0   0.24     7.21            785            743
+   4    10     0   0.17    21.91           1305           1237
+   8    20     0   0.33    19.93           2355           2319
+
+########## P2b. 空载常驻内存（模型加载完、无请求） ##########
+21:46:21
+idle_current_MiB=90
+
+########## P3. 恢复正常部署（latest 镜像 + 原 limits） ##########
+21:46:49
+deployment "sod" successfully rolled out
+RUNC_DONE 2026-09-18 21:46:56
+

@@ -1,0 +1,58 @@
+{
+  "fp16": {
+    "seconds": 111.92956716194749,
+    "bytes": 198593316,
+    "profile": null,
+    "strongly_typed": true
+  },
+  "int8": {
+    "seconds": 183.8718074671924,
+    "bytes": 221042396,
+    "profile": null,
+    "strongly_typed": true
+  },
+  "batch": {
+    "seconds": 122.40306525677443,
+    "bytes": 9890004,
+    "profile": {
+      "min": [
+        1,
+        3,
+        1024,
+        1024
+      ],
+      "opt": [
+        4,
+        3,
+        1024,
+        1024
+      ],
+      "max": [
+        16,
+        3,
+        1024,
+        1024
+      ]
+    },
+    "strongly_typed": true
+  },
+  "plugin": {
+    "seconds": 96.85784164071083,
+    "bytes": 174381220,
+    "profile": null,
+    "strongly_typed": true
+  },
+  "nms_only": {
+    "seconds": 0.7300191894173622,
+    "bytes": 38636,
+    "profile": null,
+    "strongly_typed": true
+  },
+  "hashes": {
+    "day07_fp16.engine": "d1052c13ff1935954e66678dbb07e4fd86b2e406ff20b89d4183ed538528b8f9",
+    "day07_int8.engine": "a9c04b815608d1e27678eafb6fe55085784ea5a5298178e73078182c4af9fa56",
+    "day07_batch_fp16.engine": "b4aece8353ed2362a8b468f8cac8a3dfdd1617116343351bdfb05c39d1439b0b",
+    "day07_plugin.engine": "fa43235025683b9c5d02078af7327dfd6aea4c5dc23beddf236150924bd44d9d",
+    "day07_nms_only.engine": "58f99865416160792cb33c91e0bd68effa61f1097b29c9a1ec6f2e404a593a1e"
+  }
+}

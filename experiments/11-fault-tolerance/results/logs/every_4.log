@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:19,  3.92it/s]Loading weights:  23%|██▎       | 71/311 [00:00<00:00, 249.52it/s]Loading weights:  40%|████      | 125/311 [00:00<00:00, 346.30it/s]Loading weights:  55%|█████▍    | 171/311 [00:00<00:00, 378.81it/s]Loading weights:  72%|███████▏  | 224/311 [00:00<00:00, 423.88it/s]Loading weights:  90%|████████▉ | 279/311 [00:00<00:00, 458.50it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 391.89it/s]
+[10:28:15.681] step 0 loss 12.98678994  2259.5 ms
+[10:28:16.954] step 1 loss 13.09176266  1272.7 ms
+[10:28:18.244] step 2 loss 12.33382344  1290.3 ms
+[10:28:19.504] step 3 loss 11.18933368  1259.9 ms
+[10:28:36.909] step 4 loss 10.93323863  1267.7 ms
+saved results/runs/every_4.json
+

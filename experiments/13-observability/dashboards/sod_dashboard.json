@@ -1,0 +1,168 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "Day13 的 Prometheus，scrape_interval=1s，见 scripts/prometheus.yml",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__comment": "Day13 3.1 的面板定义。注意：本 JSON 未在 Grafana 中渲染过——本机三个下载源实测 12 秒 0 字节，Grafana 装不上（证据 results/grafana_unreachable.txt）。面板里的每条 PromQL 都已在 Prometheus 上验证有数据，results/dashboard_*.png 就是用这批表达式取回的数据渲染的。",
+  "title": "SOD 推理服务 · Day13",
+  "uid": "day13-sod",
+  "schemaVersion": 39,
+  "version": 1,
+  "editable": true,
+  "refresh": "5s",
+  "time": {"from": "now-15m", "to": "now"},
+  "timezone": "browser",
+  "tags": ["day13", "inference", "tensorrt", "rtx4090"],
+  "templating": {"list": []},
+  "annotations": {"list": []},
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "QPS（按状态码分）",
+      "description": "计数器的 rate()。错误率用第二条序列，不要只画成功数——全绿的面板看不出故障。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "fieldConfig": {
+        "defaults": {"unit": "reqps", "custom": {"lineWidth": 1, "fillOpacity": 8}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sum(rate(sod_requests_total{status=\"200\"}[10s]))", "legendFormat": "200 OK"},
+        {"refId": "B", "expr": "sum(rate(sod_requests_total{status!=\"200\"}[10s]))", "legendFormat": "非 2xx"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "延迟 p50 / p95 / p99（不是平均值）",
+      "description": "histogram_quantile 作用在 rate() 之后的累积桶上。bucket 边界见 scripts/serve13.py 的 E2E_BUCKETS，按 Day07 实测的 26ms–1460ms 范围定；bucket 不覆盖实际范围时 p99 会严重失真。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "fieldConfig": {
+        "defaults": {"unit": "s", "custom": {"lineWidth": 1, "fillOpacity": 0}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "histogram_quantile(0.50, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))", "legendFormat": "p50"},
+        {"refId": "B", "expr": "histogram_quantile(0.95, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))", "legendFormat": "p95"},
+        {"refId": "C", "expr": "histogram_quantile(0.99, sum by (le) (rate(sod_request_duration_seconds_bucket[30s])))", "legendFormat": "p99"}
+      ]
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "在途请求数 / 队列深度",
+      "description": "推理服务真正的压力指标。Day12 实测：并发 1→16 时 CPU 利用率 390%→398% 几乎不动，而在途请求 1→21。利用率在 limits/requests 处封顶，队列深度不会。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+      "fieldConfig": {
+        "defaults": {"unit": "short", "custom": {"lineWidth": 1, "fillOpacity": 12}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sod_inflight_requests", "legendFormat": "在途"},
+        {"refId": "B", "expr": "sod_queue_depth", "legendFormat": "队列深度"}
+      ]
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "错误率",
+      "description": "非 2xx 占比。分母用总量而不是成功数，否则全挂时分母为 0。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+      "fieldConfig": {
+        "defaults": {"unit": "percentunit", "min": 0, "custom": {"lineWidth": 1, "fillOpacity": 10}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sum(rate(sod_requests_total{status!=\"200\"}[1m])) / clamp_min(sum(rate(sod_requests_total[1m])), 0.001)", "legendFormat": "错误率"}
+      ]
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "GPU 利用率",
+      "description": "后台 nvidia-smi 采样（utilization.gpu）。Day07 与本日都实测到：这个服务打满吞吐时 GPU 利用率只有 5%–12%，因为瓶颈在 CPU 解码与预处理。所以它不能当扩容指标。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+      "fieldConfig": {
+        "defaults": {"unit": "percent", "min": 0, "max": 100, "custom": {"lineWidth": 1, "fillOpacity": 12}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sod_gpu_utilization_percent", "legendFormat": "GPU {{gpu}}"}
+      ]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "显存占用（nvidia-smi 口径）",
+      "description": "口径必须写清：这是整卡 used memory，含 CUDA context。Day08 的三档口径里，nvidia-smi 是最粗的一档——它会把 gradient checkpointing 的 28% 收益看成 6.5%。做算法对比要用 max_memory_allocated。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+      "fieldConfig": {
+        "defaults": {"unit": "bytes", "min": 0, "custom": {"lineWidth": 1, "fillOpacity": 12}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sod_gpu_memory_used_bytes", "legendFormat": "used"}
+      ]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "批大小分布（动态批处理）",
+      "description": "平均批大小与 p90。Day07 扫过 192 个配置：全网格最高 QPS 只比 batch=1 高 2.86%，而该点三次重复的峰谷差 4.39%，所以大 batch 在这个服务上不构成收益。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+      "fieldConfig": {
+        "defaults": {"unit": "short", "min": 0, "custom": {"lineWidth": 1, "fillOpacity": 8}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sum(rate(sod_batch_size_sum[30s])) / sum(rate(sod_batch_size_count[30s]))", "legendFormat": "平均批大小"},
+        {"refId": "B", "expr": "histogram_quantile(0.90, sum by (le) (rate(sod_batch_size_bucket[30s])))", "legendFormat": "p90 批大小"}
+      ]
+    },
+    {
+      "id": 8,
+      "type": "timeseries",
+      "title": "各段耗时 p99（七段剖析）",
+      "description": "Day07 的七段配对计时搬到线上。要点：最大单段是 preprocess 不是 NMS——我原本预测错了。引擎段加速 3.81×，端到端只剩 1.12×，差额就在这张图上。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 24},
+      "fieldConfig": {
+        "defaults": {"unit": "s", "custom": {"lineWidth": 1, "fillOpacity": 0}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "histogram_quantile(0.99, sum by (le, stage) (rate(sod_stage_duration_seconds_bucket[30s])))", "legendFormat": "{{stage}}"}
+      ]
+    },
+    {
+      "id": 9,
+      "type": "timeseries",
+      "title": "Little 定律自洽校验",
+      "description": "QPS × 平均延迟 应当 ≈ 平均在途请求数。两条线分开说明某个指标算错了。本日实测五档最大偏差 6.2%（Day01 用同一条约束验过推理基线，四档偏差 ≤4%）。",
+      "datasource": {"type": "prometheus", "uid": "${DS_PROMETHEUS}"},
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 24},
+      "fieldConfig": {
+        "defaults": {"unit": "short", "min": 0, "custom": {"lineWidth": 1, "fillOpacity": 0}},
+        "overrides": []
+      },
+      "targets": [
+        {"refId": "A", "expr": "sum(rate(sod_requests_total{status=\"200\"}[30s])) * (sum(rate(sod_request_duration_seconds_sum[30s])) / sum(rate(sod_request_duration_seconds_count[30s])))", "legendFormat": "QPS × 平均延迟（预测）"},
+        {"refId": "B", "expr": "sod_inflight_requests", "legendFormat": "实测在途"}
+      ]
+    }
+  ]
+}
+

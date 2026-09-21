@@ -1,0 +1,15 @@
+Grafana 在本机装不上的实测证据（Day13 3.1）
+探测时间: 2026-09-19 00:0x
+方法: 各源 12 秒限时，只取前 20 MB，记实际拿到的字节数
+
+=== 不走 network_turbo ===
+dl.grafana.com    拿到 0 字节/12s  
+=== 走 network_turbo ===
+dl.grafana.com    拿到 0 字节/12s  
+github release    拿到 9 字节/12s  
+
+结论: 三个源全部 0 字节/12s，GitHub release 返回 9 字节（Not Found 体）。
+Grafana 官方只在 dl.grafana.com 发二进制，GitHub release 不带 tarball。
+处置: dashboard JSON 照常交付（dashboards/sod_dashboard.json），
+      截图改为用同一批 PromQL 从 Prometheus 取数渲染（results/dashboard_*.png），
+      并在 report 中标注非 Grafana 截图。不伪造 Grafana 界面。

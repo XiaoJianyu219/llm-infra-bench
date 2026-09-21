@@ -1,0 +1,25 @@
+tag	status	seq_len	batch_size	precision	sdpa	ckpt	step_ms	step_std_ms	tokens_per_s	alloc_MiB	reserved_MiB	smi_MiB	MFU_%	MFU_head_%	HFU_%
+base_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	0				21490	21500	15953			
+prec_fp32_b1_memeff	ok	2048	1	fp32	mem_efficient	0	420.0	0.4	4876	18345	19000	19475	12.70	15.63	12.70
+prec_bf16_b1_memeff	ok	2048	1	bf16	mem_efficient	0	206.8	0.1	9903	16645	16684	17165	25.79	31.74	25.79
+prec_fp32_b2_memeff	OOM	2048	2	fp32	mem_efficient	0				22913	22926	23393			
+prec_bf16_b2_memeff	OOM	2048	2	bf16	mem_efficient	0				22947	23166	23647			
+ckpt0_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	0				21490	21500	21973			
+ckpt1_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	1				20856	21374	21855			
+sdpa_math_s2048_b4_bf16	OOM	2048	4	bf16	math	0				22457	23452	5741			
+sdpa_mem_efficient_s2048_b4_bf16	OOM	2048	4	bf16	mem_efficient	0				21490	21500	21973			
+sdpa_flash_s2048_b4_bf16	OOM	2048	4	bf16	flash	0				21490	21500	9797			
+sdpa_cudnn_s2048_b4_bf16	OOM	2048	4	bf16	cudnn	0				21490	21500	21975			
+bs1_s2048_bf16_flash_ckpt0	ok	2048	1	bf16	flash	0	187.9	0.3	10900	16645	16684	17165	28.39	34.93	28.39
+bs2_s2048_bf16_flash_ckpt0	OOM	2048	2	bf16	flash	0				22947	23166	23647			
+bs4_s2048_bf16_flash_ckpt0	OOM	2048	4	bf16	flash	0				21490	21500	21973			
+bs8_s2048_bf16_flash_ckpt0	OOM	2048	8	bf16	flash	0				23579	23588	15887			
+bs16_s2048_bf16_flash_ckpt0	OOM	2048	16	bf16	flash	0				23499	23558	24031			
+bs32_s2048_bf16_flash_ckpt0	OOM	2048	32	bf16	flash	0				22793	23292	23765			
+bs4_s2048_bf16_flash_ckpt1	OOM	2048	4	bf16	flash	1				20856	21374	21855			
+bs8_s2048_bf16_flash_ckpt1	OOM	2048	8	bf16	flash	1				19682	20150	20623			
+bs16_s2048_bf16_flash_ckpt1	OOM	2048	16	bf16	flash	1				16950	17962	18435			
+bs32_s2048_bf16_flash_ckpt1	OOM	2048	32	bf16	flash	1				12959	13544	14017			
+bs64_s2048_bf16_flash_ckpt1	OOM	2048	64	bf16	flash	1				22304	22782	23255			
+seq512_bf16_flash_iso	OOM	512	16	bf16	flash	0				21489	21500	21973			
+seq2048_bf16_flash_iso	OOM	2048	4	bf16	flash	0				21490	21500	21973			

@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:42,  7.35it/s]Loading weights:  32%|███▏      | 98/311 [00:00<00:00, 495.20it/s]Loading weights:  52%|█████▏    | 163/311 [00:00<00:00, 476.94it/s]Loading weights:  69%|██████▉   | 215/311 [00:00<00:00, 484.52it/s]Loading weights:  86%|████████▌ | 268/311 [00:00<00:00, 487.18it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 456.22it/s]
+[09:43:33.058] step 0 loss 12.98678994  2215.4 ms
+[09:43:34.271] step 1 loss 13.09374964  1212.7 ms
+[09:43:35.483] step 2 loss 12.33427608  1211.5 ms
+[09:43:36.680] step 3 loss 11.18704116  1196.8 ms
+[09:43:38.079] step 4 loss 10.92776942  1399.3 ms
+saved results/runs/determinism_2.json
+

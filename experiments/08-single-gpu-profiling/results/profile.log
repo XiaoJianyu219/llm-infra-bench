@@ -1,0 +1,183 @@
+USDT:2026-09-16 09:41:17 52912:52912 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:41:18 52912:52912 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== ref_s2048_b1 : Top 12 CUDA kernel（只取 device_type==CUDA 的行）===
+   9.82%     53.61 ms  n=591   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   5.83%     31.84 ms  n=30    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.67%     30.92 ms  n=84    attention_flash          void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kern
+   5.63%     30.74 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.30%     28.93 ms  n=504   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn
+   4.60%     25.08 ms  n=252   gemm                     void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu
+   4.56%     24.89 ms  n=1857  elementwise              void at::native::vectorized_elementwise_kernel<4, at::native::
+   4.32%     23.58 ms  n=2028  elementwise              void at::native::elementwise_kernel<128, 2, at::native::gpu_ke
+   4.30%     23.44 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.30%     23.44 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.11%     22.42 ms  n=1524  elementwise              void at::native::unrolled_elementwise_kernel<at::native::direc
+   2.97%     16.21 ms  n=3     softmax                  void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4
+
+=== 分类占比（kernel 侧，合计 100%%）===
+optimizer                 28.81%     157.25 ms  launches=120
+gemm                      28.66%     156.40 ms  launches=1776
+elementwise               26.23%     143.17 ms  launches=13077
+attention_flash            8.58%      46.83 ms  launches=336
+softmax                    5.76%      31.43 ms  launches=6
+reduction                  1.90%      10.36 ms  launches=1191
+index_embed                0.05%       0.28 ms  launches=6
+other                      0.00%       0.01 ms  launches=6
+
+SDPA 实测后端(kernel 名): ['attention_flash'] -> ['void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)', 'void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false, false>(pytorch_flash::Flash_fwd_params)']
+GEMM 类算子实测 140.5 TFLOPS（FLOPs 取自 aten 行）
+每步 kernel launch 约 5506 次，不同 kernel 68 种
+总 CUDA self time 545.7 ms / 3 步 = 181.9 ms/步（含 profiler 开销，不用于报告计时）
+USDT:2026-09-16 09:41:46 53402:53402 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:41:47 53402:53402 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== ref_s512_b4 : Top 12 CUDA kernel（只取 device_type==CUDA 的行）===
+  10.44%     53.66 ms  n=591   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   6.20%     31.86 ms  n=30    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.98%     30.74 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.59%     28.72 ms  n=504   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn
+   4.89%     25.15 ms  n=252   gemm                     void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu
+   4.84%     24.85 ms  n=1857  elementwise              void at::native::vectorized_elementwise_kernel<4, at::native::
+   4.57%     23.47 ms  n=2028  elementwise              void at::native::elementwise_kernel<128, 2, at::native::gpu_ke
+   4.57%     23.47 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.56%     23.44 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.34%     22.29 ms  n=1524  elementwise              void at::native::unrolled_elementwise_kernel<at::native::direc
+   3.15%     16.20 ms  n=3     softmax                  void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4
+   3.10%     15.95 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+
+=== 分类占比（kernel 侧，合计 100%%）===
+optimizer                 30.62%     157.32 ms  launches=120
+gemm                      30.43%     156.37 ms  launches=1776
+elementwise               27.81%     142.89 ms  launches=13077
+softmax                    6.10%      31.36 ms  launches=6
+attention_flash            2.99%      15.35 ms  launches=336
+reduction                  2.00%      10.26 ms  launches=1194
+index_embed                0.05%       0.28 ms  launches=6
+other                      0.00%       0.01 ms  launches=3
+
+SDPA 实测后端(kernel 名): ['attention_flash'] -> ['void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)', 'void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false, false>(pytorch_flash::Flash_fwd_params)']
+GEMM 类算子实测 140.5 TFLOPS（FLOPs 取自 aten 行）
+每步 kernel launch 约 5506 次，不同 kernel 70 种
+总 CUDA self time 513.8 ms / 3 步 = 171.3 ms/步（含 profiler 开销，不用于报告计时）
+[W916 09:42:11.099767664 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 980090880, total: 25250627584).
+[W916 09:42:11.099875955 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 980090880, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 191, in <module>
+    main()
+  File "<workspace>", line 124, in main
+    one_step()
+  File "<workspace>", line 119, in one_step
+    loss = model(input_ids=ids, labels=labels, use_cache=False).loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 499, in forward
+    loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 70, in ForCausalLMLoss
+    loss = fixed_cross_entropy(logits, shift_labels, num_items_in_batch, ignore_index, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 40, in fixed_cross_entropy
+    loss = nn.functional.cross_entropy(source, target, ignore_index=ignore_index, reduction=reduction)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 3561, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 23.52 GiB of which 934.69 MiB is free. Including non-PyTorch memory, this process has 22.60 GiB memory in use. Of the allocated memory 21.81 GiB is allocated by PyTorch, and 328.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+USDT:2026-09-16 09:42:25 54343:54343 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:42:26 54343:54343 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== prof_memeff_s2048_b1 : Top 12 CUDA kernel（只取 device_type==CUDA 的行）===
+  13.27%     79.64 ms  n=84    attention_mem_efficient  fmha_cutlassB_bf16_aligned_64x64_k128_seqaligned_sm80(PyTorchM
+   8.96%     53.75 ms  n=591   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   5.31%     31.87 ms  n=30    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.13%     30.75 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.76%     28.59 ms  n=504   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn
+   4.17%     25.01 ms  n=252   gemm                     void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu
+   4.16%     24.97 ms  n=1857  elementwise              void at::native::vectorized_elementwise_kernel<4, at::native::
+   3.95%     23.67 ms  n=2028  elementwise              void at::native::elementwise_kernel<128, 2, at::native::gpu_ke
+   3.91%     23.47 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   3.91%     23.47 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   3.77%     22.60 ms  n=1524  elementwise              void at::native::unrolled_elementwise_kernel<at::native::direc
+   3.20%     19.21 ms  n=84    attention_mem_efficient  fmha_cutlassF_bf16_aligned_64x128_rf_sm80(PyTorchMemEffAttenti
+
+=== 分类占比（kernel 侧，合计 100%%）===
+optimizer                 26.23%     157.40 ms  launches=120
+gemm                      26.08%     156.48 ms  launches=1776
+elementwise               24.21%     145.25 ms  launches=13329
+attention_mem_efficient   16.48%      98.85 ms  launches=168
+softmax                    5.23%      31.36 ms  launches=6
+reduction                  1.73%      10.37 ms  launches=1191
+index_embed                0.05%       0.28 ms  launches=6
+other                      0.00%       0.01 ms  launches=6
+
+SDPA 实测后端(kernel 名): ['attention_mem_efficient'] -> ['fmha_cutlassB_bf16_aligned_64x64_k128_seqaligned_sm80(PyTorchMemEffAttention::AttentionBackwardKernel<cutlass::arch::Sm80, cutlass::bfloat16_t, true, false, false, 64, 64, 128, true>::Params)', 'fmha_cutlassF_bf16_aligned_64x128_rf_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 64, 128, 128, true, true>::Params)']
+GEMM 类算子实测 140.4 TFLOPS（FLOPs 取自 aten 行）
+每步 kernel launch 约 5534 次，不同 kernel 67 种
+总 CUDA self time 600.0 ms / 3 步 = 200.0 ms/步（含 profiler 开销，不用于报告计时）
+USDT:2026-09-16 09:42:52 54817:54817 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:42:54 54817:54817 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== prof_ckpt_s2048_b1 : Top 12 CUDA kernel（只取 device_type==CUDA 的行）===
+  13.15%     81.91 ms  n=1095  gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   5.94%     36.98 ms  n=3201  elementwise              void at::native::vectorized_elementwise_kernel<4, at::native::
+   5.12%     31.87 ms  n=30    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   5.03%     31.35 ms  n=2868  elementwise              void at::native::elementwise_kernel<128, 2, at::native::gpu_ke
+   4.96%     30.87 ms  n=84    attention_flash          void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kern
+   4.94%     30.75 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   4.62%     28.79 ms  n=504   gemm                     ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn
+   4.57%     28.47 ms  n=168   attention_flash          void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<1
+   3.97%     24.73 ms  n=252   gemm                     void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu
+   3.88%     24.19 ms  n=1692  elementwise              void at::native::unrolled_elementwise_kernel<at::native::direc
+   3.77%     23.48 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   3.76%     23.45 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+
+=== 分类占比（kernel 侧，合计 100%%）===
+gemm                      29.49%     183.68 ms  launches=2280
+elementwise               28.45%     177.24 ms  launches=17361
+optimizer                 25.26%     157.37 ms  launches=120
+attention_flash            9.79%      60.96 ms  launches=420
+softmax                    5.03%      31.35 ms  launches=6
+reduction                  1.93%      12.02 ms  launches=1527
+index_embed                0.05%       0.28 ms  launches=6
+other                      0.00%       0.01 ms  launches=6
+
+SDPA 实测后端(kernel 名): ['attention_flash'] -> ['void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)', 'void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false, false>(pytorch_flash::Flash_fwd_params)']
+GEMM 类算子实测 149.1 TFLOPS（FLOPs 取自 aten 行）
+每步 kernel launch 约 7242 次，不同 kernel 68 种
+总 CUDA self time 622.9 ms / 3 步 = 207.6 ms/步（含 profiler 开销，不用于报告计时）
+USDT:2026-09-16 09:43:26 55297:55297 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:43:27 55297:55297 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== prof_fp32_s2048_b1 : Top 12 CUDA kernel（只取 device_type==CUDA 的行）===
+  21.39%    264.00 ms  n=84    attention_mem_efficient  fmha_cutlassB_f32_aligned_64x64_k128_sm80(PyTorchMemEffAttenti
+  13.44%    165.83 ms  n=588   gemm                     ampere_sgemm_128x64_tn
+  11.60%    143.20 ms  n=423   gemm                     void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nt_ali
+   8.01%     98.79 ms  n=420   gemm                     ampere_sgemm_128x64_nn
+   6.74%     83.16 ms  n=84    attention_mem_efficient  fmha_cutlassF_f32_aligned_64x128_rf_sm80(PyTorchMemEffAttentio
+   6.47%     79.83 ms  n=171   gemm                     void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_ali
+   4.46%     55.07 ms  n=3     gemm                     ampere_sgemm_128x128_tn
+   2.58%     31.87 ms  n=30    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   2.54%     31.39 ms  n=2364  elementwise              void at::native::elementwise_kernel<128, 2, at::native::gpu_ke
+   2.49%     30.75 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   1.90%     23.50 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+   1.90%     23.47 ms  n=15    optimizer                void at::native::(anonymous namespace)::multi_tensor_apply_ker
+
+=== 分类占比（kernel 侧，合计 100%%）===
+gemm                      45.65%     563.33 ms  launches=1776
+attention_mem_efficient   28.13%     347.16 ms  launches=168
+optimizer                 12.76%     157.41 ms  launches=120
+elementwise                9.85%     121.50 ms  launches=11631
+softmax                    2.55%      31.43 ms  launches=6
+reduction                  1.05%      12.93 ms  launches=1275
+index_embed                0.02%       0.29 ms  launches=6
+other                      0.00%       0.01 ms  launches=6
+
+SDPA 实测后端(kernel 名): ['attention_mem_efficient'] -> ['fmha_cutlassB_f32_aligned_64x64_k128_sm80(PyTorchMemEffAttention::AttentionBackwardKernel<cutlass::arch::Sm80, float, true, false, false, 64, 64, 128, false>::Params)', 'fmha_cutlassF_f32_aligned_64x128_rf_sm80(PyTorchMemEffAttention::AttentionKernel<float, cutlass::arch::Sm80, true, 64, 128, 128, true, true>::Params)']
+GEMM 类算子实测 38.9 TFLOPS（FLOPs 取自 aten 行）
+每步 kernel launch 约 4996 次，不同 kernel 59 种
+总 CUDA self time 1234.1 ms / 3 步 = 411.4 ms/步（含 profiler 开销，不用于报告计时）
+

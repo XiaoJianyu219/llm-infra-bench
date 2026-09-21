@@ -1,0 +1,132 @@
+{
+ "args": {
+  "strategy": "ddp",
+  "seq_len": 512,
+  "micro_bsz": 2,
+  "grad_accum": 2,
+  "dropout": 0.1,
+  "compile": 0,
+  "steps": 12,
+  "seed": 42,
+  "n_samples": 2048,
+  "lr": 0.0001,
+  "ckpt_level": "c2",
+  "save_at": -1,
+  "save_path": "<workspace>",
+  "resume": "<workspace>",
+  "save_every": 2,
+  "bench_save": 0,
+  "kill_at": 5,
+  "hang_at": -1,
+  "kill_marker": "<workspace>",
+  "auto_resume": "<workspace>",
+  "deterministic": 0,
+  "tag": "killC2",
+  "out": "results/runs/kill_C2.json"
+ },
+ "rank": 0,
+ "world": 2,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "cublas_workspace": null,
+ "deterministic_algorithms": false,
+ "pid": 38248,
+ "start_ts": "10:10:12.745",
+ "torch": "2.14.0+cu130",
+ "ckpt_semantics": "c1 + \u56db\u5957 RNG + LR scheduler + \u914d\u7f6e\u5feb\u7167\uff08\u5b8c\u6574\uff09",
+ "resumed_from": "<workspace>",
+ "resumed_at_step": 4,
+ "resumed_level": "c2",
+ "restored_fields": [
+  "model",
+  "optimizer",
+  "sampler",
+  "rng",
+  "scheduler"
+ ],
+ "losses": [
+  10.933996677398682,
+  10.6478271484375,
+  11.43066692352295,
+  10.65871524810791,
+  10.437766551971436,
+  10.408469676971436,
+  10.377151012420654,
+  9.930363655090332,
+  9.711766242980957,
+  10.246103286743164,
+  9.008603572845459,
+  8.840611457824707
+ ],
+ "step_times": [
+  1.8614455685019493,
+  0.4698403477668762,
+  0.47463299706578255,
+  0.45915181562304497,
+  0.4725451022386551,
+  0.46468981355428696,
+  0.47085417434573174,
+  0.4583817943930626,
+  0.4696841984987259,
+  0.4635399281978607,
+  0.4559251703321934,
+  0.46751775965094566
+ ],
+ "save_events": [
+  {
+   "step": 6,
+   "blocking_sec": 0.002205796539783478,
+   "total_sec": 6.1801468282938,
+   "bytes": 7152980623
+  },
+  {
+   "step": 8,
+   "blocking_sec": 0.002130884677171707,
+   "total_sec": 12.617678124457598,
+   "bytes": 7152980623
+  },
+  {
+   "step": 10,
+   "blocking_sec": 0.002151280641555786,
+   "total_sec": 6.153630539774895,
+   "bytes": 7152980623
+  },
+  {
+   "step": 12,
+   "blocking_sec": 0.0020849108695983887,
+   "total_sec": 12.469350658357143,
+   "bytes": 7152980623
+  },
+  {
+   "step": 14,
+   "blocking_sec": 0.0022030845284461975,
+   "total_sec": 13.169877510517836,
+   "bytes": 7152980623
+  },
+  {
+   "step": 16,
+   "blocking_sec": 0.00209948793053627,
+   "total_sec": 16.190836988389492,
+   "bytes": 7152980623
+  }
+ ],
+ "step_stamps": [
+  "10:10:23.159",
+  "10:10:23.630",
+  "10:10:30.285",
+  "10:10:30.744",
+  "10:10:43.835",
+  "10:10:44.300",
+  "10:10:50.925",
+  "10:10:51.384",
+  "10:11:04.324",
+  "10:11:04.787",
+  "10:11:18.414",
+  "10:11:18.881"
+ ],
+ "first_step": 4,
+ "last_step": 15,
+ "tokens_seen": 65536,
+ "end_ts": "10:11:35.073",
+ "step_ms_median": 468.6009790748358,
+ "mem_allocated_mib": 16561.28662109375
+}

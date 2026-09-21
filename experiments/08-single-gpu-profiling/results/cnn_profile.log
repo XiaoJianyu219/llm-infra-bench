@@ -1,0 +1,31 @@
+<workspace> FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+USDT:2026-09-16 09:43:50 55844:55844 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:43:51 55844:55844 SyncActivityProfilerHandler.cpp:46] profiler_stop
+模式: sum_of_outputs (fallback: AttributeError)
+step 54.6 ms  img/s 73.2  alloc 3840 MiB  resv 4074 MiB
+不同 kernel 数 102，每步 launch 约 1534 次；conv/GEMM 类实测 0.1 TFLOPS
+
+分类占比：
+  conv                34.03%     51.27 ms  kernels=1529
+  elementwise         25.04%     37.73 ms  kernels=1914
+  batchnorm           20.72%     31.22 ms  kernels=372
+  gemm                11.57%     17.44 ms  kernels=352
+  other                6.29%      9.48 ms  kernels=227
+  index_embed          1.24%      1.87 ms  kernels=18
+  reduction            0.85%      1.29 ms  kernels=165
+  optimizer            0.26%      0.39 ms  kernels=24
+
+Top 10:
+   12.06%  batchnorm        void cudnn::bn_bw_1C11_kernel_new<float, float, float2, 512, tru
+    8.91%  conv             void cudnn::engines_precompiled::nchwToNhwcKernel<float, float, 
+    8.30%  batchnorm        void cudnn::bn_fw_tr_1C11_kernel_NCHW<float, float, int, 512, tr
+    5.07%  other            void wgrad_alg0_engine<float, 128, 5, 5, 3, 3, 3, false, 512>(in
+    4.94%  elementwise      void at::native::vectorized_elementwise_kernel<4, at::native::(a
+    3.32%  conv             _5x_cudnn_ampere_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t
+    3.26%  elementwise      void at::native::elementwise_kernel<128, 2, at::native::gpu_kern
+    3.19%  conv             sm86_xmma_wgrad_implicit_gemm_indexed_tf32f32_tf32f32_f32_nhwckr
+    2.83%  gemm             void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_64x64_16x6_t
+    2.83%  elementwise      void at::native::vectorized_elementwise_kernel<4, at::native::(a
+saved results/cnn_train.json
+

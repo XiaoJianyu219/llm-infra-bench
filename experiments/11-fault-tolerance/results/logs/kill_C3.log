@@ -1,0 +1,81 @@
+W0918 10:19:39.898000 39022 torch/distributed/run.py:982] 
+W0918 10:19:39.898000 39022 torch/distributed/run.py:982] *****************************************
+W0918 10:19:39.898000 39022 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 10:19:39.898000 39022 torch/distributed/run.py:982] *****************************************
+[10:19:42.637] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 未传（=默认）；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:44,  2.98it/s]Loading weights:   0%|          | 1/311 [00:00<01:42,  3.02it/s]Loading weights:  92%|█████████▏| 287/311 [00:00<00:00, 854.35it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 685.79it/s]
+Loading weights: 100%|██████████| 311/311 [00:00<00:00, 728.10it/s]
+[10:19:46.510] auto-resume：目录里没有 ckpt，从头开始
+[10:19:48.057][rank0] step 0 done loss 11.943831
+[10:19:48.057] step 0 loss 11.94383144  1476.3 ms
+[10:19:48.057][rank1] step 0 done loss 16.174516
+[10:19:48.537][rank0] step 1 done loss 12.155918
+[10:19:48.537] step 1 loss 12.15591812  479.6 ms
+[10:19:48.537][rank1] step 1 done loss 13.859898
+[10:19:55.102][rank1] step 2 done loss 11.532861
+[10:19:55.102][rank0] step 2 done loss 12.403484
+[10:19:55.102] step 2 loss 12.40348434  480.3 ms
+[10:19:55.602][rank1] step 3 done loss 11.872114
+[10:19:55.603][rank0] step 3 done loss 10.474961
+[10:19:55.603] step 3 loss 10.47496080  500.5 ms
+[10:20:02.823][rank0] step 4 done loss 10.926353
+[10:20:02.823] step 4 loss 10.92635345  474.1 ms
+[10:20:02.823][rank1] step 4 done loss 11.312866
+[10:20:02.824][rank1 pid=39092] 第 5 步，kill -9 自己
+W0918 10:20:02.992000 39022 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 39091 closing signal SIGTERM
+E0918 10:20:03.208000 39022 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 39092) of binary: <workspace>
+[10:20:05.917] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 未传（=默认）；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:42,  3.02it/s]Loading weights:  90%|████████▉ | 279/311 [00:00<00:00, 832.67it/s]Loading weights:   0%|          | 1/311 [00:00<01:40,  3.09it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 682.36it/s]
+Loading weights:  94%|█████████▍| 292/311 [00:00<00:00, 892.18it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 713.35it/s]
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "<workspace>", line 392, in <module>
+[rank1]:     main()
+[rank1]:   File "<workspace>", line 253, in main
+[rank1]:     model = build(a)
+[rank1]:             ^^^^^^^^
+[rank1]:   File "<workspace>", line 123, in build
+[rank1]:     m = DDP(m, device_ids=[LOCAL_RANK], output_device=LOCAL_RANK,
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 1064, in __init__
+[rank1]:     _verify_param_shape_across_processes(self.process_group, parameters)
+[rank1]:   File "<workspace>", line 299, in _verify_param_shape_across_processes
+[rank1]:     return dist._verify_params_across_processes(process_group, tensors, logger)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: torch.distributed.DistBackendError: NCCL error in: /__w/pytorch/pytorch/torch/csrc/distributed/c10d/NCCLUtils.cpp:92, remote process exited or there was a network error, NCCL version 2.30.7
+[rank1]: ncclRemoteError: A call failed possibly due to a network error or a remote process exiting prematurely.
+[rank1]: Last error:
+[rank1]: ncclOsSocketPollConnect: connect to 172.17.0.2<37693> returned Connection refused, exceeded error retry count after 35 attempts
+W0918 10:21:10.048000 39022 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 39144 closing signal SIGTERM
+E0918 10:21:10.265000 39022 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 1 (pid: 39145) of binary: <workspace>
+[10:21:12.765] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 未传（=默认）；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:37,  3.19it/s]Loading weights:  97%|█████████▋| 301/311 [00:00<00:00, 934.94it/s]Loading weights:   0%|          | 1/311 [00:00<01:37,  3.20it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 739.39it/s]
+Loading weights: 100%|██████████| 311/311 [00:00<00:00, 765.00it/s]
+[10:21:16.725] auto-resume 选中 <workspace>
+[10:21:20.495] 从 <workspace> 恢复：level=c2 step=4 恢复了 ['model', 'optimizer', 'sampler', 'rng', 'scheduler', 'rng(本 rank 旁路)']
+[10:21:22.145][rank1] step 4 done loss 11.312866
+[10:21:22.153][rank0] step 4 done loss 10.926353
+[10:21:22.153] step 4 loss 10.92635345  1657.4 ms
+[10:21:22.624][rank0] step 5 done loss 10.653313
+[10:21:22.624] step 5 loss 10.65331268  471.3 ms
+[10:21:22.624][rank1] step 5 done loss 10.639346
+[10:21:29.388][rank0] step 6 done loss 11.424757
+[10:21:29.389] step 6 loss 11.42475700  489.2 ms
+[10:21:29.389][rank1] step 6 done loss 11.325968
+[10:21:29.862][rank1] step 7 done loss 10.339225
+[10:21:29.863][rank0] step 7 done loss 10.659636
+[10:21:29.863] step 7 loss 10.65963554  473.9 ms
+[10:21:36.587][rank0] step 8 done loss 10.377901
+[10:21:36.588] step 8 loss 10.37790060  487.4 ms
+[10:21:36.588][rank1] step 8 done loss 10.229838
+[10:21:37.082][rank0] step 9 done loss 10.347053[10:21:37.082][rank1] step 9 done loss 10.105715
+
+[10:21:54.617][rank0] step 10 done loss 10.377602
+[10:21:54.617][rank1] step 10 done loss 9.933567
+[10:21:55.097][rank1] step 11 done loss 10.110786
+[10:21:55.097][rank0] step 11 done loss 9.930471
+[10:22:07.780][rank0] step 12 done loss 9.730348
+[10:22:07.780][rank1] step 12 done loss 9.559207
+[10:22:08.255][rank1] step 13 done loss 9.996435
+[10:22:08.255][rank0] step 13 done loss 10.272445
+saved results/runs/kill_C3.json
+

@@ -1,0 +1,66 @@
+===== Day12 第1节 环境判定：AutoDL 容器内 =====
+2026-09-18 16:36:03
+autodl-container-rtgh0xprc8-75f62876
+
+--- which docker dockerd containerd podman nerdctl kind minikube kubectl ---
+
+--- docker info ---
+bash: line 7: docker: command not found
+
+--- systemctl status docker ---
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+
+--- /proc/1/cgroup ---
+0::/
+
+--- /proc/1/comm（1 号进程是谁）---
+bash
+
+--- 是否 privileged（能否访问 /dev 关键设备、能否 mknod）---
+ls: cannot access '/dev/fuse': No such file or directory
+Current: cap_chown,cap_dac_override,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_net_bind_service,cap_net_raw,cap_sys_chroot,cap_mknod,cap_audit_write,cap_setfcap=ep
+Bounding set =cap_chown,cap_dac_override,cap_fowner,cap_fsetid,cap_kill,cap_setgid,cap_setuid,cap_setpcap,cap_net_bind_service,cap_net_raw,cap_sys_chroot,cap_mknod,cap_audit_write,cap_setfcap
+Ambient set =
+cgroup v2 挂载: 1
+cgroup on /sys/fs/cgroup type cgroup2 (ro,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+
+--- 内核 / 发行版 ---
+Linux autodl-container-rtgh0xprc8-75f62876 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+
+===== 退路探测：user namespace / rootless 构建 =====
+--- max_user_namespaces ---
+4126304
+--- unshare -Ur 能否创建 user ns ---
+unshare: unshare failed: Operation not permitted
+FAIL: user ns 不可用
+--- newuidmap/newgidmap（rootless 需要）---
+--- /etc/subuid ---
+--- apt 源是否可用 ---
+podman:
+  Installed: (none)
+  Candidate: 3.4.4+ds1-1ubuntu1.22.04.3
+  Version table:
+--- overlayfs 能否在容器内挂载 ---
+1
+
+===== 载体依赖 =====
+--- onnxruntime ---
+onnxruntime            1.30.0
+onnxruntime-gpu        1.30.0
+--- best.onnx ---
+-rw-r--r-- 1 root root 13141683 Sep 14 22:13 /root/autodl-tmp/sod/best.onnx
+-rw-r--r-- 1 root root 13107200 Sep 14 22:13 /root/autodl-tmp/sod/best.onnx.data
+--- Day7 服务代码 ---
+DEPLOY.md
+Dockerfile
+USER_RUN.md
+__pycache__
+auth_status.py
+build.py
+checkpoint.py
+client.py
+closeout.sh
+common.py

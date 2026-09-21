@@ -1,0 +1,10 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:08,  4.51it/s]Loading weights:  31%|███       | 97/311 [00:00<00:00, 375.73it/s]Loading weights:  49%|████▉     | 153/311 [00:00<00:00, 409.91it/s]Loading weights:  66%|██████▌   | 205/311 [00:00<00:00, 373.98it/s]Loading weights:  80%|████████  | 249/311 [00:00<00:00, 391.59it/s]Loading weights: 100%|█████████▉| 310/311 [00:00<00:00, 452.32it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 385.30it/s]
+<workspace> UserWarning: Flash Attention defaults to a non-deterministic algorithm. To explicitly enable determinism call torch.use_deterministic_algorithms(True, warn_only=False). (Triggered internally at /__w/pytorch/pytorch/aten/src/ATen/native/transformers/cuda/attention_backward.cu:156.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[09:44:34.403] step 0 loss 12.98678994  2211.2 ms
+[09:44:35.671] step 1 loss 13.09252906  1268.0 ms
+[09:44:36.916] step 2 loss 12.33558452  1245.1 ms
+[09:44:38.197] step 3 loss 11.18834531  1280.5 ms
+[09:44:39.457] step 4 loss 10.92708230  1259.7 ms
+saved results/runs/determinism_det_1.json
+

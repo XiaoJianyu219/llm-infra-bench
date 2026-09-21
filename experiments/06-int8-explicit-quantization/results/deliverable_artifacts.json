@@ -1,0 +1,42 @@
+{
+  "best_int8_qdq.onnx": {
+    "bytes": 6991095,
+    "sha256": "593cec6a7c399d87546045acfa9f711a155fa663224014ee5a99858941aa6f4a"
+  },
+  "best_int8_qdq.engine": {
+    "bytes": 220409252,
+    "sha256": "828810d83f55774851a61538b0283d19b3e84cbf7ac575b7aec89182ed40130a"
+  },
+  "int8_full.onnx": {
+    "bytes": 3553587,
+    "sha256": "8ccc93628b935c978b3219e65f263141099e817edcd23846a97e670991a08703"
+  },
+  "int8_full.engine": {
+    "bytes": 94086812,
+    "sha256": "92a4b174559629ebe167e2aaf5af67141cdf4704f1307580ae091d1f6ea793dc"
+  },
+  "int8_head_excluded.onnx": {
+    "bytes": 6991095,
+    "sha256": "593cec6a7c399d87546045acfa9f711a155fa663224014ee5a99858941aa6f4a"
+  },
+  "int8_head_excluded.engine": {
+    "bytes": 220409252,
+    "sha256": "828810d83f55774851a61538b0283d19b3e84cbf7ac575b7aec89182ed40130a"
+  },
+  "day06_dynamic.onnx": {
+    "bytes": 12128016,
+    "sha256": "8e9bd60e16c7280e419938575d1c2eb7ed099c4f05bff0795d18c3ccb080b063"
+  },
+  "day06_dynamic.engine": {
+    "bytes": 20257628,
+    "sha256": "9f56635a95337245c35ae4948b52bd4029fc5f47600f686bf64e8509d356d18d"
+  },
+  "day06_fixed1056.onnx": {
+    "bytes": 12113812,
+    "sha256": "c5dbc9145d8c270a6a181e480cb726b1895ab66f1ce1576fa25cc20403ef8b45"
+  },
+  "day06_fixed1056.engine": {
+    "bytes": 290903932,
+    "sha256": "c4575d298e25157aea498ce4caf384221c0ab27b2bb67aa7555c379acdd9e3ff"
+  }
+}

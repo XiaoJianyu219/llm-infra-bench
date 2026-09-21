@@ -1,0 +1,39 @@
+########## 2.4-C3 弹性重启 + 逐 rank RNG + 严格确定 ##########
+2026-09-18 10:19:38
+[10:19:46.510] auto-resume：目录里没有 ckpt，从头开始
+[10:19:48.057][rank0] step 0 done loss 11.943831
+[10:19:48.057][rank1] step 0 done loss 16.174516
+[10:19:48.537][rank0] step 1 done loss 12.155918
+[10:19:48.537][rank1] step 1 done loss 13.859898
+[10:19:55.102][rank1] step 2 done loss 11.532861
+[10:19:55.102][rank0] step 2 done loss 12.403484
+[10:19:55.602][rank1] step 3 done loss 11.872114
+[10:19:55.603][rank0] step 3 done loss 10.474961
+[10:20:02.823][rank0] step 4 done loss 10.926353
+[10:20:02.823][rank1] step 4 done loss 11.312866
+[10:20:02.824][rank1 pid=39092] 第 5 步，kill -9 自己
+E0918 10:20:03.208000 39022 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 39092) of binary: <workspace>
+E0918 10:21:10.265000 39022 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 1 (pid: 39145) of binary: <workspace>
+[10:21:16.725] auto-resume 选中 <workspace>
+[10:21:20.495] 从 <workspace> 恢复：level=c2 step=4 恢复了 ['model', 'optimizer', 'sampler', 'rng', 'scheduler', 'rng(本 rank 旁路)']
+[10:21:22.145][rank1] step 4 done loss 11.312866
+[10:21:22.153][rank0] step 4 done loss 10.926353
+[10:21:22.624][rank0] step 5 done loss 10.653313
+[10:21:22.624][rank1] step 5 done loss 10.639346
+[10:21:29.388][rank0] step 6 done loss 11.424757
+[10:21:29.389][rank1] step 6 done loss 11.325968
+[10:21:29.862][rank1] step 7 done loss 10.339225
+[10:21:29.863][rank0] step 7 done loss 10.659636
+[10:21:36.587][rank0] step 8 done loss 10.377901
+[10:21:36.588][rank1] step 8 done loss 10.229838
+[10:21:37.082][rank0] step 9 done loss 10.347053[10:21:37.082][rank1] step 9 done loss 10.105715
+[10:21:54.617][rank0] step 10 done loss 10.377602
+[10:21:54.617][rank1] step 10 done loss 9.933567
+[10:21:55.097][rank1] step 11 done loss 10.110786
+--- 掉卡前后 step 4 两个 rank 的 loss 是否逐位一致 ---
+rank0 step 4 出现 2 次：['10.926353', '10.926353'] -> 逐位一致
+rank1 step 4 出现 2 次：['11.312866', '11.312866'] -> 逐位一致
+0, 0 MiB
+1, 0 MiB
+C3DONE 2026-09-18 10:22:26
+

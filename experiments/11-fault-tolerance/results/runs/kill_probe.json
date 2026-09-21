@@ -1,0 +1,51 @@
+{
+ "args": {
+  "strategy": "ddp",
+  "seq_len": 512,
+  "micro_bsz": 2,
+  "grad_accum": 2,
+  "dropout": 0.1,
+  "compile": 0,
+  "steps": 1,
+  "seed": 42,
+  "n_samples": 2048,
+  "lr": 0.0001,
+  "ckpt_level": "c2",
+  "save_at": -1,
+  "save_path": "",
+  "resume": "",
+  "save_every": 0,
+  "bench_save": 0,
+  "kill_at": -1,
+  "kill_marker": "",
+  "auto_resume": "",
+  "deterministic": 0,
+  "tag": "probe",
+  "out": "results/runs/kill_probe.json"
+ },
+ "rank": 0,
+ "world": 2,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "cublas_workspace": null,
+ "deterministic_algorithms": false,
+ "pid": 36900,
+ "start_ts": "09:57:01.962",
+ "torch": "2.14.0+cu130",
+ "ckpt_semantics": "c1 + \u56db\u5957 RNG + LR scheduler + \u914d\u7f6e\u5feb\u7167\uff08\u5b8c\u6574\uff09",
+ "losses": [
+  11.943831443786621
+ ],
+ "step_times": [
+  1.4619175679981709
+ ],
+ "save_events": [],
+ "step_stamps": [
+  "09:57:08.753"
+ ],
+ "first_step": 0,
+ "last_step": 0,
+ "tokens_seen": 4096,
+ "end_ts": "09:57:08.753",
+ "step_ms_median": 1461.9175679981709,
+ "mem_allocated_mib": 12013.38525390625
+}

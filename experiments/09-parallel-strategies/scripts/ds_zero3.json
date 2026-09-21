@@ -1,0 +1,40 @@
+{
+ "_comment": "Day09 ZeRO-3。三个 batch 字段满足 train_batch_size = micro × accum × world；runner 会按实际 world_size 覆盖这三个值并把生效值打进日志（任务书 4.5）。这里的静态值对应 world_size=2。",
+ "train_micro_batch_size_per_gpu": 4,
+ "gradient_accumulation_steps": 1,
+ "train_batch_size": 8,
+ "bf16": {
+  "enabled": true
+ },
+ "zero_optimization": {
+  "stage": 3,
+  "overlap_comm": true,
+  "contiguous_gradients": true,
+  "reduce_bucket_size": 50000000.0,
+  "reduce_scatter": true,
+  "stage3_prefetch_bucket_size": 50000000.0,
+  "stage3_param_persistence_threshold": 100000.0,
+  "stage3_max_live_parameters": 1000000000.0,
+  "stage3_max_reuse_distance": 1000000000.0,
+  "stage3_gather_16bit_weights_on_model_save": false
+ },
+ "optimizer": {
+  "type": "AdamW",
+  "params": {
+   "lr": 0.0001,
+   "betas": [
+    0.9,
+    0.95
+   ],
+   "eps": 1e-08,
+   "weight_decay": 0.1,
+   "torch_adam": true,
+   "adam_w_mode": true
+  }
+ },
+ "gradient_clipping": 0.0,
+ "steps_per_print": 100000,
+ "wall_clock_breakdown": false,
+ "zero_allow_untested_optimizer": true,
+ "_optimizer_note": "torch_adam=true：强制用 torch.optim.AdamW 而不是 DeepSpeed 的 FusedAdam。两个原因：(1) 本机没装 ninja，FusedAdam 要 JIT 编译会直接报错；(2) 更重要的是 DDP 与 FSDP 用的都是 torch.optim.AdamW，若只有 ZeRO 换成 FusedAdam，吞吐对照就不是单变量了 —— Day 08 实测优化器占单步 CUDA 时间约 29%，换 kernel 足以改变结论。"
+}

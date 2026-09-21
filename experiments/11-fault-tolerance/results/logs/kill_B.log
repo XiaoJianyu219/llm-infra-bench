@@ -1,0 +1,61 @@
+W0918 09:57:29.917000 37082 torch/distributed/run.py:982] 
+W0918 09:57:29.917000 37082 torch/distributed/run.py:982] *****************************************
+W0918 09:57:29.917000 37082 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 09:57:29.917000 37082 torch/distributed/run.py:982] *****************************************
+[09:57:31.621] 进程组已建立 world=2，默认集合超时 = 0:10:00；TORCH_NCCL_ASYNC_ERROR_HANDLING=0 TORCH_NCCL_TIMEOUT_MS=60000
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:18,  3.97it/s]Loading weights:  93%|█████████▎| 290/311 [00:00<00:00, 1035.62it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 848.76it/s] 
+Loading weights:   0%|          | 1/311 [00:00<01:16,  4.05it/s]Loading weights:  97%|█████████▋| 301/311 [00:00<00:00, 1095.53it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 868.58it/s] 
+[09:57:37.950][rank0] step 0 done loss 11.943831
+[09:57:37.950] step 0 loss 11.94383144  1454.2 ms
+[09:57:37.952][rank1] step 0 done loss 16.174516
+[09:57:38.403][rank0] step 1 done loss 12.143777[09:57:38.403][rank1] step 1 done loss 13.858431
+
+[09:57:38.403] step 1 loss 12.14377737  452.7 ms
+[09:57:38.854][rank1] step 2 done loss 11.534030
+[09:57:38.855][rank0] step 2 done loss 12.398082
+[09:57:38.855] step 2 loss 12.39808226  451.1 ms
+[09:57:39.306][rank1] step 3 done loss 11.865146
+[09:57:39.306][rank1 pid=37152] 第 4 步，kill -9 自己
+[09:57:39.306][rank0] step 3 done loss 10.476068
+[09:57:39.306] step 3 loss 10.47606754  451.4 ms
+W0918 09:57:39.531000 37082 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 37151 closing signal SIGTERM
+E0918 09:57:39.746000 37082 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 37152) of binary: <workspace>
+Traceback (most recent call last):
+  File "<workspace>", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "<workspace>", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1138, in main
+    run(args)
+  File "<workspace>", line 1129, in run
+    elastic_launch(
+  File "<workspace>", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "<workspace>", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=======================================================
+scripts/train_ft.py FAILED
+-------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-18_09:57:39
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : -15 (pid: 37151)  (SIGTERM)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 37151
+-------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-18_09:57:39
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : -9 (pid: 37152)  (SIGKILL)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 37152
+=======================================================
+

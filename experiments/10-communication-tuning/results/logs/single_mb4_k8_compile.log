@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:35,  3.24it/s]Loading weights:  33%|███▎      | 103/311 [00:00<00:00, 320.55it/s]Loading weights:  54%|█████▍    | 168/311 [00:00<00:00, 422.07it/s]Loading weights:  75%|███████▍  | 232/311 [00:00<00:00, 485.77it/s]Loading weights:  95%|█████████▍| 294/311 [00:00<00:00, 448.44it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 394.27it/s]
+[single_mb4_k8_compile] step 787.7 ms (std 0.21, 极差 0.06%) 20799 tok/s  MFU 36.85%  alloc 14964 resv 15030 smi 15511
+saved results/runs/single_mb4_k8_compile.json
+

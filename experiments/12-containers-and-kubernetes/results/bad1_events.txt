@@ -1,0 +1,10 @@
+Events:
+  Type     Reason     Age                    From               Message
+  ----     ------     ----                   ----               -------
+  Normal   Scheduled  5m15s                  default-scheduler  Successfully assigned default/sod-bad1-846dcc659c-dbwmx to day12-control-plane
+  Normal   Created    3m6s (x6 over 5m14s)   kubelet            spec.containers{sod}: Created container: sod
+  Normal   Started    3m6s (x6 over 5m14s)   kubelet            spec.containers{sod}: Started container sod
+  Normal   Killing    2m50s (x6 over 4m55s)  kubelet            spec.containers{sod}: Container sod failed liveness probe, will be restarted
+  Normal   Pulled     2m47s (x7 over 5m14s)  kubelet            spec.containers{sod}: Container image "sod-onnx-cpu:latest" already present on machine
+  Warning  Unhealthy  2m30s (x21 over 5m5s)  kubelet            spec.containers{sod}: Liveness probe failed: HTTP probe failed with statuscode: 503
+  Warning  BackOff    2m29s (x4 over 3m32s)  kubelet            spec.containers{sod}: Back-off restarting failed container sod in pod sod-bad1-846dcc659c-dbwmx_default(4c655898-f853-43c0-bf76-3c848ed77a54)

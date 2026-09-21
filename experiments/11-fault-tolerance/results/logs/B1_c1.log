@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:33,  9.19it/s]Loading weights:  26%|██▋       | 82/311 [00:00<00:00, 461.64it/s]Loading weights:  44%|████▍     | 138/311 [00:00<00:00, 497.55it/s]Loading weights:  61%|██████    | 189/311 [00:00<00:00, 488.73it/s]Loading weights:  77%|███████▋  | 239/311 [00:00<00:00, 491.98it/s]Loading weights:  93%|█████████▎| 289/311 [00:00<00:00, 465.33it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 440.44it/s]
+[09:50:10.085] step 0 loss 12.98678994  2228.7 ms
+[09:50:11.360] step 1 loss 13.09176266  1275.2 ms
+[09:50:12.629] step 2 loss 12.33382344  1269.4 ms
+[09:50:13.878] step 3 loss 11.18933368  1249.0 ms
+[09:50:15.105] step 4 loss 10.93323863  1226.0 ms
+[09:50:25.962] 在 step 8 保存 <workspace> GB，阻塞 0.00 s，总 7.18 s）
+saved results/runs/B1_c1.json
+

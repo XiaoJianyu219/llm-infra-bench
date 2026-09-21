@@ -1,0 +1,709 @@
+Creating new Ultralytics Settings v0.0.6 file ✅ 
+View Ultralytics Settings with 'yolo settings' or at '<workspace>
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+<workspace> FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+simplify_return: 4
+torch 2.14.0+cu130 cuda 13.0 TRT 11.3.0.99
+CalibrationDataReader dir ['__abstractmethods__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__module__', '__ne__', '__new__', '__next__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_abc_impl', 'get_next', 'set_range']
+quantize_static signature (model_input: 'str | Path | onnx.ModelProto', model_output: 'str | Path', calibration_data_reader: 'CalibrationDataReader | None' = None, quant_format=<QuantFormat.QDQ: 1>, op_types_to_quantize=None, per_channel=False, reduce_range=False, activation_type=<QuantType.QInt8: 0>, weight_type=<QuantType.QInt8: 0>, nodes_to_quantize=None, nodes_to_exclude=None, use_external_data_format=False, calibrate_method=<CalibrationMethod.MinMax: 0>, calibration_providers=None, extra_options=None, calibration_cache_path: 'str | Path | None' = None)
+quantize_static doc Given an onnx model and calibration data reader, create a quantized onnx model and save it into a file.
+``QuantFormat.QDQ`` has been the recommended format since 1.11. Recommended values for
+``activation_type`` and ``weight_type`` depend on the target hardware: see "Choosing parameters
+for CPU inference" below for CPU guidance, or use symmetric ``QuantType.QInt8`` for both
+activations and weights when targeting GPU/TRT.
+
+Choosing parameters for CPU inference:
+
+- Format: ``QuantFormat.QDQ`` is strongly preferred over ``QOperator`` for CPU inference since
+  ORT 1.11, as CPU kernels are optimized for the QDQ representation.
+
+- x86/x64 CPU without VNNI (e.g., most pre-Skylake-SP desktop/laptop CPUs):
+  Use ``activation_type=QuantType.QUInt8`` and ``weight_type=QuantType.QInt8``, and set
+  ``reduce_range=True``. The ``reduce_range`` flag quantizes weights to 7-bit to reduce the risk
+  of integer saturation on CPUs that typically lack the VNNI dot-product instruction; this is
+  particularly helpful for per-channel weight quantization.
+
+- x86/x64 CPU with VNNI (e.g., Intel Skylake-SP/Cascade Lake/Ice Lake/Sapphire Rapids or AMD
+  Zen4 and later, though exact support varies by SKU):
+  Use ``activation_type=QuantType.QUInt8`` and ``weight_type=QuantType.QInt8`` with
+  ``reduce_range=False``. VNNI-capable cores typically accumulate 8-bit products without
+  saturation, so the range reduction is often unnecessary.
+
+- ARM CPU (e.g., Cortex-A, Apple Silicon, Graviton):
+  ARM cores generally handle symmetric ``QInt8`` activations well. Use
+  ``activation_type=QuantType.QInt8`` and ``weight_type=QuantType.QInt8`` with
+  ``reduce_range=False``. Asymmetric (``QUInt8``) activations also work but symmetric is often
+  preferred by ARM-optimized kernels.
+
+- per_channel: Setting ``per_channel=False`` (the default) gives the best throughput on CPU.
+  Setting ``per_channel=True`` can improve accuracy for models with weight distributions that
+  vary across output channels (e.g., ResNet-style convolutions) at a small performance cost.
+
+Note: this guidance applies to models produced by ``quantize_static``. The separate
+``convert_onnx_models_to_ort`` tool's ``--target_platform`` flag is unrelated and only affects
+ORT format conversion; it does not change the quantization parameters above.
+
+For the full quantization guide including execution-provider-specific considerations, see
+https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html
+
+Args:
+
+    model_input: file path of model or ModelProto to quantize
+    model_output: file path of quantized model
+    calibration_data_reader: a calibration data reader. It
+        enumerates calibration data and generates inputs for the
+        original model. May be None if calibration_cache_path points to an
+        existing cache file.
+    calibration_cache_path: optional path to a JSON calibration cache. If
+        the file already exists, calibration inference is skipped and the
+        cached tensor ranges are loaded instead. If the file does not yet
+        exist, calibration runs normally and the result is saved to this
+        path for future reuse.
+    quant_format: QuantFormat{QOperator, QDQ}.
+        QOperator format quantizes the model with quantized operators directly.
+        QDQ format quantize the model by inserting QuantizeLinear/DeQuantizeLinear on the tensor.
+    activation_type:
+        quantization data type of activation. Please refer to
+        https://onnxruntime.ai/docs/performance/quantization.html for more details on data type selection
+    calibrate_method:
+        Current calibration methods supported are MinMax and Entropy.
+            Please use CalibrationMethod.MinMax or CalibrationMethod.Entropy as options.
+    op_types_to_quantize:
+            specify the types of operators to quantize, like ['Conv'] to quantize Conv only.
+            It quantizes all supported operators by default.
+    per_channel: quantize weights per channel
+    reduce_range:
+        quantize weights with 7-bits. It may improve the accuracy for some models running on non-VNNI machine,
+        especially for per-channel mode
+    weight_type:
+        quantization data type of weight. Please refer to
+        https://onnxruntime.ai/docs/performance/quantization.html for more details on data type selection
+    nodes_to_quantize:
+        List of nodes names to quantize. When this list is not None only the nodes in this list
+        are quantized.
+        example:
+        [
+            'Conv__224',
+            'Conv__252'
+        ]
+    nodes_to_exclude:
+        List of nodes names to exclude. The nodes in this list will be excluded from quantization
+        when it is not None.
+    use_external_data_format: option used for large size (>2GB) model. Set to False by default.
+    calibration_providers: Execution providers to run the session during calibration. Default is None which uses
+        [ "CPUExecutionProvider" ]
+    extra_options:
+        key value pair dictionary for various options in different case. Current used:
+            extra.Sigmoid.nnapi = True/False  (Default is False)
+            ActivationSymmetric = True/False: symmetrize calibration data for activations (default is False).
+            ActivationRestrictedAsymmetric = True/False: (uint8 activations only) snap zero-point to qmin
+                (when rmin>=0) or the midpoint of the quantized range [qmin, qmax] (when rmin<0);
+                recompute scale accordingly (default is False).
+            WeightSymmetric = True/False: symmetrize calibration data for weights (default is True).
+            EnableSubgraph = True/False : Default is False. If enabled, subgraph will be quantized.
+                                          Dyanmic mode currently is supported. Will support more in the future.
+            ForceQuantizeNoInputCheck = True/False :
+                By default, some latent operators like maxpool, transpose, do not quantize if their input is not
+                quantized already. Setting to True to force such operator always quantize input and so generate
+                quantized output. Also, the True behavior could be disabled per node using the nodes_to_exclude.
+            MatMulConstBOnly = True/False:
+                Default is False for static mode. If enabled, only MatMul with const B will be quantized.
+            AddQDQPairToWeight = True/False :
+                Default is False which quantizes floating-point weight and feeds it to solely inserted
+                DeQuantizeLinear node. If True, it remains floating-point weight and inserts both
+                QuantizeLinear/DeQuantizeLinear nodes to weight.
+            OpTypesToExcludeOutputQuantization = list of op type :
+                Default is []. If any op type is specified, it won't quantize the output of ops with this
+                specific op types.
+            DedicatedQDQPair = True/False :
+                Default is False. When inserting QDQ pair, multiple nodes can share a single QDQ pair as their
+                inputs. If True, it will create identical and dedicated QDQ pair for each node.
+            QDQOpTypePerChannelSupportToAxis = dictionary :
+                Default is {}. Set channel axis for specific op type, for example: {'MatMul': 1}, and it's
+                effective only when per channel quantization is supported and per_channel is True. If specific
+                op type supports per channel quantization but not explicitly specified with channel axis,
+                default channel axis will be used.
+            CalibTensorRangeSymmetric = True/False :
+                Default is False. If enabled, the final range of tensor during calibration will be explicitly
+                set to symmetric to central point "0".
+            CalibStridedMinMax = Optional[int] :
+                Default is None. If set to an integer, during calculation of the min-max, only stride amount of
+                data will be used and then all results will be merged in the end.
+            CalibMovingAverage = True/False :
+                Default is False. If enabled, the moving average of the minimum and maximum values will be
+                computed when the calibration method selected is MinMax.
+            CalibMovingAverageConstant = float :
+                Default is 0.01. Constant smoothing factor to use when computing the moving average of the
+                minimum and maximum values. Effective only when the calibration method selected is MinMax and
+                when CalibMovingAverage is set to True.
+            CalibMaxIntermediateOutputs = Optional[int] :
+                Default is None. If set to an integer, during calculation of the min-max range of the tensors
+                it will load at max value number of outputs before computing and merging the range. This will
+                produce the same result as all computing with None, but is more memory efficient.
+            SmoothQuant = True/False :
+                Default is False. If enabled, SmoothQuant algorithm will be applied before quantization to do
+                fake input channel quantization.
+            SmoothQuantAlpha = float :
+                Default is 0.5. It only works if SmoothQuant is True. It controls the difficulty of weight
+                and activation quantization. A larger alpha value could be used on models with more significant
+                activation outliers to migrate more quantization difficulty to weights.
+            SmoothQuantFolding = True/False :
+                Default is True. It only works if SmoothQuant is True. If enabled, inserted Mul ops during
+                SmoothQuant will be folded into the previous op if the previous op is foldable.
+            UseQDQContribOps = True/False :
+                Default is False. If enabled, the inserted QuantizeLinear and DequantizeLinear ops will have the
+                `com.microsoft` domain, which forces use of ONNX Runtime's QuantizeLinear and DequantizeLinear
+                contrib op implementations. The contrib op implementations may support features not standardized
+                into the ONNX specification (e.g., 16-bit quantization types).
+            MinimumRealRange = float|None :
+                Default is None. If set to a floating-point value, the calculation of the quantization parameters
+                (i.e., scale and zero point) will enforce a minimum range between rmin and rmax. If (rmax - rmin)
+                is less than the specified minimum range, rmax will be set to rmin + MinimumRealRange. This is
+                necessary for EPs like QNN that require a minimum floating-point range when determining
+                quantization parameters.
+            TensorQuantOverrides = dictionary :
+                Default is {}. Set tensor quantization overrides. The key is a tensor name and the value is a
+                list of dictionaries. For per-tensor quantization, the list contains a single dictionary. For
+                per-channel quantization, the list contains a dictionary for each channel in the tensor.
+                Each dictionary contains optional overrides with the following keys and values.
+                    'quant_type' = QuantType : The tensor's quantization data type.
+                    'scale' =  Float         : The scale value to use. Must also specify `zero_point` if set.
+                    'zero_point' = Int       : The zero-point value to use. Must also specify `scale` is set.
+                    'symmetric' = Bool       : If the tensor should use symmetric quantization. Invalid if also
+                                               set `scale` or `zero_point`.
+                    'reduce_range' = Bool    : If the quantization range should be reduced. Invalid if also
+                                               set `scale` or `zero_point`.
+                    'rmax' = Float           : Override the maximum real tensor value in calibration data.
+                                               Invalid if also set `scale` or `zero_point`.
+                    'rmin' = Float           : Override the minimum real tensor value in calibration data.
+                                               Invalid if also set `scale` or `zero_point`.
+            QDQKeepRemovableActivations = True/False:
+                Default is False. If true, "removable" activations (e.g., Clip or Relu) will not be removed, and
+                will be explicitly represented in the QDQ model. If false, these activations are automatically
+                removed if activations are asymmetrically quantized. Keeping these activations is necessary if
+                optimizations or EP transformations will later remove QuantizeLinear/DequantizeLinear
+                operators from the model.
+            QDQDisableWeightAdjustForInt32Bias = True/False:
+                Default is False. If true, QDQ quantizer will not adjust the weight's scale when the bias
+                has a scale (input_scale * weight_scale) that is too small.
+Builder dir ['__class__', '__del__', '__delattr__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_pybind11_conduit_v1_', 'build_engine_with_config', 'build_serialized_network', 'build_serialized_network_to_stream', 'create_builder_config', 'create_network', 'create_optimization_profile', 'error_recorder', 'get_plugin_registry', 'gpu_allocator', 'is_network_supported', 'logger', 'max_DLA_batch_size', 'max_threads', 'num_DLA_cores', 'reset']
+IBuilderConfig dir ['DLA_core', '__class__', '__del__', '__delattr__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_pybind11_conduit_v1_', 'add_optimization_profile', 'all_build_routes', 'avg_timing_iterations', 'build_route', 'builder_optimization_level', 'can_run_on_DLA', 'clear_flag', 'create_timing_cache', 'default_device_type', 'engine_capability', 'flags', 'get_device_type', 'get_flag', 'get_memory_pool_limit', 'get_preview_feature', 'get_tactic_sources', 'get_timing_cache', 'hardware_compatibility_level', 'is_device_type_set', 'l2_limit_for_tiling', 'max_aux_streams', 'max_num_tactics', 'num_optimization_profiles', 'plugins_to_serialize', 'profile_stream', 'profiling_verbosity', 'progress_monitor', 'remote_auto_tuning_config', 'reset', 'reset_device_type', 'runtime_platform', 'set_device_type', 'set_flag', 'set_memory_pool_limit', 'set_preview_feature', 'set_tactic_sources', 'set_timing_cache', 'tiling_optimization_level']
+IOptimizationProfile dir ['__bool__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__nonzero__', '__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_pybind11_conduit_v1_', 'extra_memory_target', 'get_shape', 'get_shape_input', 'set_shape', 'set_shape_input']
+IExecutionContext dir ['__class__', '__del__', '__delattr__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_pybind11_conduit_v1_', 'active_optimization_profile', 'all_binding_shapes_specified', 'debug_sync', 'device_memory', 'engine', 'enqueue_emits_profile', 'error_recorder', 'execute_async_v3', 'execute_v2', 'get_debug_listener', 'get_debug_state', 'get_input_consumed_event', 'get_max_output_size', 'get_output_allocator', 'get_runtime_config', 'get_tensor_address', 'get_tensor_shape', 'get_tensor_strides', 'infer_shapes', 'name', 'nvtx_verbosity', 'persistent_cache_limit', 'profiler', 'report_to_profiler', 'set_all_tensors_debug_state', 'set_aux_streams', 'set_communicator', 'set_debug_listener', 'set_device_memory', 'set_input_consumed_event', 'set_input_shape', 'set_optimization_profile_async', 'set_output_allocator', 'set_tensor_address', 'set_tensor_debug_state', 'temporary_allocator', 'unfused_tensors_debug_state', 'update_device_memory_size_for_shapes']
+torch.onnx.export signature (model: 'torch.nn.Module | torch.export.ExportedProgram | torch.jit.ScriptModule | torch.jit.ScriptFunction', args: 'tuple[Any, ...]' = (), f: 'str | os.PathLike | None' = None, *, kwargs: 'dict[str, Any] | None' = None, verbose: 'bool | None' = None, input_names: 'Sequence[str] | None' = None, output_names: 'Sequence[str] | None' = None, opset_version: 'int | None' = None, dynamo: 'bool' = True, external_data: 'bool' = True, dynamic_shapes: 'dict[str, Any] | tuple[Any, ...] | list[Any] | None' = None, custom_translation_table: 'dict[Callable, Callable] | None' = None, report: 'bool' = False, optimize: 'bool' = True, verify: 'bool' = False, profile: 'bool' = False, dump_exported_program: 'bool' = False, artifacts_dir: 'str | os.PathLike' = '.', export_params: 'bool' = True, keep_initializers_as_inputs: 'bool' = False, dynamic_axes: 'Mapping[str, Mapping[int, str]] | Mapping[str, Sequence[int]] | None' = None, training: '_C_onnx.TrainingMode' = <TrainingMode.EVAL: 0>, operator_export_type: '_C_onnx.OperatorExportTypes' = <OperatorExportTypes.ONNX: 0>, do_constant_folding: 'bool' = True, custom_opsets: 'Mapping[str, int] | None' = None, export_modules_as_functions: 'bool | Collection[type[torch.nn.Module]]' = False, autograd_inlining: 'bool' = True) -> 'ONNXProgram | None'
+
+SOURCE BaseValidator.__call__ 
+     @smart_inference_mode()
+    def __call__(self, trainer=None, model=None):
+        """
+        Execute validation process, running inference on dataloader and computing performance metrics.
+
+        Args:
+            trainer (object, optional): Trainer object that contains the model to validate.
+            model (nn.Module, optional): Model to validate if not using a trainer.
+
+        Returns:
+            stats (dict): Dictionary containing validation statistics.
+        """
+        self.training = trainer is not None
+        augment = self.args.augment and (not self.training)
+        if self.training:
+            self.device = trainer.device
+            self.data = trainer.data
+            # Force FP16 val during training
+            self.args.half = self.device.type != "cpu" and trainer.amp
+            model = trainer.ema.ema or trainer.model
+            model = model.half() if self.args.half else model.float()
+            # self.model = model
+            self.loss = torch.zeros_like(trainer.loss_items, device=trainer.device)
+            self.args.plots &= trainer.stopper.possible_stop or (trainer.epoch == trainer.epochs - 1)
+            model.eval()
+        else:
+            if str(self.args.model).endswith(".yaml") and model is None:
+                LOGGER.warning("WARNING ⚠️ validating an untrained model YAML will result in 0 mAP.")
+            callbacks.add_integration_callbacks(self)
+            model = AutoBackend(
+                weights=model or self.args.model,
+                device=select_device(self.args.device, self.args.batch),
+                dnn=self.args.dnn,
+                data=self.args.data,
+                fp16=self.args.half,
+            )
+            # self.model = model
+            self.device = model.device  # update device
+            self.args.half = model.fp16  # update half
+            stride, pt, jit, engine = model.stride, model.pt, model.jit, model.engine
+            imgsz = check_imgsz(self.args.imgsz, stride=stride)
+            if engine:
+                self.args.batch = model.batch_size
+            elif not pt and not jit:
+                self.args.batch = model.metadata.get("batch", 1)  # export.py models default to batch-size 1
+                LOGGER.info(f"Setting batch={self.args.batch} input of shape ({self.args.batch}, 3, {imgsz}, {imgsz})")
+
+            if str(self.args.data).split(".")[-1] in {"yaml", "yml"}:
+                self.data = check_det_dataset(self.args.data)
+            elif self.args.task == "classify":
+                self.data = check_cls_dataset(self.args.data, split=self.args.split)
+            else:
+                raise FileNotFoundError(emojis(f"Dataset '{self.args.data}' for task={self.args.task} not found ❌"))
+
+            if self.device.type in {"cpu", "mps"}:
+                self.args.workers = 0  # faster CPU val as time dominated by inference, not dataloading
+            if not pt:
+                self.args.rect = False
+            self.stride = model.stride  # used in get_dataloader() for padding
+            self.dataloader = self.dataloader or self.get_dataloader(self.data.get(self.args.split), self.args.batch)
+
+            model.eval()
+            model.warmup(imgsz=(1 if pt else self.args.batch, 3, imgsz, imgsz))  # warmup
+
+        self.run_callbacks("on_val_start")
+        dt = (
+            Profile(device=self.device),
+            Profile(device=self.device),
+            Profile(device=self.device),
+            Profile(device=self.device),
+        )
+        bar = TQDM(self.dataloader, desc=self.get_desc(), total=len(self.dataloader))
+        self.init_metrics(de_parallel(model))
+        self.jdict = []  # empty before each val
+        for batch_i, batch in enumerate(bar):
+            self.run_callbacks("on_val_batch_start")
+            self.batch_i = batch_i
+            # Preprocess
+            with dt[0]:
+                batch = self.preprocess(batch)
+
+            # Inference
+            with dt[1]:
+                preds = model(batch["img"], augment=augment)
+
+            # Loss
+            with dt[2]:
+                if self.training:
+                    self.loss += model.loss(batch, preds)[1]
+
+            # Postprocess
+            with dt[3]:
+                preds = self.postprocess(preds)
+
+            self.update_metrics(preds, batch)
+            if self.args.plots and batch_i < 3:
+                self.plot_val_samples(batch, batch_i)
+                self.plot_predictions(batch, preds, batch_i)
+
+            self.run_callbacks("on_val_batch_end")
+        stats = self.get_stats()
+        self.check_stats(stats)
+        self.speed = dict(zip(self.speed.keys(), (x.t / len(self.dataloader.dataset) * 1e3 for x in dt)))
+        self.finalize_metrics()
+        self.print_results()
+        self.run_callbacks("on_val_end")
+        if self.training:
+            model.float()
+            results = {**stats, **trainer.label_loss_items(self.loss.cpu() / len(self.dataloader), prefix="val")}
+            return {k: round(float(v), 5) for k, v in results.items()}  # return results as 5 decimal place floats
+        else:
+            LOGGER.info(
+                "Speed: {:.1f}ms preprocess, {:.1f}ms inference, {:.1f}ms loss, {:.1f}ms postprocess per image".format(
+                    *tuple(self.speed.values())
+                )
+            )
+            if self.args.save_json and self.jdict:
+                with open(str(self.save_dir / "predictions.json"), "w", encoding="utf-8") as f:
+                    LOGGER.info(f"Saving {f.name}...")
+                    json.dump(self.jdict, f)  # flatten and save
+                stats = self.eval_json(stats)  # update stats
+            if self.args.plots or self.args.save_json:
+                LOGGER.info(f"Results saved to {colorstr('bold', self.save_dir)}")
+            return stats
+
+
+SOURCE DetectionValidator.build_dataset 
+     def build_dataset(self, img_path, mode="val", batch=None):
+        """
+        Build YOLO Dataset.
+
+        Args:
+            img_path (str): Path to the folder containing images.
+            mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.
+            batch (int, optional): Size of batches, this is for `rect`.
+
+        Returns:
+            (Dataset): YOLO dataset.
+        """
+        return build_yolo_dataset(self.args, img_path, batch, self.data, mode=mode, stride=self.stride)
+
+
+SOURCE BaseDataset.set_rectangle 
+     def set_rectangle(self):
+        """Set the shape of bounding boxes for YOLO detections as rectangles."""
+        bi = np.floor(np.arange(self.ni) / self.batch_size).astype(int)  # batch index
+        nb = bi[-1] + 1  # number of batches
+
+        s = np.array([x.pop("shape") for x in self.labels])  # hw
+        ar = s[:, 0] / s[:, 1]  # aspect ratio
+        irect = ar.argsort()
+        self.im_files = [self.im_files[i] for i in irect]
+        self.labels = [self.labels[i] for i in irect]
+        ar = ar[irect]
+
+        # Set training image shapes
+        shapes = [[1, 1]] * nb
+        for i in range(nb):
+            ari = ar[bi == i]
+            mini, maxi = ari.min(), ari.max()
+            if maxi < 1:
+                shapes[i] = [maxi, 1]
+            elif mini > 1:
+                shapes[i] = [1, 1 / mini]
+
+        self.batch_shapes = np.ceil(np.array(shapes) * self.imgsz / self.stride + self.pad).astype(int) * self.stride
+        self.batch = bi  # batch index of image
+
+
+SOURCE BaseDataset.load_image 
+     def load_image(self, i, rect_mode=True):
+        """
+        Load an image from dataset index 'i'.
+
+        Args:
+            i (int): Index of the image to load.
+            rect_mode (bool, optional): Whether to use rectangular resizing.
+
+        Returns:
+            (np.ndarray): Loaded image.
+            (tuple): Original image dimensions (h, w).
+            (tuple): Resized image dimensions (h, w).
+
+        Raises:
+            FileNotFoundError: If the image file is not found.
+        """
+        im, f, fn = self.ims[i], self.im_files[i], self.npy_files[i]
+        if im is None:  # not cached in RAM
+            if fn.exists():  # load npy
+                try:
+                    im = np.load(fn)
+                except Exception as e:
+                    LOGGER.warning(f"{self.prefix}WARNING ⚠️ Removing corrupt *.npy image file {fn} due to: {e}")
+                    Path(fn).unlink(missing_ok=True)
+                    im = cv2.imread(f)  # BGR
+            else:  # read image
+                im = cv2.imread(f)  # BGR
+            if im is None:
+                raise FileNotFoundError(f"Image Not Found {f}")
+
+            h0, w0 = im.shape[:2]  # orig hw
+            if rect_mode:  # resize long side to imgsz while maintaining aspect ratio
+                r = self.imgsz / max(h0, w0)  # ratio
+                if r != 1:  # if sizes are not equal
+                    w, h = (min(math.ceil(w0 * r), self.imgsz), min(math.ceil(h0 * r), self.imgsz))
+                    im = cv2.resize(im, (w, h), interpolation=cv2.INTER_LINEAR)
+            elif not (h0 == w0 == self.imgsz):  # resize by stretching image to square imgsz
+                im = cv2.resize(im, (self.imgsz, self.imgsz), interpolation=cv2.INTER_LINEAR)
+
+            # Add to buffer if training with augmentations
+            if self.augment:
+                self.ims[i], self.im_hw0[i], self.im_hw[i] = im, (h0, w0), im.shape[:2]  # im, hw_original, hw_resized
+                self.buffer.append(i)
+                if 1 < len(self.buffer) >= self.max_buffer_length:  # prevent empty buffer
+                    j = self.buffer.pop(0)
+                    if self.cache != "ram":
+                        self.ims[j], self.im_hw0[j], self.im_hw[j] = None, None, None
+
+            return im, (h0, w0), im.shape[:2]
+
+        return self.ims[i], self.im_hw0[i], self.im_hw[i]
+
+
+SOURCE YOLODataset.build_transforms 
+     def build_transforms(self, hyp=None):
+        """
+        Builds and appends transforms to the list.
+
+        Args:
+            hyp (dict, optional): Hyperparameters for transforms.
+
+        Returns:
+            (Compose): Composed transforms.
+        """
+        if self.augment:
+            hyp.mosaic = hyp.mosaic if self.augment and not self.rect else 0.0
+            hyp.mixup = hyp.mixup if self.augment and not self.rect else 0.0
+            transforms = v8_transforms(self, self.imgsz, hyp)
+        else:
+            transforms = Compose([LetterBox(new_shape=(self.imgsz, self.imgsz), scaleup=False)])
+        transforms.append(
+            Format(
+                bbox_format="xywh",
+                normalize=True,
+                return_mask=self.use_segments,
+                return_keypoint=self.use_keypoints,
+                return_obb=self.use_obb,
+                batch_idx=True,
+                mask_ratio=hyp.mask_ratio,
+                mask_overlap=hyp.overlap_mask,
+                bgr=hyp.bgr if self.augment else 0.0,  # only affect training.
+            )
+        )
+        return transforms
+
+
+SOURCE LetterBox 
+ class LetterBox:
+    """
+    Resize image and padding for detection, instance segmentation, pose.
+
+    This class resizes and pads images to a specified shape while preserving aspect ratio. It also updates
+    corresponding labels and bounding boxes.
+
+    Attributes:
+        new_shape (tuple): Target shape (height, width) for resizing.
+        auto (bool): Whether to use minimum rectangle.
+        scale_fill (bool): Whether to stretch the image to new_shape.
+        scaleup (bool): Whether to allow scaling up. If False, only scale down.
+        stride (int): Stride for rounding padding.
+        center (bool): Whether to center the image or align to top-left.
+
+    Methods:
+        __call__: Resize and pad image, update labels and bounding boxes.
+
+    Examples:
+        >>> transform = LetterBox(new_shape=(640, 640))
+        >>> result = transform(labels)
+        >>> resized_img = result["img"]
+        >>> updated_instances = result["instances"]
+    """
+
+    def __init__(self, new_shape=(640, 640), auto=False, scale_fill=False, scaleup=True, center=True, stride=32):
+        """
+        Initialize LetterBox object for resizing and padding images.
+
+        This class is designed to resize and pad images for object detection, instance segmentation, and pose estimation
+        tasks. It supports various resizing modes including auto-sizing, scale-fill, and letterboxing.
+
+        Args:
+            new_shape (Tuple[int, int]): Target size (height, width) for the resized image.
+            auto (bool): If True, use minimum rectangle to resize. If False, use new_shape directly.
+            scale_fill (bool): If True, stretch the image to new_shape without padding.
+            scaleup (bool): If True, allow scaling up. If False, only scale down.
+            center (bool): If True, center the placed image. If False, place image in top-left corner.
+            stride (int): Stride of the model (e.g., 32 for YOLOv5).
+
+        Attributes:
+            new_shape (Tuple[int, int]): Target size for the resized image.
+            auto (bool): Flag for using minimum rectangle resizing.
+            scale_fill (bool): Flag for stretching image without padding.
+            scaleup (bool): Flag for allowing upscaling.
+            stride (int): Stride value for ensuring image size is divisible by stride.
+
+        Examples:
+            >>> letterbox = LetterBox(new_shape=(640, 640), auto=False, scale_fill=False, scaleup=True, stride=32)
+            >>> resized_img = letterbox(original_img)
+        """
+        self.new_shape = new_shape
+        self.auto = auto
+        self.scale_fill = scale_fill
+        self.scaleup = scaleup
+        self.stride = stride
+        self.center = center  # Put the image in the middle or top-left
+
+    def __call__(self, labels=None, image=None):
+        """
+        Resizes and pads an image for object detection, instance segmentation, or pose estimation tasks.
+
+        This method applies letterboxing to the input image, which involves resizing the image while maintaining its
+        aspect ratio and adding padding to fit the new shape. It also updates any associated labels accordingly.
+
+        Args:
+            labels (Dict | None): A dictionary containing image data and associated labels, or empty dict if None.
+            image (np.ndarray | None): The input image as a numpy array. If None, the image is taken from 'labels'.
+
+        Returns:
+            (Dict | Tuple): If 'labels' is provided, returns an updated dictionary with the resized and padded image,
+                updated labels, and additional metadata. If 'labels' is empty, returns a tuple containing the resized
+                and padded image, and a tuple of (ratio, (left_pad, top_pad)).
+
+        Examples:
+            >>> letterbox = LetterBox(new_shape=(640, 640))
+            >>> result = letterbox(labels={"img": np.zeros((480, 640, 3)), "instances": Instances(...)})
+            >>> resized_img = result["img"]
+            >>> updated_instances = result["instances"]
+        """
+        if labels is None:
+            labels = {}
+        img = labels.get("img") if image is None else image
+        shape = img.shape[:2]  # current shape [height, width]
+        new_shape = labels.pop("rect_shape", self.new_shape)
+        if isinstance(new_shape, int):
+            new_shape = (new_shape, new_shape)
+
+        # Scale ratio (new / old)
+        r = min(new_shape[0] / shape[0], new_shape[1] / shape[1])
+        if not self.scaleup:  # only scale down, do not scale up (for better val mAP)
+            r = min(r, 1.0)
+
+        # Compute padding
+        ratio = r, r  # width, height ratios
+        new_unpad = int(round(shape[1] * r)), int(round(shape[0] * r))
+        dw, dh = new_shape[1] - new_unpad[0], new_shape[0] - new_unpad[1]  # wh padding
+        if self.auto:  # minimum rectangle
+            dw, dh = np.mod(dw, self.stride), np.mod(dh, self.stride)  # wh padding
+        elif self.scale_fill:  # stretch
+            dw, dh = 0.0, 0.0
+            new_unpad = (new_shape[1], new_shape[0])
+            ratio = new_shape[1] / shape[1], new_shape[0] / shape[0]  # width, height ratios
+
+        if self.center:
+            dw /= 2  # divide padding into 2 sides
+            dh /= 2
+
+        if shape[::-1] != new_unpad:  # resize
+            img = cv2.resize(img, new_unpad, interpolation=cv2.INTER_LINEAR)
+        top, bottom = int(round(dh - 0.1)) if self.center else 0, int(round(dh + 0.1))
+        left, right = int(round(dw - 0.1)) if self.center else 0, int(round(dw + 0.1))
+        img = cv2.copyMakeBorder(
+            img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=(114, 114, 114)
+        )  # add border
+        if labels.get("ratio_pad"):
+            labels["ratio_pad"] = (labels["ratio_pad"], (left, top))  # for evaluation
+
+        if len(labels):
+            labels = self._update_labels(labels, ratio, left, top)
+            labels["img"] = img
+            labels["resized_shape"] = new_shape
+            return labels
+        else:
+            return img
+
+    @staticmethod
+    def _update_labels(labels, ratio, padw, padh):
+        """
+        Updates labels after applying letterboxing to an image.
+
+        This method modifies the bounding box coordinates of instances in the labels
+        to account for resizing and padding applied during letterboxing.
+
+        Args:
+            labels (dict): A dictionary containing image labels and instances.
+            ratio (Tuple[float, float]): Scaling ratios (width, height) applied to the image.
+            padw (float): Padding width added to the image.
+            padh (float): Padding height added to the image.
+
+        Returns:
+            (dict): Updated labels dictionary with modified instance coordinates.
+
+        Examples:
+            >>> letterbox = LetterBox(new_shape=(640, 640))
+            >>> labels = {"instances": Instances(...)}
+            >>> ratio = (0.5, 0.5)
+            >>> padw, padh = 10, 20
+            >>> updated_labels = letterbox._update_labels(labels, ratio, padw, padh)
+        """
+        labels["instances"].convert_bbox(format="xyxy")
+        labels["instances"].denormalize(*labels["img"].shape[:2][::-1])
+        labels["instances"].scale(*ratio)
+        labels["instances"].add_padding(padw, padh)
+        return labels
+
+
+SOURCE check_det_dataset 
+ def check_det_dataset(dataset, autodownload=True):
+    """
+    Download, verify, and/or unzip a dataset if not found locally.
+
+    This function checks the availability of a specified dataset, and if not found, it has the option to download and
+    unzip the dataset. It then reads and parses the accompanying YAML data, ensuring key requirements are met and also
+    resolves paths related to the dataset.
+
+    Args:
+        dataset (str): Path to the dataset or dataset descriptor (like a YAML file).
+        autodownload (bool, optional): Whether to automatically download the dataset if not found.
+
+    Returns:
+        (dict): Parsed dataset information and paths.
+    """
+    file = check_file(dataset)
+
+    # Download (optional)
+    extract_dir = ""
+    if zipfile.is_zipfile(file) or is_tarfile(file):
+        new_dir = safe_download(file, dir=DATASETS_DIR, unzip=True, delete=False)
+        file = find_dataset_yaml(DATASETS_DIR / new_dir)
+        extract_dir, autodownload = file.parent, False
+
+    # Read YAML
+    data = yaml_load(file, append_filename=True)  # dictionary
+
+    # Checks
+    for k in "train", "val":
+        if k not in data:
+            if k != "val" or "validation" not in data:
+                raise SyntaxError(
+                    emojis(f"{dataset} '{k}:' key missing ❌.\n'train' and 'val' are required in all data YAMLs.")
+                )
+            LOGGER.info("WARNING ⚠️ renaming data YAML 'validation' key to 'val' to match YOLO format.")
+            data["val"] = data.pop("validation")  # replace 'validation' key with 'val' key
+    if "names" not in data and "nc" not in data:
+        raise SyntaxError(emojis(f"{dataset} key missing ❌.\n either 'names' or 'nc' are required in all data YAMLs."))
+    if "names" in data and "nc" in data and len(data["names"]) != data["nc"]:
+        raise SyntaxError(emojis(f"{dataset} 'names' length {len(data['names'])} and 'nc: {data['nc']}' must match."))
+    if "names" not in data:
+        data["names"] = [f"class_{i}" for i in range(data["nc"])]
+    else:
+        data["nc"] = len(data["names"])
+
+    data["names"] = check_class_names(data["names"])
+
+    # Resolve paths
+    path = Path(extract_dir or data.get("path") or Path(data.get("yaml_file", "")).parent)  # dataset root
+    if not path.is_absolute():
+        path = (DATASETS_DIR / path).resolve()
+
+    # Set paths
+    data["path"] = path  # download scripts
+    for k in "train", "val", "test", "minival":
+        if data.get(k):  # prepend path
+            if isinstance(data[k], str):
+                x = (path / data[k]).resolve()
+                if not x.exists() and data[k].startswith("../"):
+                    x = (path / data[k][3:]).resolve()
+                data[k] = str(x)
+            else:
+                data[k] = [str((path / x).resolve()) for x in data[k]]
+
+    # Parse YAML
+    val, s = (data.get(x) for x in ("val", "download"))
+    if val:
+        val = [Path(x).resolve() for x in (val if isinstance(val, list) else [val])]  # val path
+        if not all(x.exists() for x in val):
+            name = clean_url(dataset)  # dataset name with URL auth stripped
+            m = f"\nDataset '{name}' images not found ⚠️, missing path '{[x for x in val if not x.exists()][0]}'"
+            if s and autodownload:
+                LOGGER.warning(m)
+            else:
+                m += f"\nNote dataset download directory is '{DATASETS_DIR}'. You can update this in '{SETTINGS_FILE}'"
+                raise FileNotFoundError(m)
+            t = time.time()
+            r = None  # success
+            if s.startswith("http") and s.endswith(".zip"):  # URL
+                safe_download(url=s, dir=DATASETS_DIR, delete=True)
+            elif s.startswith("bash "):  # bash script
+                LOGGER.info(f"Running {s} ...")
+                r = os.system(s)
+            else:  # python script
+                exec(s, {"yaml": data})
+            dt = f"({round(time.time() - t, 1)}s)"
+            s = f"success ✅ {dt}, saved to {colorstr('bold', DATASETS_DIR)}" if r in {0, None} else f"failure {dt} ❌"
+            LOGGER.info(f"Dataset download {s}\n")
+    check_font("Arial.ttf" if is_ascii(data["names"]) else "Arial.Unicode.ttf")  # download fonts
+
+    return data  # dictionary
+
+ONNX inputs ['name: "images"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_value: 1\n      }\n      dim {\n        dim_value: 3\n      }\n      dim {\n        dim_value: 1024\n      }\n      dim {\n        dim_value: 1024\n      }\n    }\n  }\n}\n']
+ONNX outputs ['name: "output0"\ntype {\n  tensor_type {\n    elem_type: 1\n    shape {\n      dim {\n        dim_value: 1\n      }\n      dim {\n        dim_value: 8\n      }\n      dim {\n        dim_value: 87040\n      }\n    }\n  }\n}\n']
+ONNX operators ['Add', 'BatchNormalization', 'Concat', 'Conv', 'Div', 'MaxPool', 'Mul', 'ReduceMean', 'Reshape', 'Resize', 'Sigmoid', 'Softmax', 'Split', 'Sub', 'Transpose']
+ONNX nodes count 286
+AVAILABLE_PROVIDERS ['AzureExecutionProvider', 'CPUExecutionProvider']
+

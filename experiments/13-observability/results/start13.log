@@ -1,0 +1,22 @@
+排障链四层证据（任务书第 8 节）
+核验时间 2026-09-19 00:24:21
+
+=== 第 1 层：服务的 /metrics 能不能 curl 到 ===
+{"ready":true,"max_batch":8,"max_wait_ms":2.0,"gpu_samples":1699}
+# HELP sod_requests_total 按状态码分的请求计数
+# TYPE sod_requests_total counter
+sod_requests_total{status="200"} 10232
+# HELP sod_request_duration_seconds 端到端延迟（进 handler 到出 handler）
+# TYPE sod_request_duration_seconds histogram
+sod_request_duration_seconds_bucket{le="0.005"} 0
+
+=== 第 2 层：Prometheus 的 Targets 是否 UP ===
+http://127.0.0.1:18013/metrics up 
+
+=== 第 3 层：PromQL 在 Prometheus 里能否查出结果 ===
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{},"value":[1789748661.768,"0"]}]}}
+
+=== 第 4 层：Grafana —— 未安装，见 grafana_unreachable.txt ===
+
+--- 第一次启动失败的现场（同名模块被 cwd 抢先解析）---
+

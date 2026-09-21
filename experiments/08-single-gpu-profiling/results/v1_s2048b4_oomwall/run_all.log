@@ -1,0 +1,378 @@
+
+############ 0. 等待 GPU 空闲 ############
+2026-09-16 09:08:17
+GPU 空闲：used=0 MiB，其他实验进程 0 个。开始。
+
+############ 1. GEMM 峰值 / 显存带宽 (4.2 分母) ############
+2026-09-16 09:08:20
+=== 方阵 GEMM 扫描 ===
+      N   bf16 TF   fp16 TF   fp32 TF
+   1024    120.49     99.93     40.66
+   2048    155.57    148.83     48.07
+   3072    145.84    153.70     45.12
+   4096    138.43    142.95     46.64
+   6144    144.82    156.45     46.42
+   8192    146.93    127.96     43.35
+  12288    143.37    139.59         -
+  16384    146.41    136.34         -
+
+=== 模型里真实出现的 GEMM 形状（bf16, tokens=b*s） ===
+tok=  2048 qkv_q     [2048x1024]x[1024x2048]   125.64 TFLOPS
+tok=  2048 kv        [2048x1024]x[1024x1024]   117.94 TFLOPS
+tok=  2048 o_proj    [2048x2048]x[2048x1024]   123.05 TFLOPS
+tok=  2048 gate_up   [2048x1024]x[1024x3072]   117.60 TFLOPS
+tok=  2048 down      [2048x3072]x[3072x1024]   155.38 TFLOPS
+tok=  2048 lm_head   [2048x1024]x[1024x151936]   105.57 TFLOPS
+tok=  8192 qkv_q     [8192x1024]x[1024x2048]   150.45 TFLOPS
+tok=  8192 kv        [8192x1024]x[1024x1024]   158.11 TFLOPS
+tok=  8192 o_proj    [8192x2048]x[2048x1024]   163.35 TFLOPS
+tok=  8192 gate_up   [8192x1024]x[1024x3072]   149.37 TFLOPS
+tok=  8192 down      [8192x3072]x[3072x1024]   138.44 TFLOPS
+tok=  8192 lm_head   [8192x1024]x[1024x151936]   149.67 TFLOPS
+tok= 16384 qkv_q     [16384x1024]x[1024x2048]   150.29 TFLOPS
+tok= 16384 kv        [16384x1024]x[1024x1024]   142.73 TFLOPS
+tok= 16384 o_proj    [16384x2048]x[2048x1024]   141.85 TFLOPS
+tok= 16384 gate_up   [16384x1024]x[1024x3072]   155.98 TFLOPS
+tok= 16384 down      [16384x3072]x[3072x1024]   134.47 TFLOPS
+tok= 16384 lm_head   [16384x1024]x[1024x151936]   149.39 TFLOPS
+
+=== 显存带宽 ===
+copy        865.8 GB/s  (85.9% of 1008) 1读1写
+add         917.7 GB/s  (91.0% of 1008) 2读1写
+reduce      948.4 GB/s  (94.1% of 1008) 1读
+
+实测 bf16 峰值 155.6 TFLOPS = 规格 165.2 的 94.2%
+实测带宽峰值 948.4 GB/s = 规格 1008 的 94.1%
+ridge point = 164.0 FLOP/byte
+saved results/gemm_peak.json
+
+############ 2. 前 20 步逐步耗时曲线 (4.1 / 坑 5.2) ############
+2026-09-16 09:08:31
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:03,  2.51it/s]Loading weights:  22%|██▏       | 67/311 [00:00<00:01, 174.44it/s]Loading weights:  34%|███▍      | 105/311 [00:00<00:00, 227.49it/s]Loading weights:  46%|████▌     | 143/311 [00:00<00:00, 265.72it/s]Loading weights:  61%|██████    | 190/311 [00:00<00:00, 322.75it/s]Loading weights:  74%|███████▍  | 231/311 [00:00<00:00, 280.87it/s]Loading weights:  86%|████████▌ | 266/311 [00:01<00:00, 293.07it/s]Loading weights:  97%|█████████▋| 301/311 [00:01<00:00, 307.21it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 257.81it/s]
+[W916 09:08:41.876689176 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+[W916 09:08:41.876855294 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 21.45 GiB memory in use. Of the allocated memory 20.99 GiB is allocated by PyTorch, and 9.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[step_curve] OOM
+saved results/step_curve.json
+
+############ 3. 开关对比矩阵 (4.4) ############
+2026-09-16 09:08:42
+=== base_s2048_b4_bf16_flash ===
+[  11.7s] ['[base_s2048_b4_bf16_flash] OOM', 'saved <workspace>
+=== prec_fp32_b1_memeff ===
+[  27.7s] ['[prec_fp32_b1_memeff] step 420.0 ms (std_blocks 0.4 ms) tok/s 4876 alloc 18345 resv 19000 smi 19475 MiB MFU 12.7% HFU 12.7%', 'saved <workspace>
+=== prec_bf16_b1_memeff ===
+[  19.6s] ['[prec_bf16_b1_memeff] step 206.8 ms (std_blocks 0.1 ms) tok/s 9903 alloc 16645 resv 16684 smi 17165 MiB MFU 25.8% HFU 25.8%', 'saved <workspace>
+=== prec_fp32_b2_memeff ===
+[  11.5s] ['[prec_fp32_b2_memeff] OOM', 'saved <workspace>
+=== prec_bf16_b2_memeff ===
+[  11.7s] ['[prec_bf16_b2_memeff] OOM', 'saved <workspace>
+=== ckpt0_s2048_b4_bf16_flash ===
+[  11.3s] ['[ckpt0_s2048_b4_bf16_flash] OOM', 'saved <workspace>
+=== ckpt1_s2048_b4_bf16_flash ===
+[  12.6s] ['[ckpt1_s2048_b4_bf16_flash] OOM', 'saved <workspace>
+=== sdpa_math_s2048_b4_bf16 ===
+[  11.1s] ['[sdpa_math_s2048_b4_bf16] OOM', 'saved <workspace>
+=== sdpa_mem_efficient_s2048_b4_bf16 ===
+[  11.9s] ['[sdpa_mem_efficient_s2048_b4_bf16] OOM', 'saved <workspace>
+=== sdpa_flash_s2048_b4_bf16 ===
+[  12.3s] ['[sdpa_flash_s2048_b4_bf16] OOM', 'saved <workspace>
+=== sdpa_cudnn_s2048_b4_bf16 ===
+[  11.4s] ['[sdpa_cudnn_s2048_b4_bf16] OOM', 'saved <workspace>
+=== bs1_s2048_bf16_flash_ckpt0 ===
+[  18.4s] ['[bs1_s2048_bf16_flash_ckpt0] step 187.9 ms (std_blocks 0.3 ms) tok/s 10900 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%', 'saved <workspace>
+=== bs2_s2048_bf16_flash_ckpt0 ===
+[  11.4s] ['[bs2_s2048_bf16_flash_ckpt0] OOM', 'saved <workspace>
+=== bs4_s2048_bf16_flash_ckpt0 ===
+[  11.2s] ['[bs4_s2048_bf16_flash_ckpt0] OOM', 'saved <workspace>
+=== bs8_s2048_bf16_flash_ckpt0 ===
+[  11.2s] ['[bs8_s2048_bf16_flash_ckpt0] OOM', 'saved <workspace>
+=== bs16_s2048_bf16_flash_ckpt0 ===
+[  11.1s] ['[bs16_s2048_bf16_flash_ckpt0] OOM', 'saved <workspace>
+=== bs32_s2048_bf16_flash_ckpt0 ===
+[  11.2s] ['[bs32_s2048_bf16_flash_ckpt0] OOM', 'saved <workspace>
+=== bs4_s2048_bf16_flash_ckpt1 ===
+[  12.4s] ['[bs4_s2048_bf16_flash_ckpt1] OOM', 'saved <workspace>
+=== bs8_s2048_bf16_flash_ckpt1 ===
+[  11.6s] ['[bs8_s2048_bf16_flash_ckpt1] OOM', 'saved <workspace>
+=== bs16_s2048_bf16_flash_ckpt1 ===
+[  11.5s] ['[bs16_s2048_bf16_flash_ckpt1] OOM', 'saved <workspace>
+=== bs32_s2048_bf16_flash_ckpt1 ===
+[  12.0s] ['[bs32_s2048_bf16_flash_ckpt1] OOM', 'saved <workspace>
+=== bs64_s2048_bf16_flash_ckpt1 ===
+[  13.2s] ['[bs64_s2048_bf16_flash_ckpt1] OOM', 'saved <workspace>
+=== seq512_bf16_flash_iso ===
+[  10.9s] ['[seq512_bf16_flash_iso] OOM', 'saved <workspace>
+=== seq2048_bf16_flash_iso ===
+[  11.4s] ['[seq2048_bf16_flash_iso] OOM', 'saved <workspace>
+tag	status	seq_len	batch_size	precision	sdpa	ckpt	step_ms	step_std_ms	tokens_per_s	alloc_MiB	reserved_MiB	smi_MiB	MFU_%	MFU_head_%	HFU_%
+base_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	0				21490	21500	15953			
+prec_fp32_b1_memeff	ok	2048	1	fp32	mem_efficient	0	420.0	0.4	4876	18345	19000	19475	12.70	15.63	12.70
+prec_bf16_b1_memeff	ok	2048	1	bf16	mem_efficient	0	206.8	0.1	9903	16645	16684	17165	25.79	31.74	25.79
+prec_fp32_b2_memeff	OOM	2048	2	fp32	mem_efficient	0				22913	22926	23393			
+prec_bf16_b2_memeff	OOM	2048	2	bf16	mem_efficient	0				22947	23166	23647			
+ckpt0_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	0				21490	21500	21973			
+ckpt1_s2048_b4_bf16_flash	OOM	2048	4	bf16	flash	1				20856	21374	21855			
+sdpa_math_s2048_b4_bf16	OOM	2048	4	bf16	math	0				22457	23452	5741			
+sdpa_mem_efficient_s2048_b4_bf16	OOM	2048	4	bf16	mem_efficient	0				21490	21500	21973			
+sdpa_flash_s2048_b4_bf16	OOM	2048	4	bf16	flash	0				21490	21500	9797			
+sdpa_cudnn_s2048_b4_bf16	OOM	2048	4	bf16	cudnn	0				21490	21500	21975			
+bs1_s2048_bf16_flash_ckpt0	ok	2048	1	bf16	flash	0	187.9	0.3	10900	16645	16684	17165	28.39	34.93	28.39
+bs2_s2048_bf16_flash_ckpt0	OOM	2048	2	bf16	flash	0				22947	23166	23647			
+bs4_s2048_bf16_flash_ckpt0	OOM	2048	4	bf16	flash	0				21490	21500	21973			
+bs8_s2048_bf16_flash_ckpt0	OOM	2048	8	bf16	flash	0				23579	23588	15887			
+bs16_s2048_bf16_flash_ckpt0	OOM	2048	16	bf16	flash	0				23499	23558	24031			
+bs32_s2048_bf16_flash_ckpt0	OOM	2048	32	bf16	flash	0				22793	23292	23765			
+bs4_s2048_bf16_flash_ckpt1	OOM	2048	4	bf16	flash	1				20856	21374	21855			
+bs8_s2048_bf16_flash_ckpt1	OOM	2048	8	bf16	flash	1				19682	20150	20623			
+bs16_s2048_bf16_flash_ckpt1	OOM	2048	16	bf16	flash	1				16950	17962	18435			
+bs32_s2048_bf16_flash_ckpt1	OOM	2048	32	bf16	flash	1				12959	13544	14017			
+bs64_s2048_bf16_flash_ckpt1	OOM	2048	64	bf16	flash	1				22304	22782	23255			
+seq512_bf16_flash_iso	OOM	512	16	bf16	flash	0				21489	21500	21973			
+seq2048_bf16_flash_iso	OOM	2048	4	bf16	flash	0				21490	21500	21973			
+
+saved results/matrix_summary.tsv
+
+############ 4. profiler (4.3) ############
+2026-09-16 09:13:53
+--- profiler: base_s2048_b4_bf16_flash (sdpa=flash ckpt=0 prec=bf16) ---
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<03:05,  1.67it/s]Loading weights:  20%|█▉        | 61/311 [00:00<00:02, 116.86it/s]Loading weights:  32%|███▏      | 98/311 [00:00<00:01, 170.40it/s]Loading weights:  46%|████▋     | 144/311 [00:00<00:00, 238.22it/s]Loading weights:  59%|█████▉    | 184/311 [00:01<00:00, 228.60it/s]Loading weights:  73%|███████▎  | 226/311 [00:01<00:00, 270.72it/s]Loading weights:  84%|████████▍ | 262/311 [00:01<00:00, 292.31it/s]Loading weights:  96%|█████████▌| 299/311 [00:01<00:00, 312.25it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 222.72it/s]
+[W916 09:14:04.656794315 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+[W916 09:14:04.656932479 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 152, in <module>
+    main()
+  File "<workspace>", line 81, in main
+    one_step()
+  File "<workspace>", line 76, in one_step
+    loss = model(input_ids=ids, labels=labels, use_cache=False).loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 495, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 21.45 GiB memory in use. Of the allocated memory 20.99 GiB is allocated by PyTorch, and 9.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+--- profiler: prof_math (sdpa=math ckpt=0 prec=bf16) ---
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<04:07,  1.25it/s]Loading weights:  25%|██▍       | 77/311 [00:00<00:02, 116.60it/s]Loading weights:  39%|███▉      | 122/311 [00:01<00:01, 172.58it/s]Loading weights:  53%|█████▎    | 165/311 [00:01<00:00, 223.84it/s]Loading weights:  67%|██████▋   | 208/311 [00:01<00:00, 266.31it/s]Loading weights:  81%|████████  | 251/311 [00:01<00:00, 253.56it/s]Loading weights:  92%|█████████▏| 287/311 [00:01<00:00, 274.01it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 205.36it/s]
+[W916 09:14:14.333542996 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1073741824 bytes (free: 164298752, total: 25250627584).
+[W916 09:14:14.333621191 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1073741824 bytes (free: 164298752, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 152, in <module>
+    main()
+  File "<workspace>", line 81, in main
+    one_step()
+  File "<workspace>", line 76, in one_step
+    loss = model(input_ids=ids, labels=labels, use_cache=False).loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 482, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 286, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 413, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "<workspace>", line 109, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 307, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 266, in forward
+    attn_output, attn_weights = attention_interface(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 158, in sdpa_attention_forward
+    attn_output = torch.nn.functional.scaled_dot_product_attention(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 156.69 MiB is free. Including non-PyTorch memory, this process has 23.36 GiB memory in use. Of the allocated memory 21.93 GiB is allocated by PyTorch, and 994.58 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+--- profiler: prof_ckpt (sdpa=flash ckpt=1 prec=bf16) ---
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<03:40,  1.40it/s]Loading weights:  19%|█▉        | 60/311 [00:00<00:02, 99.18it/s]Loading weights:  37%|███▋      | 115/311 [00:00<00:01, 185.64it/s]Loading weights:  51%|█████     | 159/311 [00:01<00:00, 203.30it/s]Loading weights:  63%|██████▎   | 195/311 [00:01<00:00, 234.31it/s]Loading weights:  74%|███████▍  | 231/311 [00:01<00:00, 262.06it/s]Loading weights:  86%|████████▌ | 267/311 [00:01<00:00, 282.27it/s]Loading weights:  99%|█████████▊| 307/311 [00:01<00:00, 311.50it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 205.76it/s]
+[W916 09:14:27.627707186 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 4978638848 bytes (free: 2334851072, total: 25250627584).
+[W916 09:14:27.764239439 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 4978638848 bytes (free: 2469068800, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 152, in <module>
+    main()
+  File "<workspace>", line 81, in main
+    one_step()
+  File "<workspace>", line 77, in one_step
+    loss.backward()
+  File "<workspace>", line 623, in backward
+    torch.autograd.backward(
+  File "<workspace>", line 395, in backward
+    _engine_run_backward(
+  File "<workspace>", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 4.64 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.30 GiB is free. Including non-PyTorch memory, this process has 21.21 GiB memory in use. Of the allocated memory 17.20 GiB is allocated by PyTorch, and 3.55 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+--- profiler: prof_fp32 (sdpa=mem_efficient ckpt=0 prec=fp32) ---
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<03:32,  1.46it/s]Loading weights:   1%|          | 2/311 [00:00<01:46,  2.91it/s]Loading weights:  28%|██▊       | 87/311 [00:00<00:01, 169.15it/s]Loading weights:  41%|████      | 126/311 [00:00<00:00, 213.75it/s]Loading weights:  53%|█████▎    | 164/311 [00:01<00:00, 252.13it/s]Loading weights:  65%|██████▍   | 202/311 [00:01<00:00, 276.43it/s]Loading weights:  77%|███████▋  | 241/311 [00:01<00:00, 256.68it/s]Loading weights:  90%|████████▉ | 279/311 [00:01<00:00, 284.00it/s]Loading weights: 100%|██████████| 311/311 [00:01<00:00, 196.45it/s]
+[W916 09:14:38.766976839 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 67108864 bytes (free: 7012352, total: 25250627584).
+[W916 09:14:38.767066839 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 67108864 bytes (free: 7012352, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 152, in <module>
+    main()
+  File "<workspace>", line 81, in main
+    one_step()
+  File "<workspace>", line 76, in one_step
+    loss = model(input_ids=ids, labels=labels, use_cache=False).loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 482, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1068, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 286, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 413, in forward
+    hidden_states = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "<workspace>", line 109, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 307, in forward
+    hidden_states, _ = self.self_attn(
+                       ^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 252, in forward
+    query_states = self.q_norm(self.q_proj(hidden_states).view(hidden_shape)).transpose(1, 2)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 62, in forward
+    variance = hidden_states.pow(2).mean(-1, keepdim=True)
+               ^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 64.00 MiB. GPU 0 has a total capacity of 23.52 GiB of which 6.69 MiB is free. Including non-PyTorch memory, this process has 23.50 GiB memory in use. Of the allocated memory 23.04 GiB is allocated by PyTorch, and 14.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+############ 5. bound 类型判定 (4.3) ############
+2026-09-16 09:14:39
+peak bf16 155.6 TFLOPS | peak BW 948 GB/s | ridge 164.0 FLOP/byte
+
+saved <workspace>
+
+############ 6. 显存-吞吐权衡曲线 (4.5) ############
+2026-09-16 09:14:39
+saved <workspace>
+
+=== Pareto 前沿 ===
+ 16.29 GiB     10900 tok/s  MFU 28.39%  b1 s2048 bf16 flas
+
+=== OOM 配置 ===
+base_s2048_b4_bf16_flash                   OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+bs16_s2048_bf16_flash_ckpt0                OOM  step_idx=0  alloc 23499 MiB resv 23558 MiB
+bs16_s2048_bf16_flash_ckpt1                OOM  step_idx=0  alloc 16950 MiB resv 17962 MiB
+bs2_s2048_bf16_flash_ckpt0                 OOM  step_idx=0  alloc 22947 MiB resv 23166 MiB
+bs32_s2048_bf16_flash_ckpt0                OOM  step_idx=0  alloc 22793 MiB resv 23292 MiB
+bs32_s2048_bf16_flash_ckpt1                OOM  step_idx=0  alloc 12959 MiB resv 13544 MiB
+bs4_s2048_bf16_flash_ckpt0                 OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+bs4_s2048_bf16_flash_ckpt1                 OOM  step_idx=0  alloc 20856 MiB resv 21374 MiB
+bs64_s2048_bf16_flash_ckpt1                OOM  step_idx=0  alloc 22304 MiB resv 22782 MiB
+bs8_s2048_bf16_flash_ckpt0                 OOM  step_idx=0  alloc 23579 MiB resv 23588 MiB
+bs8_s2048_bf16_flash_ckpt1                 OOM  step_idx=0  alloc 19682 MiB resv 20150 MiB
+ckpt0_s2048_b4_bf16_flash                  OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+ckpt1_s2048_b4_bf16_flash                  OOM  step_idx=0  alloc 20856 MiB resv 21374 MiB
+prec_bf16_b2_memeff                        OOM  step_idx=0  alloc 22947 MiB resv 23166 MiB
+prec_fp32_b2_memeff                        OOM  step_idx=0  alloc 22913 MiB resv 22926 MiB
+sdpa_cudnn_s2048_b4_bf16                   OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+sdpa_flash_s2048_b4_bf16                   OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+sdpa_math_s2048_b4_bf16                    OOM  step_idx=0  alloc 22457 MiB resv 23452 MiB
+sdpa_mem_efficient_s2048_b4_bf16           OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+seq2048_bf16_flash_iso                     OOM  step_idx=0  alloc 21490 MiB resv 21500 MiB
+seq512_bf16_flash_iso                      OOM  step_idx=0  alloc 21489 MiB resv 21500 MiB
+
+############ 7. 收尾：确认显存已释放 ############
+2026-09-16 09:14:40
+| 30%   31C    P5             67W /  450W |       0MiB /  24564MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+pid, used_gpu_memory [MiB]
+
+ALL DONE 2026-09-16 09:14:43
+

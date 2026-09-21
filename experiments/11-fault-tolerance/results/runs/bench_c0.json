@@ -1,0 +1,78 @@
+{
+ "args": {
+  "strategy": "single",
+  "seq_len": 512,
+  "micro_bsz": 4,
+  "grad_accum": 8,
+  "dropout": 0.1,
+  "compile": 0,
+  "steps": 2,
+  "seed": 42,
+  "n_samples": 2048,
+  "lr": 0.0001,
+  "ckpt_level": "c0",
+  "save_at": -1,
+  "save_path": "<workspace>",
+  "resume": "",
+  "save_every": 0,
+  "bench_save": 2,
+  "kill_at": -1,
+  "per_rank_rng": 0,
+  "pg_timeout_sec": 0,
+  "hang_at": -1,
+  "kill_marker": "",
+  "auto_resume": "",
+  "deterministic": 1,
+  "tag": "bench_c0",
+  "out": "results/runs/bench_c0.json"
+ },
+ "rank": 0,
+ "world": 1,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "cublas_workspace": ":4096:8",
+ "deterministic_algorithms": true,
+ "pid": 40307,
+ "start_ts": "10:24:30.644",
+ "torch": "2.14.0+cu130",
+ "ckpt_semantics": "\u6a21\u578b\u6743\u91cd + \u4f18\u5316\u5668\u72b6\u6001",
+ "bench_save": [
+  {
+   "i": 0,
+   "blocking_sec": 0.0021313615143299103,
+   "total_sec": 5.904711678624153,
+   "bytes": 7153001035
+  },
+  {
+   "i": 1,
+   "blocking_sec": 0.002842038869857788,
+   "total_sec": 7.11764170229435,
+   "bytes": 7153001035
+  }
+ ],
+ "bench_save_median_total": 6.511176690459251,
+ "bench_save_median_blocking": 0.002486700192093849,
+ "bench_save_bytes": 7153001035,
+ "size_breakdown": {
+  "model_bytes": 2384199680,
+  "optimizer_state_bytes": 4768400600
+ },
+ "losses": [
+  12.98678994178772,
+  13.091762661933899
+ ],
+ "step_times": [
+  2.288385834544897,
+  1.2577413618564606
+ ],
+ "save_events": [],
+ "step_stamps": [
+  "10:24:36.912",
+  "10:24:38.170"
+ ],
+ "first_step": 0,
+ "last_step": 1,
+ "tokens_seen": 32768,
+ "end_ts": "10:24:52.196",
+ "step_ms_median": 1773.0635982006788,
+ "mem_allocated_mib": 18371.99072265625
+}

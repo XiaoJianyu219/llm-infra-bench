@@ -1,0 +1,62 @@
+{
+ "peak_bf16_tflops": 155.57,
+ "peak_bandwidth_gbps": 948.3637442262244,
+ "ridge_point_flops_per_byte": 164.0404337967712,
+ "E1": {
+  "gemm_family_share": 0.3724078851759138,
+  "by_category": {
+   "optimizer": 0.2881,
+   "gemm": 0.2866,
+   "elementwise": 0.2623,
+   "attention_flash": 0.0858,
+   "softmax": 0.0576,
+   "reduction": 0.019,
+   "index_embed": 0.0005,
+   "other": 0.0
+  },
+  "note": "GEMM \u5bb6\u65cf = gemm + \u5404 attention \u540e\u7aef kernel",
+  "kernel_launches_per_step": 5506.0,
+  "distinct_kernels": 68
+ },
+ "E2": {
+  "flops_reported": 21970368331776.0,
+  "us": 156396.59599999836,
+  "achieved_tflops": 140.47855831706357,
+  "frac_of_measured_peak": 0.9029925970114006,
+  "note": "GEMM/attention \u7c7b\u7b97\u5b50\u7684 FLOPs \u4e0e\u5176 device \u65f6\u95f4\u4e4b\u6bd4\uff1bFLOPs \u53d6\u81ea key_averages \u7684 aten \u884c\uff08kernel \u884c\u4e0d\u5e26 flops\uff09"
+ },
+ "E3": {
+  "points": [
+   {
+    "batch": 1,
+    "step_sec": 0.1482343804091215,
+    "tokens_per_s": 3453.989544037615
+   },
+   {
+    "batch": 2,
+    "step_sec": 0.14382373355329037,
+    "tokens_per_s": 7119.826295015362
+   },
+   {
+    "batch": 4,
+    "step_sec": 0.1775322686880827,
+    "tokens_per_s": 11535.930989527636
+   },
+   {
+    "batch": 6,
+    "step_sec": 0.2439918201416731,
+    "tokens_per_s": 12590.58602135208
+   }
+  ],
+  "fixed_overhead_sec": 0.11431663726472248,
+  "slope_sec_per_batch": 0.01971658874871367,
+  "fixed_share_at_b4": 0.6439203312698739,
+  "tps_ratio_b1_to_max": 0.2743311183593897,
+  "note": "step_time = a + b*batch\u3002a \u5927 => \u6bcf\u6b65\u6709\u4e0e\u8ba1\u7b97\u91cf\u65e0\u5173\u7684\u56fa\u5b9a\u5f00\u9500\uff08\u4e0b\u53d1/\u4f18\u5316\u5668/lm_head \u4e4b\u5916\u7684\u5e38\u6570\u9879\uff09"
+ },
+ "verdict_lines": [
+  "E1: GEMM \u5bb6\u65cf\u5360 CUDA \u65f6\u95f4 37.2% -> \u975e GEMM \u5360\u591a\u6570\uff0cmemory \u4fa7\u4e3b\u5bfc",
+  "E2: GEMM \u7c7b\u7b97\u5b50\u5185\u90e8\u8fbe\u5230\u5b9e\u6d4b\u5cf0\u503c\u7684 90.3% -> \u8fd9\u4e9b kernel \u81ea\u8eab\u63a5\u8fd1\u7b97\u529b\u4e0a\u9650",
+  "E3: s512/b=4 \u65f6\u56fa\u5b9a\u5f00\u9500\u5360\u5355\u6b65 64.4% -> \u56fa\u5b9a\u5f00\u9500\u663e\u8457\uff0c\u5c0f batch \u4e0b\u662f launch/\u8bbf\u5b58 \u4e3b\u5bfc"
+ ]
+}

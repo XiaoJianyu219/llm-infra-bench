@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 6330.61it/s]
+[single w1] step 108.7 ms (std 0.2) total 9421 tok/s | alloc max 4685 min 4685 MiB (不对称 0.00%) resv 5028 smi 5510
+saved results/runs/lora_single_mb2.json
+

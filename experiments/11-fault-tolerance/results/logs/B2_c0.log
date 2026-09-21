@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:39,  7.86it/s]Loading weights:  29%|██▊       | 89/311 [00:00<00:00, 465.01it/s]Loading weights:  48%|████▊     | 148/311 [00:00<00:00, 517.26it/s]Loading weights:  67%|██████▋   | 208/311 [00:00<00:00, 543.72it/s]Loading weights:  88%|████████▊ | 274/311 [00:00<00:00, 584.21it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 514.33it/s]
+[09:49:49.131] 从 <workspace> 恢复：level=c0 step=0 恢复了 ['model', 'optimizer']
+[09:49:51.242] step 0 loss 10.07537901  2110.5 ms
+[09:49:52.544] step 1 loss 9.94252086  1301.9 ms
+[09:49:53.839] step 2 loss 9.87304056  1294.6 ms
+[09:49:55.156] step 3 loss 9.75136995  1317.1 ms
+[09:49:56.453] step 4 loss 9.53660297  1296.5 ms
+saved results/runs/B2_c0.json
+

@@ -1,0 +1,116 @@
+{
+ "strategy": "ddp",
+ "world_size": 2,
+ "rank": 0,
+ "host": "autodl-container-rtgh0xprc8-75f62876",
+ "torch": "2.14.0+cu130",
+ "device": "NVIDIA GeForce RTX 4090",
+ "args": {
+  "strategy": "ddp",
+  "seq_len": 512,
+  "micro_bsz": 2,
+  "grad_accum": 8,
+  "precision": "bf16",
+  "steps": 4,
+  "warmup": 3,
+  "repeats": 3,
+  "curve": 0,
+  "seed": 42,
+  "peak_tflops": 169.04,
+  "bucket_cap_mb": 0,
+  "grad_as_bucket_view": 1,
+  "static_graph": 0,
+  "find_unused": 0,
+  "fused_adam": 0,
+  "set_to_none": 1,
+  "tf32": -1,
+  "compile": 0,
+  "tag": "inter3_accum8_minch8",
+  "out": "results/runs/inter3_accum8_minch8.json"
+ },
+ "smi_baseline_mib": 395,
+ "tf32_matmul": false,
+ "nccl_env": {
+  "NCCL_MIN_NCHANNELS": "8"
+ },
+ "ddp_kwargs": {
+  "output_device": 0,
+  "gradient_as_bucket_view": true,
+  "find_unused_parameters": false
+ },
+ "ddp_bucket_bytes_cap_MB": 25.0,
+ "ddp_bucket_bytes_cap_default_MB": 9.5367431640625e-07,
+ "optimizer_fused": false,
+ "optimizer_kwargs": {
+  "lr": "0.0001",
+  "betas": "(0.9, 0.95)",
+  "weight_decay": "0.1"
+ },
+ "params_total": 596049920,
+ "grad_comm_bytes_per_optimizer_step": 2384199680,
+ "cold_steps_sec": [
+  2.315996613353491,
+  1.2514464147388935,
+  1.2471421398222446
+ ],
+ "cold_total_sec": 4.823843352496624,
+ "loss_after_warmup": 12.906001091003418,
+ "block_medians_sec": [
+  1.2621629144996405,
+  1.2626117412000895,
+  1.2530088890343904
+ ],
+ "all_steps_sec": [
+  1.415758416056633,
+  1.2355245389044285,
+  1.2505599781870842,
+  1.2737658508121967,
+  1.2955143079161644,
+  1.254158180207014,
+  1.2703684754669666,
+  1.2548550069332123,
+  1.2541328072547913,
+  1.2518849708139896,
+  1.2602012977004051,
+  1.2510548271238804
+ ],
+ "step_sec_median": 1.2621629144996405,
+ "step_sec_std_across_blocks": 0.004424833924589107,
+ "step_sec_std_across_steps": 0.045577928547118944,
+ "step_rel_std_blocks": 0.0035057549811968966,
+ "step_rel_range_blocks": 0.007608250928134635,
+ "mem_allocated_mib": 16560.6044921875,
+ "mem_reserved_mib": 17492.0,
+ "smi_peak_mib": 18153,
+ "tokens_per_optimizer_step_per_rank": 8192,
+ "status": "ok",
+ "per_rank": [
+  {
+   "rank": 0,
+   "status": "ok",
+   "step_sec_median": 1.2621629144996405,
+   "mem_allocated_mib": 16560.6044921875,
+   "mem_reserved_mib": 17492.0,
+   "smi_peak_mib": 18153,
+   "loss_after_warmup": 12.906001091003418
+  },
+  {
+   "rank": 1,
+   "status": "ok",
+   "step_sec_median": 1.262124041095376,
+   "mem_allocated_mib": 16560.6044921875,
+   "mem_reserved_mib": 17492.0,
+   "smi_peak_mib": 18153,
+   "loss_after_warmup": 12.945402145385742
+  }
+ ],
+ "mem_allocated_max_mib": 16560.6044921875,
+ "mem_asymmetry_pct": 0.0,
+ "tokens_per_optimizer_step_total": 16384,
+ "tokens_per_sec": 12980.891620076725,
+ "flops_per_token": 2995126272,
+ "achieved_tflops_aggregate": 38.879409525276444,
+ "peak_tflops_per_gpu": 169.04,
+ "MFU": 0.11500061975058107,
+ "MFU_with_head": 0.15084300799895697
+}

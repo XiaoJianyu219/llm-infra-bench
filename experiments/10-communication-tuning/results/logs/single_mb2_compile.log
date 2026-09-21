@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:32,  2.03it/s]Loading weights:  33%|███▎      | 103/311 [00:00<00:00, 229.14it/s]Loading weights:  53%|█████▎    | 164/311 [00:00<00:00, 320.90it/s]Loading weights:  72%|███████▏  | 224/311 [00:00<00:00, 390.33it/s]Loading weights:  91%|█████████▏| 284/311 [00:00<00:00, 386.09it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 315.23it/s]
+[single_mb2_compile] step 102.2 ms (std 0.09, 极差 0.21%) 10022 tok/s  MFU 17.76%  alloc 11388 resv 12072 smi 12553
+saved results/runs/single_mb2_compile.json
+

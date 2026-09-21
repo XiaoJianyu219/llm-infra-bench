@@ -1,0 +1,20 @@
+# 不进镜像的东西。没有这个文件，COPY . . 会把模型、数据集、二进制全打进去。
+# 第一次构建时漏了 bin/，构建上下文 72.98 MB —— 里面 69 MB 是 kind 和 kubectl。
+*.onnx
+*.onnx.data
+*.pt
+*.engine
+*.safetensors
+models/
+testdata/
+results/
+manifests/
+bin/
+*.sh
+*.yaml
+__pycache__/
+*.pyc
+.git/
+*.md
+*.log
+*.tgz

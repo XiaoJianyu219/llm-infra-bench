@@ -1,0 +1,3 @@
+{'decode': 39.25, 'preprocess': 252.62, 'infer': 3880.26, 'postprocess': 17.9}
+{'decode': 25.02, 'preprocess': 108.0, 'infer': 4213.41, 'postprocess': 6.69}
+{'decode': 36.48, 'preprocess': 98.94, 'infer': 2012.22, 'postprocess': 3.39}

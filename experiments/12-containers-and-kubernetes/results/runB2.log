@@ -1,0 +1,81 @@
+
+########## 1. 叠一层 app.py ##########
+21:24:08
+ ---> 626acd37a55b
+Successfully built 626acd37a55b
+Successfully tagged sod-onnx-cpu:sync
+sod-onnx-cpu:sync 434MB
+sod-onnx-cpu:latest 434MB
+
+########## 2. 推进节点并确认 ##########
+21:24:16
+Importing	elapsed: 11.2s	total:   0.0 B	(0.0 B/s)	
+docker.io/library/sod-onnx-cpu                  latest               dcbf42f644c68       106MB
+docker.io/library/sod-onnx-cpu                  sync                 d15a4dfd7119a       106MB
+
+########## 3. 清干净：删 HPA、删 Deployment，重新以 sync 镜像部署 1 副本 ##########
+21:24:28
+19:          image: sod-onnx-cpu:sync
+deployment "sod" successfully rolled out
+sod-6f94dddf67-kjpx9   1/1   Running   0     11s
+readyz -> 000
+readyz -> 200
+--- 确认跑的是 sync 镜像 ---
+sod-onnx-cpu:sync
+
+########## 4. 空载基线（无并发，3 次） ##########
+21:24:51
+{'decode': 39.25, 'preprocess': 252.62, 'infer': 3880.26, 'postprocess': 17.9}
+{'decode': 25.02, 'preprocess': 108.0, 'infer': 4213.41, 'postprocess': 6.69}
+{'decode': 36.48, 'preprocess': 98.94, 'infer': 2012.22, 'postprocess': 3.39}
+
+########## 5. 空载时 /healthz 的响应时间（对照：此时事件循环空闲） ##########
+21:25:02
+healthz 0.012260s
+healthz 0.004103s
+healthz 0.003195s
+
+########## 6. 建 HPA ##########
+21:25:02
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 0%/60%   1         4         3          30s
+
+########## 7. 同参压测（concurrency 8 / 300s）；期间每 20s 探一次 /healthz 看事件循环是否被堵 ##########
+21:25:32
+t= 294.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 295.1s  qps=  1  ok=  1 err=  0  p50=44.839 p99=44.839
+t= 296.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 297.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 298.1s  qps=  1  ok=  1 err=  0  p50=6.492 p99=6.492
+t= 299.1s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 300.1s  qps=  1  ok=  1 err=  0  p50=6.401 p99=6.401
+[21:30:34] 停止加压
+
+########## 8. 停压后观察 120s ##########
+21:30:35
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 1%/60%   1         4         4          7m33s
+B 组重启次数：
+sod-6f94dddf67-8cpjg 1/1 Running restarts=5
+sod-6f94dddf67-dgl9l 0/1 CrashLoopBackOff restarts=5
+sod-6f94dddf67-kjpx9 1/1 Running restarts=5
+sod-6f94dddf67-pdh8s 1/1 Running restarts=5
+B 组 liveness 失败事件数: 0
+--- 压测期间 /healthz ---
+21:25:52 healthz 200 0.012072s
+21:26:13 healthz 200 2.104569s
+21:26:35 healthz 200 0.018772s
+21:26:55 healthz 200 0.045836s
+21:27:15 healthz 000 0.001692s
+21:27:35 healthz 200 0.032707s
+21:27:55 healthz 000 0.000735s
+21:28:15 healthz 200 0.004624s
+21:28:36 healthz 200 0.091105s
+21:28:56 healthz 000 0.000857s
+21:29:16 healthz 200 0.190500s
+21:29:36 healthz 000 10.002102s
+21:30:06 healthz 000 0.000689s
+21:30:26 healthz 200 0.006791s
+21:30:46 healthz 200 0.003446s
+RUNB2_DONE 2026-09-18 21:33:33
+

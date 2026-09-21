@@ -1,0 +1,24 @@
+
+=== continuous / fixed ===
+ out_len    n        延迟中位数
+     128  200         2.4s
+
+=== static / fixed ===
+ out_len    n        延迟中位数
+     128  200         9.3s
+
+=== continuous / varlen ===
+ out_len    n        延迟中位数
+      32   46         0.6s
+      64   43         1.2s
+     128   39         2.4s
+     256   31         4.8s
+     512   41         9.6s
+
+=== static / varlen ===
+ out_len    n        延迟中位数
+      32   46        92.6s
+      64   43        94.9s
+     128   39        94.2s
+     256   31        82.4s
+     512   41        82.9s

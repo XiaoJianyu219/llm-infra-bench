@@ -1,0 +1,274 @@
+Name:             sod-6f94dddf67-8cpjg
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             day12-control-plane/172.18.0.2
+Start Time:       Fri, 18 Sep 2026 21:25:17 +0800
+Labels:           app=sod
+                  pod-template-hash=6f94dddf67
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.19
+IPs:
+  IP:           10.244.0.19
+Controlled By:  ReplicaSet/sod-6f94dddf67
+Containers:
+  sod:
+    Container ID:   containerd://5ef8aadb92397782108d80f4a9b7e6f0ac39a39f7746100340da5524123d5c33
+    Image:          sod-onnx-cpu:sync
+    Image ID:       sha256:d15a4dfd7119a7872ff11e19abccdd9c6fb873655f4e6547a4c95915c4dd8745
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Fri, 18 Sep 2026 21:30:56 +0800
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Fri, 18 Sep 2026 21:29:11 +0800
+      Finished:     Fri, 18 Sep 2026 21:29:30 +0800
+    Ready:          True
+    Restart Count:  5
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      500m
+      memory:   512Mi
+    Liveness:   http-get http://:http/healthz delay=0s timeout=2s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/readyz delay=0s timeout=3s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/healthz delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      sod-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /models from models (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-qvs7l (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  models:
+    Type:          HostPath (bare host directory volume)
+    Path:          /models
+    HostPathType:  Directory
+  kube-api-access-qvs7l:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             sod-6f94dddf67-dgl9l
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             day12-control-plane/172.18.0.2
+Start Time:       Fri, 18 Sep 2026 21:25:17 +0800
+Labels:           app=sod
+                  pod-template-hash=6f94dddf67
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.18
+IPs:
+  IP:           10.244.0.18
+Controlled By:  ReplicaSet/sod-6f94dddf67
+Containers:
+  sod:
+    Container ID:   containerd://b88f73a2660ae37012ec7f0317576afb4dade37c70456f6fb6c41d8f091d5faf
+    Image:          sod-onnx-cpu:sync
+    Image ID:       sha256:d15a4dfd7119a7872ff11e19abccdd9c6fb873655f4e6547a4c95915c4dd8745
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Fri, 18 Sep 2026 21:30:08 +0800
+      Finished:     Fri, 18 Sep 2026 21:30:40 +0800
+    Ready:          False
+    Restart Count:  5
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      500m
+      memory:   512Mi
+    Liveness:   http-get http://:http/healthz delay=0s timeout=2s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/readyz delay=0s timeout=3s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/healthz delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      sod-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /models from models (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-96hzl (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  models:
+    Type:          HostPath (bare host directory volume)
+    Path:          /models
+    HostPathType:  Directory
+  kube-api-access-96hzl:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             sod-6f94dddf67-kjpx9
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             day12-control-plane/172.18.0.2
+Start Time:       Fri, 18 Sep 2026 21:24:34 +0800
+Labels:           app=sod
+                  pod-template-hash=6f94dddf67
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.17
+IPs:
+  IP:           10.244.0.17
+Controlled By:  ReplicaSet/sod-6f94dddf67
+Containers:
+  sod:
+    Container ID:   containerd://8c4e3c17ee5cc106a62e5a13e091813409fa1e0fa2809280497608238c85b032
+    Image:          sod-onnx-cpu:sync
+    Image ID:       sha256:d15a4dfd7119a7872ff11e19abccdd9c6fb873655f4e6547a4c95915c4dd8745
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Fri, 18 Sep 2026 21:30:20 +0800
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Fri, 18 Sep 2026 21:28:45 +0800
+      Finished:     Fri, 18 Sep 2026 21:28:54 +0800
+    Ready:          True
+    Restart Count:  5
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      500m
+      memory:   512Mi
+    Liveness:   http-get http://:http/healthz delay=0s timeout=2s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/readyz delay=0s timeout=3s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/healthz delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      sod-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /models from models (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bf24d (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  models:
+    Type:          HostPath (bare host directory volume)
+    Path:          /models
+    HostPathType:  Directory
+  kube-api-access-bf24d:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+
+
+Name:             sod-6f94dddf67-pdh8s
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             day12-control-plane/172.18.0.2
+Start Time:       Fri, 18 Sep 2026 21:26:04 +0800
+Labels:           app=sod
+                  pod-template-hash=6f94dddf67
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.20
+IPs:
+  IP:           10.244.0.20
+Controlled By:  ReplicaSet/sod-6f94dddf67
+Containers:
+  sod:
+    Container ID:   containerd://8e03f1c50b3cfa437eae09e5e174bf4696860b836db87c84d18876168067fe71
+    Image:          sod-onnx-cpu:sync
+    Image ID:       sha256:d15a4dfd7119a7872ff11e19abccdd9c6fb873655f4e6547a4c95915c4dd8745
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Fri, 18 Sep 2026 21:30:51 +0800
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Started:      Fri, 18 Sep 2026 21:29:06 +0800
+      Finished:     Fri, 18 Sep 2026 21:29:24 +0800
+    Ready:          True
+    Restart Count:  5
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      500m
+      memory:   512Mi
+    Liveness:   http-get http://:http/healthz delay=0s timeout=2s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/readyz delay=0s timeout=3s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/healthz delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      sod-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /models from models (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-9twgt (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  models:
+    Type:          HostPath (bare host directory volume)
+    Path:          /models
+    HostPathType:  Directory
+  kube-api-access-9twgt:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s

@@ -1,0 +1,11 @@
+{
+  "images": 800,
+  "labels": 800,
+  "boxes": 3885,
+  "empty": 27,
+  "val": "<workspace>",
+  "names": {
+  
+  },
+  "symlinks": 0
+}

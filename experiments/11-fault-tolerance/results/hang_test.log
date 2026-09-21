@@ -1,0 +1,53 @@
+
+########## 2.4-D SIGSTOP 冻结 rank1，超时设为 45 秒 ##########
+2026-09-18 10:00:46
+--- timeline ---
+[10:00:49.062] 进程组已建立 world=2，默认集合超时 = 0:10:00；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_TIMEOUT_MS=45000
+[10:00:57.104][rank1 pid=37656] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+0, 0 MiB
+1, 0 MiB
+
+########## 2.4-E 同样冻结，但超时设为 20 秒（验证确实由 TORCH_NCCL_TIMEOUT_MS 控制） ##########
+2026-09-18 10:05:40
+[10:05:51.825][rank1 pid=37944] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+0, 0 MiB
+1, 0 MiB
+HANGDONE 2026-09-18 10:09:35
+
+########## 2.4-C2 弹性重启（重做：用干净的独立目录，确保 kill 真的触发） ##########
+2026-09-18 10:09:35
+--- timeline ---
+[10:09:43.417] auto-resume：目录里没有 ckpt，从头开始
+[10:09:44.933][rank0] step 0 done loss 11.943831
+[10:09:44.934][rank1] step 0 done loss 16.174516
+[10:09:45.394][rank0] step 1 done loss 12.159596
+[10:09:45.395][rank1] step 1 done loss 13.863960
+[10:09:53.414][rank0] step 2 done loss 12.397414
+[10:09:53.414][rank1] step 2 done loss 11.532854
+[10:09:53.871][rank0] step 3 done loss 10.476347[10:09:53.871][rank1] step 3 done loss 11.871638
+[10:10:10.778][rank0] step 4 done loss 10.933997
+[10:10:10.778][rank1] step 4 done loss 11.316912
+[10:10:10.779][rank1 pid=38188] 第 5 步，kill -9 自己
+E0918 10:10:11.249000 38120 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -9) local_rank: 1 (pid: 38188) of binary: <workspace>
+[10:10:17.638] auto-resume 选中 <workspace>
+[10:10:21.298] 从 <workspace> 恢复：level=c2 step=4 恢复了 ['model', 'optimizer', 'sampler', 'rng', 'scheduler']
+[10:10:23.159][rank0] step 4 done loss 10.933997
+[10:10:23.166][rank1] step 4 done loss 11.271402
+[10:10:23.630][rank0] step 5 done loss 10.647827
+[10:10:23.630][rank1] step 5 done loss 10.655542
+[10:10:30.285][rank0] step 6 done loss 11.430667
+[10:10:30.285][rank1] step 6 done loss 10.912700
+[10:10:30.744][rank0] step 7 done loss 10.658715
+[10:10:30.744][rank1] step 7 done loss 9.963484
+[10:10:43.835][rank0] step 8 done loss 10.437767
+[10:10:43.836][rank1] step 8 done loss 10.184975
+[10:10:44.300][rank0] step 9 done loss 10.408470
+[10:10:44.300][rank1] step 9 done loss 10.142863
+[10:10:50.925][rank1] step 10 done loss 10.457048[10:10:50.925][rank0] step 10 done loss 10.377151
+[10:10:51.384][rank1] step 11 done loss 9.240476
+[10:10:51.384][rank0] step 11 done loss 9.930364
+[10:11:04.324][rank0] step 12 done loss 9.711766
+0, 0 MiB
+1, 0 MiB
+ALLDONE 2026-09-18 10:11:40
+

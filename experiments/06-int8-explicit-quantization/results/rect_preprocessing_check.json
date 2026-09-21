@@ -1,0 +1,67 @@
+[
+  {
+    "file": "LD_001652.png",
+    "shape": [
+      3,
+      1056,
+      1056
+    ],
+    "padding_each_side": [
+      16,
+      16
+    ],
+    "center_max_pixel_diff": 0
+  },
+  {
+    "file": "LD_001658.png",
+    "shape": [
+      3,
+      1056,
+      1056
+    ],
+    "padding_each_side": [
+      16,
+      16
+    ],
+    "center_max_pixel_diff": 0
+  },
+  {
+    "file": "LD_001677.png",
+    "shape": [
+      3,
+      1056,
+      1056
+    ],
+    "padding_each_side": [
+      16,
+      16
+    ],
+    "center_max_pixel_diff": 0
+  },
+  {
+    "file": "LD_001696.png",
+    "shape": [
+      3,
+      1056,
+      1056
+    ],
+    "padding_each_side": [
+      16,
+      16
+    ],
+    "center_max_pixel_diff": 0
+  },
+  {
+    "file": "LD_001698.png",
+    "shape": [
+      3,
+      1056,
+      1056
+    ],
+    "padding_each_side": [
+      16,
+      16
+    ],
+    "center_max_pixel_diff": 0
+  }
+]

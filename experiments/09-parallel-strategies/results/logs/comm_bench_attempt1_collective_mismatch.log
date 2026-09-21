@@ -1,0 +1,85 @@
+W0918 00:54:04.668000 13725 torch/distributed/run.py:982] 
+W0918 00:54:04.668000 13725 torch/distributed/run.py:982] *****************************************
+W0918 00:54:04.668000 13725 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 00:54:04.668000 13725 torch/distributed/run.py:982] *****************************************
+[W918 00:54:34.016111816 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+  return func(*args, **kwargs)
+<workspace> FutureWarning: `torch.distributed.all_gather_into_tensor` is deprecated. Please use `torch.distributed.all_gather_single` instead.
+  return func(*args, **kwargs)
+<workspace> FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+  return func(*args, **kwargs)
+<workspace> FutureWarning: `torch.distributed.reduce_scatter_tensor` is deprecated. Please use `torch.distributed.reduce_scatter_single` instead.
+  return func(*args, **kwargs)
+all-reduce     1 MB     0.294 ms  algbw    3.57 GB/s  busbw    3.57 GB/s
+all-reduce     4 MB     0.338 ms  algbw   12.42 GB/s  busbw   12.42 GB/s
+all-reduce    16 MB     1.303 ms  algbw   12.87 GB/s  busbw   12.87 GB/s
+all-reduce    64 MB     5.149 ms  algbw   13.03 GB/s  busbw   13.03 GB/s
+all-reduce   256 MB    20.266 ms  algbw   13.25 GB/s  busbw   13.25 GB/s
+all-reduce   512 MB    39.937 ms  algbw   13.44 GB/s  busbw   13.44 GB/s
+all-reduce  1024 MB    79.969 ms  algbw   13.43 GB/s  busbw   13.43 GB/s
+[rank0]:[E918 01:04:39.382826490 ProcessGroupNCCL.cpp:741] [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=428, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600092 milliseconds before timing out.
+[rank0]:[E918 01:04:39.383762260 ProcessGroupNCCL.cpp:2390] [PG ID 0 PG GUID 0(default_pg) Rank 0]  failure detected by watchdog at work sequence id: 428 PG status: last enqueued work: 428, last started work: -1 (), last completed work: 427
+[rank0]:[E918 01:04:40.809387520 ProcessGroupNCCL.cpp:785] Stack trace of the failed collective: 
+#0 barrier from <workspace>
+#1 wrapper from <workspace>
+#2 timeit from <workspace>
+#3 pcie_bench from <workspace>
+#4 main from <workspace>
+#5 <module> from <workspace>
+
+[rank0]:[E918 01:04:40.809501323 ProcessGroupNCCL.cpp:2732] [PG ID 0 PG GUID 0(default_pg) Rank 0] First PG on this rank to signal dumping.
+[rank0]:[E918 01:04:40.170716198 ProcessGroupNCCL.cpp:1982] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 428, last completed NCCL work: 427.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E918 01:04:40.171122429 ProcessGroupNCCL.cpp:1694] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[E918 01:05:40.325139590 ProcessGroupNCCL.cpp:802] [PG GUID 0(default_pg) Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E918 01:05:40.325166654 ProcessGroupNCCL.cpp:816] [PG GUID 0(default_pg) Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E918 01:05:40.326396866 ProcessGroupNCCL.cpp:2192] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=428, OpType=ALLREDUCE, NumelIn=1, NumelOut=1, Timeout(ms)=600000) ran for 600092 milliseconds before timing out.
+Exception raised from checkTimeout at /__w/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:744 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f6b15f5e60d in <workspace>
+frame #1: c10::DistError::DistError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7f6b15f5f5e2 in <workspace>
+frame #2: c10::DistBackendError::DistBackendError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7f6b15f5f712 in <workspace>
+frame #3: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x2a7 (0x7f6a5ed2a847 in <workspace>
+frame #4: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x15b1 (0x7f6a5ed367e1 in <workspace>
+frame #5: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7f6a5ed37a57 in <workspace>
+frame #6: <unknown function> + 0xdbbf4 (0x7f6ae66c7bf4 in /root/miniconda3/bin/../lib/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x7f6b16d18ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x7f6b16da9a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+E0918 01:05:41.427000 13725 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -6) local_rank: 0 (pid: 13793) of binary: <workspace>
+Traceback (most recent call last):
+  File "<workspace>", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "<workspace>", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1138, in main
+    run(args)
+  File "<workspace>", line 1129, in run
+    elastic_launch(
+  File "<workspace>", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "<workspace>", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+======================================================
+scripts/comm_bench.py FAILED
+------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-18_01:05:41
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : -6 (pid: 13793)  (SIGABRT)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 13793
+======================================================
+

@@ -1,0 +1,136 @@
+
+############ 0. 等待 GPU 空闲 ############
+2026-09-16 08:44:14
+08:44:14 等待中：used=2377 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:46:14 等待中：used=2207 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:48:15 等待中：used=2207 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:50:15 等待中：used=2591 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:52:16 等待中：used=2591 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:54:16 等待中：used=2271 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+08:56:17 等待中：used=0 MiB，GPU 进程 0 个，day07 脚本进程 3 个
+08:58:17 等待中：used=2569 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+09:00:18 等待中：used=2207 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+09:02:18 等待中：used=2207 MiB，GPU 进程 1 个，day07 脚本进程 3 个
+GPU 空闲：used=0 MiB，其他实验进程 0 个。开始。
+
+############ 1. GEMM 峰值 / 显存带宽 (4.2 分母) ############
+2026-09-16 09:02:51
+=== 方阵 GEMM 扫描 ===
+      N   bf16 TF   fp16 TF   fp32 TF
+   1024    121.36    102.42     40.77
+   2048    156.09    149.18     47.95
+   3072    145.31    154.64     46.73
+   4096    135.78    143.78     46.95
+   6144    148.88    157.12     46.75
+   8192    145.65    127.45     43.52
+  12288    144.32    138.60         -
+  16384    145.93    135.04         -
+
+=== 模型里真实出现的 GEMM 形状（bf16, tokens=b*s） ===
+tok=  2048 qkv_q     [2048x1024]x[1024x2048]   123.16 TFLOPS
+tok=  2048 kv        [2048x1024]x[1024x1024]   115.49 TFLOPS
+tok=  2048 o_proj    [2048x2048]x[2048x1024]   124.68 TFLOPS
+tok=  2048 gate_up   [2048x1024]x[1024x3072]   117.84 TFLOPS
+tok=  2048 down      [2048x3072]x[3072x1024]   154.67 TFLOPS
+tok=  2048 lm_head   [2048x1024]x[1024x151936]   105.56 TFLOPS
+tok=  8192 qkv_q     [8192x1024]x[1024x2048]   151.05 TFLOPS
+tok=  8192 kv        [8192x1024]x[1024x1024]   158.33 TFLOPS
+tok=  8192 o_proj    [8192x2048]x[2048x1024]   164.06 TFLOPS
+tok=  8192 gate_up   [8192x1024]x[1024x3072]   151.64 TFLOPS
+tok=  8192 down      [8192x3072]x[3072x1024]   138.92 TFLOPS
+tok=  8192 lm_head   [8192x1024]x[1024x151936]   150.39 TFLOPS
+tok= 16384 qkv_q     [16384x1024]x[1024x2048]   153.01 TFLOPS
+tok= 16384 kv        [16384x1024]x[1024x1024]   142.67 TFLOPS
+tok= 16384 o_proj    [16384x2048]x[2048x1024]   141.99 TFLOPS
+tok= 16384 gate_up   [16384x1024]x[1024x3072]   156.48 TFLOPS
+tok= 16384 down      [16384x3072]x[3072x1024]   134.30 TFLOPS
+tok= 16384 lm_head   [16384x1024]x[1024x151936]   149.31 TFLOPS
+
+=== 显存带宽 ===
+copy        866.6 GB/s  (86.0% of 1008)
+add        1329.4 GB/s  (131.9% of 1008)
+reduce      948.1 GB/s  (94.1% of 1008)
+
+实测 bf16 峰值 156.1 TFLOPS = 规格 165.2 的 94.5%
+实测带宽峰值 1329.4 GB/s = 规格 1008 的 131.9%
+ridge point = 117.4 FLOP/byte
+saved results/gemm_peak.json
+
+############ 2. 前 20 步逐步耗时曲线 (4.1 / 坑 5.2) ############
+2026-09-16 09:03:01
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:43,  7.12it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 1526.66it/s]
+[W916 09:03:10.684043909 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+[W916 09:03:10.684180049 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 2489319424 bytes (free: 2211119104, total: 25250627584).
+OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 21.45 GiB memory in use. Of the allocated memory 20.99 GiB is allocated by PyTorch, and 9.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+Traceback (most recent call last):
+  File "<workspace>", line 225, in <module>
+    main()
+  File "<workspace>", line 206, in main
+    rec = run(a)
+          ^^^^^^
+  File "<workspace>", line 161, in run
+    rec["smi"] = sampler.stop()
+                 ^^^^^^^^^^^^^^
+  File "<workspace>", line 44, in stop
+    self.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+############ 3. 开关对比矩阵 (4.4) ############
+2026-09-16 09:03:11
+=== base_s2048_b4_bf16_flash ===
+[   9.4s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.06 GiB is free. Including non-PyTorch memory, this process has 21.45 GiB memory in use. Of the allocated memory 20.99 GiB is allocated by PyTorch, and 9.94 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)']
+  !! no output; stderr tail: rain_loop.py", line 161, in run
+    rec["smi"] = sampler.stop()
+                 ^^^^^^^^^^^^^^
+  File "<workspace>", line 44, in stop
+    self.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+=== prec_fp32_b1_memeff ===
+[  26.2s] lf.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+  !! no output; stderr tail: rain_loop.py", line 161, in run
+    rec["smi"] = sampler.stop()
+                 ^^^^^^^^^^^^^^
+  File "<workspace>", line 44, in stop
+    self.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+=== prec_bf16_b1_memeff ===
+[  17.5s] lf.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+  !! no output; stderr tail: rain_loop.py", line 161, in run
+    rec["smi"] = sampler.stop()
+                 ^^^^^^^^^^^^^^
+  File "<workspace>", line 44, in stop
+    self.join(timeout=10)
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1151, in join
+    self._wait_for_tstate_lock(timeout=max(timeout, 0))
+  File "/root/miniconda3/lib/python3.12/threading.py", line 1169, in _wait_for_tstate_lock
+    self._stop()
+TypeError: 'Event' object is not callable
+
+=== prec_fp32_b2_memeff ===
+

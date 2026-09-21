@@ -1,0 +1,2 @@
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 0%/60%   1         4         4          7m34s

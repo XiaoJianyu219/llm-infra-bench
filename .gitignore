@@ -1,0 +1,32 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+
+# --- 模型权重与数据集：不入库 ---
+*.pt
+*.pth
+*.onnx
+*.onnx.data
+*.engine
+*.plan
+*.safetensors
+*.bin
+datasets/
+dataset*/
+
+# --- 体积过大的原始 profiler trace（超过 GitHub 100MB 硬限制）---
+# 结论已提炼进 results/profiles/prof_*.json，原始 trace 仅保留在本地
+*_trace.json
+
+# --- 私人材料：不公开 ---
+private/
+cv/
+*.tex.bak
+
+# --- 运行时产物 ---
+*.log.gz
+tsdb/
+.venv/
+venvs/

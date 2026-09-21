@@ -1,0 +1,24 @@
+12.4.1-runtime-ubuntu22.04: Pulling from nvidia/cuda
+56dc85502937: Pulling fs layer
+47b8539d532f: Pulling fs layer
+fd9cc1ad8dee: Pulling fs layer
+0d6448aff889: Pulling fs layer
+3c645031de29: Pulling fs layer
+0a7674e3e8fe: Pulling fs layer
+83525caeeb35: Pulling fs layer
+b71b637b97c5: Pulling fs layer
+ec6d5f6c9ed9: Pulling fs layer
+b71b637b97c5: Download complete
+83525caeeb35: Download complete
+0d6448aff889: Download complete
+56dc85502937: Download complete
+fd9cc1ad8dee: Download complete
+47b8539d532f: Download complete
+3c645031de29: Download complete
+3c645031de29: Pull complete
+0d6448aff889: Pull complete
+0a7674e3e8fe: Download complete
+0a7674e3e8fe: Pull complete
+b71b637b97c5: Pull complete
+56dc85502937: Pull complete
+

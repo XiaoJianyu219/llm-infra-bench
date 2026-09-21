@@ -1,0 +1,18 @@
+services:
+  detector:
+    build: .
+    ports: ["127.0.0.1:18007:8000"]
+    environment:
+      ENGINE: /models/day07_batch_fp16.engine
+      MAX_BATCH: "4"
+      MAX_WAIT_MS: "2"
+    volumes:
+      - ${MODEL_DIR:?Set MODEL_DIR to your deployment engine directory}:/models:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    stop_grace_period: 30s

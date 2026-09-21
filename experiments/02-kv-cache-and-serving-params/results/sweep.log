@@ -1,0 +1,22 @@
+########## base : --max-model-len 8192 --gpu-memory-utilization 0.94 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 16 ##########
+(EngineCore pid=7334) INFO 09-07 14:05:42 [gpu_worker.py:578] Available KV cache memory: 3.05 GiB
+(EngineCore pid=7334) INFO 09-07 14:05:42 [kv_cache_utils.py:1869] GPU KV cache size: 22,208 tokens, Maximum concurrency for 8,192 tokens per request: 2.71x
+########## seqs64 : --max-model-len 8192 --gpu-memory-utilization 0.94 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 64 ##########
+(EngineCore pid=8554) INFO 09-07 14:13:49 [gpu_worker.py:578] Available KV cache memory: 3.01 GiB
+(EngineCore pid=8554) INFO 09-07 14:13:49 [kv_cache_utils.py:1869] GPU KV cache size: 21,952 tokens, Maximum concurrency for 8,192 tokens per request: 2.68x
+########## seqs256 : --max-model-len 8192 --gpu-memory-utilization 0.94 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 256 ##########
+(EngineCore pid=9888) INFO 09-07 14:21:52 [gpu_worker.py:578] Available KV cache memory: 2.9 GiB
+(EngineCore pid=9888) INFO 09-07 14:21:52 [kv_cache_utils.py:1869] GPU KV cache size: 21,120 tokens, Maximum concurrency for 8,192 tokens per request: 2.58x
+########## util90 : --max-model-len 8192 --gpu-memory-utilization 0.90 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 64 ##########
+(EngineCore pid=11229) INFO 09-07 14:29:21 [gpu_worker.py:578] Available KV cache memory: 2.07 GiB
+(EngineCore pid=11229) INFO 09-07 14:29:21 [kv_cache_utils.py:1869] GPU KV cache size: 15,088 tokens, Maximum concurrency for 8,192 tokens per request: 1.84x
+########## util96 : --max-model-len 8192 --gpu-memory-utilization 0.96 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 64 ##########
+(EngineCore pid=12478) INFO 09-07 14:37:12 [gpu_worker.py:578] Available KV cache memory: 3.48 GiB
+(EngineCore pid=12478) INFO 09-07 14:37:12 [kv_cache_utils.py:1869] GPU KV cache size: 25,376 tokens, Maximum concurrency for 8,192 tokens per request: 3.10x
+########## len4096 : --max-model-len 4096 --gpu-memory-utilization 0.94 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 64 ##########
+(EngineCore pid=13693) INFO 09-07 14:45:00 [gpu_worker.py:578] Available KV cache memory: 3.01 GiB
+(EngineCore pid=13693) INFO 09-07 14:45:00 [kv_cache_utils.py:1869] GPU KV cache size: 21,952 tokens, Maximum concurrency for 4,096 tokens per request: 5.36x
+########## kvmem381 : --max-model-len 8192 --kv-cache-memory=4087021056 --limit-mm-per-prompt {"image":1,"video":0} --max-num-seqs 64 ##########
+(EngineCore pid=15031) INFO 09-07 14:52:23 [kv_cache_utils.py:1869] GPU KV cache size: 27,712 tokens, Maximum concurrency for 8,192 tokens per request: 3.38x
+>>> 全部完成
+

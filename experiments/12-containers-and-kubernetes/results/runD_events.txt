@@ -1,0 +1,174 @@
+LAST SEEN   TYPE      REASON                         OBJECT                           MESSAGE
+8m33s       Normal    Scheduled                      pod/sod-79475c7bc9-vzhkz         Successfully assigned default/sod-79475c7bc9-vzhkz to day12-control-plane
+7m42s       Normal    Scheduled                      pod/sod-79475c7bc9-cl74w         Successfully assigned default/sod-79475c7bc9-cl74w to day12-control-plane
+10m         Normal    Scheduled                      pod/sod-79475c7bc9-xslch         Successfully assigned default/sod-79475c7bc9-xslch to day12-control-plane
+12m         Normal    Scheduled                      pod/sod-74fcb696cd-b4zcf         Successfully assigned default/sod-74fcb696cd-b4zcf to day12-control-plane
+8m33s       Normal    Scheduled                      pod/sod-79475c7bc9-5kr2t         Successfully assigned default/sod-79475c7bc9-5kr2t to day12-control-plane
+14m         Normal    Scheduled                      pod/sod-74fcb696cd-vngrs         Successfully assigned default/sod-74fcb696cd-vngrs to day12-control-plane
+11m         Normal    Scheduled                      pod/sod-74fcb696cd-xt5ff         Successfully assigned default/sod-74fcb696cd-xt5ff to day12-control-plane
+33m         Normal    BackOff                        pod/sod-6f94dddf67-cvtfj         Back-off pulling image "sod-onnx-cpu:sync"
+33m         Warning   Failed                         pod/sod-6f94dddf67-cvtfj         Error: ImagePullBackOff
+33m         Normal    Killing                        pod/sod-79475c7bc9-mp5q6         Stopping container sod
+33m         Warning   Unhealthy                      pod/sod-79475c7bc9-mp5q6         Readiness probe failed: Get "http://10.244.0.12:8000/readyz": dial tcp 10.244.0.12:8000: connect: connection refused
+33m         Normal    Scheduled                      pod/sod-6f94dddf67-kjpx9         Successfully assigned default/sod-6f94dddf67-kjpx9 to day12-control-plane
+33m         Normal    SuccessfulCreate               replicaset/sod-6f94dddf67        Created pod: sod-6f94dddf67-kjpx9
+33m         Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-6f94dddf67 from 0 to 1
+32m         Normal    SuccessfulCreate               replicaset/sod-6f94dddf67        Created pod: sod-6f94dddf67-8cpjg
+32m         Normal    Scheduled                      pod/sod-6f94dddf67-8cpjg         Successfully assigned default/sod-6f94dddf67-8cpjg to day12-control-plane
+32m         Normal    SuccessfulCreate               replicaset/sod-6f94dddf67        Created pod: sod-6f94dddf67-dgl9l
+32m         Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 3; reason: cpu resource utilization (percentage of request) above target
+32m         Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-6f94dddf67 from 1 to 3
+32m         Normal    Scheduled                      pod/sod-6f94dddf67-dgl9l         Successfully assigned default/sod-6f94dddf67-dgl9l to day12-control-plane
+31m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Liveness probe failed: Get "http://10.244.0.19:8000/healthz": read tcp 10.244.0.1:33800->10.244.0.19:8000: read: connection reset by peer
+31m         Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 4; reason: cpu resource utilization (percentage of request) above target
+31m         Normal    Scheduled                      pod/sod-6f94dddf67-pdh8s         Successfully assigned default/sod-6f94dddf67-pdh8s to day12-control-plane
+31m         Normal    SuccessfulCreate               replicaset/sod-6f94dddf67        Created pod: sod-6f94dddf67-pdh8s
+31m         Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-6f94dddf67 from 3 to 4
+30m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Readiness probe failed: Get "http://10.244.0.19:8000/readyz": read tcp 10.244.0.1:34022->10.244.0.19:8000: read: connection reset by peer
+30m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Liveness probe failed: Get "http://10.244.0.19:8000/healthz": EOF
+30m         Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s         Liveness probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+30m         Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s         Readiness probe failed: Get "http://10.244.0.20:8000/readyz": dial tcp 10.244.0.20:8000: connect: connection refused
+30m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+30m         Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l         Startup probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+29m         Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9         Readiness probe failed: Get "http://10.244.0.17:8000/readyz": read tcp 10.244.0.1:42944->10.244.0.17:8000: read: connection reset by peer
+29m         Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s         Startup probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+29m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Readiness probe failed: Get "http://10.244.0.19:8000/readyz": EOF
+29m         Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l         Liveness probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+28m         Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9         Readiness probe failed: Get "http://10.244.0.17:8000/readyz": dial tcp 10.244.0.17:8000: connect: connection refused
+28m         Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9         Liveness probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+28m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Startup probe failed: Get "http://10.244.0.19:8000/healthz": dial tcp 10.244.0.19:8000: connect: connection refused
+28m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod      failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+28m         Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+28m         Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod      failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+27m         Warning   BackOff                        pod/sod-6f94dddf67-8cpjg         Back-off restarting failed container sod in pod sod-6f94dddf67-8cpjg_default(acd728b8-1818-475d-8131-a56bebed2708)
+27m         Warning   BackOff                        pod/sod-6f94dddf67-kjpx9         Back-off restarting failed container sod in pod sod-6f94dddf67-kjpx9_default(140606cf-2cbb-4b28-a274-ea26997a8f02)
+27m         Normal    Created                        pod/sod-6f94dddf67-kjpx9         Created container: sod
+27m         Normal    Pulled                         pod/sod-6f94dddf67-kjpx9         Container image "sod-onnx-cpu:sync" already present on machine
+27m         Normal    Started                        pod/sod-6f94dddf67-kjpx9         Started container sod
+27m         Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9         Startup probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+27m         Warning   BackOff                        pod/sod-6f94dddf67-pdh8s         Back-off restarting failed container sod in pod sod-6f94dddf67-pdh8s_default(552f3b06-f6f8-4908-adc8-4a066ca1e945)
+26m         Normal    Created                        pod/sod-6f94dddf67-pdh8s         Created container: sod
+26m         Normal    Pulled                         pod/sod-6f94dddf67-pdh8s         Container image "sod-onnx-cpu:sync" already present on machine
+26m         Normal    Started                        pod/sod-6f94dddf67-pdh8s         Started container sod
+26m         Normal    Started                        pod/sod-6f94dddf67-8cpjg         Started container sod
+26m         Normal    Created                        pod/sod-6f94dddf67-8cpjg         Created container: sod
+26m         Normal    Pulled                         pod/sod-6f94dddf67-8cpjg         Container image "sod-onnx-cpu:sync" already present on machine
+26m         Warning   BackOff                        pod/sod-6f94dddf67-dgl9l         Back-off restarting failed container sod in pod sod-6f94dddf67-dgl9l_default(b77e6515-9f6e-44ca-af48-15876f4553fa)
+24m         Normal    Started                        pod/sod-6f94dddf67-dgl9l         Started container sod
+24m         Normal    Created                        pod/sod-6f94dddf67-dgl9l         Created container: sod
+24m         Normal    Pulled                         pod/sod-6f94dddf67-dgl9l         Container image "sod-onnx-cpu:sync" already present on machine
+22m         Normal    SuccessfulCreate               replicaset/sod-bad1-846dcc659c   Created pod: sod-bad1-846dcc659c-dbwmx
+22m         Normal    ScalingReplicaSet              deployment/sod-bad1              Scaled up replica set sod-bad1-846dcc659c from 0 to 1
+22m         Normal    Scheduled                      pod/sod-bad1-846dcc659c-dbwmx    Successfully assigned default/sod-bad1-846dcc659c-dbwmx to day12-control-plane
+21m         Normal    ScalingReplicaSet              deployment/sod                   Scaled down replica set sod-6f94dddf67 from 4 to 3
+21m         Normal    SuccessfulDelete               replicaset/sod-6f94dddf67        Deleted pod: sod-6f94dddf67-dgl9l
+21m         Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 3; reason: All metrics below target
+21m         Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l         Readiness probe failed: Get "http://10.244.0.18:8000/readyz": dial tcp 10.244.0.18:8000: connect: connection refused
+21m         Normal    Killing                        pod/sod-6f94dddf67-dgl9l         Stopping container sod
+20m         Normal    Started                        pod/sod-bad1-846dcc659c-dbwmx    Started container sod
+20m         Normal    Created                        pod/sod-bad1-846dcc659c-dbwmx    Created container: sod
+20m         Normal    ScalingReplicaSet              deployment/sod                   Scaled down replica set sod-6f94dddf67 from 3 to 2
+20m         Normal    Killing                        pod/sod-6f94dddf67-kjpx9         Stopping container sod
+20m         Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 2; reason: All metrics below target
+20m         Normal    SuccessfulDelete               replicaset/sod-6f94dddf67        Deleted pod: sod-6f94dddf67-kjpx9
+20m         Normal    Killing                        pod/sod-bad1-846dcc659c-dbwmx    Container sod failed liveness probe, will be restarted
+20m         Normal    Pulled                         pod/sod-bad1-846dcc659c-dbwmx    Container image "sod-onnx-cpu:latest" already present on machine
+19m         Warning   Unhealthy                      pod/sod-bad1-846dcc659c-dbwmx    Liveness probe failed: HTTP probe failed with statuscode: 503
+19m         Warning   BackOff                        pod/sod-bad1-846dcc659c-dbwmx    Back-off restarting failed container sod in pod sod-bad1-846dcc659c-dbwmx_default(4c655898-f853-43c0-bf76-3c848ed77a54)
+19m         Normal    Killing                        pod/sod-6f94dddf67-pdh8s         Stopping container sod
+19m         Normal    SuccessfulDelete               replicaset/sod-6f94dddf67        Deleted pod: sod-6f94dddf67-pdh8s
+19m         Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 1; reason: All metrics below target
+19m         Normal    ScalingReplicaSet              deployment/sod                   Scaled down replica set sod-6f94dddf67 from 2 to 1
+17m         Normal    Scheduled                      pod/sod-74fcb696cd-8zg9z         Successfully assigned default/sod-74fcb696cd-8zg9z to day12-control-plane
+17m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-8zg9z
+17m         Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-74fcb696cd from 0 to 1
+17m         Normal    Started                        pod/sod-74fcb696cd-8zg9z         Started container sod
+17m         Normal    Created                        pod/sod-74fcb696cd-8zg9z         Created container: sod
+17m         Normal    Pulled                         pod/sod-74fcb696cd-8zg9z         Container image "sod-onnx-cpu:sync" already present on machine
+17m         Warning   Unhealthy                      pod/sod-74fcb696cd-8zg9z         Startup probe failed: Get "http://10.244.0.22:8000/healthz": dial tcp 10.244.0.22:8000: connect: connection refused
+17m         Normal    ScalingReplicaSet              deployment/sod                   Scaled down replica set sod-6f94dddf67 from 1 to 0
+17m         Normal    SuccessfulDelete               replicaset/sod-6f94dddf67        Deleted pod: sod-6f94dddf67-8cpjg
+17m         Normal    Killing                        pod/sod-6f94dddf67-8cpjg         Stopping container sod
+17m         Normal    Killing                        pod/sod-74fcb696cd-8zg9z         Stopping container sod
+17m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-ndcwp
+17m         Normal    Scheduled                      pod/sod-74fcb696cd-ndcwp         Successfully assigned default/sod-74fcb696cd-ndcwp to day12-control-plane
+17m         Normal    Pulled                         pod/sod-74fcb696cd-ndcwp         Container image "sod-onnx-cpu:sync" already present on machine
+17m         Normal    Created                        pod/sod-74fcb696cd-ndcwp         Created container: sod
+17m         Normal    Started                        pod/sod-74fcb696cd-ndcwp         Started container sod
+17m         Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg         Readiness probe failed: Get "http://10.244.0.19:8000/readyz": dial tcp 10.244.0.19:8000: connect: connection refused
+17m         Warning   Unhealthy                      pod/sod-74fcb696cd-8zg9z         Readiness probe failed: Get "http://10.244.0.22:8000/readyz": dial tcp 10.244.0.22:8000: connect: connection refused
+17m         Warning   Unhealthy                      pod/sod-74fcb696cd-ndcwp         Startup probe failed: Get "http://10.244.0.23:8000/healthz": dial tcp 10.244.0.23:8000: connect: connection refused
+15m         Normal    Killing                        pod/sod-74fcb696cd-ndcwp         Stopping container sod
+15m         Normal    Scheduled                      pod/sod-74fcb696cd-dqwph         Successfully assigned default/sod-74fcb696cd-dqwph to day12-control-plane
+15m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-dqwph
+15m         Normal    Created                        pod/sod-74fcb696cd-dqwph         Created container: sod
+15m         Normal    Pulled                         pod/sod-74fcb696cd-dqwph         Container image "sod-onnx-cpu:sync" already present on machine
+15m         Normal    Started                        pod/sod-74fcb696cd-dqwph         Started container sod
+15m         Warning   Unhealthy                      pod/sod-74fcb696cd-dqwph         Startup probe failed: Get "http://10.244.0.24:8000/healthz": dial tcp 10.244.0.24:8000: connect: connection refused
+14m         Warning   Unhealthy                      pod/sod-74fcb696cd-dqwph         Liveness probe failed: Get "http://10.244.0.24:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+14m         Warning   Unhealthy                      pod/sod-74fcb696cd-dqwph         Readiness probe failed: Get "http://10.244.0.24:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+14m         Normal    Killing                        pod/sod-74fcb696cd-dqwph         Stopping container sod
+14m         Warning   Unhealthy                      pod/sod-74fcb696cd-dqwph         Readiness probe failed: Get "http://10.244.0.24:8000/readyz": dial tcp 10.244.0.24:8000: connect: connection refused
+14m         Normal    RegisteredNode                 node/day12-control-plane         Node day12-control-plane event: Registered Node day12-control-plane in Controller
+14m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-vngrs
+14m         Normal    Pulled                         pod/sod-74fcb696cd-vngrs         Container image "sod-onnx-cpu:sync" already present on machine
+14m         Normal    Created                        pod/sod-74fcb696cd-vngrs         Created container: sod
+14m         Normal    Started                        pod/sod-74fcb696cd-vngrs         Started container sod
+14m         Warning   Unhealthy                      pod/sod-74fcb696cd-vngrs         Startup probe failed: Get "http://10.244.0.25:8000/healthz": dial tcp 10.244.0.25:8000: connect: connection refused
+12m         Warning   Unhealthy                      pod/sod-74fcb696cd-vngrs         Readiness probe failed: Get "http://10.244.0.25:8000/readyz": dial tcp 10.244.0.25:8000: connect: connection refused
+12m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-b4zcf
+12m         Normal    Killing                        pod/sod-74fcb696cd-vngrs         Stopping container sod
+12m         Normal    Pulled                         pod/sod-74fcb696cd-b4zcf         Container image "sod-onnx-cpu:sync" already present on machine
+12m         Normal    Created                        pod/sod-74fcb696cd-b4zcf         Created container: sod
+12m         Normal    Started                        pod/sod-74fcb696cd-b4zcf         Started container sod
+11m         Normal    Killing                        pod/sod-74fcb696cd-b4zcf         Stopping container sod
+11m         Normal    SuccessfulCreate               replicaset/sod-74fcb696cd        Created pod: sod-74fcb696cd-xt5ff
+11m         Warning   Unhealthy                      pod/sod-74fcb696cd-b4zcf         Readiness probe failed: Get "http://10.244.0.26:8000/readyz": dial tcp 10.244.0.26:8000: connect: connection refused
+11m         Normal    Pulled                         pod/sod-74fcb696cd-xt5ff         Container image "sod-onnx-cpu:sync" already present on machine
+11m         Normal    Created                        pod/sod-74fcb696cd-xt5ff         Created container: sod
+11m         Normal    Started                        pod/sod-74fcb696cd-xt5ff         Started container sod
+11m         Warning   Unhealthy                      pod/sod-74fcb696cd-xt5ff         Startup probe failed: Get "http://10.244.0.27:8000/healthz": dial tcp 10.244.0.27:8000: connect: connection refused
+10m         Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-79475c7bc9 from 0 to 1
+10m         Normal    SuccessfulCreate               replicaset/sod-79475c7bc9        Created pod: sod-79475c7bc9-xslch
+10m         Normal    ScalingReplicaSet              deployment/sod                   Scaled down replica set sod-74fcb696cd from 1 to 0
+10m         Normal    SuccessfulDelete               replicaset/sod-74fcb696cd        Deleted pod: sod-74fcb696cd-xt5ff
+10m         Normal    Killing                        pod/sod-74fcb696cd-xt5ff         Stopping container sod
+8m37s       Normal    Killing                        pod/sod-79475c7bc9-xslch         Container sod failed liveness probe, will be restarted
+8m34s       Normal    SuccessfulCreate               replicaset/sod-79475c7bc9        Created pod: sod-79475c7bc9-vzhkz
+8m34s       Normal    SuccessfulCreate               replicaset/sod-79475c7bc9        Created pod: sod-79475c7bc9-5kr2t
+8m34s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 3; reason: cpu resource utilization (percentage of request) above target
+8m34s       Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-79475c7bc9 from 1 to 3
+8m32s       Normal    Pulled                         pod/sod-79475c7bc9-5kr2t         Container image "sod-onnx-cpu:latest" already present on machine
+8m32s       Normal    Created                        pod/sod-79475c7bc9-5kr2t         Created container: sod
+8m31s       Normal    Started                        pod/sod-79475c7bc9-5kr2t         Started container sod
+8m29s       Normal    Pulled                         pod/sod-79475c7bc9-xslch         Container image "sod-onnx-cpu:latest" already present on machine
+8m28s       Warning   Unhealthy                      pod/sod-79475c7bc9-xslch         Readiness probe failed: Get "http://10.244.0.28:8000/readyz": dial tcp 10.244.0.28:8000: connect: connection refused
+8m28s       Warning   Unhealthy                      pod/sod-79475c7bc9-5kr2t         Startup probe failed: Get "http://10.244.0.30:8000/healthz": dial tcp 10.244.0.30:8000: connect: connection refused
+8m28s       Normal    Created                        pod/sod-79475c7bc9-xslch         Created container: sod
+8m27s       Normal    Started                        pod/sod-79475c7bc9-xslch         Started container sod
+8m24s       Warning   Unhealthy                      pod/sod-79475c7bc9-xslch         Startup probe failed: Get "http://10.244.0.28:8000/healthz": dial tcp 10.244.0.28:8000: connect: connection refused
+8m19s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod      failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+8m19s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+8m6s        Warning   Unhealthy                      pod/sod-79475c7bc9-xslch         Liveness probe failed: Get "http://10.244.0.28:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+8m5s        Warning   Unhealthy                      pod/sod-79475c7bc9-vzhkz         Readiness probe failed: Get "http://10.244.0.29:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+8m2s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod      failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+8m2s        Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod      invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+7m43s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod      New size: 4; reason: cpu resource utilization (percentage of request) above target
+7m43s       Normal    ScalingReplicaSet              deployment/sod                   Scaled up replica set sod-79475c7bc9 from 3 to 4
+7m43s       Normal    SuccessfulCreate               replicaset/sod-79475c7bc9        Created pod: sod-79475c7bc9-cl74w
+7m40s       Normal    Pulled                         pod/sod-79475c7bc9-cl74w         Container image "sod-onnx-cpu:latest" already present on machine
+7m39s       Normal    Created                        pod/sod-79475c7bc9-cl74w         Created container: sod
+7m39s       Normal    Started                        pod/sod-79475c7bc9-cl74w         Started container sod
+7m37s       Warning   Unhealthy                      pod/sod-79475c7bc9-cl74w         Startup probe failed: Get "http://10.244.0.31:8000/healthz": dial tcp 10.244.0.31:8000: connect: connection refused
+7m1s        Normal    Killing                        pod/sod-79475c7bc9-vzhkz         Container sod failed liveness probe, will be restarted
+6m53s       Warning   Unhealthy                      pod/sod-79475c7bc9-vzhkz         Readiness probe failed: Get "http://10.244.0.29:8000/readyz": dial tcp 10.244.0.29:8000: connect: connection refused
+6m51s       Normal    Pulled                         pod/sod-79475c7bc9-vzhkz         Container image "sod-onnx-cpu:latest" already present on machine
+6m50s       Normal    Created                        pod/sod-79475c7bc9-vzhkz         Created container: sod
+6m49s       Normal    Started                        pod/sod-79475c7bc9-vzhkz         Started container sod
+6m39s       Warning   Unhealthy                      pod/sod-79475c7bc9-cl74w         Readiness probe failed: Get "http://10.244.0.31:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+6m38s       Warning   Unhealthy                      pod/sod-79475c7bc9-vzhkz         Startup probe failed: Get "http://10.244.0.29:8000/healthz": dial tcp 10.244.0.29:8000: connect: connection refused
+6m10s       Warning   Unhealthy                      pod/sod-79475c7bc9-cl74w         Liveness probe failed: Get "http://10.244.0.31:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+5m20s       Warning   Unhealthy                      pod/sod-79475c7bc9-xslch         Readiness probe failed: Get "http://10.244.0.28:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+4m55s       Warning   Unhealthy                      pod/sod-79475c7bc9-5kr2t         Readiness probe failed: Get "http://10.244.0.30:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+4m31s       Warning   Unhealthy                      pod/sod-79475c7bc9-vzhkz         Liveness probe failed: Get "http://10.244.0.29:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+4m31s       Warning   Unhealthy                      pod/sod-79475c7bc9-5kr2t         Liveness probe failed: Get "http://10.244.0.30:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

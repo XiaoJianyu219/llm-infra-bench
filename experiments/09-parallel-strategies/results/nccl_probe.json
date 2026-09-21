@@ -1,0 +1,14 @@
+{
+ "rank": 0,
+ "world": 2,
+ "device": "NVIDIA GeForce RTX 4090",
+ "capability": [
+  8,
+  9
+ ],
+ "nccl_version": "2.30.7",
+ "can_device_access_peer": {
+  "1": false
+ },
+ "all_reduce_ok": true
+}

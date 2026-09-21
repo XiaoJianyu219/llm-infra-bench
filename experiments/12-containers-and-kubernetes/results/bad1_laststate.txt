@@ -1,0 +1,1 @@
+{"terminated":{"containerID":"containerd://96b7ff8cca3be50a4b83784381c88efa89342f03ca1f1b78d0ec46c4ecc6c9bd","exitCode":0,"finishedAt":"2026-09-18T13:39:45Z","reason":"Completed","startedAt":"2026-09-18T13:39:26Z"}}

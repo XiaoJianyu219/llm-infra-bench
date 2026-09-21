@@ -1,0 +1,274 @@
+{
+ "config": {
+  "seq_len": 2048,
+  "batch_size": 1,
+  "precision": "bf16",
+  "sdpa": "flash",
+  "ckpt": 1,
+  "warmup": 10,
+  "active": 3,
+  "seed": 42,
+  "tag": "prof_ckpt_s2048_b1",
+  "trace": 0
+ },
+ "total_self_cuda_us": 622898.9920000088,
+ "profiled_wall_sec": 3.0945845395326614,
+ "active_steps": 3,
+ "cuda_busy_us_per_step": 207632.99733333627,
+ "n_kernel_launches_per_step": 7242.0,
+ "n_distinct_kernels": 68,
+ "top": [
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+   "self_cuda_us": 81910.14300000123,
+   "count": 1095,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "self_cuda_us": 36982.57100000268,
+   "count": 3201,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float)",
+   "self_cuda_us": 31867.032999999763,
+   "count": 30,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+   "self_cuda_us": 31345.624999999316,
+   "count": 2868,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)",
+   "self_cuda_us": 30871.303999999625,
+   "count": 84,
+   "flops": 0.0,
+   "cat": "attention_flash"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float>)",
+   "self_cuda_us": 30752.130000000063,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+   "self_cuda_us": 28789.890999999,
+   "count": 504,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false, false>(pytorch_flash::Flash_fwd_params)",
+   "self_cuda_us": 28472.087999999447,
+   "count": 168,
+   "flops": 0.0,
+   "cat": "attention_flash"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8::Params)",
+   "self_cuda_us": 24727.325999999826,
+   "count": 252,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+   "self_cuda_us": 24192.479000001455,
+   "count": 1692,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float)",
+   "self_cuda_us": 23475.24599999975,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float)",
+   "self_cuda_us": 23449.87400000007,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, float const*, float const*, long)",
+   "self_cuda_us": 16199.77499999995,
+   "count": 3,
+   "flops": 0.0,
+   "cat": "softmax"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float)",
+   "self_cuda_us": 15953.082999999926,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float>)",
+   "self_cuda_us": 15940.15500000026,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float>)",
+   "self_cuda_us": 15934.074000000022,
+   "count": 15,
+   "flops": 0.0,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxForward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxForwardEpilogue>(float*, float const*, int)",
+   "self_cuda_us": 15146.222999999896,
+   "count": 3,
+   "flops": 0.0,
+   "cat": "softmax"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>, false>(int, at::native::CUDAFunctor_add<float>, std::array<char*, 3ul>)",
+   "self_cuda_us": 14061.69399999948,
+   "count": 762,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_nn",
+   "self_cuda_us": 12926.186999999889,
+   "count": 3,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_nt",
+   "self_cuda_us": 12341.955000000002,
+   "count": 3,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+   "self_cuda_us": 9485.9400000007,
+   "count": 168,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1})",
+   "self_cuda_us": 8817.224000001203,
+   "count": 672,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nn_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nn_align8::Params)",
+   "self_cuda_us": 8630.858999999618,
+   "count": 84,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>, false>(int, at::native::BinaryFunctor<float, float, float, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 3ul>)",
+   "self_cuda_us": 7938.810000000012,
+   "count": 1020,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::array<char*, 1ul>, false>(int, at::native::FillFunctor<float>, std::array<char*, 1ul>)",
+   "self_cuda_us": 7781.048000000912,
+   "count": 345,
+   "flops": 0.0,
+   "cat": "elementwise"
+  }
+ ],
+ "by_category": {
+  "gemm": {
+   "us": 183680.62100000065,
+   "n": 2280,
+   "share": 0.2948802668796068
+  },
+  "elementwise": {
+   "us": 177237.13700000936,
+   "n": 17361,
+   "share": 0.28453591878666395
+  },
+  "optimizer": {
+   "us": 157371.59499999986,
+   "n": 120,
+   "share": 0.2526438427757122
+  },
+  "attention_flash": {
+   "us": 60956.63099999845,
+   "n": 420,
+   "share": 0.0978595756019422
+  },
+  "softmax": {
+   "us": 31345.997999999847,
+   "n": 6,
+   "share": 0.05032276244235663
+  },
+  "reduction": {
+   "us": 12015.100000000406,
+   "n": 1527,
+   "share": 0.01928900215654906
+  },
+  "index_embed": {
+   "us": 283.58900000009544,
+   "n": 6,
+   "share": 0.0004552728510437073
+  },
+  "other": {
+   "us": 8.321000000011281,
+   "n": 6,
+   "share": 1.3358506125197203e-05
+  }
+ },
+ "flops_rows": [
+  {
+   "name": "aten::mm",
+   "self_cuda_us": 183679.37200000076,
+   "count": 2361,
+   "flops": 27382027124736.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "aten::mul",
+   "self_cuda_us": 54560.181999998786,
+   "count": 5412,
+   "flops": 12386214912.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "aten::add",
+   "self_cuda_us": 8991.822000000218,
+   "count": 1266,
+   "flops": 1594404864.0,
+   "cat": "elementwise"
+  }
+ ],
+ "gemm_flops_total": 27382027124736.0,
+ "gemm_flops_us": 183679.37200000076,
+ "gemm_achieved_tflops": 149.07513471211067,
+ "sdpa_backend_kernels": [
+  "void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> >, false, true, false, false, true, true, false>(pytorch_flash::Flash_bwd_params)",
+  "void pytorch_flash::flash_fwd_kernel<Flash_fwd_kernel_traits<128, 64, 64, 4, false, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 4, cutlass::bfloat16_t> >, false, true, false, false, true, true, false, false>(pytorch_flash::Flash_fwd_params)",
+  "void pytorch_flash::flash_bwd_dot_do_o_kernel<true, Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> > >(pytorch_flash::Flash_bwd_params)",
+  "void pytorch_flash::flash_bwd_convert_dq_kernel<Flash_bwd_kernel_traits<128, 64, 64, 8, 4, 2, 2, true, false, cutlass::bfloat16_t, Flash_kernel_traits<128, 64, 64, 8, cutlass::bfloat16_t> > >(pytorch_flash::Flash_bwd_params, int)"
+ ],
+ "sdpa_backend_seen": [
+  "attention_flash"
+ ]
+}

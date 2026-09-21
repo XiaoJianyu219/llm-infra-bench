@@ -1,0 +1,13 @@
+tok= 16384 down      [16384x3072]x[3072x1024]   153.94 TFLOPS
+tok= 16384 lm_head   [16384x1024]x[1024x151936]   167.91 TFLOPS
+
+=== 显存带宽 ===
+copy        865.5 GB/s  (85.9% of 1008) 1读1写
+add         913.6 GB/s  (90.6% of 1008) 2读1写
+reduce      947.4 GB/s  (94.0% of 1008) 1读
+
+实测 bf16 峰值 169.0 TFLOPS = 规格 165.2 的 102.3%
+实测带宽峰值 947.4 GB/s = 规格 1008 的 94.0%
+ridge point = 178.4 FLOP/byte
+saved results/gemm_peak.json
+

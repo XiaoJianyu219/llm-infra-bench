@@ -1,0 +1,92 @@
+{
+  "dynamic1024": {
+    "total_boxes_27": 18,
+    "images_with_false_positives_27": 11,
+    "eval_only_boxes_21": 10,
+    "calib_only_boxes_6": 8,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "dynamic1056": {
+    "total_boxes_27": 32,
+    "images_with_false_positives_27": 15,
+    "eval_only_boxes_21": 22,
+    "calib_only_boxes_6": 10,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "fixed1056": {
+    "total_boxes_27": 32,
+    "images_with_false_positives_27": 15,
+    "eval_only_boxes_21": 22,
+    "calib_only_boxes_6": 10,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "fp16": {
+    "total_boxes_27": 19,
+    "images_with_false_positives_27": 11,
+    "eval_only_boxes_21": 11,
+    "calib_only_boxes_6": 8,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "fp32": {
+    "total_boxes_27": 18,
+    "images_with_false_positives_27": 11,
+    "eval_only_boxes_21": 10,
+    "calib_only_boxes_6": 8,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "int8": {
+    "total_boxes_27": 13,
+    "images_with_false_positives_27": 8,
+    "eval_only_boxes_21": 7,
+    "calib_only_boxes_6": 6,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "int8_full": {
+    "total_boxes_27": 0,
+    "images_with_false_positives_27": 0,
+    "eval_only_boxes_21": 0,
+    "calib_only_boxes_6": 0,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "pytorch": {
+    "total_boxes_27": 18,
+    "images_with_false_positives_27": 11,
+    "eval_only_boxes_21": 10,
+    "calib_only_boxes_6": 8,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  },
+  "pytorch_rect": {
+    "total_boxes_27": 32,
+    "images_with_false_positives_27": 15,
+    "eval_only_boxes_21": 22,
+    "calib_only_boxes_6": 10,
+    "n_background": 27,
+    "conf_threshold": 0.25,
+    "nms_iou": 0.7,
+    "max_det": 300
+  }
+}

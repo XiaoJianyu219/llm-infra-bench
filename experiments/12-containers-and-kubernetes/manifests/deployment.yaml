@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sod
+  labels: {app: sod}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: sod}
+  template:
+    metadata:
+      labels: {app: sod}
+    spec:
+      # 推理服务要留时间处理完在途请求：单张图 CPU 推理数秒，
+      # 默认 30s 在慢请求下会把在途请求切断
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: sod
+          image: sod-onnx-cpu:latest
+          imagePullPolicy: IfNotPresent      # 镜像由 kind load 注入，不去 registry 拉
+          ports: [{containerPort: 8000, name: http}]
+          envFrom:
+            - configMapRef: {name: sod-config}
+          resources:
+            # requests 决定调度与 HPA 的利用率分母，limits 决定被限流/OOMKill 的位置。
+            # 两个都必须显式写：不写 requests 的 Pod 在调度器眼里是"零开销"，会被超卖到崩。
+            # 取值依据见 report（本地实测的单副本常驻内存与满载 CPU）。
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "2"
+              memory: "1Gi"
+          volumeMounts:
+            - name: models
+              mountPath: /models
+              readOnly: true
+          # 三种探针分工（任务书 3.3）
+          startupProbe:
+            # 只管"启动完没有"。给足窗口，期间 liveness 不生效，
+            # 模型加载再慢也不会被误杀
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+            failureThreshold: 60
+          readinessProbe:
+            # 管"能不能接流量"。模型没加载完返回 503，Service 不会把请求转进来
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            # 管"要不要重启"。必须极轻量：打 /healthz，不碰模型
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            allowPrivilegeEscalation: false
+      volumes:
+        - name: models
+          hostPath:
+            # 注意：这是 kind 节点容器内的路径，由 kind-config.yaml 的 extraMounts
+            # 从宿主机映射进来，不是宿主机路径本身
+            path: /models
+            type: Directory

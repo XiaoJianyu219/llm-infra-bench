@@ -1,0 +1,8 @@
+time=2026-09-18T23:53:36.436+08:00 level=INFO source=main.go:1736 msg="updated GOGC" old=100 new=75
+time=2026-09-18T23:53:36.437+08:00 level=INFO source=main.go:795 msg="Updating GOMAXPROCS=16: determined from CPU quota" component=automaxprocs
+time=2026-09-18T23:53:36.437+08:00 level=INFO source=memlimit.go:198 msg="GOMEMLIMIT is updated" component=automemlimit package=github.com/KimMachineGun/automemlimit/memlimit GOMEMLIMIT=115964116992 previous=9223372036854775807
+time=2026-09-18T23:53:36.437+08:00 level=INFO source=main.go:902 msg="Starting Prometheus Server" mode=server version="(version=3.14.0, branch=HEAD, revision=d7598b7141418fa35be2b5ec5d0fefb634199610)"
+time=2026-09-18T23:53:36.438+08:00 level=INFO source=main.go:907 msg="operational information" build_context="(go=go1.26.6, platform=linux/amd64, user=root@f423027f4410, date=20260817-16:49:19, tags=netgo,builtinassets)" host_details="(Linux 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 autodl-container-9r5vznnunx-acd081d5 (none))" fd_limits="(soft=65534, hard=65535)" vm_limits="(soft=unlimited, hard=unlimited)"
+time=2026-09-18T23:53:36.778+08:00 level=INFO source=web.go:727 msg="Start listening for connections" component=web address=127.0.0.1:19090
+time=2026-09-18T23:53:36.778+08:00 level=ERROR source=main.go:1228 msg="Unable to start web listener" err="listen tcp 127.0.0.1:19090: bind: address already in use"
+

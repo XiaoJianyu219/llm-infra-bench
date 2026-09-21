@@ -1,0 +1,79 @@
+Name:             sod-79475c7bc9-mp5q6
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             day12-control-plane/172.18.0.2
+Start Time:       Fri, 18 Sep 2026 19:32:35 +0800
+Labels:           app=sod
+                  pod-template-hash=79475c7bc9
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.12
+IPs:
+  IP:           10.244.0.12
+Controlled By:  ReplicaSet/sod-79475c7bc9
+Containers:
+  sod:
+    Container ID:   containerd://6dcfe8fdb8d3f199e505bd34368eb79dd6ac995915a340eee4369441e61aba51
+    Image:          sod-onnx-cpu:latest
+    Image ID:       sha256:dcbf42f644c6807026ec3bb117738d5095854834e93ca8e47a8c7a0398308ed3
+    Port:           8000/TCP (http)
+    Host Port:      0/TCP (http)
+    State:          Running
+      Started:      Fri, 18 Sep 2026 19:36:51 +0800
+    Last State:     Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Fri, 18 Sep 2026 19:36:13 +0800
+      Finished:     Fri, 18 Sep 2026 19:36:51 +0800
+    Ready:          True
+    Restart Count:  4
+    Limits:
+      cpu:     2
+      memory:  1Gi
+    Requests:
+      cpu:      500m
+      memory:   512Mi
+    Liveness:   http-get http://:http/healthz delay=0s timeout=2s period=10s successThreshold=1 failureThreshold=3
+    Readiness:  http-get http://:http/readyz delay=0s timeout=3s period=5s successThreshold=1 failureThreshold=3
+    Startup:    http-get http://:http/healthz delay=0s timeout=1s period=5s successThreshold=1 failureThreshold=60
+    Environment Variables from:
+      sod-config  ConfigMap  Optional: false
+    Environment:  <none>
+    Mounts:
+      /models from models (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-dndpp (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  models:
+    Type:          HostPath (bare host directory volume)
+    Path:          /models
+    HostPathType:  Directory
+  kube-api-access-dndpp:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                  From               Message
+  ----     ------     ----                 ----               -------
+  Normal   Scheduled  12m                  default-scheduler  Successfully assigned default/sod-79475c7bc9-mp5q6 to day12-control-plane
+  Warning  Unhealthy  10m                  kubelet            spec.containers{sod}: Readiness probe failed: Get "http://10.244.0.12:8000/readyz": read tcp 10.244.0.1:52934->10.244.0.12:8000: read: connection reset by peer
+  Warning  Unhealthy  10m (x2 over 12m)    kubelet            spec.containers{sod}: Startup probe failed: Get "http://10.244.0.12:8000/healthz": dial tcp 10.244.0.12:8000: connect: connection refused
+  Warning  Unhealthy  10m (x14 over 12m)   kubelet            spec.containers{sod}: Readiness probe failed: Get "http://10.244.0.12:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+  Warning  Unhealthy  10m (x8 over 11m)    kubelet            spec.containers{sod}: Liveness probe failed: Get "http://10.244.0.12:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+  Normal   Killing    8m18s (x4 over 10m)  kubelet            spec.containers{sod}: Container sod failed liveness probe, will be restarted
+  Normal   Pulled     8m15s (x5 over 12m)  kubelet            spec.containers{sod}: Container image "sod-onnx-cpu:latest" already present on machine
+  Normal   Created    8m15s (x5 over 12m)  kubelet            spec.containers{sod}: Created container: sod
+  Normal   Started    8m15s (x5 over 12m)  kubelet            spec.containers{sod}: Started container sod

@@ -1,0 +1,1122 @@
+[
+  {
+    "image": "LD_000016.png",
+    "high_conf": 8,
+    "max_box": 0.41888427734375,
+    "max_cls": 0.0021271109580993652,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.31005859375,
+      "max_score": 0.00020384788513183594,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000032.png",
+    "high_conf": 10,
+    "max_box": 0.295684814453125,
+    "max_cls": 0.003236234188079834,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.09649658203125,
+      "max_score": 0.003236234188079834,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000045.png",
+    "high_conf": 15,
+    "max_box": 0.37548828125,
+    "max_cls": 0.00361064076423645,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.2159423828125,
+      "max_score": 0.0010448694229125977,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000052.png",
+    "high_conf": 23,
+    "max_box": 0.26959228515625,
+    "max_cls": 0.005886703729629517,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.225372314453125,
+      "max_score": 0.0017004311084747314,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000066.png",
+    "high_conf": 10,
+    "max_box": 0.236053466796875,
+    "max_cls": 0.006669670343399048,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.2298583984375,
+      "max_score": 0.0011515021324157715,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000085.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000089.png",
+    "high_conf": 14,
+    "max_box": 0.400634765625,
+    "max_cls": 0.0034342706203460693,
+    "nms": {
+      "equal": false,
+      "na": 5,
+      "nb": 5,
+      "max_coord": 0.501953125,
+      "max_score": 0.0011491775512695312,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000095.png",
+    "high_conf": 19,
+    "max_box": 0.458740234375,
+    "max_cls": 0.0023592114448547363,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.3582763671875,
+      "max_score": 0.0009078681468963623,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000111.png",
+    "high_conf": 17,
+    "max_box": 0.30126953125,
+    "max_cls": 0.0028307437896728516,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.18170166015625,
+      "max_score": 0.0027694106101989746,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000117.png",
+    "high_conf": 8,
+    "max_box": 0.3917236328125,
+    "max_cls": 0.002007782459259033,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.18896484375,
+      "max_score": 0.0006557703018188477,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000133.png",
+    "high_conf": 9,
+    "max_box": 0.267730712890625,
+    "max_cls": 0.0023517608642578125,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.2230224609375,
+      "max_score": 0.0009279847145080566,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000152.png",
+    "high_conf": 12,
+    "max_box": 0.334716796875,
+    "max_cls": 0.003460794687271118,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.13482666015625,
+      "max_score": 0.0008459091186523438,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000161.png",
+    "high_conf": 11,
+    "max_box": 0.34637451171875,
+    "max_cls": 0.005821645259857178,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.4228515625,
+      "max_score": 0.0006808042526245117,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000162.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000172.png",
+    "high_conf": 12,
+    "max_box": 0.36346435546875,
+    "max_cls": 0.0035290122032165527,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.17413330078125,
+      "max_score": 0.0003528594970703125,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000173.png",
+    "high_conf": 11,
+    "max_box": 0.301483154296875,
+    "max_cls": 0.002553999423980713,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.18157958984375,
+      "max_score": 0.0016047358512878418,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000206.png",
+    "high_conf": 16,
+    "max_box": 0.37353515625,
+    "max_cls": 0.0022231340408325195,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.24176025390625,
+      "max_score": 0.0011964142322540283,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000215.png",
+    "high_conf": 6,
+    "max_box": 0.235687255859375,
+    "max_cls": 0.0022632479667663574,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.19927978515625,
+      "max_score": 0.0003892183303833008,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000226.png",
+    "high_conf": 24,
+    "max_box": 0.41259765625,
+    "max_cls": 0.003187239170074463,
+    "nms": {
+      "equal": false,
+      "na": 4,
+      "nb": 4,
+      "max_coord": 0.42529296875,
+      "max_score": 0.0010229647159576416,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "LD_000252.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000010.png",
+    "high_conf": 43,
+    "max_box": 0.46295166015625,
+    "max_cls": 0.0036755800247192383,
+    "nms": {
+      "equal": false,
+      "na": 6,
+      "nb": 6,
+      "max_coord": 0.4617919921875,
+      "max_score": 0.0013226866722106934,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000131.png",
+    "high_conf": 11,
+    "max_box": 0.342254638671875,
+    "max_cls": 0.0026845037937164307,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.2281494140625,
+      "max_score": 0.00023126602172851562,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000137.png",
+    "high_conf": 10,
+    "max_box": 0.3912353515625,
+    "max_cls": 0.0026247501373291016,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.15869140625,
+      "max_score": 0.00045186281204223633,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000158.png",
+    "high_conf": 58,
+    "max_box": 0.46685791015625,
+    "max_cls": 0.0025110244750976562,
+    "nms": {
+      "equal": false,
+      "na": 7,
+      "nb": 7,
+      "max_coord": 0.397216796875,
+      "max_score": 0.0012903213500976562,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000174.png",
+    "high_conf": 20,
+    "max_box": 0.46075439453125,
+    "max_cls": 0.0034145116806030273,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.24462890625,
+      "max_score": 0.0009545683860778809,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000374.png",
+    "high_conf": 24,
+    "max_box": 0.46343994140625,
+    "max_cls": 0.003634214401245117,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.18377685546875,
+      "max_score": 0.0011161267757415771,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000377.png",
+    "high_conf": 28,
+    "max_box": 0.22998046875,
+    "max_cls": 0.003360152244567871,
+    "nms": {
+      "equal": false,
+      "na": 5,
+      "nb": 5,
+      "max_coord": 0.114837646484375,
+      "max_score": 0.0025446712970733643,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000404.png",
+    "high_conf": 30,
+    "max_box": 0.44976806640625,
+    "max_cls": 0.0021843910217285156,
+    "nms": {
+      "equal": false,
+      "na": 7,
+      "nb": 7,
+      "max_coord": 0.465576171875,
+      "max_score": 0.001926332712173462,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000473.png",
+    "high_conf": 49,
+    "max_box": 0.48480224609375,
+    "max_cls": 0.003938019275665283,
+    "nms": {
+      "equal": false,
+      "na": 6,
+      "nb": 6,
+      "max_coord": 0.4014892578125,
+      "max_score": 0.0016317963600158691,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000501.png",
+    "high_conf": 32,
+    "max_box": 0.4293212890625,
+    "max_cls": 0.0028973519802093506,
+    "nms": {
+      "equal": false,
+      "na": 5,
+      "nb": 5,
+      "max_coord": 0.34637451171875,
+      "max_score": 0.0028973519802093506,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000509.png",
+    "high_conf": 44,
+    "max_box": 0.48455810546875,
+    "max_cls": 0.0041179656982421875,
+    "nms": {
+      "equal": false,
+      "na": 5,
+      "nb": 5,
+      "max_coord": 0.42120361328125,
+      "max_score": 0.0032157301902770996,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000538.png",
+    "high_conf": 11,
+    "max_box": 0.30804443359375,
+    "max_cls": 0.0016571283340454102,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.1793212890625,
+      "max_score": 0.00021946430206298828,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000584.png",
+    "high_conf": 51,
+    "max_box": 0.46484375,
+    "max_cls": 0.003088533878326416,
+    "nms": {
+      "equal": false,
+      "na": 6,
+      "nb": 6,
+      "max_coord": 0.3092041015625,
+      "max_score": 0.0019147992134094238,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000687.png",
+    "high_conf": 25,
+    "max_box": 0.435302734375,
+    "max_cls": 0.0021119117736816406,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4283447265625,
+      "max_score": 0.0021119117736816406,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000691.png",
+    "high_conf": 21,
+    "max_box": 0.462890625,
+    "max_cls": 0.0024413466453552246,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.4598388671875,
+      "max_score": 0.0007884502410888672,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000724.png",
+    "high_conf": 16,
+    "max_box": 0.364501953125,
+    "max_cls": 0.0024070441722869873,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.229736328125,
+      "max_score": 0.00034248828887939453,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000890.png",
+    "high_conf": 28,
+    "max_box": 0.4569091796875,
+    "max_cls": 0.0044890642166137695,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4617919921875,
+      "max_score": 0.003877103328704834,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000891.png",
+    "high_conf": 20,
+    "max_box": 0.347564697265625,
+    "max_cls": 0.005079180002212524,
+    "nms": {
+      "equal": false,
+      "na": 4,
+      "nb": 4,
+      "max_coord": 0.19976806640625,
+      "max_score": 0.005056649446487427,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000926.png",
+    "high_conf": 27,
+    "max_box": 0.486083984375,
+    "max_cls": 0.003612697124481201,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.405029296875,
+      "max_score": 0.0008369088172912598,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "FJ_000965.png",
+    "high_conf": 63,
+    "max_box": 0.495849609375,
+    "max_cls": 0.004923880100250244,
+    "nms": {
+      "equal": false,
+      "na": 6,
+      "nb": 6,
+      "max_coord": 0.39013671875,
+      "max_score": 0.0008876323699951172,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000082.png",
+    "high_conf": 18,
+    "max_box": 0.40765380859375,
+    "max_cls": 0.0024913251399993896,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.228515625,
+      "max_score": 0.0024913251399993896,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000083.png",
+    "high_conf": 6,
+    "max_box": 0.39306640625,
+    "max_cls": 0.0021590590476989746,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.2271728515625,
+      "max_score": 0.0003001689910888672,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000113.png",
+    "high_conf": 12,
+    "max_box": 0.47418212890625,
+    "max_cls": 0.0043909549713134766,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.0574798583984375,
+      "max_score": 0.0010814666748046875,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000141.png",
+    "high_conf": 31,
+    "max_box": 0.55694580078125,
+    "max_cls": 0.0052073001861572266,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4910888671875,
+      "max_score": 0.0010977387428283691,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000167.png",
+    "high_conf": 21,
+    "max_box": 0.436279296875,
+    "max_cls": 0.00248110294342041,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.478759765625,
+      "max_score": 0.0003128647804260254,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000179.png",
+    "high_conf": 9,
+    "max_box": 0.325927734375,
+    "max_cls": 0.002136409282684326,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.36962890625,
+      "max_score": 0.002136409282684326,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000208.png",
+    "high_conf": 9,
+    "max_box": 0.48101806640625,
+    "max_cls": 0.0012489557266235352,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.492431640625,
+      "max_score": 0.001112520694732666,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000210.png",
+    "high_conf": 54,
+    "max_box": 0.4525146484375,
+    "max_cls": 0.0018606185913085938,
+    "nms": {
+      "equal": false,
+      "na": 9,
+      "nb": 9,
+      "max_coord": 0.44677734375,
+      "max_score": 0.0016358792781829834,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000221.png",
+    "high_conf": 15,
+    "max_box": 0.32684326171875,
+    "max_cls": 0.0023605823516845703,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.1903076171875,
+      "max_score": 0.0007303953170776367,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000235.png",
+    "high_conf": 16,
+    "max_box": 0.430908203125,
+    "max_cls": 0.0026457905769348145,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4140625,
+      "max_score": 0.0011557340621948242,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000259.png",
+    "high_conf": 94,
+    "max_box": 0.4503173828125,
+    "max_cls": 0.003268003463745117,
+    "nms": {
+      "equal": false,
+      "na": 12,
+      "nb": 12,
+      "max_coord": 0.4044189453125,
+      "max_score": 0.0018689632415771484,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000293.png",
+    "high_conf": 34,
+    "max_box": 0.4393310546875,
+    "max_cls": 0.0024239420890808105,
+    "nms": {
+      "equal": false,
+      "na": 7,
+      "nb": 7,
+      "max_coord": 0.3919677734375,
+      "max_score": 0.0020537078380584717,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000320.png",
+    "high_conf": 13,
+    "max_box": 0.166229248046875,
+    "max_cls": 0.0019210278987884521,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.14154052734375,
+      "max_score": 0.0013356208801269531,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000355.png",
+    "high_conf": 19,
+    "max_box": 0.20916748046875,
+    "max_cls": 0.0016085505485534668,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.18609619140625,
+      "max_score": 0.0005154609680175781,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000371.png",
+    "high_conf": 24,
+    "max_box": 0.4638671875,
+    "max_cls": 0.002630949020385742,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4683837890625,
+      "max_score": 0.001965820789337158,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000382.png",
+    "high_conf": 19,
+    "max_box": 0.41741943359375,
+    "max_cls": 0.0025212466716766357,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.35186767578125,
+      "max_score": 0.0012718439102172852,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000387.png",
+    "high_conf": 5,
+    "max_box": 0.32000732421875,
+    "max_cls": 0.0038034021854400635,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.2529296875,
+      "max_score": 0.003690093755722046,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000456.png",
+    "high_conf": 13,
+    "max_box": 0.42034912109375,
+    "max_cls": 0.0032039880752563477,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.46954345703125,
+      "max_score": 0.001328587532043457,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000469.png",
+    "high_conf": 28,
+    "max_box": 0.44769287109375,
+    "max_cls": 0.0030494332313537598,
+    "nms": {
+      "equal": false,
+      "na": 7,
+      "nb": 7,
+      "max_coord": 0.468994140625,
+      "max_score": 0.001655280590057373,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "CL_000591.png",
+    "high_conf": 24,
+    "max_box": 0.44366455078125,
+    "max_cls": 0.003128737211227417,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.4456787109375,
+      "max_score": 0.0010820627212524414,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000032.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000039.png",
+    "high_conf": 5,
+    "max_box": 0.33154296875,
+    "max_cls": 0.00165596604347229,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 3,
+      "max_coord": null,
+      "max_score": null,
+      "class_equal": false
+    }
+  },
+  {
+    "image": "DD_000040.png",
+    "high_conf": 30,
+    "max_box": 0.46661376953125,
+    "max_cls": 0.0030718743801116943,
+    "nms": {
+      "equal": false,
+      "na": 7,
+      "nb": 7,
+      "max_coord": 0.473876953125,
+      "max_score": 0.0021895170211791992,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000048.png",
+    "high_conf": 5,
+    "max_box": 0.25830078125,
+    "max_cls": 0.0007958710193634033,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.1722412109375,
+      "max_score": 0.0005536377429962158,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000055.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000073.png",
+    "high_conf": 36,
+    "max_box": 0.225189208984375,
+    "max_cls": 0.0038523077964782715,
+    "nms": {
+      "equal": false,
+      "na": 17,
+      "nb": 17,
+      "max_coord": 7.865264892578125,
+      "max_score": 0.023722678422927856,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000098.png",
+    "high_conf": 12,
+    "max_box": 0.41302490234375,
+    "max_cls": 0.0027031302452087402,
+    "nms": {
+      "equal": false,
+      "na": 5,
+      "nb": 5,
+      "max_coord": 0.495361328125,
+      "max_score": 0.0027031302452087402,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000102.png",
+    "high_conf": 11,
+    "max_box": 0.36907958984375,
+    "max_cls": 0.002781391143798828,
+    "nms": {
+      "equal": false,
+      "na": 6,
+      "nb": 6,
+      "max_coord": 0.430908203125,
+      "max_score": 0.002781391143798828,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000105.png",
+    "high_conf": 4,
+    "max_box": 0.177276611328125,
+    "max_cls": 0.0016737580299377441,
+    "nms": {
+      "equal": false,
+      "na": 2,
+      "nb": 2,
+      "max_coord": 0.061065673828125,
+      "max_score": 0.0016737580299377441,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000106.png",
+    "high_conf": 15,
+    "max_box": 0.3570556640625,
+    "max_cls": 0.0022992491722106934,
+    "nms": {
+      "equal": false,
+      "na": 3,
+      "nb": 3,
+      "max_coord": 0.42236328125,
+      "max_score": 0.002073138952255249,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000109.png",
+    "high_conf": 11,
+    "max_box": 0.306243896484375,
+    "max_cls": 0.0034305155277252197,
+    "nms": {
+      "equal": false,
+      "na": 4,
+      "nb": 4,
+      "max_coord": 0.365234375,
+      "max_score": 0.0030053555965423584,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000113.png",
+    "high_conf": 16,
+    "max_box": 0.45166015625,
+    "max_cls": 0.002931356430053711,
+    "nms": {
+      "equal": false,
+      "na": 4,
+      "nb": 4,
+      "max_coord": 0.32452392578125,
+      "max_score": 0.002213120460510254,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000120.png",
+    "high_conf": 7,
+    "max_box": 0.25970458984375,
+    "max_cls": 0.0027230381965637207,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.1580810546875,
+      "max_score": 0.0006324350833892822,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000141.png",
+    "high_conf": 32,
+    "max_box": 0.208740234375,
+    "max_cls": 0.003619253635406494,
+    "nms": {
+      "equal": false,
+      "na": 9,
+      "nb": 10,
+      "max_coord": null,
+      "max_score": null,
+      "class_equal": false
+    }
+  },
+  {
+    "image": "DD_000152.png",
+    "high_conf": 3,
+    "max_box": 0.236968994140625,
+    "max_cls": 0.0019731223583221436,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 2,
+      "max_coord": null,
+      "max_score": null,
+      "class_equal": false
+    }
+  },
+  {
+    "image": "DD_000163.png",
+    "high_conf": 0,
+    "max_box": 0,
+    "max_cls": 0,
+    "nms": {
+      "equal": true,
+      "na": 0,
+      "nb": 0,
+      "max_coord": 0,
+      "max_score": 0,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000178.png",
+    "high_conf": 6,
+    "max_box": 0.30145263671875,
+    "max_cls": 0.002970755100250244,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.31292724609375,
+      "max_score": 0.002210259437561035,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000197.png",
+    "high_conf": 28,
+    "max_box": 0.4639892578125,
+    "max_cls": 0.0031180977821350098,
+    "nms": {
+      "equal": false,
+      "na": 9,
+      "nb": 10,
+      "max_coord": null,
+      "max_score": null,
+      "class_equal": false
+    }
+  },
+  {
+    "image": "DD_000218.png",
+    "high_conf": 1,
+    "max_box": 0.22845458984375,
+    "max_cls": 0.0013042092323303223,
+    "nms": {
+      "equal": false,
+      "na": 1,
+      "nb": 1,
+      "max_coord": 0.244354248046875,
+      "max_score": 0.0013042092323303223,
+      "class_equal": true
+    }
+  },
+  {
+    "image": "DD_000224.png",
+    "high_conf": 29,
+    "max_box": 0.321990966796875,
+    "max_cls": 0.003367096185684204,
+    "nms": {
+      "equal": false,
+      "na": 4,
+      "nb": 4,
+      "max_coord": 0.32867431640625,
+      "max_score": 0.0012941956520080566,
+      "class_equal": true
+    }
+  }
+]

@@ -1,0 +1,14 @@
+all-reduce     1 MB     0.098 ms  algbw   10.67 GB/s  busbw   10.67 GB/s
+all-reduce     4 MB     0.308 ms  algbw   13.62 GB/s  busbw   13.62 GB/s
+all-reduce    16 MB     1.149 ms  algbw   14.61 GB/s  busbw   14.61 GB/s
+all-reduce    64 MB     4.505 ms  algbw   14.90 GB/s  busbw   14.90 GB/s
+all-reduce   256 MB    17.816 ms  algbw   15.07 GB/s  busbw   15.07 GB/s
+all-reduce   512 MB    35.600 ms  algbw   15.08 GB/s  busbw   15.08 GB/s
+all-reduce  1024 MB    70.171 ms  algbw   15.30 GB/s  busbw   15.30 GB/s
+H2D_pinned           25.1 GB/s
+D2H_pinned           26.3 GB/s
+H2D_pageable         19.1 GB/s
+D2H_pageable         15.2 GB/s
+D2D                 920.0 GB/s
+saved results/comm_bench.json
+

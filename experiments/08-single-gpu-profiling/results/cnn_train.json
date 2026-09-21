@@ -1,0 +1,207 @@
+{
+ "args": {
+  "imgsz": 1024,
+  "batch": 4,
+  "warmup": 10,
+  "steps": 10,
+  "repeats": 3,
+  "active": 3,
+  "tag": "cnn_train"
+ },
+ "weights": "<workspace>",
+ "loss_mode": "sum_of_outputs (fallback: AttributeError)",
+ "step_sec_median": 0.054621774703264236,
+ "step_sec_std_across_blocks": 0.0015965370235647672,
+ "images_per_sec": 73.23086849027183,
+ "mem_allocated_mib": 3840.14306640625,
+ "mem_reserved_mib": 4074.0,
+ "gemm_achieved_tflops": 0.08594682582737488,
+ "total_self_cuda_us": 150688.2909999997,
+ "n_distinct_kernels": 102,
+ "n_kernel_launches_per_step": 1533.6666666666667,
+ "top": [
+  {
+   "name": "void cudnn::bn_bw_1C11_kernel_new<float, float, float2, 512, true, 1>(float, float, float, float, cudnnTensorStruct, float const*, cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float*, float*, float const*, float const*, float)",
+   "self_cuda_us": 18166.278000000202,
+   "count": 129,
+   "flops": 0.0,
+   "cat": "batchnorm"
+  },
+  {
+   "name": "void cudnn::engines_precompiled::nchwToNhwcKernel<float, float, float, false, true, (cudnnKernelDataType_t)2>(cudnn::engines_precompiled::nchw2nhwc_params_t<float>, float const*, float*)",
+   "self_cuda_us": 13433.001999999866,
+   "count": 705,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void cudnn::bn_fw_tr_1C11_kernel_NCHW<float, float, int, 512, true, 1, true>(cudnnTensorStruct, float const*, cudnnTensorStruct, float*, float const*, float const*, float, float, float*, float*, float*, float*, float, float)",
+   "self_cuda_us": 12501.60599999998,
+   "count": 153,
+   "flops": 0.0,
+   "cat": "batchnorm"
+  },
+  {
+   "name": "void wgrad_alg0_engine<float, 128, 5, 5, 3, 3, 3, false, 512>(int, int, int, float const*, int, float*, float const*, kernel_grad_params, unsigned long long, int, float, int, int, int, int)",
+   "self_cuda_us": 7632.760999999962,
+   "count": 45,
+   "flops": 0.0,
+   "cat": "other"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_backward_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, std::array<char*, 3ul>, false>(int, at::native::(anonymous namespace)::silu_backward_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float, float)#1}, std::array<char*, 3ul>)",
+   "self_cuda_us": 7444.276999999696,
+   "count": 162,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "_5x_cudnn_ampere_scudnn_winograd_128x128_ldg1_ldg4_relu_tile148t_nt_v1",
+   "self_cuda_us": 4996.425000000034,
+   "count": 42,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}>(at::TensorIteratorBase&, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1} const&)::{lambda(int)#1})",
+   "self_cuda_us": 4910.24399999982,
+   "count": 348,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "sm86_xmma_wgrad_implicit_gemm_indexed_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize64x64x64_stage3_warpsize2x2x1_g1_tensor16x8x8_execute_kernel__5x_cudnn",
+   "self_cuda_us": 4803.178000000022,
+   "count": 12,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4>(cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4::Params)",
+   "self_cuda_us": 4264.065999999992,
+   "count": 42,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::(anonymous namespace)::silu_kernel(at::TensorIteratorBase&)::{lambda()#1}::operator()() const::{lambda()#2}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "self_cuda_us": 4257.342000000073,
+   "count": 186,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "sm80_xmma_wgrad_implicit_gemm_indexed_wo_smem_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize32x16x64_stage1_warpsize2x1x1_g1_tensor16x8x8_aligna4_alignc8_execute_kernel__5x_cudnn",
+   "self_cuda_us": 4242.595000000023,
+   "count": 54,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "Memcpy DtoD (Device -> Device)",
+   "self_cuda_us": 4018.716999999835,
+   "count": 186,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "sm86_xmma_fprop_implicit_gemm_indexed_tf32f32_tf32f32_f32_nhwckrsc_nchw_tilesize128x64x32_stage4_warpsize2x2x1_g1_tensor16x8x8_alignc4_execute_kernel__5x_cudnn",
+   "self_cuda_us": 3837.5940000000337,
+   "count": 12,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_256x64_16x4_nn_align4>(cutlass_80_tensorop_s1688gemm_256x64_16x4_nn_align4::Params)",
+   "self_cuda_us": 3807.8309999999983,
+   "count": 35,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "sm80_xmma_wgrad_implicit_gemm_indexed_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize128x128x16_stage4_warpsize2x2x1_g1_tensor16x8x8_execute_kernel__5x_cudnn",
+   "self_cuda_us": 3474.8059999999678,
+   "count": 39,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::CUDAFunctor_add<float> >(at::TensorIteratorBase&, at::native::CUDAFunctor_add<float> const&)::{lambda(int)#1})",
+   "self_cuda_us": 3148.5669999999445,
+   "count": 78,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_s1688gemm_256x64_16x4_nt_align4>(cutlass_80_tensorop_s1688gemm_256x64_16x4_nt_align4::Params)",
+   "self_cuda_us": 3143.983000000073,
+   "count": 42,
+   "flops": 0.0,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::conv_depthwise2d_forward_kernel<3, float, int>(torch::headeronly::detail::GenericPackedTensorAccessor<torch::headeronly::detail::TensorAccessor<c10::ArrayRef<long>, float const, 3ul, torch::headeronly::DefaultPtrTraits, int>, at::detail::IndexBoundsCheck<4ul, int>, float const, 4ul, torch::headeronly::DefaultPtrTraits, int>, torch::headeronly::detail::GenericPackedTensorAccessor<torch::headeronly::detail::TensorAccessor<c10::ArrayRef<long>, float, 3ul, torch::headeronly::DefaultPtrTraits, int>, at::detail::IndexBoundsCheck<4ul, int>, float, 4ul, torch::headeronly::DefaultPtrTraits, int>, torch::headeronly::detail::GenericPackedTensorAccessor<torch::headeronly::detail::TensorAccessor<c10::ArrayRef<long>, float const, 3ul, torch::headeronly::DefaultPtrTraits, int>, at::detail::IndexBoundsCheck<4ul, int>, float const, 4ul, torch::headeronly::DefaultPtrTraits, int>, torch::headeronly::detail::GenericPackedTensorAccessor<torch::headeronly::detail::TensorAccessor<c10::ArrayRef<long>, float const, 0ul, torch::headeronly::DefaultPtrTraits, int>, at::detail::IndexBoundsCheck<1ul, int>, float const, 1ul, torch::headeronly::DefaultPtrTraits, int>, bool, int, int, int, int, int, int, int, int, int, int, int, int, int, int, int)",
+   "self_cuda_us": 3124.019000000001,
+   "count": 12,
+   "flops": 0.0,
+   "cat": "conv"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 4, 64, 64>(at::native::(anonymous namespace)::OpaqueType<4u>*, at::native::(anonymous namespace)::CatArrInputTensorMetadata<at::native::(anonymous namespace)::OpaqueType<4u>, unsigned int, 64, 64>, at::native::(anonymous namespace)::TensorSizeStride<unsigned int, 4u>, int, unsigned int)",
+   "self_cuda_us": 2906.5430000000415,
+   "count": 36,
+   "flops": 0.0,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::(anonymous namespace)::launch_clamp_scalar(at::TensorIteratorBase&, c10::Scalar, c10::Scalar, at::native::detail::ClampLimits)::{lambda()#1}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "self_cuda_us": 2868.9749999999713,
+   "count": 30,
+   "flops": 0.0,
+   "cat": "elementwise"
+  }
+ ],
+ "by_category": {
+  "batchnorm": {
+   "us": 31219.991000000206,
+   "n": 372,
+   "share": 0.2071825939017403
+  },
+  "conv": {
+   "us": 51274.103999999694,
+   "n": 1529,
+   "share": 0.3402660131038303
+  },
+  "other": {
+   "us": 9480.026999999904,
+   "n": 227,
+   "share": 0.06291150385400497
+  },
+  "elementwise": {
+   "us": 37726.49099999965,
+   "n": 1914,
+   "share": 0.2503611312440973
+  },
+  "gemm": {
+   "us": 17436.046000000148,
+   "n": 352,
+   "share": 0.11570936191717897
+  },
+  "index_embed": {
+   "us": 1872.6070000000036,
+   "n": 18,
+   "share": 0.012427023941760726
+  },
+  "reduction": {
+   "us": 1288.2690000000975,
+   "n": 165,
+   "share": 0.008549230941905765
+  },
+  "optimizer": {
+   "us": 390.7560000000085,
+   "n": 24,
+   "share": 0.002593141095481727
+  }
+ },
+ "status": "ok"
+}

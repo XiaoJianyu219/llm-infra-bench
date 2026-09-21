@@ -1,0 +1,65 @@
+LAST SEEN   TYPE      REASON                    OBJECT                        MESSAGE
+23m         Normal    Starting                  node/day12-control-plane      
+23m         Normal    NodeAllocatableEnforced   node/day12-control-plane      Updated Node Allocatable limit across pods
+23m         Normal    NodeHasSufficientMemory   node/day12-control-plane      Node day12-control-plane status is now: NodeHasSufficientMemory
+23m         Normal    NodeHasNoDiskPressure     node/day12-control-plane      Node day12-control-plane status is now: NodeHasNoDiskPressure
+23m         Normal    NodeHasSufficientPID      node/day12-control-plane      Node day12-control-plane status is now: NodeHasSufficientPID
+23m         Normal    Starting                  node/day12-control-plane      Starting kubelet.
+23m         Normal    RegisteredNode            node/day12-control-plane      Node day12-control-plane event: Registered Node day12-control-plane in Controller
+22m         Normal    NodeReady                 node/day12-control-plane      Node day12-control-plane status is now: NodeReady
+22m         Normal    ScalingReplicaSet         deployment/sod                Scaled up replica set sod-79475c7bc9 from 0 to 1
+22m         Normal    SuccessfulCreate          replicaset/sod-79475c7bc9     Created pod: sod-79475c7bc9-6skcj
+22m         Normal    Scheduled                 pod/sod-79475c7bc9-6skcj      Successfully assigned default/sod-79475c7bc9-6skcj to day12-control-plane
+12m         Normal    ScalingReplicaSet         deployment/sod                Scaled up replica set sod-79475c7bc9 from 1 to 3
+12m         Normal    SuccessfulRescale         horizontalpodautoscaler/sod   New size: 3; reason: cpu resource utilization (percentage of request) above target
+12m         Normal    Scheduled                 pod/sod-79475c7bc9-shqkt      Successfully assigned default/sod-79475c7bc9-shqkt to day12-control-plane
+12m         Normal    SuccessfulCreate          replicaset/sod-79475c7bc9     Created pod: sod-79475c7bc9-7qbcc
+12m         Normal    Scheduled                 pod/sod-79475c7bc9-7qbcc      Successfully assigned default/sod-79475c7bc9-7qbcc to day12-control-plane
+12m         Normal    SuccessfulCreate          replicaset/sod-79475c7bc9     Created pod: sod-79475c7bc9-shqkt
+12m         Warning   Unhealthy                 pod/sod-79475c7bc9-shqkt      Startup probe failed: Get "http://10.244.0.11:8000/healthz": dial tcp 10.244.0.11:8000: connect: connection refused
+12m         Normal    SuccessfulRescale         horizontalpodautoscaler/sod   New size: 4; reason: cpu resource utilization (percentage of request) above target
+12m         Normal    SuccessfulCreate          replicaset/sod-79475c7bc9     Created pod: sod-79475c7bc9-mp5q6
+12m         Normal    Scheduled                 pod/sod-79475c7bc9-mp5q6      Successfully assigned default/sod-79475c7bc9-mp5q6 to day12-control-plane
+12m         Normal    ScalingReplicaSet         deployment/sod                Scaled up replica set sod-79475c7bc9 from 3 to 4
+12m         Warning   Unhealthy                 pod/sod-79475c7bc9-6skcj      Readiness probe failed: Get "http://10.244.0.5:8000/readyz": dial tcp 10.244.0.5:8000: connect: connection refused
+12m         Warning   Unhealthy                 pod/sod-79475c7bc9-6skcj      Startup probe failed: Get "http://10.244.0.5:8000/healthz": dial tcp 10.244.0.5:8000: connect: connection refused
+11m         Warning   Unhealthy                 pod/sod-79475c7bc9-7qbcc      Readiness probe failed: Get "http://10.244.0.10:8000/readyz": dial tcp 10.244.0.10:8000: connect: connection refused
+11m         Warning   Unhealthy                 pod/sod-79475c7bc9-7qbcc      Startup probe failed: Get "http://10.244.0.10:8000/healthz": dial tcp 10.244.0.10:8000: connect: connection refused
+11m         Warning   Unhealthy                 pod/sod-79475c7bc9-6skcj      Readiness probe failed: Get "http://10.244.0.5:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+11m         Warning   Unhealthy                 pod/sod-79475c7bc9-6skcj      Liveness probe failed: Get "http://10.244.0.5:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-mp5q6      Readiness probe failed: Get "http://10.244.0.12:8000/readyz": read tcp 10.244.0.1:52934->10.244.0.12:8000: read: connection reset by peer
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-mp5q6      Startup probe failed: Get "http://10.244.0.12:8000/healthz": dial tcp 10.244.0.12:8000: connect: connection refused
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-7qbcc      Liveness probe failed: Get "http://10.244.0.10:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-7qbcc      Readiness probe failed: Get "http://10.244.0.10:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-mp5q6      Readiness probe failed: Get "http://10.244.0.12:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+10m         Warning   Unhealthy                 pod/sod-79475c7bc9-mp5q6      Liveness probe failed: Get "http://10.244.0.12:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+9m53s       Warning   Unhealthy                 pod/sod-79475c7bc9-shqkt      Liveness probe failed: Get "http://10.244.0.11:8000/healthz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+9m52s       Normal    Killing                   pod/sod-79475c7bc9-6skcj      Container sod failed liveness probe, will be restarted
+9m41s       Normal    Pulled                    pod/sod-79475c7bc9-6skcj      Container image "sod-onnx-cpu:latest" already present on machine
+9m40s       Normal    Created                   pod/sod-79475c7bc9-6skcj      Created container: sod
+9m40s       Normal    Started                   pod/sod-79475c7bc9-6skcj      Started container sod
+9m33s       Normal    Killing                   pod/sod-79475c7bc9-shqkt      Container sod failed liveness probe, will be restarted
+9m11s       Normal    Pulled                    pod/sod-79475c7bc9-shqkt      Container image "sod-onnx-cpu:latest" already present on machine
+9m11s       Normal    Created                   pod/sod-79475c7bc9-shqkt      Created container: sod
+9m10s       Normal    Started                   pod/sod-79475c7bc9-shqkt      Started container sod
+9m3s        Normal    Killing                   pod/sod-79475c7bc9-7qbcc      Container sod failed liveness probe, will be restarted
+8m37s       Normal    Created                   pod/sod-79475c7bc9-7qbcc      Created container: sod
+8m37s       Normal    Pulled                    pod/sod-79475c7bc9-7qbcc      Container image "sod-onnx-cpu:latest" already present on machine
+8m36s       Normal    Started                   pod/sod-79475c7bc9-7qbcc      Started container sod
+8m18s       Normal    Killing                   pod/sod-79475c7bc9-mp5q6      Container sod failed liveness probe, will be restarted
+8m15s       Normal    Started                   pod/sod-79475c7bc9-mp5q6      Started container sod
+8m15s       Normal    Created                   pod/sod-79475c7bc9-mp5q6      Created container: sod
+8m15s       Normal    Pulled                    pod/sod-79475c7bc9-mp5q6      Container image "sod-onnx-cpu:latest" already present on machine
+2m58s       Normal    ScalingReplicaSet         deployment/sod                Scaled down replica set sod-79475c7bc9 from 4 to 3
+2m58s       Normal    Killing                   pod/sod-79475c7bc9-7qbcc      Stopping container sod
+2m58s       Normal    SuccessfulDelete          replicaset/sod-79475c7bc9     Deleted pod: sod-79475c7bc9-7qbcc
+2m58s       Normal    SuccessfulRescale         horizontalpodautoscaler/sod   New size: 3; reason: All metrics below target
+118s        Normal    SuccessfulDelete          replicaset/sod-79475c7bc9     Deleted pod: sod-79475c7bc9-6skcj
+118s        Normal    Killing                   pod/sod-79475c7bc9-6skcj      Stopping container sod
+118s        Normal    SuccessfulRescale         horizontalpodautoscaler/sod   New size: 2; reason: All metrics below target
+118s        Normal    ScalingReplicaSet         deployment/sod                Scaled down replica set sod-79475c7bc9 from 3 to 2
+58s         Normal    SuccessfulDelete          replicaset/sod-79475c7bc9     Deleted pod: sod-79475c7bc9-shqkt
+58s         Normal    Killing                   pod/sod-79475c7bc9-shqkt      Stopping container sod
+58s         Normal    SuccessfulRescale         horizontalpodautoscaler/sod   New size: 1; reason: All metrics below target
+58s         Normal    ScalingReplicaSet         deployment/sod                Scaled down replica set sod-79475c7bc9 from 2 to 1
+54s         Warning   Unhealthy                 pod/sod-79475c7bc9-shqkt      Readiness probe failed: Get "http://10.244.0.11:8000/readyz": context deadline exceeded (Client.Timeout exceeded while awaiting headers)

@@ -1,0 +1,20 @@
+### 交互作用 v2（B 换成 mb4，mb6 在本机 OOM）
+[31s] 无env -> [inter2_A_accum8] step 1328.0 ms (std 7.47, 极差 1.38%) 12337 tok/s  MFU 10.93%  alloc 16561 resv 17492 smi 18117
+[25s] 无env -> [inter2_B_mb4] step 329.8 ms (std 0.54, 极差 0.37%) 12420 tok/s  MFU 11.00%  alloc 18324 resv 21244 smi 21869
+[26s] 无env -> [inter2_AB_mb4_accum8] step 1358.5 ms (std 31.54, 极差 4.94%) 24120 tok/s  MFU 21.37%  alloc 20597 resv 22712 smi 23337
+### 第二组交互：通信侧两项叠加（k=8 之后 MIN_NCHANNELS 还有用吗）
+[22s] NCCL_MIN_NCHANNELS=8 -> [inter3_minch8_only] step 266.3 ms (std 1.26, 极差 1.14%) 7690 tok/s  MFU 6.81%  alloc 14286 resv 14610 smi 15271
+[30s] NCCL_MIN_NCHANNELS=8 -> [inter3_accum8_minch8] step 1262.2 ms (std 4.42, 极差 0.76%) 12981 tok/s  MFU 11.50%  alloc 16561 resv 17492 smi 18153
+### 逐项累加到最优（每加一项记一次）
+[25s] 无env -> [stack1_mb4] step 331.0 ms (std 0.12, 极差 0.08%) 12374 tok/s  MFU 10.96%  alloc 18323 resv 20132 smi 20757
+[672s] 无env -> [0]:
+[25s] NCCL_MIN_NCHANNELS=8 -> [stack3_mb4_k8_minch] step 1331.4 ms (std 9.77, 极差 1.57%) 24611 tok/s  MFU 21.80%  alloc 20597 resv 22712 smi 23373
+[13s] NCCL_MIN_NCHANNELS=8 -> [stack4_mb4_k8_minch_fused] OOM
+[78s] NCCL_MIN_NCHANNELS=8 NCCL_NTHREADS=512 -> [stack5_full] step 887.0 ms (std 0.56, 极差 0.14%) 36940 tok/s  MFU 32.73%  alloc 17288 resv 19606 smi 20273
+### NCCL channel 数细扫（MIN 的机制确认）
+[23s] NCCL_MIN_NCHANNELS=2 -> [minch_2] step 308.6 ms (std 0.97, 极差 0.75%) 6637 tok/s  MFU 5.88%  alloc 14286 resv 14610 smi 15235
+[22s] NCCL_MIN_NCHANNELS=4 -> [minch_4] step 272.8 ms (std 1.16, 极差 1.04%) 7506 tok/s  MFU 6.65%  alloc 14286 resv 14610 smi 15247
+[23s] NCCL_MIN_NCHANNELS=16 -> [minch_16] step 272.7 ms (std 2.34, 极差 1.84%) 7510 tok/s  MFU 6.65%  alloc 14286 resv 14610 smi 15319
+0, 0 MiB
+1, 0 MiB
+

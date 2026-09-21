@@ -1,0 +1,185 @@
+{
+ "strategy": "zero2",
+ "lora": false,
+ "world": 2,
+ "rank": 0,
+ "total_self_cuda_us": 995228.8600000025,
+ "active_steps": 3,
+ "cuda_busy_ms_per_step": 331.7429533333342,
+ "clean_step_sec": 0.23996701696887612,
+ "overlap_factor": 1.382452295001698,
+ "bubble_frac": 0.0,
+ "overlap_gain": 0.382452295001698,
+ "by_category": {
+  "communication": {
+   "us": 644452.1399999999,
+   "n": 42,
+   "share": 0.6475416518769344
+  },
+  "elementwise": {
+   "us": 132709.22000000151,
+   "n": 16635,
+   "share": 0.13334542971352456
+  },
+  "gemm": {
+   "us": 101829.65699999838,
+   "n": 2109,
+   "share": 0.102317829689945
+  },
+  "optimizer": {
+   "us": 78628.35099999997,
+   "n": 72,
+   "share": 0.07900529632952943
+  },
+  "reduction": {
+   "us": 21705.432000002736,
+   "n": 2100,
+   "share": 0.02180948812115706
+  },
+  "softmax": {
+   "us": 15690.553000000102,
+   "n": 6,
+   "share": 0.015765773713595947
+  },
+  "other": {
+   "us": 213.50699999995277,
+   "n": 18,
+   "share": 0.0002145305553136313
+  }
+ },
+ "top": [
+  {
+   "name": "ncclDevKernel_AllReduce_Sum_bf16_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 376253.35900000005,
+   "count": 33,
+   "cat": "communication"
+  },
+  {
+   "name": "ncclDevKernel_AllGather_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 143472.803,
+   "count": 3,
+   "cat": "communication"
+  },
+  {
+   "name": "ncclDevKernel_AllReduce_Sum_u8_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 101880.97599999985,
+   "count": 3,
+   "cat": "communication"
+  },
+  {
+   "name": "ncclDevKernel_AllReduce_Sum_f32_RING_LL(ncclDevKernelArgsStorage<4096ul>)",
+   "us": 22845.00199999998,
+   "count": 3,
+   "cat": "communication"
+  },
+  {
+   "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8>(cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_nt_align8::Params)",
+   "us": 17867.697000001346,
+   "count": 420,
+   "cat": "gemm"
+  },
+  {
+   "name": "ampere_bf16_s16816gemm_bf16_128x64_ldg8_f2f_stages_64x3_nn",
+   "us": 16814.05800000026,
+   "count": 252,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::multiplies<float>, float)",
+   "us": 15902.300000000105,
+   "count": 18,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 3>, at::native::(anonymous namespace)::PointwiseOpScalarListFunctor<float, 3, 3, 0>, std::divides<float>)",
+   "us": 15412.084000000032,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "Memcpy DtoD (Device -> Device)",
+   "us": 13924.64599999816,
+   "count": 1578,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, 4, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1> >(int, at::native::direct_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda()#3}::operator()() const::{lambda()#7}::operator()() const::{lambda(float)#1}, std::array<char*, 2ul>, TrivialOffsetCalculator<1, unsigned int>, TrivialOffsetCalculator<1, unsigned int>, at::native::memory::LoadWithCast<1>, at::native::memory::StoreWithCast<1>)",
+   "us": 13864.91299999899,
+   "count": 690,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1}>(int, at::native::gpu_kernel_impl_nocast<at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > >(at::TensorIteratorBase&, at::native::BinaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> > const&)::{lambda(int)#1})",
+   "us": 12356.60800000174,
+   "count": 1518,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>, false>(int, at::native::bfloat16_copy_kernel_cuda(at::TensorIteratorBase&)::{lambda(float)#1}, std::array<char*, 2ul>)",
+   "us": 11828.879000000901,
+   "count": 690,
+   "cat": "elementwise"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<3>, at::native::(anonymous namespace)::PointwiseOpScalarFunctor<float, 3, 3, 0>, std::multiplies<float>, float)",
+   "us": 11733.210999999836,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::TernaryOpScalarFunctor<float, 2, 2, 0>, at::native::LerpFunctor<float>, float)",
+   "us": 11698.041999999841,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+   "us": 8454.702000000216,
+   "count": 168,
+   "cat": "gemm"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::cunn_SoftMaxBackward<4, float, float, float, at::native::(anonymous namespace)::LogSoftMaxBackwardEpilogue>(float*, float const*, float const*, long)",
+   "us": 8132.961000000032,
+   "count": 3,
+   "cat": "softmax"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float>(at::native::(anonymous namespace)::TensorListMetadata<1>, at::native::(anonymous namespace)::BinaryOpScalarFunctor<float, 1, 1, 0>, std::plus<float>, float)",
+   "us": 7975.198000000091,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float> >(at::native::(anonymous namespace)::TensorListMetadata<2>, at::native::(anonymous namespace)::UnaryOpFunctor<float, 2, 1, 1>, at::native::Sqrt<float>)",
+   "us": 7954.141999999934,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float> >(at::native::(anonymous namespace)::TensorListScalarListMetadata<float, 1>, at::native::(anonymous namespace)::BinaryOpScalarListFunctor<float, 1, 1, 0>, std::divides<float>)",
+   "us": 7953.374000000127,
+   "count": 9,
+   "cat": "optimizer"
+  },
+  {
+   "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+   "us": 7891.5569999998515,
+   "count": 87,
+   "cat": "gemm"
+  }
+ ],
+ "info": {
+  "ds_config_effective": {
+   "train_micro_batch_size_per_gpu": 2,
+   "gradient_accumulation_steps": 1,
+   "train_batch_size": 4
+  },
+  "ds_zero_stage": 2,
+  "ds_version": "0.19.7",
+  "ds_engine_micro_batch_size_per_gpu": 2,
+  "ds_engine_gradient_accumulation_steps": 1,
+  "ds_engine_train_batch_size": 4,
+  "param_dtype": "bf16 params + fp32 master (DeepSpeed)"
+ }
+}

@@ -1,0 +1,141 @@
+W0918 01:14:27.471000 19234 torch/distributed/run.py:982] 
+W0918 01:14:27.471000 19234 torch/distributed/run.py:982] *****************************************
+W0918 01:14:27.471000 19234 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 01:14:27.471000 19234 torch/distributed/run.py:982] *****************************************
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 7421.06it/s]
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 7524.52it/s]
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "<workspace>", line 404, in <module>
+[rank1]:     main()
+[rank1]:   File "<workspace>", line 400, in main
+[rank1]:     run(p.parse_args())
+[rank1]:   File "<workspace>", line 247, in run
+[rank1]:     net, opt, mode = setup_fsdp(model, args, info)
+[rank1]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 189, in setup_fsdp
+[rank1]:     wrapped = FSDP(model,
+[rank1]:               ^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 467, in __init__
+[rank1]:     _auto_wrap(
+[rank1]:   File "<workspace>", line 102, in _auto_wrap
+[rank1]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
+[rank1]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 544, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:                                         ^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 544, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:                                         ^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 544, in _recursive_wrap
+[rank1]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank1]:                                         ^^^^^^^^^^^^^^^^
+[rank1]:   [Previous line repeated 2 more times]
+[rank1]:   File "<workspace>", line 562, in _recursive_wrap
+[rank1]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 485, in _wrap
+[rank1]:     return wrapper_cls(module, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 493, in __init__
+[rank1]:     _init_param_handle_from_module(
+[rank1]:   File "<workspace>", line 640, in _init_param_handle_from_module
+[rank1]:     _init_param_handle_from_params(state, managed_params, fully_sharded_module)
+[rank1]:   File "<workspace>", line 652, in _init_param_handle_from_params
+[rank1]:     handle = FlatParamHandle(
+[rank1]:              ^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 615, in __init__
+[rank1]:     self._init_flat_param_and_metadata(
+[rank1]:   File "<workspace>", line 671, in _init_flat_param_and_metadata
+[rank1]:     ) = self._validate_tensors_to_flatten(params)
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "<workspace>", line 813, in _validate_tensors_to_flatten
+[rank1]:     raise ValueError(
+[rank1]: ValueError: Must flatten tensors with uniform dtype but got torch.bfloat16 and torch.float32
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<workspace>", line 404, in <module>
+[rank0]:     main()
+[rank0]:   File "<workspace>", line 400, in main
+[rank0]:     run(p.parse_args())
+[rank0]:   File "<workspace>", line 247, in run
+[rank0]:     net, opt, mode = setup_fsdp(model, args, info)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 189, in setup_fsdp
+[rank0]:     wrapped = FSDP(model,
+[rank0]:               ^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 467, in __init__
+[rank0]:     _auto_wrap(
+[rank0]:   File "<workspace>", line 102, in _auto_wrap
+[rank0]:     _recursive_wrap(**recursive_wrap_kwargs, **root_kwargs)  # type: ignore[arg-type]
+[rank0]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 544, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:                                         ^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 544, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:                                         ^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 544, in _recursive_wrap
+[rank0]:     wrapped_child, num_wrapped_params = _recursive_wrap(
+[rank0]:                                         ^^^^^^^^^^^^^^^^
+[rank0]:   [Previous line repeated 2 more times]
+[rank0]:   File "<workspace>", line 562, in _recursive_wrap
+[rank0]:     return _wrap(module, wrapper_cls, **kwargs), nonwrapped_numel
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 485, in _wrap
+[rank0]:     return wrapper_cls(module, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 493, in __init__
+[rank0]:     _init_param_handle_from_module(
+[rank0]:   File "<workspace>", line 640, in _init_param_handle_from_module
+[rank0]:     _init_param_handle_from_params(state, managed_params, fully_sharded_module)
+[rank0]:   File "<workspace>", line 652, in _init_param_handle_from_params
+[rank0]:     handle = FlatParamHandle(
+[rank0]:              ^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 615, in __init__
+[rank0]:     self._init_flat_param_and_metadata(
+[rank0]:   File "<workspace>", line 671, in _init_flat_param_and_metadata
+[rank0]:     ) = self._validate_tensors_to_flatten(params)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "<workspace>", line 813, in _validate_tensors_to_flatten
+[rank0]:     raise ValueError(
+[rank0]: ValueError: Must flatten tensors with uniform dtype but got torch.bfloat16 and torch.float32
+W0918 01:14:35.337000 19234 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 19301 closing signal SIGTERM
+E0918 01:14:35.504000 19234 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: 1) local_rank: 1 (pid: 19302) of binary: <workspace>
+Traceback (most recent call last):
+  File "<workspace>", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "<workspace>", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1138, in main
+    run(args)
+  File "<workspace>", line 1129, in run
+    elastic_launch(
+  File "<workspace>", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "<workspace>", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_dist.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-18_01:14:35
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : -15 (pid: 19301)  (SIGTERM)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 19301
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-18_01:14:35
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 19302) 
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+

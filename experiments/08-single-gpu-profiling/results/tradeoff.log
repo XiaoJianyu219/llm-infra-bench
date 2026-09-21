@@ -1,0 +1,26 @@
+saved <workspace>
+
+=== Pareto 前沿 ===
+ 11.60 GiB      3454 tok/s  MFU  6.65%  b1 s512 bf16 flash
+ 12.65 GiB      7120 tok/s  MFU 13.71%  b2 s512 bf16 flash
+ 15.20 GiB      8975 tok/s  MFU 17.28%  b4 s512 bf16 flash+ckpt
+ 16.29 GiB     11623 tok/s  MFU 21.06%  b8 s256 bf16 flash
+ 21.28 GiB     12591 tok/s  MFU 24.24%  b6 s512 bf16 flash
+
+=== 同配置重复测量的离散度（噪声底）===
+  s2048  b1   bf16  flash          ckpt1  n=4  8103~9035 tok/s  极差 10.79%
+  s512   b4   bf16  flash          ckpt1  n=5  8542~9079 tok/s  极差 5.99%
+  s512   b4   bf16  flash          ckpt0  n=4  11486~11560 tok/s  极差 0.64%
+  s2048  b1   bf16  flash          ckpt0  n=4  10861~10907 tok/s  极差 0.42%
+  s2048  b1   bf16  mem_efficient  ckpt0  n=2  9892~9927 tok/s  极差 0.35%
+  s512   b4   bf16  mem_efficient  ckpt0  n=2  11231~11245 tok/s  极差 0.12%
+
+=== OOM 配置（显存为崩溃前峰值）===
+bsw_s512_b16_ckpt1             tokens/step=8192   alloc 20854 MiB  resv 21370 MiB  阶段=cold 第0步
+bsw_s512_b12_ckpt0             tokens/step=6144   alloc 22314 MiB  resv 22322 MiB  阶段=cold 第0步
+sdpa_math_s2048_b1             tokens/step=2048   alloc 22338 MiB  resv 22666 MiB  阶段=cold 第0步
+bsw_s512_b8_ckpt0              tokens/step=4096   alloc 22946 MiB  resv 23166 MiB  阶段=cold 第0步
+tok4096_s1024_b4               tokens/step=4096   alloc 22946 MiB  resv 23166 MiB  阶段=cold 第0步
+tok4096_s2048_b2               tokens/step=4096   alloc 22947 MiB  resv 23166 MiB  阶段=cold 第0步
+tok4096_s512_b8                tokens/step=4096   alloc 22946 MiB  resv 23166 MiB  阶段=cold 第0步
+

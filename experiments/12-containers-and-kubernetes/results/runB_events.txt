@@ -1,0 +1,54 @@
+LAST SEEN   TYPE      REASON                         OBJECT                        MESSAGE
+8m29s       Normal    BackOff                        pod/sod-6f94dddf67-cvtfj      Back-off pulling image "sod-onnx-cpu:sync"
+8m29s       Warning   Failed                         pod/sod-6f94dddf67-cvtfj      Error: ImagePullBackOff
+8m7s        Normal    Killing                        pod/sod-79475c7bc9-mp5q6      Stopping container sod
+8m4s        Warning   Unhealthy                      pod/sod-79475c7bc9-mp5q6      Readiness probe failed: Get "http://10.244.0.12:8000/readyz": dial tcp 10.244.0.12:8000: connect: connection refused
+8m2s        Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 0 to 1
+8m2s        Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-kjpx9
+8m2s        Normal    Scheduled                      pod/sod-6f94dddf67-kjpx9      Successfully assigned default/sod-6f94dddf67-kjpx9 to day12-control-plane
+7m19s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-dgl9l
+7m19s       Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 1 to 3
+7m19s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod   New size: 3; reason: cpu resource utilization (percentage of request) above target
+7m19s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-8cpjg
+7m19s       Normal    Scheduled                      pod/sod-6f94dddf67-8cpjg      Successfully assigned default/sod-6f94dddf67-8cpjg to day12-control-plane
+7m19s       Normal    Scheduled                      pod/sod-6f94dddf67-dgl9l      Successfully assigned default/sod-6f94dddf67-dgl9l to day12-control-plane
+6m38s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Liveness probe failed: Get "http://10.244.0.19:8000/healthz": read tcp 10.244.0.1:33800->10.244.0.19:8000: read: connection reset by peer
+6m32s       Normal    SuccessfulCreate               replicaset/sod-6f94dddf67     Created pod: sod-6f94dddf67-pdh8s
+6m32s       Normal    SuccessfulRescale              horizontalpodautoscaler/sod   New size: 4; reason: cpu resource utilization (percentage of request) above target
+6m32s       Normal    Scheduled                      pod/sod-6f94dddf67-pdh8s      Successfully assigned default/sod-6f94dddf67-pdh8s to day12-control-plane
+6m32s       Normal    ScalingReplicaSet              deployment/sod                Scaled up replica set sod-6f94dddf67 from 3 to 4
+5m38s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Liveness probe failed: Get "http://10.244.0.19:8000/healthz": EOF
+5m38s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": read tcp 10.244.0.1:34022->10.244.0.19:8000: read: connection reset by peer
+5m21s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Liveness probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+5m21s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Readiness probe failed: Get "http://10.244.0.20:8000/readyz": dial tcp 10.244.0.20:8000: connect: connection refused
+5m16s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+5m4s        Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": dial tcp 10.244.0.19:8000: connect: connection refused
+5m4s        Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Startup probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+4m41s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Readiness probe failed: Get "http://10.244.0.17:8000/readyz": read tcp 10.244.0.1:42944->10.244.0.17:8000: read: connection reset by peer
+4m36s       Warning   Unhealthy                      pod/sod-6f94dddf67-pdh8s      Startup probe failed: Get "http://10.244.0.20:8000/healthz": dial tcp 10.244.0.20:8000: connect: connection refused
+4m18s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Readiness probe failed: Get "http://10.244.0.19:8000/readyz": EOF
+3m49s       Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Liveness probe failed: Get "http://10.244.0.18:8000/healthz": dial tcp 10.244.0.18:8000: connect: connection refused
+3m49s       Warning   Unhealthy                      pod/sod-6f94dddf67-dgl9l      Readiness probe failed: Get "http://10.244.0.18:8000/readyz": dial tcp 10.244.0.18:8000: connect: connection refused
+3m41s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Readiness probe failed: Get "http://10.244.0.17:8000/readyz": dial tcp 10.244.0.17:8000: connect: connection refused
+3m41s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Liveness probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+3m24s       Warning   Unhealthy                      pod/sod-6f94dddf67-8cpjg      Startup probe failed: Get "http://10.244.0.19:8000/healthz": dial tcp 10.244.0.19:8000: connect: connection refused
+3m16s       Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/sod   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3m16s       Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod   failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3m1s        Warning   FailedGetResourceMetric        horizontalpodautoscaler/sod   failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+2m43s       Warning   BackOff                        pod/sod-6f94dddf67-8cpjg      Back-off restarting failed container sod in pod sod-6f94dddf67-8cpjg_default(acd728b8-1818-475d-8131-a56bebed2708)
+2m30s       Warning   BackOff                        pod/sod-6f94dddf67-kjpx9      Back-off restarting failed container sod in pod sod-6f94dddf67-kjpx9_default(140606cf-2cbb-4b28-a274-ea26997a8f02)
+2m28s       Normal    Created                        pod/sod-6f94dddf67-dgl9l      Created container: sod
+2m28s       Normal    Started                        pod/sod-6f94dddf67-dgl9l      Started container sod
+2m28s       Normal    Pulled                         pod/sod-6f94dddf67-dgl9l      Container image "sod-onnx-cpu:sync" already present on machine
+2m16s       Normal    Started                        pod/sod-6f94dddf67-kjpx9      Started container sod
+2m16s       Normal    Created                        pod/sod-6f94dddf67-kjpx9      Created container: sod
+2m16s       Normal    Pulled                         pod/sod-6f94dddf67-kjpx9      Container image "sod-onnx-cpu:sync" already present on machine
+2m11s       Warning   Unhealthy                      pod/sod-6f94dddf67-kjpx9      Startup probe failed: Get "http://10.244.0.17:8000/healthz": dial tcp 10.244.0.17:8000: connect: connection refused
+2m10s       Warning   BackOff                        pod/sod-6f94dddf67-pdh8s      Back-off restarting failed container sod in pod sod-6f94dddf67-pdh8s_default(552f3b06-f6f8-4908-adc8-4a066ca1e945)
+105s        Normal    Started                        pod/sod-6f94dddf67-pdh8s      Started container sod
+105s        Normal    Created                        pod/sod-6f94dddf67-pdh8s      Created container: sod
+105s        Normal    Pulled                         pod/sod-6f94dddf67-pdh8s      Container image "sod-onnx-cpu:sync" already present on machine
+100s        Normal    Pulled                         pod/sod-6f94dddf67-8cpjg      Container image "sod-onnx-cpu:sync" already present on machine
+100s        Normal    Created                        pod/sod-6f94dddf67-8cpjg      Created container: sod
+100s        Normal    Started                        pod/sod-6f94dddf67-8cpjg      Started container sod
+78s         Warning   BackOff                        pod/sod-6f94dddf67-dgl9l      Back-off restarting failed container sod in pod sod-6f94dddf67-dgl9l_default(b77e6515-9f6e-44ca-af48-15876f4553fa)

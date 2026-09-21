@@ -1,0 +1,17 @@
+W0918 09:13:10.199000 21372 torch/distributed/run.py:982] 
+W0918 09:13:10.199000 21372 torch/distributed/run.py:982] *****************************************
+W0918 09:13:10.199000 21372 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 09:13:10.199000 21372 torch/distributed/run.py:982] *****************************************
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:27,  3.56it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 830.17it/s]
+Loading weights:   0%|          | 1/311 [00:00<01:30,  3.42it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 831.19it/s]
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+<workspace> UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank1]:[W918 09:13:19.446199458 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 1 while trying to allocate 1245708288 bytes (free: 1053491200, total: 25250627584).
+[rank1]:[W918 09:13:19.446669214 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 1 while trying to allocate 1245708288 bytes (free: 1053491200, total: 25250627584).
+[rank0]:[W918 09:13:19.449989258 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 1053491200, total: 25250627584).
+[rank0]:[W918 09:13:19.450377113 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 1053491200, total: 25250627584).
+[stack4_mb4_k8_minch_fused] OOM
+saved results/runs/stack4_mb4_k8_minch_fused.json
+

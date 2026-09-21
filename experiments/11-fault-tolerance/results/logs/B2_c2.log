@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<00:32,  9.40it/s]Loading weights:  26%|██▌       | 81/311 [00:00<00:00, 454.23it/s]Loading weights:  46%|████▋     | 144/311 [00:00<00:00, 525.65it/s]Loading weights:  65%|██████▍   | 202/311 [00:00<00:00, 537.28it/s]Loading weights:  85%|████████▍ | 263/311 [00:00<00:00, 562.15it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 512.30it/s]
+[09:51:25.721] 从 <workspace> 恢复：level=c2 step=8 恢复了 ['model', 'optimizer', 'sampler', 'rng', 'scheduler']
+[09:51:27.871] step 8 loss 9.92182374  2149.5 ms
+[09:51:29.217] step 9 loss 9.71847308  1346.4 ms
+[09:51:30.515] step 10 loss 9.79183209  1297.8 ms
+[09:51:31.851] step 11 loss 9.53409505  1335.1 ms
+[09:51:33.157] step 12 loss 9.25197363  1305.6 ms
+saved results/runs/B2_c2.json
+

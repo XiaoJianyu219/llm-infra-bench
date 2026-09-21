@@ -1,0 +1,4 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<02:14,  2.30it/s]Loading weights:  30%|██▉       | 93/311 [00:00<00:00, 229.35it/s]Loading weights:  48%|████▊     | 148/311 [00:00<00:00, 307.36it/s]Loading weights:  68%|██████▊   | 211/311 [00:00<00:00, 389.55it/s]Loading weights:  86%|████████▌ | 268/311 [00:00<00:00, 438.70it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 336.51it/s]
+[single_mb4] step 182.0 ms (std 0.87, 极差 1.11%) 11253 tok/s  MFU 19.94%  alloc 16050 resv 16682 smi 17163
+saved results/runs/single_mb4.json
+

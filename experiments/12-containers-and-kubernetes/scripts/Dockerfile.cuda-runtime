@@ -1,0 +1,11 @@
+# 对比行 2：只把基座从 devel 换成 runtime，其余一模一样。
+# devel 比 runtime 多一整套 CUDA 编译工具链（nvcc、静态库、头文件），运行时用不到。
+FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y python3 python3-pip
+WORKDIR /app
+COPY requirements.txt .
+RUN pip3 install fastapi uvicorn python-multipart numpy onnxruntime-gpu pillow
+COPY app.py .
+EXPOSE 8000
+CMD ["python3", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]

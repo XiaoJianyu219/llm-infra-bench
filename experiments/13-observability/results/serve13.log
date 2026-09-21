@@ -1,0 +1,6 @@
+INFO:     Started server process [3672]
+INFO:     Waiting for application startup.
+[09/18/2026-23:53:33] [TRT] [W] Using an engine plan file across different models of devices is not supported and is likely to affect performance or even cause errors or deadlock.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18013 (Press CTRL+C to quit)
+

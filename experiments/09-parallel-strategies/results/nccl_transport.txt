@@ -1,0 +1,18 @@
+# NCCL transport 原文摘录（NCCL_DEBUG=INFO，完整日志见 logs/nccl_debug.log）
+
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Channel 00 : 0[0] -> 1[1] via SHM/direct
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Channel 01 : 0[0] -> 1[1] via SHM/direct
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Check P2P Type isAllDirectP2p 0 directMode 0 isAllCudaP2p 0
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO NVLS multicast support is not available on dev 0
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 20.000000/20.000000, type PHB/PIX, sameChannels 1
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 20.000000/20.000000, type PHB/PIX, sameChannels 1
+autodl-container-40dd41ad1f-e228ab55:13680:13680 [0] NCCL INFO Using network Socket
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Channel 00 : 1[1] -> 0[0] via SHM/direct
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Channel 01 : 1[1] -> 0[0] via SHM/direct
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Check P2P Type isAllDirectP2p 0 directMode 0 isAllCudaP2p 0
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Connected all rings, use ring PXN 0 GDR 1
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO NVLS multicast support is not available on dev 1
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Pattern 1, crossNic 0, nChannels 1, bw 20.000000/20.000000, type PHB/PIX, sameChannels 1
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 20.000000/20.000000, type PHB/PIX, sameChannels 1
+autodl-container-40dd41ad1f-e228ab55:13681:13681 [1] NCCL INFO Using network Socket

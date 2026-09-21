@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sod-config
+data:
+  MODEL_PATH: "/models/best.onnx"
+  CONF_THRES: "0.25"
+  IOU_THRES: "0.45"
+  MAX_DET: "300"
+  STARTUP_DELAY_SEC: "0"     # 3.3 的失败场景把这个调大
+  ORT_THREADS: "0"           # 0 = 交给 onnxruntime 自己定

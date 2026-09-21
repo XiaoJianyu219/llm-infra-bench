@@ -1,0 +1,173 @@
+{
+ "world_size": 2,
+ "host": "autodl-container-40dd41ad1f-e228ab55",
+ "device": "NVIDIA GeForce RTX 4090",
+ "torch": "2.14.0+cu130",
+ "nccl": "2.30.7",
+ "visible": 2,
+ "backend": "nccl",
+ "collectives": [
+  {
+   "size_mb": 1,
+   "bytes": 1048576,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 9.823297150433064e-05,
+    "algbw_gbps": 10.67437932439795,
+    "busbw_gbps": 10.67437932439795
+   },
+   "all_gather": {
+    "sec": 6.29066489636898e-05,
+    "algbw_gbps": 16.66876263914878,
+    "busbw_gbps": 8.33438131957439
+   },
+   "reduce_scatter": {
+    "sec": 5.803997628390789e-05,
+    "algbw_gbps": 18.066444322285626,
+    "busbw_gbps": 9.033222161142813
+   }
+  },
+  {
+   "size_mb": 4,
+   "bytes": 4194304,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.0003078887239098549,
+    "algbw_gbps": 13.62279185394275,
+    "busbw_gbps": 13.62279185394275
+   },
+   "all_gather": {
+    "sec": 0.00018238048069179057,
+    "algbw_gbps": 22.997548773259684,
+    "busbw_gbps": 11.498774386629842
+   },
+   "reduce_scatter": {
+    "sec": 0.00017986344173550605,
+    "algbw_gbps": 23.31938030057178,
+    "busbw_gbps": 11.65969015028589
+   }
+  },
+  {
+   "size_mb": 16,
+   "bytes": 16777216,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.0011485025752335787,
+    "algbw_gbps": 14.607904554839944,
+    "busbw_gbps": 14.607904554839944
+   },
+   "all_gather": {
+    "sec": 0.0006738502997905016,
+    "algbw_gbps": 24.897541791130752,
+    "busbw_gbps": 12.448770895565376
+   },
+   "reduce_scatter": {
+    "sec": 0.0006696394644677639,
+    "algbw_gbps": 25.054102827309766,
+    "busbw_gbps": 12.527051413654883
+   }
+  },
+  {
+   "size_mb": 64,
+   "bytes": 67108864,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.004505136562511325,
+    "algbw_gbps": 14.896077636898783,
+    "busbw_gbps": 14.896077636898783
+   },
+   "all_gather": {
+    "sec": 0.0026605383958667518,
+    "algbw_gbps": 25.223790832808948,
+    "busbw_gbps": 12.611895416404474
+   },
+   "reduce_scatter": {
+    "sec": 0.002650485187768936,
+    "algbw_gbps": 25.319463888983037,
+    "busbw_gbps": 12.659731944491519
+   }
+  },
+  {
+   "size_mb": 256,
+   "bytes": 268435456,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.017815844062715767,
+    "algbw_gbps": 15.067232012979401,
+    "busbw_gbps": 15.067232012979401
+   },
+   "all_gather": {
+    "sec": 0.010591527540236711,
+    "algbw_gbps": 25.344357079772152,
+    "busbw_gbps": 12.672178539886076
+   },
+   "reduce_scatter": {
+    "sec": 0.010581820923835038,
+    "algbw_gbps": 25.36760524791741,
+    "busbw_gbps": 12.683802623958705
+   }
+  },
+  {
+   "size_mb": 512,
+   "bytes": 536870912,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.03560015745460987,
+    "algbw_gbps": 15.080576895888996,
+    "busbw_gbps": 15.080576895888996
+   },
+   "all_gather": {
+    "sec": 0.021182340011000632,
+    "algbw_gbps": 25.34521264983881,
+    "busbw_gbps": 12.672606324919405
+   },
+   "reduce_scatter": {
+    "sec": 0.0211217999458313,
+    "algbw_gbps": 25.417858012899107,
+    "busbw_gbps": 12.708929006449553
+   }
+  },
+  {
+   "size_mb": 1024,
+   "bytes": 1073741824,
+   "dtype": "torch.bfloat16",
+   "all_reduce": {
+    "sec": 0.0701710257679224,
+    "algbw_gbps": 15.301783211082038,
+    "busbw_gbps": 15.301783211082038
+   },
+   "all_gather": {
+    "sec": 0.04230688028037548,
+    "algbw_gbps": 25.379839328357836,
+    "busbw_gbps": 12.689919664178918
+   },
+   "reduce_scatter": {
+    "sec": 0.04221762903034687,
+    "algbw_gbps": 25.433494221766292,
+    "busbw_gbps": 12.716747110883146
+   }
+  }
+ ],
+ "pcie": {
+  "H2D_pinned": {
+   "sec": 0.010714596137404442,
+   "gbps": 25.0532500299192
+  },
+  "D2H_pinned": {
+   "sec": 0.01022309884428978,
+   "gbps": 26.2577384889453
+  },
+  "H2D_pageable": {
+   "sec": 0.014070823602378369,
+   "gbps": 19.077451582480702
+  },
+  "D2H_pageable": {
+   "sec": 0.017627267818897962,
+   "gbps": 15.228421032567162
+  },
+  "D2D": {
+   "sec": 0.0005835563410073519,
+   "gbps": 919.9984205008172
+  }
+ }
+}

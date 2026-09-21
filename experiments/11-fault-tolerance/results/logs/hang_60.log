@@ -1,0 +1,74 @@
+W0918 10:15:32.439000 38759 torch/distributed/run.py:982] 
+W0918 10:15:32.439000 38759 torch/distributed/run.py:982] *****************************************
+W0918 10:15:32.439000 38759 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 10:15:32.439000 38759 torch/distributed/run.py:982] *****************************************
+[10:15:34.111] 进程组已建立 world=2，默认集合超时 = 0:10:00，本次实际传入 timeout = 60s；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_BLOCKING_WAIT=<未设>
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:23,  3.73it/s]Loading weights:   0%|          | 1/311 [00:00<01:23,  3.69it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 844.93it/s]
+Loading weights: 100%|██████████| 311/311 [00:00<00:00, 863.11it/s]
+[10:15:40.861] step 0 loss 11.94383144  1479.5 ms
+[10:15:41.341] step 1 loss 12.15843821  480.4 ms
+[10:15:41.832] step 2 loss 12.40028715  490.8 ms
+[10:15:42.289] step 3 loss 10.47426414  456.2 ms
+[10:15:42.289][rank1 pid=38827] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+[rank0]:[E918 10:16:42.440462393 ProcessGroupNCCL.cpp:741] [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=60000) ran for 60040 milliseconds before timing out.
+[rank0]:[E918 10:16:42.441645414 ProcessGroupNCCL.cpp:2390] [PG ID 0 PG GUID 0(default_pg) Rank 0]  failure detected by watchdog at work sequence id: 190 PG status: last enqueued work: 246, last started work: -1 (), last completed work: 189
+[rank0]:[E918 10:16:42.442027480 ProcessGroupNCCL.cpp:788] Stack trace of the failed collective not found, potentially because FlightRecorder is disabled. You can enable it by setting TORCH_NCCL_TRACE_BUFFER_SIZE to a non-zero value.
+[rank0]:[E918 10:16:42.442090629 ProcessGroupNCCL.cpp:2732] [PG ID 0 PG GUID 0(default_pg) Rank 0] First PG on this rank to signal dumping.
+[rank0]:[E918 10:16:43.052873417 ProcessGroupNCCL.cpp:1982] [PG ID 0 PG GUID 0(default_pg) Rank 0] Received a dump signal due to a collective timeout from this local rank and we will try our best to dump the debug info. Last enqueued NCCL work: 246, last completed NCCL work: 189.This is most likely caused by incorrect usages of collectives, e.g., wrong sizes used across ranks, the order of collectives is not same for all ranks or the scheduled collective, for some reason, didn't run. Additionally, this can be caused by GIL deadlock or other reasons such as network errors or bugs in the communications library (e.g. NCCL), etc. 
+[rank0]:[E918 10:16:43.053518828 ProcessGroupNCCL.cpp:1694] [PG ID 0 PG GUID 0(default_pg) Rank 0] ProcessGroupNCCL preparing to dump debug info. Include stack trace: 1, only active collectives: 0
+[rank0]:[E918 10:17:43.474657294 ProcessGroupNCCL.cpp:802] [PG GUID 0(default_pg) Rank 0] Some NCCL operations have failed or timed out. Due to the asynchronous nature of CUDA kernels, subsequent GPU operations might run on corrupted/incomplete data.
+[rank0]:[E918 10:17:43.474693456 ProcessGroupNCCL.cpp:816] [PG GUID 0(default_pg) Rank 0] To avoid data inconsistency, we are taking the entire process down.
+[rank0]:[E918 10:17:43.475582127 ProcessGroupNCCL.cpp:2192] [PG ID 0 PG GUID 0(default_pg) Rank 0] Process group watchdog thread terminated with exception: [PG GUID 0(default_pg) Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=190, OpType=ALLREDUCE, NumelIn=3146752, NumelOut=3146752, Timeout(ms)=60000) ran for 60040 milliseconds before timing out.
+Exception raised from checkTimeout at /__w/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:744 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x9d (0x7f5e8535e60d in <workspace>
+frame #1: c10::DistError::DistError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7f5e8535f5e2 in <workspace>
+frame #2: c10::DistBackendError::DistBackendError(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x72 (0x7f5e8535f712 in <workspace>
+frame #3: c10d::ProcessGroupNCCL::WorkNCCL::checkTimeout(std::optional<std::chrono::duration<long, std::ratio<1l, 1000l> > >) + 0x2a7 (0x7f5dcdf2a847 in <workspace>
+frame #4: c10d::ProcessGroupNCCL::Watchdog::runLoop() + 0x15b1 (0x7f5dcdf367e1 in <workspace>
+frame #5: c10d::ProcessGroupNCCL::Watchdog::run() + 0x157 (0x7f5dcdf37a57 in <workspace>
+frame #6: <unknown function> + 0xdbbf4 (0x7f5e8663fbf4 in /root/miniconda3/bin/../lib/libstdc++.so.6)
+frame #7: <unknown function> + 0x94ac3 (0x7f5e88c28ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+frame #8: clone + 0x44 (0x7f5e88cb9a04 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+
+W0918 10:17:43.920000 38759 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 38827 closing signal SIGTERM
+W0918 10:18:13.924000 38759 torch/distributed/elastic/multiprocessing/api.py:1047] Unable to shutdown process 38827 via 15, forcefully exiting via 9
+E0918 10:18:14.139000 38759 torch/distributed/elastic/multiprocessing/api.py:1002] failed (exitcode: -6) local_rank: 0 (pid: 38826) of binary: <workspace>
+Traceback (most recent call last):
+  File "<workspace>", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "<workspace>", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1138, in main
+    run(args)
+  File "<workspace>", line 1129, in run
+    elastic_launch(
+  File "<workspace>", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "<workspace>", line 386, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+======================================================
+scripts/train_ft.py FAILED
+------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-18_10:18:14
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : -9 (pid: 38827)  (SIGKILL)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 38827
+------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-18_10:17:43
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : -6 (pid: 38826)  (SIGABRT)
+  error_file: <N/A>
+  traceback : Signal 6 (SIGABRT) received by PID 38826
+======================================================
+

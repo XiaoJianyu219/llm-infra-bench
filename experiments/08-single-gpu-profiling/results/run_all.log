@@ -1,0 +1,361 @@
+
+############ 0. GPU 状态 ############
+2026-09-16 09:16:41
+memory.used [MiB], utilization.gpu [%]
+0 MiB, 0 %
+pid, used_gpu_memory [MiB]
+
+############ 1. 冷启动逐步耗时曲线 (4.1 / 坑 5.2) ############
+2026-09-16 09:16:42
+[step_curve] step 186.8 ms (std_blocks 0.1 ms) tok/s 10966 alloc 16645 resv 16684 smi 17165 MiB
+saved results/step_curve.json
+
+############ 2. 开关对比矩阵 v2 (4.4) ############
+2026-09-16 09:17:02
+=== ref_s2048_b1 ===
+[  19.3s] ['[ref_s2048_b1] step 187.8 ms (std_blocks 0.1 ms) tok/s 10907 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== ref_s512_b4 ===
+[  18.9s] ['[ref_s512_b4] step 178.3 ms (std_blocks 0.5 ms) tok/s 11486 alloc 16644 resv 16682 smi 17163 MiB MFU 22.1% HFU 22.1%']
+=== ckpt1_s2048_b1 ===
+[  22.0s] ['[ckpt1_s2048_b1] step 252.7 ms (std_blocks 2.7 ms) tok/s 8103 alloc 11982 resv 15564 smi 16045 MiB MFU 21.1% HFU 28.1%']
+=== ckpt1_s512_b4 ===
+[  21.6s] ['[ckpt1_s512_b4] step 239.8 ms (std_blocks 0.3 ms) tok/s 8542 alloc 11982 resv 15560 smi 16041 MiB MFU 16.4% HFU 21.9%']
+=== sdpa_math_s2048_b1 ===
+[  11.9s] ['OOM: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 23.52 GiB of which 934.69 MiB is free. Including non-PyTorch memory, this process has 22.60 GiB memory in use. Of the allocated memory 21.81 GiB is allocated by PyTorch, and 328.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[sdpa_math_s2048_b1] OOM']
+=== sdpa_math_s512_b4 ===
+[  20.7s] ['[sdpa_math_s512_b4] step 228.4 ms (std_blocks 0.4 ms) tok/s 8966 alloc 19328 resv 19448 smi 19929 MiB MFU 17.3% HFU 17.3%']
+=== sdpa_mem_efficient_s2048_b1 ===
+[  19.4s] ['[sdpa_mem_efficient_s2048_b1] step 206.3 ms (std_blocks 0.1 ms) tok/s 9927 alloc 16645 resv 16684 smi 17165 MiB MFU 25.9% HFU 25.9%']
+=== sdpa_mem_efficient_s512_b4 ===
+[  18.5s] ['[sdpa_mem_efficient_s512_b4] step 182.1 ms (std_blocks 0.1 ms) tok/s 11245 alloc 16644 resv 16682 smi 17163 MiB MFU 21.6% HFU 21.6%']
+=== sdpa_flash_s2048_b1 ===
+[  19.2s] ['[sdpa_flash_s2048_b1] step 187.9 ms (std_blocks 0.2 ms) tok/s 10899 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== sdpa_flash_s512_b4 ===
+[  18.5s] ['[sdpa_flash_s512_b4] step 177.4 ms (std_blocks 1.6 ms) tok/s 11542 alloc 16644 resv 16682 smi 17163 MiB MFU 22.2% HFU 22.2%']
+=== sdpa_cudnn_s2048_b1 ===
+[  20.5s] ['[sdpa_cudnn_s2048_b1] step 191.0 ms (std_blocks 1.0 ms) tok/s 10723 alloc 16645 resv 16684 smi 17169 MiB MFU 27.9% HFU 27.9%']
+=== sdpa_cudnn_s512_b4 ===
+[  19.3s] ['[sdpa_cudnn_s512_b4] step 178.8 ms (std_blocks 0.4 ms) tok/s 11457 alloc 16644 resv 16682 smi 17167 MiB MFU 22.1% HFU 22.1%']
+=== prec_fp32_s2048_b1 ===
+[  28.5s] ['[prec_fp32_s2048_b1] step 420.1 ms (std_blocks 0.4 ms) tok/s 4875 alloc 18345 resv 19000 smi 19475 MiB MFU 12.7% HFU 12.7%']
+=== prec_fp32_s512_b4 ===
+[  25.2s] ['[prec_fp32_s512_b4] step 344.3 ms (std_blocks 2.0 ms) tok/s 5948 alloc 18344 resv 18998 smi 19473 MiB MFU 11.5% HFU 11.5%']
+=== prec_bf16_s2048_b1 ===
+[  19.7s] ['[prec_bf16_s2048_b1] step 207.0 ms (std_blocks 0.1 ms) tok/s 9892 alloc 16645 resv 16684 smi 17165 MiB MFU 25.8% HFU 25.8%']
+=== prec_bf16_s512_b4 ===
+[  19.1s] ['[prec_bf16_s512_b4] step 182.4 ms (std_blocks 0.6 ms) tok/s 11231 alloc 16644 resv 16682 smi 17163 MiB MFU 21.6% HFU 21.6%']
+=== bsw_s512_b1_ckpt0 ===
+[  17.7s] ['[bsw_s512_b1_ckpt0] step 148.2 ms (std_blocks 2.1 ms) tok/s 3454 alloc 11538 resv 11878 smi 12359 MiB MFU 6.6% HFU 6.6%']
+=== bsw_s512_b2_ckpt0 ===
+[  16.8s] ['[bsw_s512_b2_ckpt0] step 143.8 ms (std_blocks 2.0 ms) tok/s 7120 alloc 12310 resv 12958 smi 13439 MiB MFU 13.7% HFU 13.7%']
+=== bsw_s512_b4_ckpt0 ===
+[  17.8s] ['[bsw_s512_b4_ckpt0] step 177.5 ms (std_blocks 0.6 ms) tok/s 11536 alloc 16644 resv 16682 smi 17163 MiB MFU 22.2% HFU 22.2%']
+=== bsw_s512_b6_ckpt0 ===
+[  21.2s] ['[bsw_s512_b6_ckpt0] step 244.0 ms (std_blocks 0.3 ms) tok/s 12591 alloc 20972 resv 21792 smi 22273 MiB MFU 24.2% HFU 24.2%']
+=== bsw_s512_b8_ckpt0 ===
+[  12.3s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 236.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b8_ckpt0] OOM']
+=== bsw_s512_b12_ckpt0 ===
+[  11.1s] ['OOM: CUDA out of memory. Tried to allocate 3.48 GiB. GPU 0 has a total capacity of 23.52 GiB of which 1.26 GiB is free. Including non-PyTorch memory, this process has 22.25 GiB memory in use. Of the allocated memory 21.79 GiB is allocated by PyTorch, and 8.07 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b12_ckpt0] OOM']
+=== bsw_s512_b4_ckpt1 ===
+[  20.5s] ['[bsw_s512_b4_ckpt1] step 225.6 ms (std_blocks 0.9 ms) tok/s 9079 alloc 11982 resv 15560 smi 16041 MiB MFU 17.5% HFU 23.3%']
+=== bsw_s512_b8_ckpt1 ===
+[  26.4s] ['[bsw_s512_b8_ckpt1] step 365.8 ms (std_blocks 0.4 ms) tok/s 11197 alloc 15934 resv 19732 smi 20213 MiB MFU 21.6% HFU 28.7%']
+=== bsw_s512_b12_ckpt1 ===
+[  34.6s] ['[bsw_s512_b12_ckpt1] step 557.4 ms (std_blocks 0.9 ms) tok/s 11022 alloc 20334 resv 23532 smi 24013 MiB MFU 21.2% HFU 28.3%']
+=== bsw_s512_b16_ckpt1 ===
+[  12.0s] ['OOM: CUDA out of memory. Tried to allocate 4.64 GiB. GPU 0 has a total capacity of 23.52 GiB of which 2.30 GiB is free. Including non-PyTorch memory, this process has 21.21 GiB memory in use. Of the allocated memory 19.51 GiB is allocated by PyTorch, and 1.23 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[bsw_s512_b16_ckpt1] OOM']
+=== tok2048_s256_b8 ===
+[  18.6s] ['[tok2048_s256_b8] step 176.2 ms (std_blocks 0.2 ms) tok/s 11623 alloc 16643 resv 16682 smi 17163 MiB MFU 21.1% HFU 21.1%']
+=== tok2048_s1024_b2 ===
+[  18.3s] ['[tok2048_s1024_b2] step 180.4 ms (std_blocks 0.3 ms) tok/s 11351 alloc 16644 resv 16682 smi 17163 MiB MFU 24.4% HFU 24.4%']
+=== tok2048_s2048_b1 ===
+[  19.0s] ['[tok2048_s2048_b1] step 187.8 ms (std_blocks 0.2 ms) tok/s 10907 alloc 16645 resv 16684 smi 17165 MiB MFU 28.4% HFU 28.4%']
+=== tok2048_s512_b4 ===
+[  18.2s] ['[tok2048_s512_b4] step 177.2 ms (std_blocks 0.1 ms) tok/s 11560 alloc 16644 resv 16682 smi 17163 MiB MFU 22.3% HFU 22.3%']
+=== tok4096_s512_b8 ===
+[  12.4s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 236.27 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s512_b8] OOM']
+=== tok4096_s1024_b4 ===
+[  11.9s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 235.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s1024_b4] OOM']
+=== tok4096_s2048_b2 ===
+[  11.5s] ['OOM: CUDA out of memory. Tried to allocate 2.32 GiB. GPU 0 has a total capacity of 23.52 GiB of which 434.69 MiB is free. Including non-PyTorch memory, this process has 23.08 GiB memory in use. Of the allocated memory 22.39 GiB is allocated by PyTorch, and 234.77 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)', '[tok4096_s2048_b2] OOM']
+tag	status	seq_len	batch_size	tokens_per_step	precision	sdpa	ckpt	step_ms	step_std_ms	tokens_per_s	alloc_MiB	reserved_MiB	smi_MiB	MFU_%	MFU_head_%	HFU_%
+bsw_s512_b12_ckpt0	OOM	512	12	6144	bf16	flash	0				22314	22322	22795			
+bsw_s512_b12_ckpt1	ok	512	12	6144	bf16	flash	1	557.4	0.87	11022	20334	23532	24013	21.22	27.83	28.29
+bsw_s512_b16_ckpt1	OOM	512	16	8192	bf16	flash	1				20854	21370	21851			
+bsw_s512_b1_ckpt0	ok	512	1	512	bf16	flash	0	148.2	2.06	3454	11538	11878	12359	6.65	8.72	6.65
+bsw_s512_b2_ckpt0	ok	512	2	1024	bf16	flash	0	143.8	2.04	7120	12310	12958	13439	13.71	17.98	13.71
+bsw_s512_b4_ckpt0	ok	512	4	2048	bf16	flash	0	177.5	0.56	11536	16644	16682	17163	22.21	29.13	22.21
+bsw_s512_b4_ckpt1	ok	512	4	2048	bf16	flash	1	225.6	0.87	9079	11982	15560	16041	17.48	22.93	23.31
+bsw_s512_b6_ckpt0	ok	512	6	3072	bf16	flash	0	244.0	0.31	12591	20972	21792	22273	24.24	31.80	24.24
+bsw_s512_b8_ckpt0	OOM	512	8	4096	bf16	flash	0				22946	23166	23647			
+bsw_s512_b8_ckpt1	ok	512	8	4096	bf16	flash	1	365.8	0.42	11197	15934	19732	20213	21.56	28.28	28.74
+ckpt1_s2048_b1	ok	2048	1	2048	bf16	flash	1	252.7	2.70	8103	11982	15564	16045	21.11	25.97	28.14
+ckpt1_s512_b4	ok	512	4	2048	bf16	flash	1	239.8	0.27	8542	11982	15560	16041	16.45	21.57	21.93
+prec_bf16_s2048_b1	ok	2048	1	2048	bf16	mem_efficient	0	207.0	0.07	9892	16645	16684	17165	25.77	31.70	25.77
+prec_bf16_s512_b4	ok	512	4	2048	bf16	mem_efficient	0	182.4	0.58	11231	16644	16682	17163	21.62	28.36	21.62
+prec_fp32_s2048_b1	ok	2048	1	2048	fp32	mem_efficient	0	420.1	0.41	4875	18345	19000	19475	12.70	15.62	12.70
+prec_fp32_s512_b4	ok	512	4	2048	fp32	mem_efficient	0	344.3	1.98	5948	18344	18998	19473	11.45	15.02	11.45
+ref_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.8	0.13	10907	16645	16684	17165	28.41	34.95	28.41
+ref_s512_b4	ok	512	4	2048	bf16	flash	0	178.3	0.54	11486	16644	16682	17163	22.11	29.00	22.11
+sdpa_cudnn_s2048_b1	ok	2048	1	2048	bf16	cudnn	0	191.0	1.00	10723	16645	16684	17169	27.93	34.36	27.93
+sdpa_cudnn_s512_b4	ok	512	4	2048	bf16	cudnn	0	178.8	0.40	11457	16644	16682	17167	22.06	28.93	22.06
+sdpa_flash_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.9	0.21	10899	16645	16684	17165	28.39	34.93	28.39
+sdpa_flash_s512_b4	ok	512	4	2048	bf16	flash	0	177.4	1.63	11542	16644	16682	17163	22.22	29.15	22.22
+sdpa_math_s2048_b1	OOM	2048	1	2048	bf16	math	0				22338	22666	23147			
+sdpa_math_s512_b4	ok	512	4	2048	bf16	math	0	228.4	0.42	8966	19328	19448	19929	17.26	22.64	17.26
+sdpa_mem_efficient_s2048_b1	ok	2048	1	2048	bf16	mem_efficient	0	206.3	0.08	9927	16645	16684	17165	25.86	31.81	25.86
+sdpa_mem_efficient_s512_b4	ok	512	4	2048	bf16	mem_efficient	0	182.1	0.07	11245	16644	16682	17163	21.65	28.40	21.65
+tok2048_s1024_b2	ok	1024	2	2048	bf16	flash	0	180.4	0.29	11351	16644	16682	17163	24.42	31.24	24.42
+tok2048_s2048_b1	ok	2048	1	2048	bf16	flash	0	187.8	0.20	10907	16645	16684	17165	28.41	34.95	28.41
+tok2048_s256_b8	ok	256	8	2048	bf16	flash	0	176.2	0.18	11623	16643	16682	17163	21.06	28.03	21.06
+tok2048_s512_b4	ok	512	4	2048	bf16	flash	0	177.2	0.11	11560	16644	16682	17163	22.26	29.19	22.26
+tok4096_s1024_b4	OOM	1024	4	4096	bf16	flash	0				22946	23166	21273			
+tok4096_s2048_b2	OOM	2048	2	4096	bf16	flash	0				22947	23166	21273			
+tok4096_s512_b8	OOM	512	8	4096	bf16	flash	0				22946	23166	21273			
+
+saved <workspace>
+
+############ 3. profiler (4.3) —— 只定位，不计时 ############
+2026-09-16 09:27:25
+--- profiler: ref_s2048_b1 (sdpa=flash ckpt=0 prec=bf16 s=2048 b=1) ---
+USDT:2026-09-16 09:27:37 46640:46640 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:27:38 46640:46640 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== ref_s2048_b1 : Top 12 by self CUDA time ===
+  16.62%     248.94 ms  n=3     other              ProfilerStep*
+  10.51%     157.44 ms  n=3     optimizer          Optimizer.step#AdamW.step
+  10.45%     156.58 ms  n=1773  other              aten::mm
+   3.59%      53.74 ms  n=591   gemm               ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   3.50%      52.47 ms  n=4233  elementwise        aten::copy_
+   2.99%      44.83 ms  n=4320  elementwise        aten::mul
+   2.17%      32.53 ms  n=84    attention_flash    aten::_flash_attention_backward
+   2.13%      31.88 ms  n=6     optimizer          aten::_foreach_mul_
+   2.13%      31.88 ms  n=30    optimizer          void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::
+   2.06%      30.89 ms  n=84    attention_flash    void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash
+   2.05%      30.75 ms  n=3     optimizer          aten::_foreach_addcdiv_
+   2.05%      30.75 ms  n=15    optimizer          void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::
+
+=== 分类占比 ===
+optimizer           31.51%     472.16 ms  kernels=150
+other               27.95%     418.68 ms  kernels=6903
+elementwise         18.19%     272.50 ms  kernels=23988
+gemm                10.61%     159.00 ms  kernels=1953
+attention_flash      6.24%      93.46 ms  kernels=504
+softmax              4.19%      62.79 ms  kernels=12
+reduction            1.27%      19.00 ms  kernels=2040
+index_embed          0.04%       0.62 ms  kernels=18
+
+SDPA 后端实测(按 kernel 名): ['attention_flash']
+总 CUDA self time 1498.2 ms / 3 步 = 499.4 ms/步（含 profiler 开销，不用于报告计时）
+--- profiler: ref_s512_b4 (sdpa=flash ckpt=0 prec=bf16 s=512 b=4) ---
+USDT:2026-09-16 09:28:03 47118:47118 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:28:04 47118:47118 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== ref_s512_b4 : Top 12 by self CUDA time ===
+  14.09%     194.62 ms  n=3     other              ProfilerStep*
+  11.40%     157.46 ms  n=3     optimizer          Optimizer.step#AdamW.step
+  11.34%     156.60 ms  n=1773  other              aten::mm
+   3.88%      53.64 ms  n=591   gemm               ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   3.79%      52.34 ms  n=4233  elementwise        aten::copy_
+   3.25%      44.92 ms  n=4320  elementwise        aten::mul
+   2.31%      31.88 ms  n=6     optimizer          aten::_foreach_mul_
+   2.31%      31.88 ms  n=30    optimizer          void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::
+   2.23%      30.75 ms  n=3     optimizer          aten::_foreach_addcdiv_
+   2.23%      30.75 ms  n=15    optimizer          void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::
+   2.09%      28.86 ms  n=504   gemm               ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn
+   1.82%      25.10 ms  n=252   gemm               void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64
+
+=== 分类占比 ===
+optimizer           34.19%     472.24 ms  kernels=150
+other               26.38%     364.36 ms  kernels=6897
+elementwise         19.73%     272.54 ms  kernels=23994
+gemm                11.51%     159.02 ms  kernels=1953
+softmax              4.54%      62.71 ms  kernels=12
+attention_flash      2.22%      30.70 ms  kernels=504
+reduction            1.38%      19.01 ms  kernels=2043
+index_embed          0.04%       0.62 ms  kernels=18
+
+SDPA 后端实测(按 kernel 名): ['attention_flash']
+总 CUDA self time 1381.2 ms / 3 步 = 460.4 ms/步（含 profiler 开销，不用于报告计时）
+--- profiler: prof_math_s2048_b1 (sdpa=math ckpt=0 prec=bf16 s=2048 b=1) ---
+[W916 09:28:28.948013117 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 980090880, total: 25250627584).
+[W916 09:28:28.948117381 CUDACachingAllocator.cpp:3934] memory allocation failed with OOM on device 0 while trying to allocate 1245708288 bytes (free: 980090880, total: 25250627584).
+Traceback (most recent call last):
+  File "<workspace>", line 152, in <module>
+    main()
+  File "<workspace>", line 81, in main
+    one_step()
+  File "<workspace>", line 76, in one_step
+    loss = model(input_ids=ids, labels=labels, use_cache=False).loss
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 939, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 499, in forward
+    loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 70, in ForCausalLMLoss
+    loss = fixed_cross_entropy(logits, shift_labels, num_items_in_batch, ignore_index, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 40, in fixed_cross_entropy
+    loss = nn.functional.cross_entropy(source, target, ignore_index=ignore_index, reduction=reduction)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 3561, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 23.52 GiB of which 934.69 MiB is free. Including non-PyTorch memory, this process has 22.60 GiB memory in use. Of the allocated memory 21.81 GiB is allocated by PyTorch, and 328.51 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+--- profiler: prof_ckpt_s2048_b1 (sdpa=flash ckpt=1 prec=bf16 s=2048 b=1) ---
+USDT:2026-09-16 09:28:41 48053:48053 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:28:43 48053:48053 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== prof_ckpt_s2048_b1 : Top 12 by self CUDA time ===
+  15.07%     248.88 ms  n=3     other              ProfilerStep*
+  11.13%     183.88 ms  n=2361  other              aten::mm
+   9.53%     157.39 ms  n=3     optimizer          Optimizer.step#AdamW.step
+   4.96%      81.86 ms  n=1095  gemm               ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn
+   4.01%      66.18 ms  n=5745  elementwise        aten::copy_
+   3.30%      54.48 ms  n=5412  elementwise        aten::mul
+   2.24%      36.96 ms  n=3201  elementwise        void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16
+   1.96%      32.45 ms  n=84    attention_flash    aten::_flash_attention_backward
+   1.93%      31.85 ms  n=6     optimizer          aten::_foreach_mul_
+   1.93%      31.85 ms  n=30    optimizer          void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::
+   1.90%      31.31 ms  n=2868  elementwise        void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_imp
+   1.87%      30.84 ms  n=84    attention_flash    void pytorch_flash::flash_bwd_dq_dk_dv_loop_seqk_parallel_kernel<Flash
+
+=== 分类占比 ===
+optimizer           28.58%     472.03 ms  kernels=150
+other               27.46%     453.61 ms  kernels=8835
+elementwise         20.11%     332.16 ms  kernels=31380
+gemm                11.41%     188.40 ms  kernels=2625
+attention_flash      7.37%     121.70 ms  kernels=672
+softmax              3.79%      62.67 ms  kernels=12
+reduction            1.25%      20.65 ms  kernels=2376
+index_embed          0.04%       0.62 ms  kernels=18
+
+SDPA 后端实测(按 kernel 名): ['attention_flash']
+总 CUDA self time 1651.8 ms / 3 步 = 550.6 ms/步（含 profiler 开销，不用于报告计时）
+--- profiler: prof_fp32_s2048_b1 (sdpa=mem_efficient ckpt=0 prec=fp32 s=2048 b=1) ---
+USDT:2026-09-16 09:29:15 48530:48530 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:29:16 48530:48530 SyncActivityProfilerHandler.cpp:46] profiler_stop
+=== prof_fp32_s2048_b1 : Top 12 by self CUDA time ===
+  18.88%     564.69 ms  n=1773  other              aten::mm
+  12.32%     368.38 ms  n=3     other              ProfilerStep*
+   8.67%     259.43 ms  n=84    attention_memeff   aten::_efficient_attention_backward
+   8.67%     259.43 ms  n=84    attention_flash    fmha_cutlassB_f32_aligned_64x64_k128_sm80(PyTorchMemEffAttention::Atte
+   5.60%     167.51 ms  n=588   gemm               ampere_sgemm_128x64_tn
+   5.27%     157.62 ms  n=3     optimizer          Optimizer.step#AdamW.step
+   4.70%     140.46 ms  n=423   gemm               void cutlass::Kernel2<cutlass_80_simt_sgemm_128x256_8x4_nt_align1>(cut
+   3.31%      99.12 ms  n=420   gemm               ampere_sgemm_128x64_nn
+   2.88%      86.21 ms  n=84    attention_memeff   aten::_efficient_attention_forward
+   2.88%      86.21 ms  n=84    attention_flash    fmha_cutlassF_f32_aligned_64x128_rf_sm80(PyTorchMemEffAttention::Atten
+   2.68%      80.06 ms  n=171   gemm               void cutlass::Kernel2<cutlass_80_simt_sgemm_256x128_8x4_nn_align1>(cut
+   1.90%      56.84 ms  n=4404  elementwise        aten::mul
+
+=== 分类占比 ===
+other               31.78%     950.57 ms  kernels=8415
+gemm                18.92%     565.97 ms  kernels=1953
+optimizer           15.80%     472.71 ms  kernels=150
+attention_memeff    11.56%     345.63 ms  kernels=168
+attention_flash     11.56%     345.63 ms  kernels=168
+elementwise          7.45%     222.89 ms  kernels=18072
+softmax              2.10%      62.92 ms  kernels=12
+reduction            0.80%      23.93 ms  kernels=2208
+index_embed          0.02%       0.64 ms  kernels=18
+
+SDPA 后端实测(按 kernel 名): ['attention_flash', 'attention_memeff']
+总 CUDA self time 2990.9 ms / 3 步 = 997.0 ms/步（含 profiler 开销，不用于报告计时）
+
+############ 4. bound 类型判定 (4.3) ############
+2026-09-16 09:29:27
+peak bf16 155.6 TFLOPS | peak BW 948 GB/s | ridge 164.0 FLOP/byte
+  E1: GEMM 家族占 CUDA 时间 16.9% -> 非 GEMM 占多数，memory 侧主导
+  E3: s512/b=4 时固定开销占单步 64.4% -> 固定开销显著，小 batch 下是 launch/访存 主导
+
+算子分类占比：
+   optimizer          31.51%
+   other              27.95%
+   elementwise        18.19%
+   gemm               10.61%
+   attention_flash     6.24%
+   softmax             4.19%
+   reduction           1.27%
+   index_embed         0.04%
+
+batch 缩放：
+   b=1   step   148.2 ms      3454 tok/s
+   b=2   step   143.8 ms      7120 tok/s
+   b=4   step   177.5 ms     11536 tok/s
+   b=6   step   244.0 ms     12591 tok/s
+   拟合 a=114.3 ms  b=19.7 ms/batch
+
+saved <workspace>
+
+############ 5. 显存-吞吐权衡曲线 (4.5) ############
+2026-09-16 09:29:27
+saved <workspace>
+
+=== Pareto 前沿 ===
+ 11.60 GiB      3454 tok/s  MFU  6.65%  b1 s512 bf16 flas
+ 12.65 GiB      7120 tok/s  MFU 13.71%  b2 s512 bf16 flas
+ 15.20 GiB      9079 tok/s  MFU 17.48%  b4 s512 bf16 flas+ckpt
+ 16.29 GiB     11623 tok/s  MFU 21.06%  b8 s256 bf16 flas
+ 21.28 GiB     12591 tok/s  MFU 24.24%  b6 s512 bf16 flas
+
+=== OOM 配置 ===
+bsw_s512_b12_ckpt0                         OOM  step_idx=0  alloc 22314 MiB resv 22322 MiB
+bsw_s512_b16_ckpt1                         OOM  step_idx=0  alloc 20854 MiB resv 21370 MiB
+bsw_s512_b8_ckpt0                          OOM  step_idx=0  alloc 22946 MiB resv 23166 MiB
+sdpa_math_s2048_b1                         OOM  step_idx=0  alloc 22338 MiB resv 22666 MiB
+tok4096_s1024_b4                           OOM  step_idx=0  alloc 22946 MiB resv 23166 MiB
+tok4096_s2048_b2                           OOM  step_idx=0  alloc 22947 MiB resv 23166 MiB
+tok4096_s512_b8                            OOM  step_idx=0  alloc 22946 MiB resv 23166 MiB
+
+############ 6. CNN 对照 (4.6，可选) ############
+2026-09-16 09:29:29
+<workspace> FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+USDT:2026-09-16 09:29:39 49072:49072 SyncActivityProfilerHandler.cpp:39] profiler_start
+USDT:2026-09-16 09:29:39 49072:49072 SyncActivityProfilerHandler.cpp:46] profiler_stop
+模式: sum_of_outputs (fallback: AttributeError)
+step 54.0 ms  img/s 74.0  alloc 3840 MiB  resv 4074 MiB
+不同 kernel 数 139，每步 launch 约 2639 次
+
+分类占比：
+  other               67.85%    257.53 ms  kernels=3410
+  elementwise         14.96%     56.76 ms  kernels=3270
+  gemm                14.50%     55.05 ms  kernels=927
+  index_embed          1.31%      4.98 ms  kernels=30
+  reduction            0.72%      2.74 ms  kernels=225
+  optimizer            0.66%      2.51 ms  kernels=54
+
+Top 10:
+   20.21%  other            ProfilerStep*
+   14.67%  other            aten::convolution_backward
+    5.20%  other            aten::cudnn_convolution
+    4.87%  other            aten::cudnn_batch_norm_backward
+    4.78%  other            void cudnn::bn_bw_1C11_kernel_new<float, float, float2, 512, tru
+    3.54%  other            void cudnn::engines_precompiled::nchwToNhwcKernel<float, float, 
+    3.35%  other            aten::cudnn_batch_norm
+    3.29%  other            void cudnn::bn_fw_tr_1C11_kernel_NCHW<float, float, int, 512, tr
+    2.35%  elementwise      aten::copy_
+    2.11%  elementwise      aten::silu_backward
+saved results/cnn_train.json
+
+############ 7. 渲染 report 用表 ############
+2026-09-16 09:29:43
+report_tables.md 已生成
+
+############ 8. 收尾：确认显存已释放 ############
+2026-09-16 09:29:43
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+pid, used_gpu_memory [MiB]
+
+ALL DONE 2026-09-16 09:29:46
+

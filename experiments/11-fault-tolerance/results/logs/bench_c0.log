@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:  17%|█▋        | 54/311 [00:00<00:00, 521.33it/s]Loading weights:  34%|███▍      | 107/311 [00:00<00:00, 380.18it/s]Loading weights:  49%|████▉     | 153/311 [00:00<00:00, 401.79it/s]Loading weights:  71%|███████   | 221/311 [00:00<00:00, 484.09it/s]Loading weights:  87%|████████▋ | 272/311 [00:00<00:00, 492.35it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 471.39it/s]
+[10:24:36.912] step 0 loss 12.98678994  2288.4 ms
+[10:24:38.170] step 1 loss 13.09176266  1257.7 ms
+  保存 #0：阻塞 0.002 s，总计 5.905 s，7.15 GB
+  保存 #1：阻塞 0.003 s，总计 7.118 s，7.15 GB
+saved results/runs/bench_c0.json
+saved results/runs/bench_c0.json
+

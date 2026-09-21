@@ -1,0 +1,8 @@
+# 版本不在这里钉死：第一次我凭记忆写 uvicorn==0.40.0，索引里根本没有这个版本。
+# 改成只写下界，构建后从镜像里导出 requirements.lock.txt 作为可复现的凭据。
+fastapi>=0.115
+uvicorn>=0.30
+python-multipart>=0.0.9   # FastAPI 接 multipart 上传必需
+numpy>=2.0
+onnxruntime>=1.18         # CPU 版；onnxruntime-gpu 会多带 1 GB+ 的 CUDA 依赖
+pillow>=10.0              # 只用来解码图片；opencv-python 会多 90 MB 加一串 libGL 依赖

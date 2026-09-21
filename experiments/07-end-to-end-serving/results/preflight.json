@@ -1,0 +1,2099 @@
+{
+  "torch": "2.14.0+cu130",
+  "cuda": "13.0",
+  "trt": "11.3.0.99",
+  "ultralytics": "8.3.100",
+  "torchvision": "0.29.0+cu130",
+  "builder_flags": [
+    "DEBUG",
+    "DIRECT_IO",
+    "DISABLE_COMPILATION_CACHE",
+    "DISABLE_TIMING_CACHE",
+    "DISTRIBUTIVE_INDEPENDENCE",
+    "EDITABLE_TIMING_CACHE",
+    "ERROR_ON_TIMING_CACHE_MISS",
+    "EXCLUDE_LEAN_RUNTIME",
+    "GPU_FALLBACK",
+    "MONITOR_MEMORY",
+    "REFIT",
+    "REFIT_IDENTICAL",
+    "REFIT_INDIVIDUAL",
+    "SAFETY_SCOPE",
+    "SPARSE_WEIGHTS",
+    "STRICT_NANS",
+    "STRIP_PLAN",
+    "TF32",
+    "VERSION_COMPATIBLE",
+    "WEIGHT_STREAMING",
+    "__class__",
+    "__delattr__",
+    "__dir__",
+    "__doc__",
+    "__entries",
+    "__eq__",
+    "__format__",
+    "__ge__",
+    "__getattribute__",
+    "__getstate__",
+    "__gt__",
+    "__hash__",
+    "__index__",
+    "__init__",
+    "__init_subclass__",
+    "__int__",
+    "__le__",
+    "__lt__",
+    "__members__",
+    "__module__",
+    "__ne__",
+    "__new__",
+    "__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__",
+    "__reduce__",
+    "__reduce_ex__",
+    "__repr__",
+    "__setattr__",
+    "__setstate__",
+    "__sizeof__",
+    "__str__",
+    "__subclasshook__",
+    "_pybind11_conduit_v1_",
+    "name",
+    "value"
+  ],
+  "network_flags": [
+    "PREFER_AOT_PYTHON_PLUGINS",
+    "PREFER_JIT_PYTHON_PLUGINS",
+    "STRONGLY_TYPED",
+    "__class__",
+    "__delattr__",
+    "__dir__",
+    "__doc__",
+    "__entries",
+    "__eq__",
+    "__format__",
+    "__ge__",
+    "__getattribute__",
+    "__getstate__",
+    "__gt__",
+    "__hash__",
+    "__index__",
+    "__init__",
+    "__init_subclass__",
+    "__int__",
+    "__le__",
+    "__lt__",
+    "__members__",
+    "__module__",
+    "__ne__",
+    "__new__",
+    "__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__",
+    "__reduce__",
+    "__reduce_ex__",
+    "__repr__",
+    "__setattr__",
+    "__setstate__",
+    "__sizeof__",
+    "__str__",
+    "__subclasshook__",
+    "_pybind11_conduit_v1_",
+    "name",
+    "value"
+  ],
+  "registry_dir": [
+    "__class__",
+    "__delattr__",
+    "__dir__",
+    "__doc__",
+    "__eq__",
+    "__format__",
+    "__ge__",
+    "__getattribute__",
+    "__getstate__",
+    "__gt__",
+    "__hash__",
+    "__init__",
+    "__init_subclass__",
+    "__le__",
+    "__lt__",
+    "__module__",
+    "__ne__",
+    "__new__",
+    "__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__",
+    "__reduce__",
+    "__reduce_ex__",
+    "__repr__",
+    "__setattr__",
+    "__sizeof__",
+    "__str__",
+    "__subclasshook__",
+    "_pybind11_conduit_v1_",
+    "acquire_plugin_resource",
+    "all_creators",
+    "all_creators_recursive",
+    "deregister_creator",
+    "deregister_library",
+    "error_recorder",
+    "get_creator",
+    "load_library",
+    "parent_search_enabled",
+    "register_creator",
+    "release_plugin_resource"
+  ],
+  "plugins": [
+    {
+      "name": "MyelinWeightsTransformPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "DisentangledAttention_TRT",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "span",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "factor",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "6",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "use_int8_scale_max",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "use_explicit_int8",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "input_qkv_scale",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "output_ctx_scale",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "4",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "has_mask",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "5",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "has_mask",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "var_seqlen",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "use_int8_scale_max",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "6",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "full_mask",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "mha_type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "4",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "5",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "7",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "8",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "5",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "ld",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "6",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "ROIAlign_TRT",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "coordinate_transformation_mode",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "mode",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "output_height",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "output_width",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "sampling_ratio",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "spatial_scale",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CropAndResizeDynamic",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "crop_width",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "crop_height",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "InstanceNormalization_TRT",
+      "version": "3",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "epsilon",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "scales",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "relu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "alpha",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "ScatterElements",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "reduction",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "axis",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "MultiscaleDeformableAttnPlugin_TRT",
+      "version": "2",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "ModulatedDeformConv2d",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "stride",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "padding",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dilation",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "group",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "deformable_group",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "FFTPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "inverse",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "onesided",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "ndims",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "TopkLastDim",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "k",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "is_largest",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "axis",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "CaskDeconvV2RunnerWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "CaskDeconvV1RunnerWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "CaskConvolutionRunnerWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "CaskFlattenConvolutionRunnerWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "CaskConvActPoolWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "CaskDepSepConvWeightsTransformerPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "DisentangledAttention_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "span",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "factor",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "GroupNormalizationPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "eps",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "num_groups",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "3",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "use_int8_scale_max",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "use_explicit_int8",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "input_qkv_scale",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "output_ctx_scale",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "has_mask",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomQKVToContextPluginDynamic",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "hidden_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "num_heads",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "has_mask",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dq_probs",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "var_seqlen",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "use_int8_scale_max",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "full_mask",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "mha_type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomEmbLayerNormPluginDynamic",
+      "version": "3",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "bert_embeddings_layernorm_beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_layernorm_gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_word_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_token_type_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bert_embeddings_position_embeddings",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "output_fp16",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomFCPluginDynamic",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "out_dims",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "W",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "3",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "4",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "ld",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "CustomSkipLayerNormPluginDynamic",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "type_id",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "beta",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "gamma",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "RnRes2FullFusion_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "c_res2a_br1_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br1_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br1_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2a_br2a_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2a_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2a_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2a_br2b_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2b_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2b_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2a_br2c_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2c_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2a_br2c_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "r_res2a_br2c_r",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2b_br2a_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2a_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2a_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2b_br2b_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2b_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2b_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2b_br2c_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2c_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2b_br2c_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "r_res2b_br2c_r",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2c_br2a_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2a_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2a_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2c_br2b_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2b_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2b_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "c_res2c_br2c_w",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2c_s",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "s_res2c_br2c_b",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "r_res2c_br2c_r",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dynamic_ranges",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "DLRM_BOTTOM_MLP_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "inputChannels",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "weights0",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "biases0",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dynamicRange0",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "weights1",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "biases1",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dynamicRange1",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "weights2",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "biases2",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "SmallTileGEMM_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "inputChannels",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "filterDimR",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "filterDimS",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "weight",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "scale",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "rescale",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dynamicRanges",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "epilogueScaleBias",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "epilogueScaleBiasRelu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "epilogueScaleBiasGelu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "epilogueScaleBiasBeta",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "epilogueScaleBiasBetaRelu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "fairShareCacheSize",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "DecodeBbox3DPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "point_cloud_range",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "anchors",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "anchor_bottom_height",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dir_offset",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "dir_limit_offset",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "num_dir_bins",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "score_thresh",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "DetectionLayer_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "num_classes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "keep_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "score_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "EfficientNMS_Explicit_TF_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "max_output_size_per_class",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "max_total_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "score_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "pad_per_class",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "clip_boxes",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "EfficientNMS_Implicit_TF_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "max_output_size_per_class",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "max_total_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "score_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "pad_per_class",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "clip_boxes",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "EfficientNMS_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "score_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "max_output_boxes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "background_class",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "score_activation",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "class_agnostic",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "box_coding",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "FlattenConcat_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "axis",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "ignoreBatch",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "GenerateDetection_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "num_classes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "keep_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "score_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "image_size",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "GridAnchor_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "minSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "maxSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "aspectRatios",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "featureMapShapes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "variance",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "numLayers",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "GridAnchorRect_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "minSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "maxSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "aspectRatios",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "featureMapShapes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "variance",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "numLayers",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "InstanceNormalization_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "epsilon",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "scales",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "relu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "alpha",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "InstanceNormalization_TRT",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "epsilon",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "scales",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "bias",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "relu",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "alpha",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "ModulatedDeformConv2d",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "stride",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "padding",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "dilation",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "group",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "deformable_group",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "MultilevelCropAndResize_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "pooled_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "image_size",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "MultilevelProposeROI_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "prenms_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "keep_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "fg_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "image_size",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "MultiscaleDeformableAttnPlugin_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "PillarScatterPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "dense_shape",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "PriorBox_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "minSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "maxSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "aspectRatios",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "flip",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "clip",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "variance",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "imgH",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "imgW",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "stepH",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "stepW",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "offset",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "ProposalLayer_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "prenms_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "keep_topk",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "iou_threshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "image_size",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "PyramidROIAlign_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "fpn_scale",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "pooled_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "image_size",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "roi_coords_absolute",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "roi_coords_swap",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "roi_coords_plusone",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "roi_coords_transform",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "sampling_ratio",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "legacy",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "Region_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "num",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "coords",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "classes",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "smTree",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "Reorg_TRT",
+      "version": "2",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "stride",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "Reorg_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "stride",
+          "type": "PluginFieldType.INT32"
+        }
+      ]
+    },
+    {
+      "name": "ResizeNearest_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "scale",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "ROIAlign_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "coordinate_transformation_mode",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "mode",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "output_height",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "output_width",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "sampling_ratio",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "spatial_scale",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "RPROI_TRT",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "poolingH",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "poolingW",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "featureStride",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "preNmsTop",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "nmsMaxOut",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "anchorsRatioCount",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "anchorsScaleCount",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "iouThreshold",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "minBoxSize",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "spatialScale",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "anchorsRatios",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "anchorsScales",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    },
+    {
+      "name": "ScatterElements",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "reduction",
+          "type": "PluginFieldType.UNKNOWN"
+        },
+        {
+          "name": "axis",
+          "type": "PluginFieldType.UNKNOWN"
+        }
+      ]
+    },
+    {
+      "name": "ScatterND",
+      "version": "1",
+      "namespace": "",
+      "fields": []
+    },
+    {
+      "name": "VoxelGeneratorPlugin",
+      "version": "1",
+      "namespace": "",
+      "fields": [
+        {
+          "name": "max_num_points_per_voxel",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "max_voxels",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "point_cloud_range",
+          "type": "PluginFieldType.FLOAT32"
+        },
+        {
+          "name": "voxel_feature_num",
+          "type": "PluginFieldType.INT32"
+        },
+        {
+          "name": "voxel_size",
+          "type": "PluginFieldType.FLOAT32"
+        }
+      ]
+    }
+  ],
+  "nms_source": "def batched_nms(\n    boxes: Tensor,\n    scores: Tensor,\n    idxs: Tensor,\n    iou_threshold: float,\n) -> Tensor:\n    \"\"\"\n    Performs non-maximum suppression in a batched fashion.\n\n    Each index value correspond to a category, and NMS\n    will not be applied between elements of different categories.\n\n    Args:\n        boxes (Tensor[N, 4]): boxes where NMS will be performed. They\n            are expected to be in ``(x1, y1, x2, y2)`` format with ``0 <= x1 < x2`` and\n            ``0 <= y1 < y2``.\n        scores (Tensor[N]): scores for each one of the boxes\n        idxs (Tensor[N]): indices of the categories for each one of the boxes.\n        iou_threshold (float): discards all overlapping boxes with IoU > iou_threshold\n\n    Returns:\n        Tensor: int64 tensor with the indices of the elements that have been kept by NMS, sorted\n        in decreasing order of scores\n    \"\"\"\n    if not torch.jit.is_scripting() and not torch.jit.is_tracing():\n        _log_api_usage_once(batched_nms)\n    # Benchmarks that drove the following thresholds are at\n    # https://github.com/pytorch/vision/issues/1311#issuecomment-781329339\n    # and https://github.com/pytorch/vision/pull/8925\n    if boxes.numel() > (4000 if boxes.device.type == \"cpu\" else 100_000) and not torchvision._is_tracing():\n        return _batched_nms_vanilla(boxes, scores, idxs, iou_threshold)\n    else:\n        return _batched_nms_coordinate_trick(boxes, scores, idxs, iou_threshold)\n",
+  "deps": {
+    "fastapi": false,
+    "uvicorn": false,
+    "httpx": false,
+    "aiohttp": true,
+    "multipart": false,
+    "onnx": true,
+    "onnxconverter_common": true
+  },
+  "dataset": {
+    "images": 800,
+    "labels": 800,
+    "symlinks": 0,
+    "min_nlink": 1,
+    "directory_symlinks": [
+      [
+        "<workspace>",
+        false
+      ],
+      [
+        "<workspace>",
+        false
+      ],
+      [
+        "<workspace>",
+        false
+      ],
+      [
+        "<workspace>",
+        false
+      ],
+      [
+        "<workspace>",
+        false
+      ]
+    ]
+  },
+  "yaml": "",
+  "simplify_return": 4,
+  "engines": {
+    "best_fp16.engine": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          1024,
+          1024
+        ],
+        "dtype": "DataType.FLOAT"
+      },
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          8,
+          87040
+        ],
+        "dtype": "DataType.FLOAT"
+      }
+    ],
+    "best_int8_qdq.engine": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          1024,
+          1024
+        ],
+        "dtype": "DataType.FLOAT"
+      },
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          8,
+          87040
+        ],
+        "dtype": "DataType.FLOAT"
+      }
+    ],
+    "day06_dynamic.engine": [
+      {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          -1,
+          -1
+        ],
+        "dtype": "DataType.FLOAT"
+      },
+      {
+        "name": "output0",
+        "shape": [
+          1,
+          8,
+          -1
+        ],
+        "dtype": "DataType.FLOAT"
+      }
+    ]
+  },
+  "context_dir": [
+    "__class__",
+    "__del__",
+    "__delattr__",
+    "__dir__",
+    "__doc__",
+    "__enter__",
+    "__eq__",
+    "__exit__",
+    "__format__",
+    "__ge__",
+    "__getattribute__",
+    "__getstate__",
+    "__gt__",
+    "__hash__",
+    "__init__",
+    "__init_subclass__",
+    "__le__",
+    "__lt__",
+    "__module__",
+    "__ne__",
+    "__new__",
+    "__pybind11_module_local_v11_system_libstdcpp_gxx_abi_1xxx_use_cxx11_abi_1__",
+    "__reduce__",
+    "__reduce_ex__",
+    "__repr__",
+    "__setattr__",
+    "__sizeof__",
+    "__str__",
+    "__subclasshook__",
+    "_pybind11_conduit_v1_",
+    "active_optimization_profile",
+    "all_binding_shapes_specified",
+    "debug_sync",
+    "device_memory",
+    "engine",
+    "enqueue_emits_profile",
+    "error_recorder",
+    "execute_async_v3",
+    "execute_v2",
+    "get_debug_listener",
+    "get_debug_state",
+    "get_input_consumed_event",
+    "get_max_output_size",
+    "get_output_allocator",
+    "get_runtime_config",
+    "get_tensor_address",
+    "get_tensor_shape",
+    "get_tensor_strides",
+    "infer_shapes",
+    "name",
+    "nvtx_verbosity",
+    "persistent_cache_limit",
+    "profiler",
+    "report_to_profiler",
+    "set_all_tensors_debug_state",
+    "set_aux_streams",
+    "set_communicator",
+    "set_debug_listener",
+    "set_device_memory",
+    "set_input_consumed_event",
+    "set_input_shape",
+    "set_optimization_profile_async",
+    "set_output_allocator",
+    "set_tensor_address",
+    "set_tensor_debug_state",
+    "temporary_allocator",
+    "unfused_tensors_debug_state",
+    "update_device_memory_size_for_shapes"
+  ]
+}

@@ -1,0 +1,45 @@
+W0918 10:05:42.134000 37876 torch/distributed/run.py:982] 
+W0918 10:05:42.134000 37876 torch/distributed/run.py:982] *****************************************
+W0918 10:05:42.134000 37876 torch/distributed/run.py:982] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0918 10:05:42.134000 37876 torch/distributed/run.py:982] *****************************************
+[10:05:43.859] 进程组已建立 world=2，默认集合超时 = 0:10:00；TORCH_NCCL_ASYNC_ERROR_HANDLING=1 TORCH_NCCL_TIMEOUT_MS=20000
+Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 0/311 [00:00<?, ?it/s]Loading weights:   0%|          | 1/311 [00:00<01:22,  3.76it/s]Loading weights:   0%|          | 1/311 [00:00<01:35,  3.24it/s]Loading weights: 100%|██████████| 311/311 [00:00<00:00, 816.90it/s]
+Loading weights: 100%|██████████| 311/311 [00:00<00:00, 855.71it/s]
+[10:05:50.445] step 0 loss 11.94383144  1514.6 ms
+[10:05:50.905] step 1 loss 12.15811205  459.7 ms
+[10:05:51.363] step 2 loss 12.40657616  457.4 ms
+[10:05:51.825] step 3 loss 10.47592306  461.7 ms
+[10:05:51.825][rank1 pid=37944] 第 4 步，SIGSTOP 冻结自己（进程仍存活）
+W0918 10:09:00.760000 37876 torch/distributed/elastic/agent/server/api.py:753] Received 15 death signal, shutting down workers
+W0918 10:09:00.763000 37876 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 37943 closing signal SIGTERM
+W0918 10:09:00.764000 37876 torch/distributed/elastic/multiprocessing/api.py:1028] Sending process 37944 closing signal SIGTERM
+W0918 10:09:30.765000 37876 torch/distributed/elastic/multiprocessing/api.py:1047] Unable to shutdown process 37944 via 15, forcefully exiting via 9
+Traceback (most recent call last):
+  File "<workspace>", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "<workspace>", line 380, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 1138, in main
+    run(args)
+  File "<workspace>", line 1129, in run
+    elastic_launch(
+  File "<workspace>", line 197, in __call__
+    return launch_agent(
+           ^^^^^^^^^^^^^
+  File "<workspace>", line 377, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "<workspace>", line 134, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 745, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "<workspace>", line 923, in _invoke_run
+    time.sleep(monitor_interval)
+  File "<workspace>", line 86, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 37876 got signal: 15
+

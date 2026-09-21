@@ -1,0 +1,1 @@
+{"detections":[{"box":[252.67,252.14,260.09,259.16],"score":0.658,"cls":0}],"n":1,"timing_ms":{"decode":18.73,"preprocess":58.41,"infer":1493.83,"postprocess":4.39}}

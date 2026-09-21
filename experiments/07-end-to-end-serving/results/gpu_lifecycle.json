@@ -1,0 +1,98 @@
+[
+  {
+    "batch": 4,
+    "wait": 10,
+    "before": "0, 0",
+    "after": "0, 0"
+  },
+  {
+    "batch": 8,
+    "wait": 2,
+    "before": "0, 0",
+    "after": "0, 10"
+  },
+  {
+    "batch": 4,
+    "wait": 2,
+    "before": "0, 0",
+    "after": "0, 10"
+  },
+  {
+    "batch": 4,
+    "wait": 5,
+    "before": "0, 0",
+    "after": "0, 8"
+  },
+  {
+    "batch": 16,
+    "wait": 5,
+    "before": "0, 8",
+    "after": "0, 8"
+  },
+  {
+    "batch": 8,
+    "wait": 5,
+    "before": "0, 0",
+    "after": "0, 8"
+  },
+  {
+    "batch": 16,
+    "wait": 0,
+    "before": "0, 0",
+    "after": "0, 8"
+  },
+  {
+    "batch": 8,
+    "wait": 0,
+    "before": "0, 0",
+    "after": "0, 9"
+  },
+  {
+    "batch": 1,
+    "wait": 2,
+    "before": "0, 9",
+    "after": "0, 10"
+  },
+  {
+    "batch": 1,
+    "wait": 5,
+    "before": "0, 0",
+    "after": "0, 7"
+  },
+  {
+    "batch": 16,
+    "wait": 2,
+    "before": "0, 7",
+    "after": "0, 10"
+  },
+  {
+    "batch": 16,
+    "wait": 10,
+    "before": "0, 0",
+    "after": "0, 9"
+  },
+  {
+    "batch": 4,
+    "wait": 0,
+    "before": "0, 9",
+    "after": "0, 9"
+  },
+  {
+    "batch": 8,
+    "wait": 10,
+    "before": "0, 9",
+    "after": "0, 0"
+  },
+  {
+    "batch": 1,
+    "wait": 0,
+    "before": "0, 0",
+    "after": "0, 0"
+  },
+  {
+    "batch": 1,
+    "wait": 10,
+    "before": "0, 8",
+    "after": "0, 10"
+  }
+]

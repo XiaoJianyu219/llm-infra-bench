@@ -1,0 +1,96 @@
+
+########## 1. 重建集群 ##########
+19:21:23
+
+kubectl cluster-info --context kind-day12
+
+Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+NAME                  STATUS     ROLES           AGE   VERSION
+day12-control-plane   NotReady   control-plane   11s   v1.34.0
+best.onnx
+best.onnx.data
+
+########## 2. load 镜像（离线） ##########
+19:21:57
+Image: "sod-onnx-cpu:latest" with ID "sha256:66c3ce52f7bc7c8fd3a2297447bfa0bf5628d27fd5866b25796e580e93936822" not yet present on node "day12-control-plane", loading...
+Command Output: ctr: content digest sha256:4750b69da852703954b56ddcb084ea4d1c25a2feea9577cbb8da2f44887658c9: not found
+
+########## 3. 部署业务 ##########
+19:22:31
+deployment "sod" successfully rolled out
+NAME                   READY   STATUS    RESTARTS   AGE   IP           NODE                  NOMINATED NODE   READINESS GATES
+sod-79475c7bc9-6skcj   1/1     Running   0          7s    10.244.0.5   day12-control-plane   <none>           <none>
+
+########## 4. 服务自检 ##########
+19:22:38
+readyz -> 200
+{"ready":true,"load_sec":0.225,"model":"/models/best.onnx","input":[1024,1024]}
+--- 打一次 /predict 确认端到端 ---
+{"detections":[{"box":[252.67,252.14,260.09,259.16],"score":0.658,"cls":0}],"n":1,"timing_ms":{"decode":18.73,"preprocess":58.41,"infer":1493.83,"postprocess":4.39}}
+
+########## 5. metrics-server（本地 yaml + 本地镜像 + kubelet-insecure-tls） ##########
+19:22:40
+deployment.apps/metrics-server patched
+error: timed out waiting for the condition
+NAME                   CPU(cores)   MEMORY(bytes)   
+sod-79475c7bc9-6skcj   4m           288Mi           
+
+########## 6. HPA ##########
+19:31:05
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 1%/60%   1         4         1          30s
+
+########## 7. 压测 + 时间线（后台记 k8s 状态，前台加压 300s） ##########
+19:31:35
+t= 262.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 263.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 264.5s  qps=  2  ok=  2 err=  0  p50=12.829 p99=8.055
+t= 265.5s  qps=  1  ok=  1 err=  0  p50=8.258 p99=8.258
+t= 266.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 267.5s  qps=  1  ok=  1 err=  0  p50=15.874 p99=15.874
+t= 268.5s  qps=  2  ok=  2 err=  0  p50=8.068 p99=4.644
+t= 269.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 270.5s  qps=  2  ok=  1 err=  1  p50=17.819 p99=0.005
+t= 271.5s  qps=  1  ok=  1 err=  0  p50=6.771 p99=6.771
+t= 272.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 273.5s  qps=  2  ok=  1 err=  1  p50=12.79 p99=0.012
+t= 274.5s  qps=  8  ok=  1 err=  7  p50=0.006 p99=0.018
+t= 275.5s  qps=  1  ok=  1 err=  0  p50=4.157 p99=4.157
+t= 276.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 277.5s  qps=  4  ok=  2 err=  2  p50=3.526 p99=3.526
+t= 278.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 279.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 280.5s  qps=  2  ok=  1 err=  1  p50=15.535 p99=0.006
+t= 281.5s  qps=  2  ok=  2 err=  0  p50=6.335 p99=4.199
+t= 282.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 283.5s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 284.6s  qps=  3  ok=  3 err=  0  p50=9.334 p99=9.334
+t= 285.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 286.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 287.6s  qps=  2  ok=  2 err=  0  p50=19.036 p99=6.604
+t= 288.6s  qps=  1  ok=  1 err=  0  p50=11.303 p99=11.303
+t= 289.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 290.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 291.6s  qps=  1  ok=  1 err=  0  p50=22.632 p99=22.632
+t= 292.6s  qps=  3  ok=  3 err=  0  p50=5.02 p99=5.02
+t= 293.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 294.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 295.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 296.6s  qps=  3  ok=  3 err=  0  p50=8.539 p99=8.539
+t= 297.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 298.6s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 299.7s  qps=  0  ok=  0 err=  0  p50=None p99=None
+t= 300.7s  qps=  1  ok=  1 err=  0  p50=16.317 p99=16.317
+[19:36:38] 停止加压
+
+########## 8. 停止加压后继续观察缩容 120s ##########
+19:36:39
+NAME   REFERENCE        TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+sod    Deployment/sod   cpu: 0%/60%   1         4         4          7m34s
+NAME                   READY   STATUS    RESTARTS        AGE
+sod-79475c7bc9-6skcj   1/1     Running   3 (3m14s ago)   16m
+sod-79475c7bc9-7qbcc   1/1     Running   3 (2m10s ago)   6m19s
+sod-79475c7bc9-mp5q6   1/1     Running   4 (108s ago)    6m4s
+sod-79475c7bc9-shqkt   1/1     Running   1 (2m44s ago)   6m19s
+FULL_RUN_DONE 2026-09-18 19:39:35
+

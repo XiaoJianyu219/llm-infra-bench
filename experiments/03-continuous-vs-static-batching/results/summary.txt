@@ -1,0 +1,9 @@
+      负载           策略     吞吐 req/s     延迟 p50     延迟 p99
+   fixed   continuous         3.82       2.4s       2.5s
+   fixed       static         3.27       9.3s      14.3s
+                  加速比         1.17×
+
+  varlen   continuous         3.45       2.6s      12.2s
+  varlen       static         0.94      92.8s     165.4s
+                  加速比         3.69×
+
